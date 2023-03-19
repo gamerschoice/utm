@@ -16,6 +16,8 @@
 
         <!-- Styles -->
         @livewireStyles
+
+        @stack('scripts')
     </head>
     <body class="font-sans antialiased">
         <x-banner />
@@ -41,5 +43,6 @@
         @stack('modals')
 
         @livewireScripts
+        @stack('footer-scripts')
     </body>
 </html>

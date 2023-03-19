@@ -7,10 +7,12 @@ use Laravel\Jetstream\Events\TeamCreated;
 use Laravel\Jetstream\Events\TeamDeleted;
 use Laravel\Jetstream\Events\TeamUpdated;
 use Laravel\Jetstream\Team as JetstreamTeam;
+use Laravel\Cashier\Billable;
 
 class Team extends JetstreamTeam
 {
     use HasFactory;
+    use Billable;
 
     /**
      * The attributes that should be cast.
@@ -29,6 +31,8 @@ class Team extends JetstreamTeam
     protected $fillable = [
         'name',
         'personal_team',
+        'website',
+        'dns_configured'
     ];
 
     /**
@@ -41,4 +45,9 @@ class Team extends JetstreamTeam
         'updated' => TeamUpdated::class,
         'deleted' => TeamDeleted::class,
     ];
+
+    public function links()
+    {
+        return $this->hasMany(Link::class);
+    }
 }
