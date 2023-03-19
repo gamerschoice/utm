@@ -14,13 +14,15 @@ class CreateLink
         try {
             DB::beginTransaction();
 
-            return $team->links()->create([
+            $link = $team->links()->create([
                 'destination' => $data['destination'],
                 'shortlink' => Str::random(8),
                 'published' => true
             ]);
 
             DB::commit();
+
+            return $link;
         } catch (QueryException $e) {
             DB::rollback();
             $this->create($team, $data);
