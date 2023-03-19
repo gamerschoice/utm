@@ -17,9 +17,13 @@
                 <p>Once you have added these records to your DNS, click the verify button.</p>
 
                 @if($status)
-                 ALLGOOD
+                    DNS Detected
                 @else
-                 Nop
+                    DNS Not Detected
+                @endif
+
+                @if($verification) 
+                    <p>{{ $verification->status }}: Started {{ $verification->created_at->diffForHumans() }}</p>
                 @endif
             </div>
         </x-slot>

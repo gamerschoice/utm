@@ -62,6 +62,10 @@ class VerifyDnsRecords implements ShouldQueue, ShouldBeUnique
             $this->team->update([
                 'dns_configured' => true
             ]);
+
+            $this->team->dnsVerification->update([
+                'status' => 'Verified'
+            ]);
         }
     }
 

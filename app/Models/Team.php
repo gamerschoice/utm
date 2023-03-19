@@ -50,4 +50,9 @@ class Team extends JetstreamTeam
     {
         return $this->hasMany(Link::class);
     }
+
+    public function dnsVerification()
+    {
+        return $this->hasOne(DnsVerification::class);
+    }
 }
