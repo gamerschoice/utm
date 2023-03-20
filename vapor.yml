@@ -2,20 +2,22 @@ id: 44331
 name: utmwise
 environments:
     production:
-            gateway-version: 2
-            database: utmwise-prod
-            memory: 1024
-            cli-memory: 512
-            runtime: 'php-8.2:al2'
-            build:
-                - 'composer install --no-dev'
-                - 'php artisan event:cache'
-                - 'npm ci && npm run build && rm -rf node_modules'
-            deploy:
-                - 'php artisan migrate --force'
+        gateway-version: 2
+        warm: 10
+        database: utmwise-prod
+        memory: 1024
+        cli-memory: 512
+        runtime: 'php-8.2:al2'
+        build:
+            - 'composer install --no-dev'
+            - 'php artisan event:cache'
+            - 'npm ci && npm run build && rm -rf node_modules'
+        deploy:
+            - 'php artisan migrate --force'
     staging:
         gateway-version: 2
         database: utmwise-development
+        warm: 10
         memory: 1024
         cli-memory: 512
         runtime: 'php-8.2:al2'
