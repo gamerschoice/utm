@@ -34,6 +34,7 @@ Route::middleware([
 
     Route::resource('/links', LinksController::class);
 
+    Route::get('/domains', [DomainController::class, 'index'])->name('domain.index');
     Route::get('/domains/{domain}', [DomainController::class, 'show'])->name('domain.links');
 
 
