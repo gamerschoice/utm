@@ -16,8 +16,6 @@ return new class extends Migration
             $table->foreignId('user_id')->index();
             $table->string('name');
             $table->boolean('personal_team');
-            $table->string('website')->index();
-            $table->tinyInteger('dns_configured');
             $table->timestamps();
         });
     }

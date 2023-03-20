@@ -51,19 +51,4 @@ class Team extends JetstreamTeam
         return $this->hasMany(Domain::class);
     }
 
-    /**
-     * @deprecated 20-03-2023 get links via Domain instead of Team
-     */
-    public function links()
-    {
-        return $this->hasMany(Link::class);
-    }
-
-    /**
-     * @deprecated 20-03-2023 DNS Verification on Domain instead of Team
-     */
-    public function dnsVerification()
-    {
-        return $this->hasOne(DnsVerification::class);
-    }
 }

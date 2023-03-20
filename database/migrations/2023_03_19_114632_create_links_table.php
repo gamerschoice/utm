@@ -20,11 +20,11 @@ return new class extends Migration
             $table->string('utm_term')->index()->nullable();
             $table->string('utm_content')->index()->nullable();
             $table->string('shortlink')->index();
-            $table->foreignId('team_id');
+            $table->foreignId('domain_id');
             $table->tinyInteger('published');
             $table->timestamps();
 
-            $table->unique(['team_id', 'shortlink']);
+            $table->unique(['domain_id', 'shortlink']);
         });
     }
 

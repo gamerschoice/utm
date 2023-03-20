@@ -35,5 +35,10 @@ class Domain extends Model
     {
         return $this->hasOne(Team::class);
     }
+
+    public function dnsVerification()
+    {
+        return $this->hasOne(DnsVerification::class);
+    }
     
 }
