@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Actions\Teams;
+namespace App\Actions\Domains;
 
-use App\Models\Team;
+use App\Models\Domain;
 use App\Models\ActiveDnsVerification;
 use App\Jobs\VerifyDnsRecords;
 
 class StartDnsVerification
 {
-    public function start(Team $team)
+    public function start(Domain $domain)
     {
-        $record = $team->dnsVerification()->firstOrCreate(['status' => 'Verifying']);
+        $record = $domain->dnsVerification()->firstOrCreate(['status' => 'Verifying']);
 
-        VerifyDnsRecords::dispatch($team);
+        VerifyDnsRecords::dispatch($domain);
 
         return $record;
     }

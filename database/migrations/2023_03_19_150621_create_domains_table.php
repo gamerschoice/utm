@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('team_id')->constrained()->index();
             $table->string('domain')->index();
-            $table->string('base_url');
             $table->tinyInteger('dns_configured');
             $table->timestamps();
         });
