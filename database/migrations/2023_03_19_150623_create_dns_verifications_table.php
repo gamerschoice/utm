@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('dns_verifications', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('domain_id')->constrained()->onDelete('cascade');
+            $table->foreignId('domain_id')->onDelete('cascade');
             $table->string('status')->index();
             $table->timestamps();
         });
