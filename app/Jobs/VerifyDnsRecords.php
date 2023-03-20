@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use App\Models\Team;
+use App\Models\Domain;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
 
@@ -16,7 +16,7 @@ class VerifyDnsRecords implements ShouldQueue, ShouldBeUnique
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public Team $team;
+    public Domain $domain;
 
     /**
      * The number of seconds after which the job's unique lock will be released.
@@ -28,14 +28,14 @@ class VerifyDnsRecords implements ShouldQueue, ShouldBeUnique
     /**
      * Create a new job instance.
      */
-    public function __construct(Team $team)
+    public function __construct(Domain $domain)
     {
-        $this->team = $team;
+        $this->domain = $domain;
     }
 
     public function uniqueId()
     {
-        return $this->team->id;
+        return $this->domain->id;
     }
 
     /**
@@ -55,23 +55,23 @@ class VerifyDnsRecords implements ShouldQueue, ShouldBeUnique
     {
         // php artisan app:dns-lookup
         $exitCode = Artisan::call('app:dns-lookup', [
-            'host' => $this->cleanHost($this->team)
+            'host' => $this->cleanHost($this->domain)
         ]);
 
         if($exitCode === 0) {
-            $this->team->update([
+            $this->domain->update([
                 'dns_configured' => true
             ]);
 
-            $this->team->dnsVerification->update([
+            $this->domain->dnsVerification->update([
                 'status' => 'Verified'
             ]);
         }
     }
 
-    public function cleanHost(Team $team)
+    public function cleanHost(Domain $domain)
     {
-        $host = parse_url($team->website)['host'];
+        $host = parse_url($domain->website)['host'];
 
         if(Str::startsWith($host, 'www.')) {
             return Str::substr($host, 4);

@@ -28,7 +28,7 @@
             </div>
         </x-slot>
 
-        @if (Gate::check('update', $team))
+        @if (Gate::check('update', $domain))
             <x-slot name="actions">
                 <x-action-message class="mr-3" on="saved">
                     {{ __('Verifying.') }}

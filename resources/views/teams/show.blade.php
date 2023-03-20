@@ -11,8 +11,6 @@
 
             @livewire('teams.update-team-website-form', ['team' => $team])
 
-            @livewire('teams.dns-status', ['team' => $team])
-
             @livewire('teams.team-member-manager', ['team' => $team])
 
             @if (Gate::check('delete', $team) && ! $team->personal_team)
