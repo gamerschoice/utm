@@ -33,4 +33,10 @@ Route::middleware([
     Route::post('/billing', [BillingController::class, 'create']);
 
     Route::resource('/links', LinksController::class);
+
+    Route::get('/domains/{domain}', [DomainController::class, 'show'])->name('domain.links');
+
+
+
+
 });

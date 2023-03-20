@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('domains', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->unique()->primary();
             $table->foreignId('team_id')->constrained()->index();
             $table->string('domain')->index();
             $table->tinyInteger('dns_configured');
