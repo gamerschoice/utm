@@ -2,19 +2,19 @@
 
 namespace App\Actions\Links;
 
-use App\Models\Team;
+use App\Models\Domain;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Str;
 
 class CreateLink
 {
-    public function create(Team $team, array $data)
+    public function create(Domain $domain, array $data)
     {
         try {
             DB::beginTransaction();
 
-            $link = $team->links()->create([
+            $link = $domain->links()->create([
                 'destination' => $data['destination'],
                 'shortlink' => Str::random(8),
                 'published' => true
@@ -25,7 +25,7 @@ class CreateLink
             return $link;
         } catch (QueryException $e) {
             DB::rollback();
-            $this->create($team, $data);
+            $this->create($domain, $data);
         }
     }
 }
