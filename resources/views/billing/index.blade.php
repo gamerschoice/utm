@@ -5,8 +5,184 @@
         </h1>
     </x-slot>
 
+
+
     <div>
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+
+            <div class="grid grid-cols-2 gap-10">
+
+                <div>
+                    <!-- Plan -->
+                    <section aria-labelledby="plan-heading">
+                        <form action="#" method="POST">
+                            <div class="shadow sm:overflow-hidden sm:rounded-lg">
+                                <div class="space-y-6 bg-white py-6 px-4 sm:p-6">
+                                    <div>
+                                        <h3 class="text-base font-semibold leading-6 text-gray-900">Plan</h3>
+                                    </div>
+                
+                                    <fieldset>
+                                        <legend class="sr-only">Pricing plans</legend>
+                                        <div class="relative -space-y-px rounded-md bg-white">
+                                        <!-- Checked: "z-10 border-blue-200 bg-blue-50", Not Checked: "border-gray-200" -->
+                                        <label class="rounded-tl-md rounded-tr-md relative flex cursor-pointer flex-col border p-4 focus:outline-none md:grid md:grid-cols-3 md:pr-6">
+                                            <span class="flex items-center text-sm">
+                                                <input type="radio" name="pricing-plan" value="personal" class="h-4 w-4 text-blue-500 border-gray-300 focus:ring-gray-900" aria-labelledby="pricing-plans-0-label" aria-describedby="pricing-plans-0-description-0 pricing-plans-0-description-1">
+                                                <span id="pricing-plans-0-label" class="ml-3 font-medium text-gray-900">Personal</span>
+                                            </span>
+                                            <span id="pricing-plans-0-description-0" class="ml-6 pl-1 text-sm md:ml-0 md:pl-0 md:text-center">
+                                                <!-- Checked: "text-blue-900", Not Checked: "text-gray-900" -->
+                                                <span class="font-medium">$5 / mo</span>
+                                            </span>
+                                            <!-- Checked: "text-blue-700", Not Checked: "text-gray-500" -->
+                                            <span id="pricing-plans-0-description-1" class="ml-6 pl-1 text-sm md:ml-0 md:pl-0 md:text-right">1 domain</span>
+                                        </label>
+                    
+                                        <!-- Checked: "z-10 border-blue-200 bg-blue-50", Not Checked: "border-gray-200" -->
+                                        <label class="relative flex cursor-pointer flex-col border p-4 focus:outline-none md:grid md:grid-cols-3 md:pr-6">
+                                            <span class="flex items-center text-sm">
+                                            <input type="radio" name="pricing-plan" value="business" class="h-4 w-4 text-blue-500 border-gray-300 focus:ring-gray-900" aria-labelledby="pricing-plans-1-label" aria-describedby="pricing-plans-1-description-0 pricing-plans-1-description-1">
+                                            <span id="pricing-plans-1-label" class="ml-3 font-medium text-gray-900">Business</span>
+                                            </span>
+                                            <span id="pricing-plans-1-description-0" class="ml-6 pl-1 text-sm md:ml-0 md:pl-0 md:text-center">
+                                            <!-- Checked: "text-blue-900", Not Checked: "text-gray-900" -->
+                                            <span class="font-medium">$12 / mo</span>
+                                            </span>
+                                            <!-- Checked: "text-blue-700", Not Checked: "text-gray-500" -->
+                                            <span id="pricing-plans-1-description-1" class="ml-6 pl-1 text-sm md:ml-0 md:pl-0 md:text-right">Up to 3 domains</span>
+                                        </label>
+                    
+                                        <!-- Checked: "z-10 border-blue-200 bg-blue-50", Not Checked: "border-gray-200" -->
+                                        <label class="rounded-bl-md rounded-br-md relative flex cursor-pointer flex-col border p-4 focus:outline-none md:grid md:grid-cols-3 md:pr-6">
+                                            <span class="flex items-center text-sm">
+                                            <input @change="checked = !checked" type="radio" name="pricing-plan" value="agency" class="h-4 w-4 text-blue-500 border-gray-300 focus:ring-gray-900" aria-labelledby="pricing-plans-2-label" aria-describedby="pricing-plans-2-description-0 pricing-plans-2-description-1">
+                                            <span id="pricing-plans-2-label" class="ml-3 font-medium text-gray-900">Agency</span>
+                                            </span>
+                                            <span id="pricing-plans-2-description-0" class="ml-6 pl-1 text-sm md:ml-0 md:pl-0 md:text-center">
+                                            <!-- Checked: "text-blue-900", Not Checked: "text-gray-900" -->
+                                            <span class="font-medium">$45 / mo</span>
+                                            </span>
+                                            <!-- Checked: "text-blue-700", Not Checked: "text-gray-500" -->
+                                            <span id="pricing-plans-2-description-1" class="ml-6 pl-1 text-sm md:ml-0 md:pl-0 md:text-right">Unlimited domains</span>
+                                        </label>
+                                        </div>
+                                    </fieldset>
+                
+                                    <div class="flex items-center">
+                                        <!-- Enabled: "bg-blue-500", Not Enabled: "bg-gray-200" -->
+                                        <button type="button" class="bg-gray-200 relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2" role="switch" aria-checked="true" aria-labelledby="annual-billing-label">
+                                        <!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
+                                        <span aria-hidden="true" class="translate-x-0 inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
+                                        </button>
+                                        <span class="ml-3 text-sm" id="annual-billing-label">
+                                        <span class="font-medium text-gray-900">Annual billing</span>
+                                        <span class="text-gray-500">(Save 10%)</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+                                    <x-button type="submit">Save</x-button>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+
+                    <!-- Billing history -->
+                    <section class="my-10" aria-labelledby="billing-history-heading">
+                        <div class="bg-white pt-6 shadow sm:overflow-hidden sm:rounded-lg">
+                            <div class="px-4 sm:px-6">
+                                <h3 class="text-base font-semibold leading-6 text-gray-900">Billing history</h3>
+                            </div>
+                            <div class="mt-6 flex flex-col">
+                                <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                    <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                        <div class="overflow-hidden border-t border-gray-200">
+                                            <table class="min-w-full divide-y divide-gray-200">
+                                                <thead class="bg-gray-50">
+                                                <tr>
+                                                    <th scope="col" class="px-6 py-3 text-left text-sm font-semibold text-gray-900">Date</th>
+                                                    <th scope="col" class="px-6 py-3 text-left text-sm font-semibold text-gray-900">Description</th>
+                                                    <th scope="col" class="px-6 py-3 text-left text-sm font-semibold text-gray-900">Amount</th>
+                                                    <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-gray-500"></th>
+                                                </tr>
+                                                </thead>
+                                                <tbody class="divide-y divide-gray-200 bg-white">
+                                                    <tr>
+                                                        <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
+                                                        <time datetime="2020-01-01">1/3/2023</time>
+                                                        </td>
+                                                        <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">Agency Plan</td>
+                                                        <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">$40.00</td>
+                                                        <td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+                                                        <a href="#" class="text-blue-600 hover:text-blue-900">View invoice</a>
+                                                        </td>
+                                                    </tr>
+                                                <tr>
+                                                    <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
+                                                    <time datetime="2020-01-01">1/2/2023</time>
+                                                    </td>
+                                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">Agency Plan</td>
+                                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">$40.00</td>
+                                                    <td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+                                                    <a href="#" class="text-blue-600 hover:text-blue-900">View invoice</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
+                                                    <time datetime="2020-01-01">1/1/2023</time>
+                                                    </td>
+                                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">Agency Plan</td>
+                                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">$40.00</td>
+                                                    <td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+                                                    <a href="#" class="text-blue-600 hover:text-blue-900">View invoice</a>
+                                                    </td>
+                                                </tr>
+                                                <!-- More payments... -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+                <div>
+
+                    <!-- Payment info -->
+                    <section class="bg-white shadow sm:rounded-lg">
+                        <div class="px-4 py-5 sm:p-6">
+                            <h3 class="text-base font-semibold leading-6 text-gray-900">Payment method</h3>
+                            <div class="mt-5">
+                                <div class="rounded-md bg-gray-50 px-6 py-5 sm:flex sm:items-start sm:justify-between">
+                                <div class="sm:flex sm:items-start">
+                                    <svg class="h-8 w-auto sm:h-6 sm:flex-shrink-0" viewBox="0 0 36 24" aria-hidden="true">
+                                    <rect width="36" height="24" fill="#224DBA" rx="4" />
+                                    <path fill="#fff" d="M10.925 15.673H8.874l-1.538-6c-.073-.276-.228-.52-.456-.635A6.575 6.575 0 005 8.403v-.231h3.304c.456 0 .798.347.855.75l.798 4.328 2.05-5.078h1.994l-3.076 7.5zm4.216 0h-1.937L14.8 8.172h1.937l-1.595 7.5zm4.101-5.422c.057-.404.399-.635.798-.635a3.54 3.54 0 011.88.346l.342-1.615A4.808 4.808 0 0020.496 8c-1.88 0-3.248 1.039-3.248 2.481 0 1.097.969 1.673 1.653 2.02.74.346 1.025.577.968.923 0 .519-.57.75-1.139.75a4.795 4.795 0 01-1.994-.462l-.342 1.616a5.48 5.48 0 002.108.404c2.108.057 3.418-.981 3.418-2.539 0-1.962-2.678-2.077-2.678-2.942zm9.457 5.422L27.16 8.172h-1.652a.858.858 0 00-.798.577l-2.848 6.924h1.994l.398-1.096h2.45l.228 1.096h1.766zm-2.905-5.482l.57 2.827h-1.596l1.026-2.827z" />
+                                    </svg>
+                                    <div class="mt-3 sm:mt-0 sm:ml-4">
+                                    <div class="text-sm font-medium text-gray-900">Ending with 4242</div>
+                                    <div class="mt-1 text-sm text-gray-600 sm:flex sm:items-center">
+                                        <div>Expires 12/20</div>
+                                        <span class="hidden sm:mx-2 sm:inline" aria-hidden="true">&middot;</span>
+                                        <div class="mt-1 sm:mt-0">Last updated on 22 Aug 2017</div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="mt-4 sm:mt-0 sm:ml-6 sm:flex-shrink-0">
+                                    <button type="button" class="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Edit</button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+
+                </div>
+            </div>
+
             @foreach ($teams as $team)
                 <h2>You need to pay for {{ $team->name }}</h2>
 
@@ -28,6 +204,9 @@
             @endforeach
         </div>
     </div>
+
+
+      
 
     @pushOnce('scripts')
         <script src="https://js.stripe.com/v3/"></script>
