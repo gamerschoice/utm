@@ -24,7 +24,7 @@
 
         <div x-data="{ open: false }" @keydown.window.escape="open = false">
             
-            @livewire('navigation-menu')
+            @livewire('app-navigation-menu')
 
 
             <div class="flex-1">

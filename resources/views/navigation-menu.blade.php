@@ -58,10 +58,10 @@
                         </a>
                         <div class="transition group-hover:bg-white bg-gray-100 mt-3 rounded-md px-3 py-2">
                             <ul class="list-none divide-y">
-                                <li class="hover:translate-x-1 transition text-sm font-light py-2 px-2"><a href="#">ethptc.com</a></li>
-                                <li class="hover:translate-x-1 transition text-sm font-light py-2 px-2"><a href="#">thecasinobets.com</a></li>
-                                <li class="hover:translate-x-1 transition text-sm font-light py-2 px-2"><a href="#">gamerschoice.gg</a></li>
-                                <li class="text-sm font-light py-2"><a href="#" class="inline-block px-2 py-1 bg-blue-200 text-xs rounded-md">view all domains</a></li>
+                                @foreach($domains as $domain)
+                                    <li class="hover:translate-x-1 transition text-sm font-light py-2 px-2"><a href="{{ route('domain.links', $domain) }}">{{ $domain->domain }}</a></li>
+                                @endforeach
+                                <li class="text-sm font-light py-2"><a href="{{ route('domain.index') }}" class="inline-block px-2 py-1 bg-blue-200 text-xs rounded-md">view all domains</a></li>
                             </ul>
                         </div>
                     </div>
@@ -137,10 +137,10 @@
                 </a>
                 <div class="transition group-hover:bg-white bg-gray-100 mt-3 rounded-md px-3 py-2">
                     <ul class="list-none divide-y">
-                        <li class="hover:translate-x-1 transition text-sm font-light py-2 px-2"><a href="#">ethptc.com</a></li>
-                        <li class="hover:translate-x-1 transition text-sm font-light py-2 px-2"><a href="#">thecasinobets.com</a></li>
-                        <li class="hover:translate-x-1 transition text-sm font-light py-2 px-2"><a href="#">gamerschoice.gg</a></li>
-                        <li class="text-sm font-light py-2"><a href="#" class="inline-block px-2 py-1 bg-blue-200 text-xs rounded-md">view all domains</a></li>
+                        @foreach($domains as $domain)
+                            <li class="hover:translate-x-1 transition text-sm font-light py-2 px-2"><a href="{{ route('domain.links', $domain) }}">{{ $domain->domain }}</a></li>
+                        @endforeach
+                        <li class="text-sm font-light py-2"><a href="{{ route('domain.index') }}" class="inline-block px-2 py-1 bg-blue-200 text-xs rounded-md">view all domains</a></li>
                     </ul>
                 </div>
             </div>
