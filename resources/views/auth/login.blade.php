@@ -30,7 +30,7 @@
                     </div>
                 </div>
 
-                <div class="mt-4">
+                <div>
                     <x-label for="password" value="{{ __('Password') }}" />
                     <div class="mt-2">
                         <x-input id="password" type="password" name="password" required autocomplete="current-password" />

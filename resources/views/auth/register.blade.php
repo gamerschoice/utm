@@ -56,7 +56,7 @@
                     </div>
                 @endif
 
-                <div class="flex items-center justify-end mt-4">
+                <div class="flex items-center justify-end">
                     <a class="shrink-0 text-sm font-medium text-blue-600 hover:text-blue-500" href="{{ route('login') }}">
                         {{ __('Already registered?') }}
                     </a>
