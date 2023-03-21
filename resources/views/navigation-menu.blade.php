@@ -18,7 +18,7 @@
             x-transition:leave="transition ease-in-out duration-300 transform" 
             x-transition:leave-start="translate-x-0" 
             x-transition:leave-end="-translate-x-full" 
-            class="relative flex w-full max-w-xs flex-1 flex-col bg-white pt-5 pb-4" 
+            class="relative flex w-full max-w-xs flex-1 flex-col bg-white pb-4" 
             @click.away="open = false">
 
             <div x-show="open" x-transition:enter="ease-in-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in-out duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="absolute top-0 right-0 -mr-12 pt-2" style="display: none;">
@@ -108,9 +108,9 @@
 
 <div class="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col">
 
-    <div class="flex flex-grow flex-col overflow-y-auto border-r border-gray-200 bg-white pt-5">
+    <div class="flex flex-grow flex-col overflow-y-auto border-r border-gray-200 bg-white">
 
-        <div class="flex flex-shrink-0 items-end px-4 pb-4 border-b border-primary-800">
+        <div class="flex flex-shrink-0 items-end px-4 py-3 border-b border-primary-800">
             <a href="{{ route('dashboard') }}">
                 <x-application-mark class="block h-9 w-auto" />
             </a>
@@ -192,7 +192,7 @@
         </button>
         <div class="flex flex-1 justify-between px-4">
             <div class="flex flex-1">
-                <x-search />
+                @livewire('search')
             </div>
 
             <div class="ml-4 flex items-center lg:ml-6">
