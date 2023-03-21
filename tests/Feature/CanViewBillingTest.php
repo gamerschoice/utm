@@ -38,4 +38,19 @@ class CanViewBillingTest extends TestCase
         $response->assertSessionHas('flash.banner');
         $response->assertSessionHas('flash.bannerStyle', 'danger');
     }
+
+    public function test_members_cannot_download_invoices()
+    {
+        $user = User::factory()->withPersonalTeam()->create();
+
+        $user->currentTeam->users()->attach(
+            $otherUser = User::factory()->create(), ['role' => 'not-admin']
+        );
+
+        $otherUser->update(['current_team_id' => $user->currentTeam->id]);
+
+        $response = $this->actingAs($otherUser)->get('/billing/invoice/123');
+
+        $response->assertRedirectToRoute('dashboard');
+    }
 }
