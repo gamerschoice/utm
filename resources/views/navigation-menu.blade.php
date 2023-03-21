@@ -30,7 +30,7 @@
                 </button>
             </div>
 
-            <div class="flex flex-shrink-0 items-center px-4">
+            <div class="flex flex-shrink-0 items-center px-4 pt-5">
                 <a href="{{ route('dashboard') }}">
                     <x-application-mark class="block h-9 w-auto" />
                 </a>

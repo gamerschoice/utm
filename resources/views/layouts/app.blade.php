@@ -27,7 +27,7 @@
             @livewire('app-navigation-menu')
 
 
-            <div class="flex-1">
+            <div class="lg:ml-64 flex-1">
                 <div class="py-6">
                     <header>
                         @if (isset($header))
