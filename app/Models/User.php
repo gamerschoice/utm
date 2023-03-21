@@ -58,4 +58,9 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function ownsCurrentTeam()
+    {
+        return $this->ownsTeam($this->currentTeam);
+    }
 }
