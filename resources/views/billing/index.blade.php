@@ -52,7 +52,7 @@
                 </div>
             </div>
 
-            @foreach ($teams as $team)
+            {{-- @foreach ($teams as $team)
                 <h2>You need to pay for {{ $team->name }}</h2>
 
                 <p>£15 - now.</p>
@@ -70,7 +70,7 @@
 
                     <input id="payment_method" type="hidden" name="payment_method" value="" />
                 </form>
-            @endforeach
+            @endforeach --}}
         </div>
     </div>
 

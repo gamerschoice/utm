@@ -12,6 +12,7 @@ class Invoices extends Component
     {
         $this->invoices = auth()->user()->currentTeam->invoices();
     }
+    
     public function render()
     {
         return view('livewire.billing.invoices');

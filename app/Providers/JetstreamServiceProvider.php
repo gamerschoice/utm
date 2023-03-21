@@ -50,12 +50,27 @@ class JetstreamServiceProvider extends ServiceProvider
             'read',
             'update',
             'delete',
-        ])->description('Administrator users can perform any action.');
+            'domain:create',
+            'domain:read',
+            'domain:edit',
+            'link:create',
+            'link:edit',
+            'link:read',
+            'link:delete',
+            'billing'
+        ])->description('Administrator users can perform any action, including billing changes.');
 
-        Jetstream::role('editor', 'Editor', [
+        Jetstream::role('manager', 'Link Manager', [
             'read',
             'create',
             'update',
-        ])->description('Editor users have the ability to read, create, and update.');
+            'domain:create',
+            'domain:read',
+            'domain:edit',
+            'link:create',
+            'link:edit',
+            'link:read',
+            'link:delete'
+        ])->description('Views domains and manage their associated links.');
     }
 }

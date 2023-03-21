@@ -2,19 +2,19 @@
 
 namespace App\Actions\Billing;
 
-use Laravel\Cashier\Subscription;
+use App\Models\Team;
 use App\Models\Plan;
 use Illuminate\Support\Facades\DB;
 
 class ChangeSubscriptionPlan
 {
-    public function execute(Subscription $subscription, string $planSku)
+    public function execute(Team $team, string $planSku)
     {
+
         $plan = Plan::where('sku', $planSku)->first();
 
-        DB::transaction(function () use ($subscription, $plan) {
-            $subscription->swap($plan->stripe_key);
-            $subscription->update(['name' => $plan->sku]);
+        DB::transaction(function () use ($team, $plan) {
+            $team->subscription('default')->swap($plan->stripe_key);
         });
     }
 }

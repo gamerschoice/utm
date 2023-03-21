@@ -12,18 +12,8 @@ class BillingController extends Controller
 {
     public function index(Request $request)
     {
-        $teams = $request->user()->ownedTeams;
-
-        $team = $request->user()->currentTeam;
-
-        $subscription = $team->subscriptions()->active()->first();
-
-        $plans = Plan::where('active', true)->whereNot('sku', $subscription->name)->get();
-        $current = Plan::where('active', true)->where('sku', $subscription->name)->first();
-
         return view('billing.index', [
-            'teams' => $teams,
-            'intent' => $team->createSetupIntent()
+            'intent' => $request->user()->currentTeam->createSetupIntent()
         ]);
     }
 

@@ -3,7 +3,7 @@
     <section aria-labelledby="plan-heading">
         <form wire:submit.prevent="changePlan">
             <div class="shadow sm:overflow-hidden sm:rounded-lg">
-                @if($subscription)
+                @if($current)
                     <div class="space-y-6 bg-white py-6 px-4 sm:p-6">
                         <div>
                             <h3 class="text-base font-semibold leading-6 text-gray-900">Current Plan</h3>
@@ -36,8 +36,7 @@
                                     "relative flex cursor-pointer flex-col border p-4 focus:outline-none md:grid md:grid-cols-3 md:pr-6",
                                     "rounded-tl-md rounded-tr-md" => $loop->first,
                                     "rounded-bl-md rounded-br-md" => $loop->last
-                                ])
-                                wire:key="{{ $plan->id }}">
+                                ])>
                                     <span class="flex items-center text-sm">
                                         <input type="radio" wire:model.defer="swapTo" value="{{ $plan->sku }}" class="h-4 w-4 text-blue-500 border-gray-300 focus:ring-gray-900" aria-labelledby="pricing-plans-0-label" aria-describedby="pricing-plans-0-description-0 pricing-plans-0-description-1">
                                         <span id="pricing-plans-0-label" class="ml-3 font-medium text-gray-900">{{ $plan->name }}</span>
@@ -54,10 +53,8 @@
                     </fieldset>
 
                     <div class="flex items-center">
-                        <!-- Enabled: "bg-blue-500", Not Enabled: "bg-gray-200" -->
-                        <button type="button" class="bg-gray-200 relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2" role="switch" aria-checked="true" aria-labelledby="annual-billing-label">
-                        <!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
-                        <span aria-hidden="true" class="translate-x-0 inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
+                        <button wire:click="$toggle('annualPricing')" type="button" class="{{ $annualPricing ? 'bg-blue-500' : 'bg-gray-200'}} relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2" role="switch" aria-checked="true" aria-labelledby="annual-billing-label">
+                            <span aria-hidden="true" class="{{ $annualPricing ? 'translate-x-5' : 'translate-x-0'}} inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
                         </button>
                         <span class="ml-3 text-sm" id="annual-billing-label">
                         <span class="font-medium text-gray-900">Annual billing</span>
