@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
+use Carbon\Carbon;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -48,6 +49,7 @@ class CreateNewUser implements CreatesNewUsers
             'user_id' => $user->id,
             'name' => explode(' ', $user->name, 2)[0]."'s Team",
             'personal_team' => true,
+            'trial_ends_at' => Carbon::now()->addMonth()
         ]));
     }
 }
