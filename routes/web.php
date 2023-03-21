@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Billing\BillingController;
 use App\Http\Controllers\LinksController;
+use App\Http\Controllers\InvoiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,5 +38,6 @@ Route::middleware([
     Route::middleware(['team.owner'])->group(function () {
         Route::get('/billing', [BillingController::class, 'index'])->name('billing');
         Route::post('/billing', [BillingController::class, 'create']);
+        Route::get('/billing/invoice/{invoice}', InvoiceController::class)->name('invoice');
     });
 });
