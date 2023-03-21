@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Billing\BillingController;
+use App\Http\Controllers\DomainController;
 use App\Http\Controllers\LinksController;
 
 /*
@@ -36,8 +37,5 @@ Route::middleware([
 
     Route::get('/domains', [DomainController::class, 'index'])->name('domain.index');
     Route::get('/domains/{domain}', [DomainController::class, 'show'])->name('domain.links');
-
-
-
 
 });
