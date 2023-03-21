@@ -15,16 +15,19 @@ class CheckTeamConfiguration
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(! $request->user()->currentTeam->website) {
-            \View::share('teamConfigured', false);
-            \View::share('teamConfigError', 'no-url');
-            \View::share('currentTeam', $request->user()->currentTeam);
+        // if(! $request->user()->currentTeam->website) {
+        //     \View::share('teamConfigured', false);
+        //     \View::share('teamConfigError', 'no-url');
+        //     \View::share('currentTeam', $request->user()->currentTeam);
 
-            return $next($request);
-        }
+        //     return $next($request);
+        // }
 
-        \View::share('teamConfigured', true);
-        \View::share('currentTeam', $request->user()->currentTeam);
+        // \View::share('teamConfigured', true);
+        // \View::share('currentTeam', $request->user()->currentTeam);
+        // \Session::put('flash.banner', 'test');
+        // \Session::put('flash.bannerStyle', 'danger');
+
         return $next($request);
     }
 }

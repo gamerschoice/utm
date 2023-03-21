@@ -29,15 +29,13 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/billing', [BillingController::class, 'index'])->name('billing');
-    Route::post('/billing', [BillingController::class, 'create']);
-
     Route::resource('/links', LinksController::class);
 
     Route::get('/domains', [DomainController::class, 'index'])->name('domain.index');
     Route::get('/domains/{domain}', [DomainController::class, 'show'])->name('domain.links');
 
-
-
-
+    Route::middleware(['team.owner'])->group(function () {
+        Route::get('/billing', [BillingController::class, 'index'])->name('billing');
+        Route::post('/billing', [BillingController::class, 'create']);
+    });
 });

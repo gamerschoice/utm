@@ -22,6 +22,7 @@ class Team extends JetstreamTeam
      */
     protected $casts = [
         'personal_team' => 'boolean',
+        'trial_ends_at' => 'date'
     ];
 
     /**
@@ -31,7 +32,7 @@ class Team extends JetstreamTeam
      */
     protected $fillable = [
         'name',
-        'personal_team'
+        'personal_team',
     ];
 
     /**

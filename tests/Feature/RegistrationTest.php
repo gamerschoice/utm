@@ -57,4 +57,34 @@ class RegistrationTest extends TestCase
         $this->assertAuthenticated();
         $response->assertRedirect(RouteServiceProvider::HOME);
     }
+
+    public function test_personal_team_is_created_on_register()
+    {
+        $response = $this->post('/register', [
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+            'password' => 'password',
+            'password_confirmation' => 'password',
+            'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature(),
+        ]);
+
+        $this->assertAuthenticated();
+
+        $this->assertCount(1, auth()->user()->ownedTeams);
+    }
+
+    public function test_personal_team_is_on_trial_after_register()
+    {
+        $response = $this->post('/register', [
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+            'password' => 'password',
+            'password_confirmation' => 'password',
+            'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature(),
+        ]);
+
+        $this->assertAuthenticated();
+
+        $this->assertTrue(auth()->user()->currentTeam->onTrial());
+    }
 }
