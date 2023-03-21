@@ -6,6 +6,7 @@ use App\Models\Team;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Laravel\Cashier\Exceptions\IncompletePayment;
+use App\Models\Plan;
 
 class BillingController extends Controller
 {
@@ -14,6 +15,11 @@ class BillingController extends Controller
         $teams = $request->user()->ownedTeams;
 
         $team = $request->user()->currentTeam;
+
+        $subscription = $team->subscriptions()->active()->first();
+
+        $plans = Plan::where('active', true)->whereNot('sku', $subscription->name)->get();
+        $current = Plan::where('active', true)->where('sku', $subscription->name)->first();
 
         return view('billing.index', [
             'teams' => $teams,
@@ -30,12 +36,12 @@ class BillingController extends Controller
         } catch (IncompletePayment $e) {
             return redirect()->route(
                 'cashier.payment',
-                [$exception->payment->id, 'redirect' => route('home')]
+                [$exception->payment->id, 'redirect' => route('billing')]
             );
         }
 
         return back()->with([
-            'succes' => 'Welcome to UTM Tracker!'
+            'flash.banner' => 'Welcome to UTM Wise!'
         ]);
     }
 }
