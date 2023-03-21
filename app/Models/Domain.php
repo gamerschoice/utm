@@ -22,9 +22,10 @@ class Domain extends Model
      */
     public function toSearchableArray(): array
     {
-        $array = $this->only('domain');
- 
-        return $array;
+        return [
+            'domain' => $this->domain,
+            'team_id' => $this->team_id,
+        ];
     }
 
     public function links(): HasMany
