@@ -7,6 +7,7 @@ use App\Models\Domain;
 use App\Models\Link;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
+use Filament\Notifications\Notification; 
 
 class Links extends Component
 {
@@ -14,8 +15,8 @@ class Links extends Component
     use WithPagination;
 
     public $domain = null;
-
-    public $link;
+    public $confirmingBulkDelete = false;
+    public $deletions = [];
 
     public $sortField = 'created_at';
     public $sortDirection = 'desc';
@@ -26,16 +27,34 @@ class Links extends Component
     public $activeUtmMediumFilter;
     public $activeUtmCampaignFilter;
 
+    protected $listeners = [ 'linkSaved' => '$refresh' ];
 
     public function mount()
     {
         $this->domain = request()->domain;
     }
 
+    /**
+     * @todo guards
+     */
+
+    public function bulkDelete()
+    {
+
+        Link::whereIn('id', $this->deletions)->delete();
+        $this->deletions = [];
+        $this->confirmingBulkDelete = false;
+        Notification::make() 
+            ->title('Links deleted.')
+            ->danger()
+            ->send(); 
+        
+    }
+
     public function showLink( int $id )
     {
-        $link = Link::where('id', $id)->first();
-        $this->link = $link;
+        $this->dispatchBrowserEvent('open-link-panel');
+        $this->emit('viewLink', $id);
     }
 
     public function closeLink()
