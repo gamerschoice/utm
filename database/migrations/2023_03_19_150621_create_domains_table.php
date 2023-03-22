@@ -19,6 +19,8 @@ return new class extends Migration
             $table->timestamps();
 
             $table->unique(['id', 'domain']);
+
+            $table->softDeletes();
         });
     }
 
