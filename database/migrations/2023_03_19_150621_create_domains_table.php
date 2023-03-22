@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('domains', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('team_id')->constrained()->index();
+            $table->foreignId('team_id')->index();
             $table->string('domain')->index();
             $table->tinyInteger('dns_configured');
             $table->timestamps();

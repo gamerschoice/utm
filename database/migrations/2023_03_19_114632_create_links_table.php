@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('utm_marketing_tactic')->index()->nullable();
             $table->longText('notes')->nullable();
             $table->string('shortlink')->index();
-            $table->foreignId('domain_id')->constrained()->onDelete('cascade');
+            $table->foreignId('domain_id')->index();
             $table->timestamps();
 
             $table->unique(['domain_id', 'shortlink']);
