@@ -13,9 +13,9 @@
         </div>
 
         <div class="mt-5">
-            <x-danger-button wire:click="$toggle('confirmingTeamDeletion')" wire:loading.attr="disabled">
+            <x-button-danger wire:click="$toggle('confirmingTeamDeletion')" wire:loading.attr="disabled">
                 {{ __('Delete Team') }}
-            </x-danger-button>
+            </x-button-danger>
         </div>
 
         <!-- Delete Team Confirmation Modal -->
@@ -33,9 +33,9 @@
                     {{ __('Cancel') }}
                 </x-secondary-button>
 
-                <x-danger-button class="ml-3" wire:click="deleteTeam" wire:loading.attr="disabled">
+                <x-button-danger class="ml-3" wire:click="deleteTeam" wire:loading.attr="disabled">
                     {{ __('Delete Team') }}
-                </x-danger-button>
+                </x-button-danger>
             </x-slot>
         </x-confirmation-modal>
     </x-slot>

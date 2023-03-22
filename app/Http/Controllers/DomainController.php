@@ -10,11 +10,7 @@ class DomainController extends Controller
 
     public function index(Request $request) 
     {
-        $team = $request->user()->currentTeam;
-
-        return view('domains.index', [
-            'domains' => $team->domains()->paginate(25)
-        ]);
+        return view('domains.index');
     }
 
     public function create()
@@ -24,11 +20,9 @@ class DomainController extends Controller
 
     public function show(Request $request, Domain $domain)
     {
-        
-        $team = $request->user()->currentTeam;
-
-        return view('domains.show', [
-            'links' => $domain->links()->paginate(25)
+        $domainObj = Domain::where('id', $request->domain )->first();
+        return view('domains.links', [
+            'domain' => $domainObj
         ]);
     }
 

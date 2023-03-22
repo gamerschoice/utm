@@ -1,6 +1,6 @@
 <form class="flex w-full py-3 lg:ml-0 mx-auto" action="#" method="GET" x-data="SearchDomains()">
 
-    <div class="relative text-gray-400 focus-within:text-gray-600 w-1/3 mx-auto max-w-xl">
+    <div class="hidden lg:block relative text-gray-400 focus-within:text-gray-600 lg:w-1/3 mx-auto max-w-xl">
 
         <input id="search-field" wire:model="term" 
         @keydown.ctrl.k.window.prevent="focusSearch()" 

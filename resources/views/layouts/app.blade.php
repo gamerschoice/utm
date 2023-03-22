@@ -7,6 +7,8 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
+        <style>[x-cloak] { display: none !important; }</style>
+        
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
@@ -27,7 +29,7 @@
             @livewire('app-navigation-menu')
 
 
-            <div class="flex-1">
+            <div class="lg:ml-64 flex-1">
                 <div class="py-6">
                     <header>
                         @if (isset($header))
@@ -48,6 +50,8 @@
             
 
         </div>
+
+        @livewire('notifications')
 
         @stack('modals')
 

@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Laravel\Scout\Searchable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Domain extends Model
 {
-    use HasFactory, HasUuids, Searchable;
+    use HasFactory, HasUuids, Searchable, SoftDeletes;
 
     public $guarded = ['id'];
 
@@ -26,6 +27,11 @@ class Domain extends Model
             'domain' => $this->domain,
             'team_id' => $this->team_id,
         ];
+    }
+
+    public function getLinkCountAttribute()
+    {
+        return count($this->links);
     }
 
     public function links(): HasMany
