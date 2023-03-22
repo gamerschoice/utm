@@ -8,8 +8,8 @@
             </div>
 
             <div>
-                <x-button href="#">                 
-                    New Domain
+                <x-button>
+                    <a href="{{ route('domain.create') }}">New Domain</a>
                 </x-button>
             </div>
         </div>

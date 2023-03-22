@@ -17,6 +17,11 @@ class DomainController extends Controller
         ]);
     }
 
+    public function create()
+    {
+        return view('domains.create');
+    }
+
     public function show(Request $request, Domain $domain)
     {
         
