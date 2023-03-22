@@ -10,11 +10,7 @@ class DomainController extends Controller
 
     public function index(Request $request) 
     {
-        $team = $request->user()->currentTeam;
-
-        return view('domains.index', [
-            'domains' => $team->domains()->paginate(25)
-        ]);
+        return view('domains.index');
     }
 
     public function links(Request $request)

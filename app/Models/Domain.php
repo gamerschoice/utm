@@ -28,6 +28,11 @@ class Domain extends Model
         ];
     }
 
+    public function getLinkCountAttribute()
+    {
+        return count($this->links);
+    }
+
     public function links(): HasMany
     {
         return $this->hasMany(Link::class);
