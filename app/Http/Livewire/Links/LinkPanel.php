@@ -34,6 +34,7 @@ class LinkPanel extends Component
         'link.utm_term' => 'nullable',
         'link.utm_content' => 'nullable',
         'link.utm_source_platform' => 'nullable',
+        'link.utm_creative_format' => 'nullable',
         'link.utm_marketing_tactic' => 'nullable',
         'link.notes' => 'nullable'
     ];

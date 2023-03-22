@@ -7,7 +7,10 @@
                 </h1>
             </div>
 
-            <div>
+            <div class="flex gap-3">
+
+                @livewire('links.export')
+
                 <x-button href="#" class="text-lg">                 
                     Create a New Link
                 </x-button>
