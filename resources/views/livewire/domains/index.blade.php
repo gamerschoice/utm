@@ -4,6 +4,7 @@
             <x-slot name="head">
                 <x-table.heading sortable wire:click="sortBy('domain')">Domain</x-table.heading>
                 <x-table.heading>DNS</x-table.heading>
+                <x-table.heading sortable wire:click="sortBy('link_count')">Shortlink domain</x-table.heading>
                 <x-table.heading sortable wire:click="sortBy('link_count')">Links</x-table.heading>
                 <x-table.heading sortable wire:click="sortBy('created')">Created</x-table.heading>
                 <x-table.heading class="flex-end"></x-table.heading>
@@ -23,8 +24,9 @@
                                 </svg>
                             @endif  
                         </x-table.cell>
+                        <x-table.cell>{{ $domain->shortlink_domain == 'NULL' ? '' : $domain->shortlink_domain }}</x-table.cell>
                         <x-table.cell>{{ $domain->link_count }}</x-table.cell>
-                        <x-table.cell>{{ $domain->created_at }}</x-table.cell>
+                        <x-table.cell>{{ $domain->created_ago }}</x-table.cell>
                         <x-table.cell class="justify-end text-right">
                             <a href="{{ route('domain.view', $domain) }}">
                                 <x-button-secondary type="button" class="text-xs">

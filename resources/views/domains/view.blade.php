@@ -32,10 +32,10 @@
         <div x-show="activeTab === 'links'">
             @livewire('domains.links')
         </div>
-        <div x-show="activeTab === 'details'">
-            details tab
+        <div x-show="activeTab === 'details'" x-cloak>
+            @livewire('domains.details')
         </div>
-        <div x-show="activeTab === 'short-domain'">
+        <div x-show="activeTab === 'short-domain'" x-cloak>
             shortdomain tab
         </div>
 

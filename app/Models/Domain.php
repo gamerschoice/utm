@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
 
 class Domain extends Model
 {
@@ -27,6 +28,11 @@ class Domain extends Model
             'domain' => $this->domain,
             'team_id' => $this->team_id,
         ];
+    }
+
+    public function getCreatedAgoAttribute()
+    {
+        return Carbon::parse($this->created_at)->diffForHumans();
     }
 
     public function getLinkCountAttribute()

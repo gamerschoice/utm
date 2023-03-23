@@ -119,7 +119,7 @@
                         <x-table.cell><span class="underline decoration-dotted decoration-blue-200 cursor-pointer" wire:click="setActiveUtmSourceFilter('{{ $link->utm_source }}')">{{ $link->utm_source }}</span></x-table.cell>
                         <x-table.cell><span class="underline decoration-dotted decoration-blue-200 cursor-pointer" wire:click="setActiveUtmMediumFilter('{{ $link->utm_medium }}')">{{ $link->utm_medium }}</span></x-table.cell>
                         <x-table.cell><span class="underline decoration-dotted decoration-blue-200 cursor-pointer" wire:click="setActiveUtmCampaignFilter('{{ $link->utm_campaign }}')">{{ $link->utm_campaign }}</span></x-table.cell>
-                        <x-table.cell>{{ $link->created_at }}</x-table.cell>
+                        <x-table.cell>{{ $link->created_ago }}</x-table.cell>
                         <x-table.cell class="justify-end text-right">
 
                             <x-button-secondary type="button" wire:click="showLink({{ $link->id }})" class="text-xs">
