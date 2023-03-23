@@ -13,7 +13,7 @@
                 <ul class="-mb-2 max-h-72 scroll-py-2 overflow-y-auto py-2 text-sm bg-white text-gray-800" id="options" role="listbox">
                     @foreach($domains as $domain)
                         <li class="cursor-default select-none rounded-md px-4 py-2 hover:bg-blue-600 hover:text-white" role="option" tabindex="-1">
-                            <a class="block w-full" href="{{ route('domain.links', $domain) }}">{{ $domain->domain }}</a>
+                            <a class="block w-full" href="{{ route('domain.view', $domain) }}">{{ $domain->domain }}</a>
                         </li>
                     @endforeach
                 </ul>

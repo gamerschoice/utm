@@ -60,7 +60,7 @@
                             <div class="transition group-hover:bg-white bg-gray-100 mt-3 rounded-md px-3 py-2">
                                 <ul class="list-none divide-y">
                                     @foreach($domains as $domain)
-                                        <li class="hover:translate-x-1 transition text-sm font-light py-2 px-2"><a href="{{ route('domain.links', $domain) }}">{{ $domain->domain }}</a></li>
+                                        <li class="hover:translate-x-1 transition text-sm font-light py-2 px-2"><a href="{{ route('domain.view', $domain) }}">{{ $domain->domain }}</a></li>
                                     @endforeach
                                     <li class="text-sm font-light py-2"><a href="{{ route('domain.index') }}" class="inline-block px-2 py-1 bg-blue-200 text-xs rounded-md">view all domains</a></li>
                                 </ul>
@@ -139,7 +139,7 @@
                     <div :class="{ 'bg-white' : active, 'bg-gray-50' : !active }" class="group-hover:bg-white transition mt-3 rounded-md p-3 text-gray-700 border border-gray-300">
                         <ul class="list-none divide-y">
                             @foreach($domains as $domain)
-                                <li class="hover:translate-x-1 transition text-sm px-2 @if(!$loop->first) pt-1 @endif pb-1 font-medium"><a href="{{ route('domain.links', $domain) }}">{{ $domain->domain }}</a></li>
+                                <li class="hover:translate-x-1 transition text-sm px-2 @if(!$loop->first) pt-1 @endif pb-1 font-medium"><a href="{{ route('domain.view', $domain) }}">{{ $domain->domain }}</a></li>
                             @endforeach
                             <li class="text-sm font-light pt-3">
                                 <a href="{{ route('domain.index') }}" class="inline-flex items-center rounded-md px-2 py-1 bg-white text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 ">view all domains</a>

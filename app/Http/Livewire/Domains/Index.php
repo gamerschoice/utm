@@ -14,30 +14,10 @@ class Index extends Component
 
     use WithPagination;
 
-
-
     public $sortField = 'created_at';
     public $sortDirection = 'desc';
 
     protected $queryString = ['sortField', 'sortDirection'];
-
-    protected $listeners = [ 'domainSaved' => '$refresh' ];
-
-    public function mount()
-    {
-
-    }
-
-    public function showDomain( int $id )
-    {
-        $this->dispatchBrowserEvent('open-domain-panel');
-        $this->emit('viewDomain', $id);
-    }
-
-    public function closeDomain()
-    {
-        $this->domain = null;
-    }
 
     public function sortBy(string $fieldName)
     {

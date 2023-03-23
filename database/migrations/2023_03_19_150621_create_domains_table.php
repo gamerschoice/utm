@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('team_id')->index();
             $table->string('domain')->index();
-            $table->tinyInteger('dns_configured');
+            $table->tinyInteger('dns_configured')->default(0);
+            $table->string('shortlink_domain')->nullable();
             $table->timestamps();
 
-            $table->unique(['id', 'domain']);
+            $table->unique('id');
 
             $table->softDeletes();
         });

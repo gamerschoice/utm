@@ -22,162 +22,151 @@
 
                     <form class="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl" wire:submit.prevent="updateLink">
 
-                            <div class="px-4 sm:px-6">
-                                <div class="flex items-center justify-between">
-                                    <h2 class="text-base font-semibold leading-6 text-gray-900" id="slide-over-title">Link details</h2>
-                                    <div class="ml-3 flex gap-2 h-7 items-center">
-                                        <x-button-danger x-show="!editing && !deleting" @click="deleting = true">
+                        <div class="px-4 sm:px-6">
+                            <div class="flex items-center justify-between">
+                                <h2 class="text-base font-semibold leading-6 text-gray-900" id="slide-over-title">Link details</h2>
+                                <div class="ml-3 flex gap-2 h-7 items-center">
+                                    <x-button-danger x-show="!editing && !deleting" @click="deleting = true">
+                                        Delete
+                                    </x-button-danger>
+
+                                    <div x-show="deleting" class="flex gap-2 items-center">
+                                        <span class="text-sm font-semibold">Are you sure?</span>
+                                        <x-button-secondary @click="deleting = false">
+                                            Cancel
+                                        </x-button-secondary>
+                                        <x-button-danger wire:click="deleteLink()" @click="deleting = false">
                                             Delete
                                         </x-button-danger>
-
-                                        <div x-show="deleting" class="flex gap-2 items-center">
-                                            <span class="text-sm font-semibold">Are you sure?</span>
-                                            <x-button-secondary @click="deleting = false">
-                                                Cancel
-                                            </x-button-secondary>
-                                            <x-button-danger wire:click="deleteLink()" @click="deleting = false">
-                                                Delete
-                                            </x-button-danger>
-                                        </div>
-                                        <div class="flex gap-2 items-center" x-show="editing && !deleting">
-                                            <x-button-secondary type="reset" @click="open = false; editing = false">
-                                                Discard
-                                            </x-button-secondary>
-                                            <x-button type="submit" @click="editing = true">
-                                                Save
-                                            </x-button>
-                                        </div>
-                                        <div class="flex gap-2 items-center" x-show="!editing && !deleting">
-                                            <x-button-secondary x-show="!editing && !deleting" wire:click="duplicateLink()" type="button">
-                                                Duplicate
-                                            </x-button-secondary>
-                                            <x-button-secondary x-show="!editing && !deleting" type="button" @click="editing = true">
-                                                Edit
-                                            </x-button-secondary>
-                                            <x-button-secondary x-show="!deleting" type="button" @click="open = false; editing = false;">
-                                                Close
-                                            </x-button-secondary>
-                                        </div>
+                                    </div>
+                                    <div class="flex gap-2 items-center" x-show="editing && !deleting">
+                                        <x-button-secondary type="reset" @click="open = false; editing = false">
+                                            Discard
+                                        </x-button-secondary>
+                                        <x-button type="submit" @click="editing = true">
+                                            Save
+                                        </x-button>
+                                    </div>
+                                    <div class="flex gap-2 items-center" x-show="!editing && !deleting">
+                                        <x-button-secondary x-show="!editing && !deleting" wire:click="duplicateLink()" type="button">
+                                            Duplicate
+                                        </x-button-secondary>
+                                        <x-button-secondary x-show="!editing && !deleting" type="button" @click="editing = true">
+                                            Edit
+                                        </x-button-secondary>
+                                        <x-button-secondary x-show="!deleting" type="button" @click="open = false; editing = false;">
+                                            Close
+                                        </x-button-secondary>
                                     </div>
                                 </div>
                             </div>
-                            <div class="relative mt-6 flex-1 px-4 sm:px-6">
-                                <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
-                                    @if($link)
-                                        <dl class="sm:divide-y sm:divide-gray-200">
-                                            <div x-show="!editing" class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
-                                                <dt class="text-sm font-medium text-gray-500">Created</dt>
-                                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                                    {{ $link->created_at }}
-                                                </dd>
-                                            </div>
-                                            <div x-show="!editing" class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
-                                                <dt class="text-sm font-medium text-gray-500">Last updated</dt>
-                                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                                    {{ $link->updated_at }}
-                                                </dd>
-                                            </div>
-                                            <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
-                                                <dt class="text-sm font-medium text-gray-500">Desination</dt>
-                                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                                    <a x-show="!editing" class="underline decoration-dotted" href="{{ $link->destination }}" target="_blank" rel="noopener nofollow">
-                                                        {{ $link->destination }}
-                                                    </a>
-                                                    <x-input required x-show="editing" wire:model.defer="link.destination" type="text" value="{{ $link->destination }}" />
-                                                    @error('link.destination') <span class="text-red-500">{{ $message }}</span> @enderror
-                                                </dd>
-                                            </div>
-                                            <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
-                                                <dt class="text-sm font-medium text-gray-500">UTM Source</dt>
-                                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                                    <span x-show="!editing">{{ $link->utm_source }}</span>
-                                                    <x-input x-show="editing" wire:model.defer="link.utm_source" type="text" value="{{ $link->utm_source }}" />
-                                                </dd>
-                                            </div>
-                                            <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
-                                                <dt class="text-sm font-medium text-gray-500">UTM Medium</dt>
-                                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                                    <span x-show="!editing">{{ $link->utm_medium }}</span>
-                                                    <x-input x-show="editing" wire:model.defer="link.utm_medium" type="text" value="{{ $link->utm_medium }}" />
-                                                </dd>
-                                            </div>
-                                            <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
-                                                <dt class="text-sm font-medium text-gray-500">UTM Campaign</dt>
-                                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                                    <span x-show="!editing">{{ $link->utm_campaign  }}</span>
-                                                    <x-input x-show="editing" wire:model.defer="link.utm_campaign" type="text" value="{{ $link->utm_campaign }}" />
-                                                </dd>
-                                            </div>
-
-                                            <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
-                                                <dt class="text-sm font-medium text-gray-500">UTM Term</dt>
-                                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                                    <span x-show="!editing">{{ $link->utm_term }}</span>
-                                                    <x-input x-show="editing" wire:model.defer="link.utm_term" type="text" value="{{ $link->utm_term }}" />
-                                                </dd>
-                                            </div>
-
-
-                                            <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
-                                                <dt class="text-sm font-medium text-gray-500">UTM Content</dt>
-                                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                                    <span x-show="!editing">{{ $link->utm_content }}</span>
-                                                    <x-input x-show="editing" wire:model.defer="link.utm_content" type="text" value="{{ $link->utm_content }}" />
-                                                </dd>
-                                            </div>
-
-
-                                            <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
-                                                <dt class="text-sm font-medium text-gray-500">UTM Source Platform</dt>
-                                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                                    <span x-show="!editing">{{ $link->utm_source_platform }}</span>
-                                                    <x-input x-show="editing" wire:model.defer="link.utm_source_platform" type="text" value="{{ $link->utm_source_platform }}" />
-                                                </dd>
-                                            </div>
-
-
-                                            <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
-                                                <dt class="text-sm font-medium text-gray-500">UTM Creative Format</dt>
-                                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                                    <span x-show="!editing">{{ $link->utm_creative_format }}</span>
-                                                    <x-input x-show="editing" wire:model.defer="link.utm_creative_format" type="text" value="{{ $link->utm_creative_format }}" />
-                                                </dd>
-                                            </div>
-
-
-                                            <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
-                                                <dt class="text-sm font-medium text-gray-500">UTM Marketing Tactic</dt>
-                                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                                    <span x-show="!editing">{{ $link->utm_marketing_tactic }}</span>
-                                                    <x-input x-show="editing" wire:model.defer="link.utm_marketing_tactic" type="text" value="{{ $link->utm_marketing_tactic }}" />
-                                                </dd>
-                                            </div>
-
-
-                                            <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
-                                                <dt class="text-sm font-medium text-gray-500">Notes</dt>
-                                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                                    <span x-show="!editing">{!! $link->notes !!}</span>
-                                                    <x-textarea x-show="editing" wire:model.defer="link.notes">{{ $link->notes }}</x-textarea>
-                                                </dd>
-                                            </div>
-
-                                            <div x-show="!editing" class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
-                                                <dt class="text-sm font-medium text-gray-500">URL</dt>
-                                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                                    <x-button type="button" x-data="{ copied: false }" class="text-xs" @click.prevent="window.navigator.clipboard.writeText('{{ $link->full_url }}'); copied = true; setTimeout( function() { copied = false }, 3000);">
-                                                        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 cursor-pointer mr-1 text-white-800">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5A3.375 3.375 0 006.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0015 2.25h-1.5a2.251 2.251 0 00-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 00-9-9z" />
-                                                        </svg>
-                                                        <span x-show="!copied">Copy</span>
-                                                        <span x-show="copied">Copied!</span>
-                                                    </x-button>
-                                                </dd>
-                                            </div>
-                                        </dl>
-                                    @endif
-                                </div>
-
+                        </div>
+                        <div class="relative mt-6 flex-1 px-4 sm:px-6">
+                            <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+                                @if($link)
+                                    <dl class="sm:divide-y sm:divide-gray-200">
+                                        <div x-show="!editing" class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                                            <dt class="text-sm font-medium text-gray-500">Created</dt>
+                                            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                                                {{ $link->created_at }}
+                                            </dd>
+                                        </div>
+                                        <div x-show="!editing" class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                                            <dt class="text-sm font-medium text-gray-500">Last updated</dt>
+                                            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                                                {{ $link->updated_at }}
+                                            </dd>
+                                        </div>
+                                        <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                                            <dt class="text-sm font-medium text-gray-500">Desination</dt>
+                                            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                                                <a x-show="!editing" class="underline decoration-dotted" href="{{ $link->destination }}" target="_blank" rel="noopener nofollow">
+                                                    {{ $link->destination }}
+                                                </a>
+                                                <x-input required x-show="editing" wire:model.defer="link.destination" type="text" value="{{ $link->destination }}" />
+                                                @error('link.destination') <span class="text-red-500">{{ $message }}</span> @enderror
+                                            </dd>
+                                        </div>
+                                        <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                                            <dt class="text-sm font-medium text-gray-500">UTM Source</dt>
+                                            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                                                <span x-show="!editing">{{ $link->utm_source }}</span>
+                                                <x-input x-show="editing" wire:model.defer="link.utm_source" type="text" value="{{ $link->utm_source }}" />
+                                            </dd>
+                                        </div>
+                                        <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                                            <dt class="text-sm font-medium text-gray-500">UTM Medium</dt>
+                                            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                                                <span x-show="!editing">{{ $link->utm_medium }}</span>
+                                                <x-input x-show="editing" wire:model.defer="link.utm_medium" type="text" value="{{ $link->utm_medium }}" />
+                                            </dd>
+                                        </div>
+                                        <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                                            <dt class="text-sm font-medium text-gray-500">UTM Campaign</dt>
+                                            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                                                <span x-show="!editing">{{ $link->utm_campaign  }}</span>
+                                                <x-input x-show="editing" wire:model.defer="link.utm_campaign" type="text" value="{{ $link->utm_campaign }}" />
+                                            </dd>
+                                        </div>
+                                        <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                                            <dt class="text-sm font-medium text-gray-500">UTM Term</dt>
+                                            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                                                <span x-show="!editing">{{ $link->utm_term }}</span>
+                                                <x-input x-show="editing" wire:model.defer="link.utm_term" type="text" value="{{ $link->utm_term }}" />
+                                            </dd>
+                                        </div>
+                                        <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                                            <dt class="text-sm font-medium text-gray-500">UTM Content</dt>
+                                            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                                                <span x-show="!editing">{{ $link->utm_content }}</span>
+                                                <x-input x-show="editing" wire:model.defer="link.utm_content" type="text" value="{{ $link->utm_content }}" />
+                                            </dd>
+                                        </div>
+                                        <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                                            <dt class="text-sm font-medium text-gray-500">UTM Source Platform</dt>
+                                            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                                                <span x-show="!editing">{{ $link->utm_source_platform }}</span>
+                                                <x-input x-show="editing" wire:model.defer="link.utm_source_platform" type="text" value="{{ $link->utm_source_platform }}" />
+                                            </dd>
+                                        </div>
+                                        <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                                            <dt class="text-sm font-medium text-gray-500">UTM Creative Format</dt>
+                                            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                                                <span x-show="!editing">{{ $link->utm_creative_format }}</span>
+                                                <x-input x-show="editing" wire:model.defer="link.utm_creative_format" type="text" value="{{ $link->utm_creative_format }}" />
+                                            </dd>
+                                        </div>
+                                        <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                                            <dt class="text-sm font-medium text-gray-500">UTM Marketing Tactic</dt>
+                                            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                                                <span x-show="!editing">{{ $link->utm_marketing_tactic }}</span>
+                                                <x-input x-show="editing" wire:model.defer="link.utm_marketing_tactic" type="text" value="{{ $link->utm_marketing_tactic }}" />
+                                            </dd>
+                                        </div>
+                                        <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                                            <dt class="text-sm font-medium text-gray-500">Notes</dt>
+                                            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                                                <span x-show="!editing">{!! $link->notes !!}</span>
+                                                <x-textarea x-show="editing" wire:model.defer="link.notes">{{ $link->notes }}</x-textarea>
+                                            </dd>
+                                        </div>
+                                        <div x-show="!editing" class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                                            <dt class="text-sm font-medium text-gray-500">URL</dt>
+                                            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                                                <x-button type="button" x-data="{ copied: false }" class="text-xs" @click.prevent="window.navigator.clipboard.writeText('{{ $link->auto_url }}'); copied = true; setTimeout( function() { copied = false }, 3000);">
+                                                    <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 cursor-pointer mr-1 text-white-800">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5A3.375 3.375 0 006.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0015 2.25h-1.5a2.251 2.251 0 00-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 00-9-9z" />
+                                                    </svg>
+                                                    <span x-show="!copied">Copy</span>
+                                                    <span x-show="copied">Copied!</span>
+                                                </x-button>
+                                            </dd>
+                                        </div>
+                                    </dl>
+                                @endif
+                            </div>
+                        </div>
+                        
                     </form>
 
                 </div>
