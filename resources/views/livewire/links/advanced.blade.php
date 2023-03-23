@@ -56,7 +56,7 @@
             <div class="px-4 py-5 sm:p-6 relative">
                 @if($errorMessage) <div class="text-red-500 font-semibold text-sm">{{ $errorMessage }}</div> @endif
                 @if(!empty($this->destinationsLoaded))
-                    <div class="my-2 flex justify-end">
+                    <div class="mb-4 flex justify-end">
                         <x-button wire:click.prevent="importLinks" wire:loading.attr="disabled" type="button">
                             <span>Create links</span>
                             <svg wire:loading wire:target="importLinks" class="ml-2 animate-spin inline-block h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
