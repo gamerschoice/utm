@@ -136,12 +136,12 @@
                         <span class="flex-1">{{ __('Domains') }}</span>
                         <span  class="bg-white ml-3 inline-block rounded-full py-0.5 px-3 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300">{{ $totalDomains }}</span>
                     </a>
-                    <div class="transition bg-gray-50 mt-3 rounded-md px-3 py-2 text-gray-700">
+                    <div :class="{ 'bg-white' : active, 'bg-gray-50' : !active }" class="group-hover:bg-white transition mt-3 rounded-md p-3 text-gray-700 border border-gray-300">
                         <ul class="list-none divide-y">
                             @foreach($domains as $domain)
-                                <li class="hover:translate-x-1 transition text-sm font-light py-2 px-2"><a href="{{ route('domain.links', $domain) }}">{{ $domain->domain }}</a></li>
+                                <li class="hover:translate-x-1 transition text-sm px-2 @if(!$loop->first) pt-1 @endif pb-1 font-medium"><a href="{{ route('domain.links', $domain) }}">{{ $domain->domain }}</a></li>
                             @endforeach
-                            <li class="text-sm font-light py-2">
+                            <li class="text-sm font-light pt-3">
                                 <a href="{{ route('domain.index') }}" class="inline-flex items-center rounded-md px-2 py-1 bg-white text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 ">view all domains</a>
                             </li>
                         </ul>
