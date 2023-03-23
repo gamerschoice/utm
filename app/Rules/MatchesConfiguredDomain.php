@@ -9,9 +9,10 @@ use Illuminate\Support\Str;
 
 class MatchesConfiguredDomain implements ValidationRule
 {
-    public function __construct(Team $team)
+
+    public function __construct()
     {
-        $this->team = $team;
+    
     }
 
     /**
@@ -21,6 +22,12 @@ class MatchesConfiguredDomain implements ValidationRule
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
+
+        /**
+         * @todo refactor
+         */
+
+        /*
         $configuredHost = parse_url($this->team->website)['host'];
         $desinationHost = parse_url($value);
 
@@ -32,5 +39,6 @@ class MatchesConfiguredDomain implements ValidationRule
         {
             $fail("The :attribute was not on {$configuredHost}.");
         }
+        */
     }
 }

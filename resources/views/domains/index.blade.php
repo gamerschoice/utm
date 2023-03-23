@@ -10,7 +10,7 @@
             <div class="flex gap-3">
 
                 <x-button href="#" class="text-lg">                 
-                    Add a New Domain
+                    <a href="{{ route('domain.create') }}">Add A Domain</a>
                 </x-button>
 
             </div>

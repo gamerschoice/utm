@@ -33,9 +33,11 @@ Route::middleware([
     Route::get('/billing', [BillingController::class, 'index'])->name('billing');
     Route::post('/billing', [BillingController::class, 'create']);
 
-    Route::resource('/links', LinksController::class);
+    //Route::resource('/links', LinksController::class);
 
     Route::get('/domains', [DomainController::class, 'index'])->name('domain.index');
+    Route::get('/domains/create', [DomainController::class, 'create'])->name('domain.create');
     Route::get('/domains/{domain}', [DomainController::class, 'links'])->name('domain.links');
-
+    Route::get('/link/{domain_id}/wizard', [LinksController::class, 'create'])->name('link.create');
+    Route::get('/link/{domain_id}/advanced', [LinksController::class, 'advanced'])->name('link.advanced');
 });
