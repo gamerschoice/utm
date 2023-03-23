@@ -30,7 +30,7 @@
                 @livewire('links.export')
                 <a href="{{ route('link.create', $domain) }}">
                     <x-button class="text-lg">                 
-                        Create a New Link
+                        <span class="hidden md:inline">Create a&nbsp;</span>New Link
                     </x-button>
                 </a>
             </div>
@@ -73,7 +73,7 @@
             </div>
         </div>
         
-        <x-confirmation-modal wire:model="confirmingBulkDelete">
+        <x-modal-danger wire:model="confirmingBulkDelete">
             <x-slot name="title">
                 {{ __('Delete links') }}
             </x-slot>
@@ -88,7 +88,7 @@
                     {{ __('Delete') }}
                 </x-button-danger>
             </x-slot>
-        </x-confirmation-modal>
+        </x-modal-danger>
 
         <x-table>
             <x-slot name="head">

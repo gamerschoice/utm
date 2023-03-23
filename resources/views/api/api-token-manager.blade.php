@@ -147,7 +147,7 @@
     </x-dialog-modal>
 
     <!-- Delete Token Confirmation Modal -->
-    <x-confirmation-modal wire:model="confirmingApiTokenDeletion">
+    <x-modal-danger wire:model="confirmingApiTokenDeletion">
         <x-slot name="title">
             {{ __('Delete API Token') }}
         </x-slot>
@@ -165,5 +165,5 @@
                 {{ __('Delete') }}
             </x-button-danger>
         </x-slot>
-    </x-confirmation-modal>
+    </x-modal-danger>
 </div>

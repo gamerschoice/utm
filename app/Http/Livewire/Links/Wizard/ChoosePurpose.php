@@ -11,7 +11,7 @@ class ChoosePurpose extends StepComponent
 
     public $campaign;
 
-    public $distinctCampaigns;
+    public $distinctCampaigns = [];
 
 
     public function mount()

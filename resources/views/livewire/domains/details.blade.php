@@ -61,28 +61,57 @@
 
     <div class="md:col-span-1 flex flex-col gap-6">
 
-        <div class="bg-white shadow sm:rounded-lg">
+        <div class="bg-white shadow rounded-lg">
             <div class="px-4 py-5 sm:p-6">
                 <h3 class="text-base font-semibold leading-6 text-gray-900">Rename domain</h3>
                 <div class="mt-2 max-w-xl text-sm text-gray-500">
-                    <p>You can update/rename your domain, and all associated link non-short link URLs by clicking below.</p>
+                    <p>You can update/rename your domain, and all associated long link URLs by clicking below.</p>
                 </div>
                 <div class="mt-5">
-                    <button type="button" class="inline-flex items-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500">Rename domain</button>
+                    <button wire:click="$toggle('renamingDomain')" type="button" class="inline-flex items-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500">Rename domain</button>
                 </div>
             </div>
+            <x-modal-neutral wire:model="renamingDomain" x-data="{ newDomainName: '' }">
+                <x-slot name="title">Rename domain?</x-slot>
+                <x-slot name="content">
+                    <p class="mb-4">If you delete your domain, all UTM Wise links will be removed, and your shortdomain links will stop working. If you're sure you want to do this, please type <strong>{{ $domain->domain }}</strong> in the text box below and click Delete.</p>
+                    <x-input class="text-base" type="text" wire:model.defer="newDomainName" placeholder="example.com" />
+                    @if($errorMessage) <p class="text-red-500 mt-4">{{ $errorMessage }}</p> @endif
+                </x-slot>
+                <x-slot name="footer">
+                    <div class="flex justify-end gap-2 items-center">
+                        <x-button-secondary wire:click="$toggle('renamingDomain')">Cancel</x-button-secondary>
+                        <x-button type="button" wire:click="renameDomain">Rename</x-button>
+                    </div>
+                </x-slot>
+            </x-modal-neutral>
         </div>
 
-        <div class="bg-white shadow sm:rounded-lg">
+        <div class="bg-white shadow rounded-lg" x-data="{ deleteModalOpen: false, confirmDomainName: '' }">
             <div class="px-4 py-5 sm:p-6">
                 <h3 class="text-base font-semibold leading-6 text-gray-900">Delete domain</h3>
                 <div class="mt-2 max-w-xl text-sm text-gray-500">
                     <p>You can completely remove your domain, and all links you've created for it, by clicking below.</p>
                 </div>
                 <div class="mt-5">
-                    <button type="button" class="inline-flex items-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500">Delete domain</button>
+                    <button wire:click="$toggle('confirmingDomainDelete')" type="button" class="inline-flex items-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500">Delete domain</button>
                 </div>
             </div>
+
+            <x-modal-danger wire:model="confirmingDomainDelete" x-data="{ confirmDomainName: '' }">
+                <x-slot name="title">Are you sure?</x-slot>
+                <x-slot name="content">
+                    <p class="mb-4">If you delete your domain, all UTM Wise links will be removed, and your shortdomain links will stop working. If you're sure you want to do this, please type <strong>{{ $domain->domain }}</strong> in the text box below and click Delete.</p>
+                    <x-input class="text-base" type="text" x-model="confirmDomainName" placeholder="Please type: {{ $domain->domain }}" />
+                </x-slot>
+                <x-slot name="footer">
+                    <div class="flex justify-end gap-2 items-center">
+                        <x-button-secondary wire:click="$toggle('confirmingDomainDelete')">Cancel</x-button-secondary>
+                        <x-button-danger wire:click="deleteDomain" x-bind:disabled="confirmDomainName !== '{{ $domain->domain }})'" x-bind:class="{ 'opacity-50' : confirmDomainName !== '{{ $domain->domain }}', 'opacity-100' : confirmDomainName == '{{ $domain->domain }}' }">Delete</x-button-danger>
+                    </div>
+                </x-slot>
+            </x-modal-danger>
+
         </div>
 
     </div>

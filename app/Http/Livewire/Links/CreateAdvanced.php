@@ -46,7 +46,10 @@ class CreateAdvanced extends Component
 
         $split = preg_split('/[\r\n]+/', $this->destinations, -1, PREG_SPLIT_NO_EMPTY);
         $validator = Validator::make($split, [
-            '*' => 'url',
+            '*' => [
+                'url',
+                new MatchesConfiguredDomain()
+            ]
         ]);
         
         if ($validator->fails()) {
@@ -92,7 +95,7 @@ class CreateAdvanced extends Component
             $linkObj->notes = $link['notes'];
             $linkObj->domain_id = $this->domain_id;
             $linkObj->shortlink = Str::random(8);
-            
+            $linkObj->save();
         }
 
         Notification::make() 

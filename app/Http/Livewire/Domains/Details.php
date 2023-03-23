@@ -4,52 +4,56 @@ namespace App\Http\Livewire\Domains;
 use App\Models\Domain;
 use Livewire\Component;
 use Filament\Notifications\Notification; 
+use Illuminate\Support\Facades\Validator;
 
 class Details extends Component
 {
 
     public $domain;
 
+    public $newDomainName;
 
-    /*
-    protected $rules = [
-        'domain.domain' => 'required'
-    ];
-    */
-
-    //protected $listeners = ['viewDomain'];
+    public bool $confirmingDomainDelete = false;
+    public bool $renamingDomain = false;
+    
+    public $errorMessage;
 
     public function mount()
     {
         $this->domain = Domain::find( request()->domain );
     }
 
-    /*
+
     public function deleteDomain()
     {
-
         $this->domain->delete();
-        $this->emit('domainSaved');
-        $this->dispatchBrowserEvent('close-domain-panel');
+        $this->emit('$refresh');
         Notification::make() 
             ->title('Domain removed.')
             ->danger()
             ->send(); 
     }
 
-    public function updateDomain()
+    /**
+     * @todo validate domain is real
+     */
+    public function renameDomain() 
     {
-        $this->validate();
+        $validator = Validator::make([ 'domain' => $this->newDomainName ], [
+            'domain' => [
+                'required'
+            ]
+        ]);
 
+        if ($validator->fails()) {
+            $this->errorMessage = 'Invalid domain name.';
+        }
+
+        $this->domain->domain = $validator->validated()['domain'];
         $this->domain->save();
-        $this->emit('domainSaved');
-        $this->dispatchBrowserEvent('close-domain-panel');
-        Notification::make() 
-            ->title('Domain saved successfully')
-            ->success()
-            ->send(); 
+        return redirect()->route('domain.view', $this->domain);
     }
-    */
+
 
     public function render()
     {

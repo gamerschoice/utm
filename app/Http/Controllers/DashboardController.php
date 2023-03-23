@@ -12,12 +12,14 @@ class DashboardController extends Controller
     {
         $domains = Domain::where('team_id', $request->user()->currentTeam->id)
                     ->orderBy('created_at', 'desc')
-                    ->with(['links' => function($query) {
-                        $query->orderBy('created_at', 'desc')
-                            ->limit(3);
-                    }])
                     ->take(9)
-                    ->get();
+                    ->with(['links'])
+                    ->get()
+                    ->map( function ( $query ) {
+                        $query->setRelation('links', $query->links->take(3));
+                        return $query;
+                    });
+                    
 
         return view('dashboard', [
             'domains' => $domains
