@@ -48,12 +48,12 @@
             </div>
         </div>
           
-        <div class="overflow-hidden rounded-lg bg-white shadow">
+        <div class="overflow-hidden rounded-lg bg-white shadow flex flex-col">
             <div class="border-b border-gray-200 bg-white px-4 py-5 sm:px-6">
                 <h3 class="text-base font-semibold leading-6 text-gray-900">Your Attributable Links</h3>
                 <p class="mt-1 text-sm text-gray-500">Below is a list of your processed links ready for attribution. This will only be populated once you've submitted your destination URL list.</p>
               </div>
-            <div class="px-4 py-5 sm:p-6 relative">
+            <div class="px-4 py-5 sm:p-6 relative flex h-full">
                 @if($errorMessage) <div class="text-red-500 font-semibold text-sm">{{ $errorMessage }}</div> @endif
                 @if(!empty($this->destinationsLoaded))
                     <div class="mb-4 flex justify-end">
@@ -65,6 +65,16 @@
                             </svg>
                         </x-button>
                     </div>
+                @else 
+
+                    <div class="relative block w-full rounded-lg border-2 border-dashed border-gray-300 p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                        <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.182 16.318A4.486 4.486 0 0012.016 15a4.486 4.486 0 00-3.198 1.318M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" />
+                        </svg>  
+                        <span class="mt-2 block text-base font-semibold text-gray-900">No links processed</span>
+                        <span class="text-sm font-medium text-gray-500 mx-auto sm:w-2/3 block">Please paste your URLs into the Destination URLs text area and click Submit</span>
+                    </div>
+
                 @endif
                 @foreach($this->destinationsLoaded as $index => $link)
                     <div class="bg-gray-100 py-3 px-3 rounded-md shadow-sm my-2" x-data="{ open: false }">
