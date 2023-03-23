@@ -4,13 +4,15 @@
 
             <div>
                 <h1 class="text-3xl font-semibold text-gray-800">
-                    Create a New Link
+                    Create Links <small class="text-base">(advanced)</small>
                 </h1>
+                <p class="mt-4 text-gray-600">Use this form to bulk import and attribute a whole bunch of links in one swoop.</p>
             </div>
             <div class="flex gap-3">
-                <a href="{{ route('link.advanced', $domain->id) }}">
+                
+                <a href="{{ route('link.create', $domain->id) }}">
                     <x-button class="text-lg">                 
-                        Advanced
+                        Wizard
                     </x-button>
                 </a>
             </div>
@@ -19,6 +21,6 @@
     </x-slot>
 
 
-    @livewire('links.create-link', [ 'domain' => $domain ])
+    @livewire('links.create-advanced', [ 'domain' => $domain ])
 
 </x-app-layout>

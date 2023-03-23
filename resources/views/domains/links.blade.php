@@ -11,9 +11,12 @@
 
                 @livewire('links.export')
 
-                <x-button href="#" class="text-lg">                 
-                    Create a New Link
-                </x-button>
+                
+                <a href="{{ route('link.create', $domain->id) }}">
+                    <x-button class="text-lg">                 
+                        Create a New Link
+                    </x-button>
+                </a>
             </div>
         </div>
     </x-slot>

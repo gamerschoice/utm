@@ -9,19 +9,7 @@ class Link extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'destination',
-        'utm_source',
-        'utm_medium',
-        'utm_campaign',
-        'utm_term',
-        'utm_content',
-        'utm_source_platform',
-        'utm_creative_format',
-        'utm_marketing_tactic',
-        'shortlink',
-        'published'
-    ];
+    protected $guarded = ['id'];
 
     public function getFullUrlAttribute()
     {

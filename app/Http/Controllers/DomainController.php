@@ -18,7 +18,7 @@ class DomainController extends Controller
         return view('domains.create');
     }
 
-    public function show(Request $request, Domain $domain)
+    public function links(Request $request)
     {
         $domainObj = Domain::where('id', $request->domain )->first();
         return view('domains.links', [
