@@ -252,7 +252,7 @@
                 {{ __('Cancel') }}
             </x-button-secondary>
 
-            <x-buttondanger class="ml-3" wire:click="removeTeamMember" wire:loading.attr="disabled">
+            <x-button-danger class="ml-3" wire:click="removeTeamMember" wire:loading.attr="disabled">
                 {{ __('Remove') }}
             </x-button-danger>
         </x-slot>
