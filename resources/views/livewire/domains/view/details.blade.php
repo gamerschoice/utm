@@ -32,11 +32,11 @@
                         <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5">
                             <dt class="text-sm font-medium text-gray-500">Shortlink domain</dt>
                             <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                {{ $domain->shortlink_domain }}
+                                {!! $domain->shortlink_domain === 'NULL' ? '<em>not set</em>' : $domain->shortlink_domain !!}
                             </dd>
                         </div>
                         <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5">
-                            <dt class="text-sm font-medium text-gray-500">DNS</dt>
+                            <dt class="text-sm font-medium text-gray-500">Shortlinks enabled?</dt>
                             <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                                 @if($domain->dns_configured === 1)
                                     <svg class="inline-block w-5 h-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">

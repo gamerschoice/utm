@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Domains;
+namespace App\Http\Livewire\Domains\View;
 use App\Models\Domain;
 use Livewire\Component;
 use Filament\Notifications\Notification; 
@@ -18,11 +18,10 @@ class Details extends Component
     
     public $errorMessage;
 
-    public function mount()
+    public function mount() : void
     {
         $this->domain = Domain::find( request()->domain );
     }
-
 
     public function deleteDomain()
     {
@@ -51,13 +50,19 @@ class Details extends Component
 
         $this->domain->domain = $validator->validated()['domain'];
         $this->domain->save();
+
+        $this->emit('$refresh');
+        Notification::make() 
+            ->title('Domain renamed.')
+            ->success()
+            ->send(); 
         return redirect()->route('domain.view', $this->domain);
     }
 
 
     public function render()
     {
-        return view('livewire.domains.details');
+        return view('livewire.domains.view.details');
     }
 
 }

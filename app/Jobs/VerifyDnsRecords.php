@@ -71,12 +71,16 @@ class VerifyDnsRecords implements ShouldQueue, ShouldBeUnique
 
     public function cleanHost(Domain $domain)
     {
-        $host = parse_url($domain->website)['host'];
+        /*
+        $host = parse_url($domain->shortlink_domain)['host'];
 
         if(Str::startsWith($host, 'www.')) {
             return Str::substr($host, 4);
         }
 
         return $host;
+        */
+
+        return $domain->shortlink_domain;
     }
 }
