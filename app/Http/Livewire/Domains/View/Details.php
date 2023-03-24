@@ -5,6 +5,7 @@ use App\Models\Domain;
 use Livewire\Component;
 use Filament\Notifications\Notification; 
 use Illuminate\Support\Facades\Validator;
+use App\Jobs\RenameDomainLinks;
 
 class Details extends Component
 {
@@ -48,8 +49,14 @@ class Details extends Component
             $this->errorMessage = 'Invalid domain name.';
         }
 
-        $this->domain->domain = $validator->validated()['domain'];
+        $newDomain = $validator->validated()['domain'];
+        
+        RenameDomainLinks::dispatch( $this->domain, $newDomain );
+        
+        $this->domain->domain = $newDomain;
         $this->domain->save();
+
+
 
         $this->emit('$refresh');
         Notification::make() 
