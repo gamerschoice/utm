@@ -1,140 +1,1161 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full bg-gray-50 antialiased js-focus-visible">
 
-        <title>Laravel</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <title>UTM Wise</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Scripts -->
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <meta name="twitter:site" content="@utmwise">
+    <meta name="twitter:title" content="Get UTM Wise and take control of your link attribution">
+    <meta name="twitter:description"
+        content="Say goodbye to spreadsheets! UTM Wise lets you manage your site's UTM tracking links like a pro.">
+    <meta name="twitter:image" content="https://utmwise.com/img/meta/social.png">
+    <meta name="twitter:creator" content="@utmwise">
+    <meta property="og:url" content="https://utmwise.com/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Get UTM Wise and take control of your link attribution">
+    <meta property="og:description"
+        content="Say goodbye to spreadsheets! UTM Wise lets you manage your site's UTM tracking links like a pro.">
+    <meta property="og:image" content="https://utmwise.com/img/meta/social.png">
+    <meta property="description"
+        content="Say goodbye to spreadsheets! UTM Wise lets you manage your site's UTM tracking links like a pro.">
 
-        <!-- Styles -->
-        <style>
-            /* ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Figtree, sans-serif;font-feature-settings:normal}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::-webkit-backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.relative{position:relative}.mx-auto{margin-left:auto;margin-right:auto}.mx-6{margin-left:1.5rem;margin-right:1.5rem}.ml-4{margin-left:1rem}.mt-16{margin-top:4rem}.mt-6{margin-top:1.5rem}.mt-4{margin-top:1rem}.-mt-px{margin-top:-1px}.mr-1{margin-right:0.25rem}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.h-16{height:4rem}.h-7{height:1.75rem}.h-6{height:1.5rem}.h-5{height:1.25rem}.min-h-screen{min-height:100vh}.w-auto{width:auto}.w-16{width:4rem}.w-7{width:1.75rem}.w-6{width:1.5rem}.w-5{width:1.25rem}.max-w-7xl{max-width:80rem}.shrink-0{flex-shrink:0}.scale-100{--tw-scale-x:1;--tw-scale-y:1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.items-center{align-items:center}.justify-center{justify-content:center}.gap-6{gap:1.5rem}.gap-4{gap:1rem}.self-center{align-self:center}.rounded-lg{border-radius:0.5rem}.rounded-full{border-radius:9999px}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity))}.bg-dots-darker{background-image:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(0,0,0,0.07)'/%3E%3C/svg%3E")}.from-gray-700\/50{--tw-gradient-from:rgb(55 65 81 / 0.5);--tw-gradient-to:rgb(55 65 81 / 0);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-transparent{--tw-gradient-to:rgb(0 0 0 / 0);--tw-gradient-stops:var(--tw-gradient-from), transparent, var(--tw-gradient-to)}.bg-center{background-position:center}.stroke-red-500{stroke:#ef4444}.stroke-gray-400{stroke:#9ca3af}.p-6{padding:1.5rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.text-center{text-align:center}.text-right{text-align:right}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-gray-500\/20{--tw-shadow-color:rgb(107 114 128 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.selection\:bg-red-500 *::selection{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity))}.selection\:text-white *::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.selection\:bg-red-500::selection{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.hover\:text-gray-900:hover{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity))}.hover\:text-gray-700:hover{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity))}.focus\:rounded-sm:focus{border-radius:0.125rem}.focus\:outline:focus{outline-style:solid}.focus\:outline-2:focus{outline-width:2px}.focus\:outline-red-500:focus{outline-color:#ef4444}.group:hover .group-hover\:stroke-gray-600{stroke:#4b5563}@media (prefers-reduced-motion: no-preference){.motion-safe\:hover\:scale-\[1\.01\]:hover{--tw-scale-x:1.01;--tw-scale-y:1.01;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}}@media (prefers-color-scheme: dark){.dark\:bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39 / var(--tw-bg-opacity))}.dark\:bg-gray-800\/50{background-color:rgb(31 41 55 / 0.5)}.dark\:bg-red-800\/20{background-color:rgb(153 27 27 / 0.2)}.dark\:bg-dots-lighter{background-image:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E")}.dark\:bg-gradient-to-bl{background-image:linear-gradient(to bottom left, var(--tw-gradient-stops))}.dark\:stroke-gray-600{stroke:#4b5563}.dark\:text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity))}.dark\:text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.dark\:shadow-none{--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.dark\:ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.dark\:ring-inset{--tw-ring-inset:inset}.dark\:ring-white\/5{--tw-ring-color:rgb(255 255 255 / 0.05)}.dark\:hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.group:hover .dark\:group-hover\:stroke-gray-400{stroke:#9ca3af}}@media (min-width: 640px){.sm\:fixed{position:fixed}.sm\:top-0{top:0px}.sm\:right-0{right:0px}.sm\:ml-0{margin-left:0px}.sm\:flex{display:flex}.sm\:items-center{align-items:center}.sm\:justify-center{justify-content:center}.sm\:justify-between{justify-content:space-between}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}@media (min-width: 1024px){.lg\:gap-8{gap:2rem}.lg\:p-8{padding:2rem}}
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-            @if (Route::has('login'))
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+</head>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                        @endif
-                    @endauth
+<body class="flex h-full flex-col" x-data="{ burgerOpen: false }">
+
+    <div class="bg-white">
+        <!-- Header -->
+        <header class="absolute inset-x-0 top-0 z-50">
+            <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+                <div class="flex lg:flex-1">
+                    <a href="/" class="-m-1.5 p-1.5">
+                        <x-application-mark />
+                    </a>
                 </div>
-            @endif
-
-            <div class="max-w-7xl mx-auto p-6 lg:p-8">
-                <div class="flex justify-center">
-                    <svg viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto bg-gray-100 dark:bg-gray-900">
-                        <path d="M61.8548 14.6253C61.8778 14.7102 61.8895 14.7978 61.8897 14.8858V28.5615C61.8898 28.737 61.8434 28.9095 61.7554 29.0614C61.6675 29.2132 61.5409 29.3392 61.3887 29.4265L49.9104 36.0351V49.1337C49.9104 49.4902 49.7209 49.8192 49.4118 49.9987L25.4519 63.7916C25.3971 63.8227 25.3372 63.8427 25.2774 63.8639C25.255 63.8714 25.2338 63.8851 25.2101 63.8913C25.0426 63.9354 24.8666 63.9354 24.6991 63.8913C24.6716 63.8838 24.6467 63.8689 24.6205 63.8589C24.5657 63.8389 24.5084 63.8215 24.456 63.7916L0.501061 49.9987C0.348882 49.9113 0.222437 49.7853 0.134469 49.6334C0.0465019 49.4816 0.000120578 49.3092 0 49.1337L0 8.10652C0 8.01678 0.0124642 7.92953 0.0348998 7.84477C0.0423783 7.8161 0.0598282 7.78993 0.0697995 7.76126C0.0884958 7.70891 0.105946 7.65531 0.133367 7.6067C0.152063 7.5743 0.179485 7.54812 0.20192 7.51821C0.230588 7.47832 0.256763 7.43719 0.290416 7.40229C0.319084 7.37362 0.356476 7.35243 0.388883 7.32751C0.425029 7.29759 0.457436 7.26518 0.498568 7.2415L12.4779 0.345059C12.6296 0.257786 12.8015 0.211853 12.9765 0.211853C13.1515 0.211853 13.3234 0.257786 13.475 0.345059L25.4531 7.2415H25.4556C25.4955 7.26643 25.5292 7.29759 25.5653 7.32626C25.5977 7.35119 25.6339 7.37362 25.6625 7.40104C25.6974 7.43719 25.7224 7.47832 25.7523 7.51821C25.7735 7.54812 25.8021 7.5743 25.8196 7.6067C25.8483 7.65656 25.8645 7.70891 25.8844 7.76126C25.8944 7.78993 25.9118 7.8161 25.9193 7.84602C25.9423 7.93096 25.954 8.01853 25.9542 8.10652V33.7317L35.9355 27.9844V14.8846C35.9355 14.7973 35.948 14.7088 35.9704 14.6253C35.9792 14.5954 35.9954 14.5692 36.0053 14.5405C36.0253 14.4882 36.0427 14.4346 36.0702 14.386C36.0888 14.3536 36.1163 14.3274 36.1375 14.2975C36.1674 14.2576 36.1923 14.2165 36.2272 14.1816C36.2559 14.1529 36.292 14.1317 36.3244 14.1068C36.3618 14.0769 36.3942 14.0445 36.4341 14.0208L48.4147 7.12434C48.5663 7.03694 48.7383 6.99094 48.9133 6.99094C49.0883 6.99094 49.2602 7.03694 49.4118 7.12434L61.3899 14.0208C61.4323 14.0457 61.4647 14.0769 61.5021 14.1055C61.5333 14.1305 61.5694 14.1529 61.5981 14.1803C61.633 14.2165 61.6579 14.2576 61.6878 14.2975C61.7103 14.3274 61.7377 14.3536 61.7551 14.386C61.7838 14.4346 61.8 14.4882 61.8199 14.5405C61.8312 14.5692 61.8474 14.5954 61.8548 14.6253ZM59.893 27.9844V16.6121L55.7013 19.0252L49.9104 22.3593V33.7317L59.8942 27.9844H59.893ZM47.9149 48.5566V37.1768L42.2187 40.4299L25.953 49.7133V61.2003L47.9149 48.5566ZM1.99677 9.83281V48.5566L23.9562 61.199V49.7145L12.4841 43.2219L12.4804 43.2194L12.4754 43.2169C12.4368 43.1945 12.4044 43.1621 12.3682 43.1347C12.3371 43.1097 12.3009 43.0898 12.2735 43.0624L12.271 43.0586C12.2386 43.0275 12.2162 42.9888 12.1887 42.9539C12.1638 42.9203 12.1339 42.8916 12.114 42.8567L12.1127 42.853C12.0903 42.8156 12.0766 42.7707 12.0604 42.7283C12.0442 42.6909 12.023 42.656 12.013 42.6161C12.0005 42.5688 11.998 42.5177 11.9931 42.4691C11.9881 42.4317 11.9781 42.3943 11.9781 42.3569V15.5801L6.18848 12.2446L1.99677 9.83281ZM12.9777 2.36177L2.99764 8.10652L12.9752 13.8513L22.9541 8.10527L12.9752 2.36177H12.9777ZM18.1678 38.2138L23.9574 34.8809V9.83281L19.7657 12.2459L13.9749 15.5801V40.6281L18.1678 38.2138ZM48.9133 9.14105L38.9344 14.8858L48.9133 20.6305L58.8909 14.8846L48.9133 9.14105ZM47.9149 22.3593L42.124 19.0252L37.9323 16.6121V27.9844L43.7219 31.3174L47.9149 33.7317V22.3593ZM24.9533 47.987L39.59 39.631L46.9065 35.4555L36.9352 29.7145L25.4544 36.3242L14.9907 42.3482L24.9533 47.987Z" fill="#FF2D20"/>
-                    </svg>
+                <div class="flex lg:hidden">
+                    <button type="button"
+                        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </button>
                 </div>
+                <div class="hidden lg:flex lg:gap-x-12">
+                    <a href="#features" class="text-sm font-semibold leading-6 text-gray-900">Features</a>
 
-                <div class="mt-16">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                        <a href="https://laravel.com/docs" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-                                    </svg>
-                                </div>
+                    <a href="#pricing" class="text-sm font-semibold leading-6 text-gray-900">Pricing</a>
 
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Documentation</h2>
+                    <a href="#reviews" class="text-sm font-semibold leading-6 text-gray-900">Reviews</a>
 
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel has wonderful documentation covering every aspect of the framework. Whether you are a newcomer or have prior experience with Laravel, we recommend reading our documentation from beginning to end.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
+                    <a href="#faqs" class="text-sm font-semibold leading-6 text-gray-900">FAQs</a>
+                </div>
+                <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
+                            aria-hidden="true">&rarr;</span></a>
+                </div>
+            </nav>
+            <!-- Mobile menu, show/hide based on menu open state. -->
+            <div class="lg:hidden" role="dialog" aria-modal="true" x-show="burgerOpen">
+                <!-- Background backdrop, show/hide based on slide-over state. -->
+                <div class="fixed inset-0 z-50" x-show="burgerOpen"></div>
+                <div
+                    class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                    <div class="flex items-center justify-between">
+                        <a href="/" class="-m-1.5 p-1.5">
+                            <x-application-mark />
                         </a>
-
-                        <a href="https://laracasts.com" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Laracasts</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+                        <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+                            <span class="sr-only">Close menu</span>
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                             </svg>
-                        </a>
+                        </button>
+                    </div>
+                    <div class="mt-6 flow-root">
+                        <div class="-my-6 divide-y divide-gray-500/10">
+                            <div class="space-y-2 py-6">
+                                <a href="#"
+                                    class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Product</a>
 
-                        <a href="https://laravel-news.com" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
-                                    </svg>
-                                </div>
+                                <a href="#"
+                                    class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</a>
 
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Laravel News</h2>
+                                <a href="#"
+                                    class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</a>
 
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </p>
+                                <a href="#"
+                                    class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
                             </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
-
-                        <div class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.115 5.19l.319 1.913A6 6 0 008.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 002.288-4.042 1.087 1.087 0 00-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 01-.98-.314l-.295-.295a1.125 1.125 0 010-1.591l.13-.132a1.125 1.125 0 011.3-.21l.603.302a.809.809 0 001.086-1.086L14.25 7.5l1.256-.837a4.5 4.5 0 001.528-1.732l.146-.292M6.115 5.19A9 9 0 1017.18 4.64M6.115 5.19A8.965 8.965 0 0112 3c1.929 0 3.716.607 5.18 1.64" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Forge</a>, <a href="https://vapor.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Vapor</a>, <a href="https://nova.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Nova</a>, and <a href="https://envoyer.io" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Telescope</a>, and more.
-                                </p>
+                            <div class="py-6">
+                                <a href="#"
+                                    class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log
+                                    in</a>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-left">
-                        <div class="flex items-center gap-4">
-                            <a href="https://github.com/sponsors/taylorotwell" class="group inline-flex items-center hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="-mt-px mr-1 w-5 h-5 stroke-gray-400 dark:stroke-gray-600 group-hover:stroke-gray-600 dark:group-hover:stroke-gray-400">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                                </svg>
-                                Sponsor
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                     </div>
                 </div>
             </div>
+        </header>
+
+        <main class="isolate">
+            <!-- Hero section -->
+            <div class="relative pt-14">
+                <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
+                    <svg class="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]"
+                        viewBox="0 0 1155 678">
+                        <path fill="url(#9b2541ea-d39d-499b-bd42-aeea3e93f5ff)" fill-opacity=".3"
+                            d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z" />
+                        <defs>
+                            <linearGradient id="9b2541ea-d39d-499b-bd42-aeea3e93f5ff" x1="1155.49" x2="-78.208"
+                                y1=".177" y2="474.645" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#38bdf8" />
+                                <stop offset="1" stop-color="#0ea5e9" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="py-24 sm:py-32">
+                    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                        <div class="mx-auto max-w-2xl text-center">
+                            <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Ditch spreadsheets
+                                &amp; take control of link tracking.</h1>
+                            <p class="mt-6 text-lg leading-8 text-gray-600">Get UTM Wise and start managing your
+                                tracking links and link attribution effectively.</p>
+                            <div class="mt-10 flex items-center justify-center gap-x-6">
+                                <a href="/register"
+                                    class="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">Get
+                                    started</a>
+                                <a href="#features" class="text-sm font-semibold leading-6 text-gray-900">Learn more
+                                    <span aria-hidden="true">→</span></a>
+                            </div>
+                        </div>
+                        <div class="mt-16 flow-root sm:mt-24">
+                            <div
+                                class="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
+                                <img src="{{ asset('images/screenshot-create-link.jpg') }}" alt="App screenshot"
+                                    width="2432" height="1442"
+                                    class="rounded-md shadow-2xl ring-1 ring-gray-900/10">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
+                    <svg class="relative left-[calc(50%+3rem)] h-[21.1875rem] max-w-none -translate-x-1/2 sm:left-[calc(50%+36rem)] sm:h-[42.375rem]"
+                        viewBox="0 0 1155 678">
+                        <path fill="url(#b9e4a85f-ccd5-4151-8e84-ab55c66e5aa1)" fill-opacity=".3"
+                            d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z" />
+                        <defs>
+                            <linearGradient id="b9e4a85f-ccd5-4151-8e84-ab55c66e5aa1" x1="1155.49" x2="-78.208"
+                                y1=".177" y2="474.645" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#38bdf8" />
+                                <stop offset="1" stop-color="#0ea5e9" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Logo cloud -->
+            <!--div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div
+                    class="mx-auto grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+                    <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                        src="https://tailwindui.com/img/logos/158x48/transistor-logo-gray-900.svg" alt="Transistor"
+                        width="158" height="48">
+                    <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                        src="https://tailwindui.com/img/logos/158x48/reform-logo-gray-900.svg" alt="Reform"
+                        width="158" height="48">
+                    <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                        src="https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg" alt="Tuple"
+                        width="158" height="48">
+                    <img class="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
+                        src="https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg" alt="SavvyCal"
+                        width="158" height="48">
+                    <img class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+                        src="https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg" alt="Statamic"
+                        width="158" height="48">
+                </div>
+                <div class="mt-16 flex justify-center">
+                    <p
+                        class="relative rounded-full px-4 py-1.5 text-sm leading-6 text-gray-600 ring-1 ring-inset ring-gray-900/10 hover:ring-gray-900/20">
+                        <span class="hidden md:inline">Transistor saves up to $40,000 per year, per employee by working
+                            with us.</span>
+                        <a href="#" class="font-semibold text-blue-600"><span class="absolute inset-0"
+                                aria-hidden="true"></span> Read our case study <span
+                                aria-hidden="true">&rarr;</span></a>
+                    </p>
+                </div>
+            </div-->
+
+            <!-- Feature section -->
+            <div id="features" class="mx-auto mt-32 max-w-7xl px-6 sm:mt-56 lg:px-8">
+                <div class="mx-auto max-w-2xl lg:text-center">
+                    <h2 class="text-base font-semibold leading-7 text-blue-600">Features</h2>
+                    <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Everything you need to
+                        deploy your app</p>
+                    <p class="mt-6 text-lg leading-8 text-gray-600">Quis tellus eget adipiscing convallis sit sit eget
+                        aliquet quis. Suspendisse eget egestas a elementum pulvinar et feugiat blandit at. In mi viverra
+                        elit nunc.</p>
+                </div>
+                <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+                    <dl class="grid max-w-xl grid-cols-1 gap-y-10 gap-x-8 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+                        <div class="relative pl-16">
+                            <dt class="text-base font-semibold leading-7 text-gray-900">
+                                <div
+                                    class="absolute top-0 left-0 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600">
+                                    <svg class="h-6 w-6 stroke-white" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+                                    </svg>
+
+                                </div>
+                                Custom domain shortlinks
+                            </dt>
+                            <dd class="mt-2 text-base leading-7 text-gray-600">With a quick DNS update, you can use
+                                whatever domain, or subdomain you want for your shortlinks. E.g. go.mydomain.com,
+                                mydmn.co</dd>
+                        </div>
+
+                        <div class="relative pl-16">
+                            <dt class="text-base font-semibold leading-7 text-gray-900">
+                                <div
+                                    class="absolute top-0 left-0 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600">
+                                    <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                                    </svg>
+                                </div>
+                                SSL certificates
+                            </dt>
+                            <dd class="mt-2 text-base leading-7 text-gray-600">Sit quis amet rutrum tellus ullamcorper
+                                ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.</dd>
+                        </div>
+
+                        <div class="relative pl-16">
+                            <dt class="text-base font-semibold leading-7 text-gray-900">
+                                <div
+                                    class="absolute top-0 left-0 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600">
+                                    <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                                    </svg>
+                                </div>
+                                Simple queues
+                            </dt>
+                            <dd class="mt-2 text-base leading-7 text-gray-600">Quisque est vel vulputate cursus. Risus
+                                proin diam nunc commodo. Lobortis auctor congue commodo diam neque.</dd>
+                        </div>
+
+                        <div class="relative pl-16">
+                            <dt class="text-base font-semibold leading-7 text-gray-900">
+                                <div
+                                    class="absolute top-0 left-0 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600">
+                                    <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33" />
+                                    </svg>
+                                </div>
+                                Advanced security
+                            </dt>
+                            <dd class="mt-2 text-base leading-7 text-gray-600">Arcu egestas dolor vel iaculis in ipsum
+                                mauris. Tincidunt mattis aliquet hac quis. Id hac maecenas ac donec pharetra eget.</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Testimonial section -->
+            <div class="mx-auto mt-32 max-w-7xl sm:mt-56 sm:px-6 lg:px-8">
+                <div
+                    class="relative overflow-hidden bg-gray-900 py-20 px-6 shadow-xl sm:rounded-3xl sm:py-24 sm:px-10 md:px-12 lg:px-20">
+                    <img class="absolute inset-0 h-full w-full object-cover brightness-150 saturate-0"
+                        src="https://images.unsplash.com/photo-1601381718415-a05fb0a261f3?ixid=MXwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8ODl8fHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1216&q=80"
+                        alt="">
+                    <div class="absolute inset-0 bg-gray-900/90 mix-blend-multiply"></div>
+                    <svg viewBox="0 0 1097 845" aria-hidden="true"
+                        class="absolute -top-56 -left-80 w-[68.5625rem] transform-gpu blur-3xl">
+                        <path fill="url(#68eb76c4-2bc9-4928-860e-70adf05719f4)" fill-opacity=".45"
+                            d="M301.174 646.641 193.541 844.786 0 546.172l301.174 100.469 193.845-356.855c1.241 164.891 42.802 431.935 199.124 180.978 195.402-313.696 143.295-588.18 284.729-419.266 113.148 135.13 124.068 367.989 115.378 467.527L811.753 372.553l20.102 451.119-530.681-177.031Z" />
+                        <defs>
+                            <linearGradient id="68eb76c4-2bc9-4928-860e-70adf05719f4" x1="1097.04" x2="-141.165"
+                                y1=".22" y2="363.075" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#776FFF" />
+                                <stop offset="1" stop-color="#FF4694" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <svg viewBox="0 0 1097 845" aria-hidden="true"
+                        class="hidden md:absolute md:bottom-16 md:left-[50rem] md:block md:w-[68.5625rem] md:transform-gpu md:blur-3xl">
+                        <path fill="url(#68eb76c4-2bc9-4928-860e-70adf05719f4)" fill-opacity=".25"
+                            d="M301.174 646.641 193.541 844.786 0 546.172l301.174 100.469 193.845-356.855c1.241 164.891 42.802 431.935 199.124 180.978 195.402-313.696 143.295-588.18 284.729-419.266 113.148 135.13 124.068 367.989 115.378 467.527L811.753 372.553l20.102 451.119-530.681-177.031Z" />
+                    </svg>
+                    <div class="relative mx-auto max-w-2xl lg:mx-0">
+                        <img class="h-12 w-auto" src="https://tailwindui.com/img/logos/workcation-logo-white.svg"
+                            alt="">
+                        <figure>
+                            <blockquote class="mt-6 text-lg font-semibold text-white sm:text-xl sm:leading-8">
+                                <p>“Amet amet eget scelerisque tellus sit neque faucibus non eleifend. Integer eu
+                                    praesent at a. Ornare arcu gravida natoque erat et cursus tortor consequat at.
+                                    Vulputate gravida sociis enim nullam ultricies habitant malesuada lorem ac.”</p>
+                            </blockquote>
+                            <figcaption class="mt-6 text-base text-white">
+                                <div class="font-semibold">Judith Black</div>
+                                <div class="mt-1">CEO of Tuple</div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing section -->
+            <div id="pricing" class="py-24 sm:pt-48">
+                <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                    <div class="mx-auto max-w-4xl text-center">
+                        <h2 class="text-base font-semibold leading-7 text-blue-600">Pricing</h2>
+                        <p class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Pricing plans for
+                            teams of&nbsp;all&nbsp;sizes</p>
+                    </div>
+                    <p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">Distinctio et nulla
+                        eum soluta et neque labore quibusdam. Saepe et quasi iusto modi velit ut non voluptas in.
+                        Explicabo id ut laborum.</p>
+                    <div
+                        class="isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+                        <div
+                            class="flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10 lg:mt-8 lg:rounded-r-none">
+                            <div>
+                                <div class="flex items-center justify-between gap-x-4">
+                                    <h3 id="tier-freelancer" class="text-lg font-semibold leading-8 text-gray-900">
+                                        Personal</h3>
+                                </div>
+                                <p class="mt-4 text-sm leading-6 text-gray-600">The essentials to provide your best
+                                    work for clients.</p>
+                                <p class="mt-6 flex items-baseline gap-x-1">
+                                    <span class="text-4xl font-bold tracking-tight text-gray-900">£9</span>
+                                    <span class="text-sm font-semibold leading-6 text-gray-600">/month</span>
+                                </p>
+                                <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-600">
+                                    <li class="flex gap-x-3">
+                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        5 products
+                                    </li>
+
+                                    <li class="flex gap-x-3">
+                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        Up to 1,000 subscribers
+                                    </li>
+
+                                    <li class="flex gap-x-3">
+                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        Basic analytics
+                                    </li>
+
+                                    <li class="flex gap-x-3">
+                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        48-hour support response time
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="#" aria-describedby="tier-freelancer"
+                                class="mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 text-blue-600 ring-1 ring-inset ring-blue-200 hover:ring-blue-300">Buy
+                                plan</a>
+                        </div>
+
+                        <div
+                            class="flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10 lg:z-10 lg:rounded-b-none">
+                            <div>
+                                <div class="flex items-center justify-between gap-x-4">
+                                    <h3 id="tier-startup" class="text-lg font-semibold leading-8 text-blue-600">
+                                        Premium</h3>
+
+                                    <p
+                                        class="rounded-full bg-blue-600/10 py-1 px-2.5 text-xs font-semibold leading-5 text-blue-600">
+                                        Most popular</p>
+                                </div>
+                                <p class="mt-4 text-sm leading-6 text-gray-600">A plan that scales with your rapidly
+                                    growing business.</p>
+                                <p class="mt-6 flex items-baseline gap-x-1">
+                                    <span class="text-4xl font-bold tracking-tight text-gray-900">£20</span>
+                                    <span class="text-sm font-semibold leading-6 text-gray-600">/month</span>
+                                </p>
+                                <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-600">
+                                    <li class="flex gap-x-3">
+                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        25 products
+                                    </li>
+
+                                    <li class="flex gap-x-3">
+                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        Up to 10,000 subscribers
+                                    </li>
+
+                                    <li class="flex gap-x-3">
+                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        Advanced analytics
+                                    </li>
+
+                                    <li class="flex gap-x-3">
+                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        24-hour support response time
+                                    </li>
+
+                                    <li class="flex gap-x-3">
+                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        Marketing automations
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="#" aria-describedby="tier-startup"
+                                class="mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 bg-blue-600 text-white shadow-sm hover:bg-blue-500">Buy
+                                plan</a>
+                        </div>
+
+                        <div
+                            class="flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10 lg:mt-8 lg:rounded-l-none">
+                            <div>
+                                <div class="flex items-center justify-between gap-x-4">
+                                    <h3 id="tier-enterprise" class="text-lg font-semibold leading-8 text-gray-900">
+                                        Agency</h3>
+                                </div>
+                                <p class="mt-4 text-sm leading-6 text-gray-600">Everything you need to service every one of your clients.</p>
+                                <p class="mt-6 flex items-baseline gap-x-1">
+                                    <span class="text-4xl font-bold tracking-tight text-gray-900">£45</span>
+                                    <span class="text-sm font-semibold leading-6 text-gray-600">/month</span>
+                                </p>
+                                <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-600">
+                                    <li class="flex gap-x-3">
+                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        Unlimited products
+                                    </li>
+
+                                    <li class="flex gap-x-3">
+                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        Unlimited subscribers
+                                    </li>
+
+                                    <li class="flex gap-x-3">
+                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        Advanced analytics
+                                    </li>
+
+                                    <li class="flex gap-x-3">
+                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        1-hour, dedicated support response time
+                                    </li>
+
+                                    <li class="flex gap-x-3">
+                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        Marketing automations
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="#" aria-describedby="tier-enterprise"
+                                class="mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 text-blue-600 ring-1 ring-inset ring-blue-200 hover:ring-blue-300">Buy
+                                plan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews -->
+            <section id="reviews" aria-labelledby="reviews-title" class="py-24 sm:pt-48">
+                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div class="mx-auto max-w-4xl text-center">
+                        <h2 class="text-base font-semibold leading-7 text-blue-600">Reviews</h2>
+                        <p class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Our customers love
+                            it</p>
+                    </div>
+                    <p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">Distinctio et nulla
+                        eum soluta et neque labore quibusdam. Saepe et quasi iusto modi velit ut non voluptas in.
+                        Explicabo id ut laborum.</p>
+                    <div
+                        class="relative -mx-4 mt-16 grid h-[49rem] max-h-[150vh] grid-cols-1 items-start gap-8 overflow-hidden px-4 sm:mt-20 md:grid-cols-2 lg:grid-cols-3">
+                        <div class="animate-marquee space-y-8 py-4" style="--marquee-duration:28320ms;">
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">It really works.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">It really works.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">It really works.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">It really works.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">It really works.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">It really works.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">It really works.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">It really works.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">It really works.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">It really works.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">It really works.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">It really works.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                        </div>
+                        <div class="animate-marquee space-y-8 py-4 hidden md:block"
+                            style="--marquee-duration:40800ms;">
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                        </div>
+                        <div class="animate-marquee space-y-8 py-4 hidden lg:block"
+                            style="--marquee-duration:22880ms;">
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">It really works.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">It really works.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">It really works.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">It really works.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">It really works.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">It really works.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">It really works.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">It really works.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">It really works.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">It really works.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">It really works.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">It really works.</x-slot>
+                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
+                                    an hour.</x-slot>
+                                <x-slot name="author">CrazyInvestor</x-slot>
+                            </x-review-card>
+                        </div>
+                        <div class="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white">
+                        </div>
+                        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- FAQs -->
+            <div id="faqs"
+                class="mx-auto max-w-2xl divide-y divide-gray-900/10 px-6 pb-8 sm:pt-12 sm:pb-24 lg:max-w-7xl lg:px-8 lg:pb-32">
+                <h2 class="text-2xl font-bold leading-10 tracking-tight text-gray-900">Frequently asked questions</h2>
+                <dl class="mt-10 space-y-8 divide-y divide-gray-900/10">
+                    <div class="pt-8 lg:grid lg:grid-cols-12 lg:gap-8">
+                        <dt class="text-base font-semibold leading-7 text-gray-900 lg:col-span-5">What&#039;s the best
+                            thing about Switzerland?</dt>
+                        <dd class="mt-4 lg:col-span-7 lg:mt-0">
+                            <p class="text-base leading-7 text-gray-600">I don&#039;t know, but the flag is a big plus.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam
+                                fugiat.</p>
+                        </dd>
+                    </div>
+
+                    <!-- More questions... -->
+                </dl>
+            </div>
+
+            <!-- CTA section -->
+            <div class="relative -z-10 mt-32 px-6 lg:px-8">
+                <div
+                    class="absolute inset-x-0 top-1/2 -z-10 flex -translate-y-1/2 transform-gpu justify-center overflow-hidden blur-3xl sm:right-[calc(50%-6rem)] sm:top-auto sm:bottom-0 sm:translate-y-0 sm:transform-gpu sm:justify-end">
+                    <svg viewBox="0 0 1108 632" aria-hidden="true" class="w-[69.25rem] flex-none">
+                        <path fill="url(#191ef669-4d29-44ea-9496-5d65eb27150d)" fill-opacity=".25"
+                            d="M235.233 229.055 57.541 310.091.83.615l234.404 228.44L555.251 83.11c-65.036 115.261-134.286 322.756 109.01 230.655C968.382 198.638 1031-19.583 1092.23 172.304c48.98 153.51-34.51 321.107-82.37 385.717L810.952 307.442 648.261 631.576 235.233 229.055Z" />
+                        <defs>
+                            <linearGradient id="191ef669-4d29-44ea-9496-5d65eb27150d" x1="1220.59" x2="-85.053"
+                                y1="198.898" y2="-7.05" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#38bdf8" />
+                                <stop offset="1" stop-color="#0ea5e9" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="mx-auto max-w-2xl text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Boost your
+                        productivity.<br>Get UTM Wise today.</h2>
+                    <p class="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-600">Incididunt sint fugiat pariatur
+                        cupidatat consectetur sit cillum anim id veniam aliqua proident excepteur commodo do ea.</p>
+                    <div class="mt-10 flex items-center justify-center gap-x-6">
+                        <a href="#"
+                            class="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">Get
+                            started</a>
+                        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Learn more <span
+                                aria-hidden="true">→</span></a>
+                    </div>
+                </div>
+                <div
+                    class="absolute left-1/2 right-0 top-full -z-10 hidden -translate-y-1/2 transform-gpu overflow-hidden blur-3xl sm:block">
+                    <svg viewBox="0 0 1155 678" aria-hidden="true" class="w-[72.1875rem]">
+                        <path fill="url(#23e1b96e-c791-45fa-975a-a04d29498207)" fill-opacity=".3"
+                            d="M317.219 518.975 203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079Z" />
+                        <defs>
+                            <linearGradient id="23e1b96e-c791-45fa-975a-a04d29498207" x1="1155.49" x2="-78.208"
+                                y1=".177" y2="474.645" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#38bdf8" />
+                                <stop offset="1" stop-color="#0ea5e9" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <div class="mx-auto mt-32 max-w-7xl px-6 lg:px-8">
+            <footer aria-labelledby="footer-heading"
+                class="relative border-t border-gray-900/10 py-24 sm:mt-56 sm:py-32">
+                <h2 id="footer-heading" class="sr-only">Footer</h2>
+                <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+                    <img class="h-7" src="https://tailwindui.com/img/logos/mark.svg?color=blue&shade=600"
+                        alt="Company name">
+                    <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+
+                        <ul role="list" class="mt-6 space-y-4">
+
+                            <li>
+                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Blog</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="text-sm leading-6 text-gray-600 hover:text-gray-900">Terms</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="text-sm leading-6 text-gray-600 hover:text-gray-900">Privacy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
         </div>
-    </body>
+    </div>
+
+
+</body>
+
 </html>
