@@ -48,7 +48,9 @@ class CreateAdvanced extends Component
         $validator = Validator::make($split, [
             '*' => [
                 'url',
-                new MatchesConfiguredDomain()
+                new MatchesConfiguredDomain(
+                    Domain::find($this->domain_id)
+                )
             ]
         ]);
         

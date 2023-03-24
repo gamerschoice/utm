@@ -16,7 +16,9 @@ class Destination extends StepComponent
             'destination' => [
                 'required',
                 'url',
-                new MatchesConfiguredDomain()
+                new MatchesConfiguredDomain(
+                    Domain::find( $this->domain['id'] )
+                )
             ]
         ];
     }
