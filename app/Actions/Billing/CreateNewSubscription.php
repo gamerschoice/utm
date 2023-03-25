@@ -14,7 +14,9 @@ class CreateNewSubscription
         $plan = Plan::where('sku', $planSku)->first();
 
         DB::transaction(function () use ($team, $plan, $paymentMethod) {
-            $team->newSubscription('default', 'price_1MnGuIHwvhcWXVfotZEavnmw')->create($paymentMethod);
+            $team->newSubscription('default', $plan->stripe_key)
+                ->skipTrial()
+                ->create($paymentMethod);
         });
     }
 }
