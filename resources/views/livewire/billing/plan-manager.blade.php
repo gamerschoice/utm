@@ -1,7 +1,7 @@
 <div>
     <!-- Plan -->
     <section aria-labelledby="plan-heading">
-        <form>
+        <form wire:submit.prevent="createSubscription">
             <div class="shadow sm:overflow-hidden sm:rounded-lg">
                 @if($subscribed)
                     <div class="space-y-6 bg-white py-6 px-4 sm:p-6">
@@ -63,13 +63,11 @@
 
                     @unless ($subscribed)
                         <div>
-                            <label for="card-holder-name" class="block text-sm font-medium leading-6 text-gray-900">Card Holder's Name</label>
-                            <input id="card-holder-name" name="name" type="text" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 mt-1 block w-full">
+                            <label for="cardHolderName" class="block text-sm font-medium leading-6 text-gray-900">Card Holder's Name</label>
+                            <input id="card-holder-name" name="cardHolderName" wire:model="cardHolderName" type="text" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 mt-1 block w-full">
     
                             <!-- Stripe Elements Placeholder -->
-                            <div id="card-element" class="w-full mt-1 md:mt-0 border border-gray-200 p-3 rounded"></div>
-
-                            <input id="payment_method" type="hidden" name="payment_method" value="" />
+                            <div wire:ignore id="card-element" class="w-full mt-1 md:mt-0 border border-gray-200 p-3 rounded"></div>
                         </div>
                     @endunless
                 </div>
@@ -79,8 +77,8 @@
                         <x-button wire:click.prevent="changePlan">Change Plan</x-button>
                     </div>
                 @else
-                    <div class="bg-gray-50 px-4 py-3 text-right sm:px-6" x-data x-init>
-                        <x-button id="card-button" data-secret="{{ $intent->client_secret }}" x-on:click="verify">Start Subscription</x-button>
+                    <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+                        <x-button id="card-button" type="submit" data-secret="{{ $intent->client_secret }}" wire:target="createSubscription" x-on:click="verify">Start Subscription</x-button>
                     </div>
                 @endif
 
@@ -89,7 +87,8 @@
     </section>
 
     @pushOnce('footer-scripts')
-        <script>
+        @unless ($subscribed)
+        <script>  
             const stripe = Stripe('pk_test_51MnGlmHwvhcWXVfosjk5LiLigNP20cGTQG3BJwb63donAJgJEks8lGg2H5SbBhV057BGZrSQs9uC4cyUo5rKrPYK00NnE16gZQ');
         
             const elements = stripe.elements();
@@ -116,12 +115,12 @@
                 if (error) {
                     console.log(error.message)
                 } else {
-                    document.getElementById('payment_method').value = setupIntent.payment_method;
                     console.log(setupIntent.payment_method)
-                    $wire.set('payment_method', setupIntent.payment_method)
-                    $wire.call('createSubscription')
+                    @this.set('payment_method', setupIntent.payment_method)
+                    @this.call('createSubscription')
                 }
             };
         </script>
+        @endunless
     @endPushOnce
 </div>

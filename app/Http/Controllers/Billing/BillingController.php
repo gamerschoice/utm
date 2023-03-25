@@ -13,7 +13,7 @@ class BillingController extends Controller
     public function index(Request $request)
     {
         return view('billing.index', [
-            'intent' => $request->user()->currentTeam->createSetupIntent()
+            'team' => $request->user()->currentTeam
         ]);
     }
 

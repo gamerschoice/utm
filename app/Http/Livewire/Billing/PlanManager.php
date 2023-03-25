@@ -4,17 +4,20 @@ namespace App\Http\Livewire\Billing;
 
 use Livewire\Component;
 use App\Actions\Billing\ChangeSubscriptionPlan;
+use App\Actions\Billing\CreateNewSubscription;
 use App\Models\Plan;
+use App\Exceptions\TooManyUsersException;
+use App\Exceptions\TooManyDomainsException;
 
 class PlanManager extends Component
 {
     public $subscription;
     public $plans;
-    public $current;
     public $annualPricing;
+    public $current;
     public $swapTo;
-
-    protected $listeners = ['swapped' => '$refresh'];
+    public $payment_method;
+    public $cardHolderName;
 
     public function mount()
     {
@@ -25,6 +28,8 @@ class PlanManager extends Component
 
     public function render()
     {
+        $this->current = auth()->user()->currentTeam->plan;
+
         return view('livewire.billing.plan-manager', [
             'subscribed' => auth()->user()->currentTeam->subscribed('default'),
             'intent' => auth()->user()->currentTeam->createSetupIntent()
@@ -33,18 +38,24 @@ class PlanManager extends Component
 
     public function changePlan(ChangeSubscriptionPlan $planChanger)
     {
+        // dd($this->all());
         $this->validate(['swapTo' => 'required']);
 
         $planChanger->execute(auth()->user()->currentTeam, $this->swapTo);
+        $this->current = auth()->user()->currentTeam->plan;
 
-        $this->current = Plan::where('active', true)->where('sku', $this->swapTo)->first();
-        $this->plans = Plan::where('active', true)->whereNot('sku', $this->swapTo)->get();
-
-        $this->emit('swapped');
+        $this->emit('$refresh');
     }
 
-    public function createSubscription()
+    public function createSubscription(CreateNewSubscription $newSubscription)
     {
-        dd($this->all());
+        $data = $this->validate([
+            'cardHolderName' => 'required'
+        ]);
+
+        $plan = 'personal';
+
+        $newSubscription->execute(auth()->user()->currentTeam, $plan, $this->payment_method);
+        $this->emit('$refresh');
     }
 }

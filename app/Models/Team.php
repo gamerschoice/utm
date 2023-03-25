@@ -32,6 +32,9 @@ class Team extends JetstreamTeam
     protected $fillable = [
         'name',
         'personal_team',
+        'plan_id',
+        'maximum_domains',
+        'maximum_users'
     ];
 
     /**
@@ -57,7 +60,7 @@ class Team extends JetstreamTeam
     
     public function canRegisterDomain()
     {
-        return true;
+        return $this->domains()->count() < $this->maximum_domains;
     }
 
 }
