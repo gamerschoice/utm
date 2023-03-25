@@ -1,7 +1,7 @@
 <div>
-    hi step 1
+    <x-input wire:model.defer="domainName" type="text" />
 
-    <div wire:click="nextStep">
-        Go to the next step
-    </div>
+    <x-button wire:click="createDomain" class="text-lg">  
+        Register Domain
+    </x-button>
 </div>

@@ -1,23 +1,22 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex justify-between">
+        <div class="flex justify-between border-b border-gray-300 py-6">
             <div>
-                <h1 class="text-2xl font-semibold text-gray-900">
-                    {{ __('Create Domain') }}
+                <h1 class="text-3xl font-semibold text-gray-800">
+                    {{ __('Setup A Domain') }}
                 </h1>
             </div>
 
-            <div>
-                
+            <div class="flex gap-3">
+
+                <x-button href="#" class="text-lg">                 
+                    <a href="{{ route('domain.create') }}">Add A Domain</a>
+                </x-button>
+
             </div>
         </div>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                @livewire('domains.create-domain')
-            </div>
-        </div>
-    </div>
+    @livewire('domains.create-domain')
+
 </x-app-layout>

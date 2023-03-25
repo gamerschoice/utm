@@ -50,4 +50,9 @@ class Team extends JetstreamTeam
         return $this->hasMany(Domain::class);
     }
 
+    public function canRegisterDomain()
+    {
+        return true;
+    }
+
 }

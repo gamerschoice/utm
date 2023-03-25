@@ -138,7 +138,7 @@
                 <div class="transition bg-gray-50 mt-3 rounded-md px-3 py-2 text-gray-700">
                     <ul class="list-none divide-y">
                         @foreach($domains as $domain)
-                            <li class="hover:translate-x-1 transition text-sm font-light py-2 px-2"><a href="{{ route('domain.links', $domain) }}">{{ $domain->domain }}</a></li>
+                            <li wire:key="{{$domain->id}}"class="hover:translate-x-1 transition text-sm font-light py-2 px-2"><a href="{{ route('domain.links', $domain) }}">{{ $domain->domain }}</a></li>
                         @endforeach
                         <li class="text-sm font-light py-2">
                             <a href="{{ route('domain.index') }}" class="inline-flex items-center rounded-md px-2 py-1 bg-white text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 ">view all domains</a>

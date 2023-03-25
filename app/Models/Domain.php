@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Domain extends Model
 {
-    use HasFactory, HasUuids, Searchable, SoftDeletes;
+    use HasFactory, Searchable, SoftDeletes;
 
     public $guarded = ['id'];
 
