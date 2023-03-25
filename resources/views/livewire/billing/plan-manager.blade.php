@@ -1,9 +1,9 @@
 <div>
     <!-- Plan -->
     <section aria-labelledby="plan-heading">
-        <form wire:submit.prevent="changePlan">
+        <form>
             <div class="shadow sm:overflow-hidden sm:rounded-lg">
-                @if($current)
+                @if($subscribed)
                     <div class="space-y-6 bg-white py-6 px-4 sm:p-6">
                         <div>
                             <h3 class="text-base font-semibold leading-6 text-gray-900">Current Plan</h3>
@@ -23,8 +23,17 @@
                 @endif
 
                 <div class="space-y-6 bg-white py-6 px-4 sm:p-6">
-                    <div>
-                        <h3 class="text-base font-semibold leading-6 text-gray-900">Change Plan</h3>
+                    <div class="flex justify-between">
+                        <h3 class="text-base font-semibold leading-6 text-gray-900">{{ $subscribed ? 'Change Plan' : 'Choose Your Plan' }}</h3>
+
+                        <div>
+                            <span class="ml-3 text-sm" id="annual-billing-label">
+                            <span class="font-medium text-gray-900">Annual billing</span>
+                            </span>
+                            <button wire:click="$toggle('annualPricing')" type="button" class="{{ $annualPricing ? 'bg-blue-500' : 'bg-gray-200'}} relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2" role="switch" aria-checked="true" aria-labelledby="annual-billing-label">
+                                <span aria-hidden="true" class="{{ $annualPricing ? 'translate-x-5' : 'translate-x-0'}} inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
+                            </button>
+                        </div>
                     </div>
 
                     <fieldset>
@@ -52,20 +61,67 @@
                         </div>
                     </fieldset>
 
-                    <div class="flex items-center">
-                        <button wire:click="$toggle('annualPricing')" type="button" class="{{ $annualPricing ? 'bg-blue-500' : 'bg-gray-200'}} relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2" role="switch" aria-checked="true" aria-labelledby="annual-billing-label">
-                            <span aria-hidden="true" class="{{ $annualPricing ? 'translate-x-5' : 'translate-x-0'}} inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
-                        </button>
-                        <span class="ml-3 text-sm" id="annual-billing-label">
-                        <span class="font-medium text-gray-900">Annual billing</span>
-                        <span class="text-gray-500">(Save 10%)</span>
-                        </span>
+                    @unless ($subscribed)
+                        <div>
+                            <label for="card-holder-name" class="block text-sm font-medium leading-6 text-gray-900">Card Holder's Name</label>
+                            <input id="card-holder-name" name="name" type="text" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 mt-1 block w-full">
+    
+                            <!-- Stripe Elements Placeholder -->
+                            <div id="card-element" class="w-full mt-1 md:mt-0 border border-gray-200 p-3 rounded"></div>
+
+                            <input id="payment_method" type="hidden" name="payment_method" value="" />
+                        </div>
+                    @endunless
+                </div>
+
+                @if($subscribed)
+                    <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+                        <x-button wire:click.prevent="changePlan">Change Plan</x-button>
                     </div>
-                </div>
-                <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
-                    <x-button type="submit">Change Plan</x-button>
-                </div>
+                @else
+                    <div class="bg-gray-50 px-4 py-3 text-right sm:px-6" x-data x-init>
+                        <x-button id="card-button" data-secret="{{ $intent->client_secret }}" x-on:click="verify">Start Subscription</x-button>
+                    </div>
+                @endif
+
             </div>
         </form>
     </section>
+
+    @pushOnce('footer-scripts')
+        <script>
+            const stripe = Stripe('pk_test_51MnGlmHwvhcWXVfosjk5LiLigNP20cGTQG3BJwb63donAJgJEks8lGg2H5SbBhV057BGZrSQs9uC4cyUo5rKrPYK00NnE16gZQ');
+        
+            const elements = stripe.elements();
+            const cardElement = elements.create('card');
+        
+            cardElement.mount('#card-element');
+
+            const cardHolderName = document.getElementById('card-holder-name');
+            const cardButton = document.getElementById('card-button');
+            const clientSecret = cardButton.dataset.secret;
+            
+            async function verify(e) {
+                e.preventDefault();
+
+                const { setupIntent, error } = await stripe.confirmCardSetup(
+                    clientSecret, {
+                        payment_method: {
+                            card: cardElement,
+                            billing_details: { name: cardHolderName.value }
+                        }
+                    }
+                );
+            
+                if (error) {
+                    console.log(error.message)
+                } else {
+                    document.getElementById('payment_method').value = setupIntent.payment_method;
+                    console.log(setupIntent.payment_method)
+                    $wire.set('payment_method', setupIntent.payment_method)
+                    $wire.call('createSubscription')
+                }
+            };
+        </script>
+    @endPushOnce
 </div>

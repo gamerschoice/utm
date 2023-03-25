@@ -19,14 +19,16 @@ class PlanManager extends Component
     public function mount()
     {
         $this->subscription = auth()->user()->currentTeam->subscription('default');
-        $this->plans = Plan::available(auth()->user()->currentTeam)->get();
-        $this->current = auth()->user()->currentTeam->plan;
+        $this->plans = Plan::available()->get();
         $this->annualPricing = false;
     }
 
     public function render()
     {
-        return view('livewire.billing.plan-manager');
+        return view('livewire.billing.plan-manager', [
+            'subscribed' => auth()->user()->currentTeam->subscribed('default'),
+            'intent' => auth()->user()->currentTeam->createSetupIntent()
+        ]);
     }
 
     public function changePlan(ChangeSubscriptionPlan $planChanger)
@@ -43,6 +45,6 @@ class PlanManager extends Component
 
     public function createSubscription()
     {
-        # code...
+        dd($this->all());
     }
 }
