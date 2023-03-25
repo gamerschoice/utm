@@ -9,7 +9,7 @@ class ChoosePurpose extends StepComponent
     public $purpose = 'custom';
     public $domain;
 
-    public $campaign;
+    public $campaign = '';
 
     public $distinctCampaigns = [];
 

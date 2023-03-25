@@ -14,7 +14,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 //sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-                sans: ['Inter', ...defaultTheme.fontFamily.sans],
+                sans: ['Inter', ...defaultTheme.fontFamily.sans]
             },
             colors: { 
                 danger: colors.rose,
