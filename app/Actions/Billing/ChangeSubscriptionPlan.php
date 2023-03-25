@@ -37,7 +37,7 @@ class ChangeSubscriptionPlan
         } catch (TooManyDomainsException $e) {
             $e->render();
         } catch (TooManyUsersException $e) {
-            $e->render()
+            $e->render();
         }
     }
 
