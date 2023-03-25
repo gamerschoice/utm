@@ -41,7 +41,7 @@ class CustomiseLink extends StepComponent
         ]);
 
         $this->link = $link;
-        $this->emit('linkCreated', $link);
+        //$this->emit('linkCreated', $link);
     }
 
     public function mount() 

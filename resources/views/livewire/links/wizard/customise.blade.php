@@ -10,7 +10,7 @@
                 <p class="text-base font-medium">Customise the final parameters of your link.</p>
             </div>
 
-            <form wire:submit="saveLink" class="flex flex-col gap-8 w-full p-6 lg:p-8 shadow-lg rounded-lg bg-white">
+            <form wire:submit.prevent="saveLink" class="flex flex-col gap-8 w-full p-6 lg:p-8 shadow-lg rounded-lg bg-white">
                 <div class="w-full lg:w-10/12 mx-auto flex flex-col gap-y-5">
 
                     <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:pt-5">
