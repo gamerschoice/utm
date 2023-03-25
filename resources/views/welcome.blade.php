@@ -118,7 +118,7 @@
                                 tracking links and link attribution effectively. Use branded short links to give reassurance to your users.</p>
                             <div class="mt-10 flex items-center justify-center gap-x-6">
                                 <a href="/register"
-                                    class="inline-flex items-center rounded-md bg-white px-4 py-2 text-base font-semibold text-gray-900 shadow-sm  hover:bg-gray-50 transition ease-in-out duration-300">Get started for free</a>
+                                    class="inline-flex items-center rounded-md bg-white px-4 py-2 text-base font-semibold text-gray-900 shadow-sm  hover:bg-gray-50 transition ease-in-out duration-300 hover:scale-105">Get started for free</a>
                             </div>
                         </div>
                         <div class="mt-16 flow-root sm:mt-24">
@@ -167,80 +167,67 @@
             </div-->
 
             <!-- Feature section -->
-            <div id="features" class="mx-auto mt-32 max-w-7xl px-6 sm:mt-56 lg:px-8">
-                <div class="mx-auto max-w-2xl lg:text-center">
-                    <h2 class="text-lg font-semibold leading-7 text-gray-900">Features</h2>
-                    <p class="mt-2 text-3xl font-bold tracking-tight text-blue-600 sm:text-4xl">Everything you need, to track like a boss</p>
-                    <p class="mt-6 text-lg leading-8 text-gray-600">Quis tellus eget adipiscing convallis sit sit eget
-                        aliquet quis. Suspendisse eget egestas a elementum pulvinar et feugiat blandit at. In mi viverra
-                        elit nunc.</p>
-                </div>
-                <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-                    <dl class="grid max-w-xl grid-cols-1 gap-10 lg:max-w-none lg:grid-cols-2">
 
-                        <x-feature-card>
-                            <x-slot name="svg">
-                                <svg class="h-6 w-6 stroke-gray-900 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
-                                </svg>
-                            </x-slot>
-                            <x-slot name="title">
-                                Custom domain shortlinks
-                            </x-slot>
-                            <x-slot name="content">
-                                With a quick DNS update, you can use whatever domain, or subdomain you want for your shortlinks. E.g. go.mydomain.com, mydmn.co
-                            </x-slot>
-                        </x-feature-card>
-
-                        <x-feature-card>
-                            <x-slot name="svg">
-                                <svg class="h-6 w-6 stroke-gray-900 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
-                                </svg>
-                            </x-slot>
-                            <x-slot name="title">
-                                Custom domain shortlinks
-                            </x-slot>
-                            <x-slot name="content">
-                                With a quick DNS update, you can use whatever domain, or subdomain you want for your shortlinks. E.g. go.mydomain.com, mydmn.co
-                            </x-slot>
-                        </x-feature-card>
-
-                        <x-feature-card>
-                            <x-slot name="svg">
-                                <svg class="h-6 w-6 stroke-gray-900 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
-                                </svg>
-                            </x-slot>
-                            <x-slot name="title">
-                                Link wizard
-                            </x-slot>
-                            <x-slot name="content">
-                                Create your links using our wizard to set sensible defaults and never worry about utm typos
-                            </x-slot>
-                        </x-feature-card>
-
-                        <x-feature-card>
-                            <x-slot name="svg">
-                                <svg class="h-6 w-6 stroke-gray-900 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
-                                </svg>
-                            </x-slot>
-                            <x-slot name="title">
-                                Bulk import
-                            </x-slot>
-                            <x-slot name="content">
-                                Mass import your links quickly using our bulk link importer. Set import presets for your source, campaign and medium, then customise each link with ease.
-                            </x-slot>
-                        </x-feature-card>
-
-
-                    </dl>
+            <div id="features" class="overflow-hidden bg-white py-24 sm:py-32">
+                <div class="mx-auto max-w-7xl md:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 gap-y-16 gap-x-8 sm:gap-y-20 lg:grid-cols-2 lg:items-start">
+                    <div class="px-6 lg:px-0 lg:pt-4 lg:pr-4">
+                        <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
+                            <h2 class="text-base font-semibold leading-7 text-blue-600">Features</h2>
+                            <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">A better workflow</p>
+                            <p class="mt-6 text-lg leading-8 text-gray-600">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p>
+                            <dl class="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
+                                <div class="relative pl-9">
+                                    <dt class="inline font-semibold text-gray-900">
+                                        <svg class="absolute top-1 left-1 h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M16.555 5.412a8.028 8.028 0 00-3.503-2.81 14.899 14.899 0 011.663 4.472 8.547 8.547 0 001.84-1.662zM13.326 7.825a13.43 13.43 0 00-2.413-5.773 8.087 8.087 0 00-1.826 0 13.43 13.43 0 00-2.413 5.773A8.473 8.473 0 0010 8.5c1.18 0 2.304-.24 3.326-.675zM6.514 9.376A9.98 9.98 0 0010 10c1.226 0 2.4-.22 3.486-.624a13.54 13.54 0 01-.351 3.759A13.54 13.54 0 0110 13.5c-1.079 0-2.128-.127-3.134-.366a13.538 13.538 0 01-.352-3.758zM5.285 7.074a14.9 14.9 0 011.663-4.471 8.028 8.028 0 00-3.503 2.81c.529.638 1.149 1.199 1.84 1.66zM17.334 6.798a7.973 7.973 0 01.614 4.115 13.47 13.47 0 01-3.178 1.72 15.093 15.093 0 00.174-3.939 10.043 10.043 0 002.39-1.896zM2.666 6.798a10.042 10.042 0 002.39 1.896 15.196 15.196 0 00.174 3.94 13.472 13.472 0 01-3.178-1.72 7.973 7.973 0 01.615-4.115zM10 15c.898 0 1.778-.079 2.633-.23a13.473 13.473 0 01-1.72 3.178 8.099 8.099 0 01-1.826 0 13.47 13.47 0 01-1.72-3.178c.855.151 1.735.23 2.633.23zM14.357 14.357a14.912 14.912 0 01-1.305 3.04 8.027 8.027 0 004.345-4.345c-.953.542-1.971.981-3.04 1.305zM6.948 17.397a8.027 8.027 0 01-4.345-4.345c.953.542 1.971.981 3.04 1.305a14.912 14.912 0 001.305 3.04z" />
+                                        </svg>
+                                        Custom domain shortlinks.
+                                    </dt>
+                                    <dd class="inline">With a quick DNS update, you can use whatever domain, or subdomain you want for your shortlinks. E.g. go.mydomain.com, mydmn.co</dd>
+                                </div>
+                    
+                                <div class="relative pl-9">
+                                    <dt class="inline font-semibold text-gray-900">
+                                        <svg class="absolute top-1 left-1 h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M11.983 1.907a.75.75 0 00-1.292-.657l-8.5 9.5A.75.75 0 002.75 12h6.572l-1.305 6.093a.75.75 0 001.292.657l8.5-9.5A.75.75 0 0017.25 8h-6.572l1.305-6.093z" />
+                                        </svg>
+                                          
+                                        Link wizard
+                                    </dt>
+                                    <dd class="inline">Create your links using our wizard to set sensible defaults. Excellent for simple data consistency.</dd>
+                                </div>
+                    
+                                <div class="relative pl-9">
+                                    <dt class="inline font-semibold text-gray-900">
+                                        <svg class="absolute top-1 left-1 h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M4.606 12.97a.75.75 0 01-.134 1.051 2.494 2.494 0 00-.93 2.437 2.494 2.494 0 002.437-.93.75.75 0 111.186.918 3.995 3.995 0 01-4.482 1.332.75.75 0 01-.461-.461 3.994 3.994 0 011.332-4.482.75.75 0 011.052.134z" clip-rule="evenodd" />
+                                            <path fill-rule="evenodd" d="M5.752 12A13.07 13.07 0 008 14.248v4.002c0 .414.336.75.75.75a5 5 0 004.797-6.414 12.984 12.984 0 005.45-10.848.75.75 0 00-.735-.735 12.984 12.984 0 00-10.849 5.45A5 5 0 001 11.25c.001.414.337.75.751.75h4.002zM13 9a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                                        </svg>
+                                        Bulk import
+                                    </dt>
+                                    <dd class="inline">Mass import your links quickly using our bulk link importer. Set import presets for your source, campaign and medium, then customise each link with ease.</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="sm:px-6 lg:px-0">
+                        <div class="relative isolate overflow-hidden bg-blue-500 px-6 pt-8 sm:mx-auto sm:max-w-2xl sm:rounded-3xl sm:pt-16 sm:pl-16 sm:pr-0 lg:mx-0 lg:max-w-none">
+                        <div class="absolute -inset-y-px -left-3 -z-10 w-full origin-bottom-left skew-x-[-30deg] bg-blue-100 opacity-20 ring-1 ring-inset ring-white" aria-hidden="true"></div>
+                        <div class="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
+                            <img src="{{ asset('images/screenshot-links.jpg') }}" alt="Product screenshot" width="1216" height="721" class="-mb-12 w-[57rem] max-w-none rounded-tl-xl bg-gray-800 ring-1 ring-white/10">
+                        </div>
+                        <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10 sm:rounded-3xl" aria-hidden="true"></div>
+                        </div>
+                    </div>
+                    </div>
                 </div>
             </div>
+                  
+
 
             <!-- Testimonial section -->
-            <div class="mx-auto mt-32 max-w-7xl sm:mt-56 sm:px-6 lg:px-8">
+            <div class="mx-auto mt-32 max-w-7xl sm:px-6 lg:px-8">
                 <div
                     class="relative overflow-hidden bg-gray-900 py-20 px-6 shadow-xl sm:rounded-3xl sm:py-24 sm:px-10 md:px-12 lg:px-20">
                     <img class="absolute inset-0 h-full w-full object-cover brightness-150 saturate-0"
@@ -283,16 +270,14 @@
             </div>
 
             <!-- Pricing section -->
-            <div id="pricing" class="py-24 sm:pt-48">
+            <div id="pricing" class="py-24">
                 <div class="mx-auto max-w-7xl px-6 lg:px-8">
                     <div class="mx-auto max-w-4xl text-center">
                         <h2 class="text-base font-semibold leading-7 text-gray-900">Pricing</h2>
                         <p class="mt-2 text-4xl font-bold tracking-tight text-blue-600 sm:text-5xl">Pricing plans for
                             teams of&nbsp;all&nbsp;sizes</p>
                     </div>
-                    <p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">Distinctio et nulla
-                        eum soluta et neque labore quibusdam. Saepe et quasi iusto modi velit ut non voluptas in.
-                        Explicabo id ut laborum.</p>
+                    <p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">Simple, flexible pricing. You don't need to worry about hitting your resource limits. Need another domain? Or another seat? Just add extras on to your account from within the app on the fly.</p>
                     <div
                         class="isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
                         <div
@@ -302,7 +287,7 @@
                                     <h3 id="tier-standard" class="text-lg font-semibold leading-8 text-gray-900">
                                         Standard</h3>
                                 </div>
-                                <p class="mt-4 text-sm leading-6 text-gray-600">Perfect for small businesses.</p>
+                                <p class="mt-4 text-sm leading-6 text-gray-600">Perfect for small businesses with one domain.</p>
                                 <p class="mt-6 flex items-baseline gap-x-1">
                                     <span class="text-4xl font-bold tracking-tight text-gray-900">£16</span>
                                     <span class="text-sm font-semibold leading-6 text-gray-600">/month</span>
@@ -365,8 +350,7 @@
                                         class="rounded-full bg-blue-600/10 py-1 px-2.5 text-xs font-semibold leading-5 text-blue-600">
                                         Most popular</p>
                                 </div>
-                                <p class="mt-4 text-sm leading-6 text-gray-600">A plan that scales with your rapidly
-                                    growing business.</p>
+                                <p class="mt-4 text-sm leading-6 text-gray-600">Enough resources for freelancers or small agencies to get started.</p>
                                 <p class="mt-6 flex items-baseline gap-x-1">
                                     <span class="text-4xl font-bold tracking-tight text-gray-900">£40</span>
                                     <span class="text-sm font-semibold leading-6 text-gray-600">/month</span>
@@ -448,7 +432,7 @@
                                                 d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
                                                 clip-rule="evenodd" />
                                         </svg>
-                                        3 seats
+                                        10 seats
                                     </li>
 
                                     <li class="flex gap-x-3">
@@ -482,7 +466,7 @@
             </div>
 
             <!-- Reviews -->
-            <section id="reviews" aria-labelledby="reviews-title" class="py-24 sm:pt-48">
+            <section id="reviews" aria-labelledby="reviews-title" class="py-24">
                 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div class="mx-auto max-w-4xl text-center">
                         <h2 class="text-base font-semibold leading-7 text-blue-600">Reviews</h2>
@@ -983,9 +967,9 @@
                                 <x-slot name="author">CrazyInvestor</x-slot>
                             </x-review-card>
                         </div>
-                        <div class="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-bg-gray-50">
+                        <div class="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-gray-50">
                         </div>
-                        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-bg-gray-50">
+                        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-gray-50">
                         </div>
                     </div>
                 </div>
@@ -1011,58 +995,16 @@
                 </dl>
             </div>
 
-            <!-- CTA section -->
-            <div class="relative -z-10 mt-32 px-6 lg:px-8">
-                <div
-                    class="absolute inset-x-0 top-1/2 -z-10 flex -translate-y-1/2 transform-gpu justify-center overflow-hidden blur-3xl sm:right-[calc(50%-6rem)] sm:top-auto sm:bottom-0 sm:translate-y-0 sm:transform-gpu sm:justify-end">
-                    <svg viewBox="0 0 1108 632" aria-hidden="true" class="w-[69.25rem] flex-none">
-                        <path fill="url(#191ef669-4d29-44ea-9496-5d65eb27150d)" fill-opacity=".25"
-                            d="M235.233 229.055 57.541 310.091.83.615l234.404 228.44L555.251 83.11c-65.036 115.261-134.286 322.756 109.01 230.655C968.382 198.638 1031-19.583 1092.23 172.304c48.98 153.51-34.51 321.107-82.37 385.717L810.952 307.442 648.261 631.576 235.233 229.055Z" />
-                        <defs>
-                            <linearGradient id="191ef669-4d29-44ea-9496-5d65eb27150d" x1="1220.59" x2="-85.053"
-                                y1="198.898" y2="-7.05" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#38bdf8" />
-                                <stop offset="1" stop-color="#0ea5e9" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-                </div>
-                <div class="mx-auto max-w-2xl text-center">
-                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Boost your
-                        productivity.<br>Get UTM Wise today.</h2>
-                    <p class="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-600">Incididunt sint fugiat pariatur
-                        cupidatat consectetur sit cillum anim id veniam aliqua proident excepteur commodo do ea.</p>
-                    <div class="mt-10 flex items-center justify-center gap-x-6">
-                        <a href="#"
-                            class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
-                            Get started for free</a>
-                    </div>
-                </div>
-                <div
-                    class="absolute left-1/2 right-0 top-full -z-10 hidden -translate-y-1/2 transform-gpu overflow-hidden blur-3xl sm:block">
-                    <svg viewBox="0 0 1155 678" aria-hidden="true" class="w-[72.1875rem]">
-                        <path fill="url(#23e1b96e-c791-45fa-975a-a04d29498207)" fill-opacity=".3"
-                            d="M317.219 518.975 203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079Z" />
-                        <defs>
-                            <linearGradient id="23e1b96e-c791-45fa-975a-a04d29498207" x1="1155.49" x2="-78.208"
-                                y1=".177" y2="474.645" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#38bdf8" />
-                                <stop offset="1" stop-color="#0ea5e9" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-                </div>
-            </div>
+
         </main>
 
         <!-- Footer -->
         <div class="mx-auto mt-32 max-w-7xl px-6 lg:px-8">
             <footer aria-labelledby="footer-heading"
-                class="relative border-t border-gray-900/10 py-24 sm:mt-56 sm:py-32">
+                class="relative border-t border-gray-900/10 py-24 sm:py-32">
                 <h2 id="footer-heading" class="sr-only">Footer</h2>
                 <div class="xl:grid xl:grid-cols-3 xl:gap-8">
-                    <img class="h-7" src="https://tailwindui.com/img/logos/mark.svg?color=blue&shade=600"
-                        alt="Company name">
+                    <x-application-mark />
                     <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
 
                         <ul role="list" class="mt-6 space-y-4">
