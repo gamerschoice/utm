@@ -1,25 +1,24 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex justify-between">
-            <div>
-                <h1 class="text-2xl font-semibold text-gray-900">
-                    {{ __('Create Link') }}
-                </h1>
-            </div>
+        <div class="flex justify-between border-b border-gray-300 py-6">
 
             <div>
-                <a href="{{ route('links.index') }}">Show All Links</a>
+                <h1 class="text-3xl font-semibold text-gray-800">
+                    Create a New Link
+                </h1>
             </div>
+            <div class="flex gap-3">
+                <a href="{{ route('link.advanced', $domain->id) }}">
+                    <x-button class="text-lg">                 
+                        Advanced
+                    </x-button>
+                </a>
+            </div>
+
         </div>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                @unless($teamConfigured)
-                    {{ $teamConfigError }} - Please add a website in <a href="{{ route('teams.show', $currentTeam) }}">team settings</a>.
-                @endunless
 
-                @livewire('links.create-link-form')
-        </div>
-    </div>
+    @livewire('links.create-link', [ 'domain' => $domain ])
+
 </x-app-layout>

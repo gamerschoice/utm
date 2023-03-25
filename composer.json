@@ -18,9 +18,11 @@
         "laravel/tinker": "^2.8",
         "laravel/vapor-core": "^2.28",
         "livewire/livewire": "^2.11",
+        "rollbar/rollbar-laravel": "^8.0",
         "spatie/laravel-livewire-wizard": "^1.1"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.8",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",

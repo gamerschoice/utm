@@ -30,7 +30,7 @@ class DnsLookup extends Command
     {
         $host = $this->argument('host');
 
-        $process = Process::run("dig go.{$host} A +short");
+        $process = Process::run("dig go.{$host} CNAME +short");
 
         if($process->seeInOutput('connection timed out;')) {
             throw new Exception;

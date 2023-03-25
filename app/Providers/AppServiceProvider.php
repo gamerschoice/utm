@@ -8,6 +8,10 @@ use App\Models\Team;
 use Livewire\Livewire;
 use App\Http\Livewire\Domains\CreateDomainStep;
 use App\Http\Livewire\Domains\RegisterDnsStep;
+use App\Http\Livewire\Links\Wizard\ChoosePurpose;
+use App\Http\Livewire\Links\Wizard\SelectSource;
+use App\Http\Livewire\Links\Wizard\Destination;
+use App\Http\Livewire\Links\Wizard\CustomiseLink;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,7 +30,10 @@ class AppServiceProvider extends ServiceProvider
     {
         Livewire::component('create-domain-step', CreateDomainStep::class);
         Livewire::component('register-dns-step', RegisterDnsStep::class);
-        
+        Livewire::component('choose-purpose', ChoosePurpose::class);
+        Livewire::component('select-source', SelectSource::class);
+        Livewire::component('destination', Destination::class);
+        Livewire::component('customise-link', CustomiseLink::class);
         Cashier::useCustomerModel(Team::class);
     }
 }

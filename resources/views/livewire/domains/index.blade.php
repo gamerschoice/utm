@@ -4,6 +4,7 @@
             <x-slot name="head">
                 <x-table.heading sortable wire:click="sortBy('domain')">Domain</x-table.heading>
                 <x-table.heading>DNS</x-table.heading>
+                <x-table.heading sortable wire:click="sortBy('link_count')">Shortlink domain</x-table.heading>
                 <x-table.heading sortable wire:click="sortBy('link_count')">Links</x-table.heading>
                 <x-table.heading sortable wire:click="sortBy('created')">Created</x-table.heading>
                 <x-table.heading class="flex-end"></x-table.heading>
@@ -11,7 +12,7 @@
             <x-slot name="body">
                 @foreach ($domains as $domain)
                     <x-table.row>
-                        <x-table.cell><a href="{{ route('domain.links', $domain) }}" class="text-blue-600 font-semibold">{{ $domain->domain }}</a></x-table.cell>
+                        <x-table.cell><a href="{{ route('domain.view', $domain) }}" class="text-blue-600 font-semibold">{{ $domain->domain }}</a></x-table.cell>
                         <x-table.cell>
                             @if($domain->dns_configured === 1)
                                 <svg class="inline-block w-5 h-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -23,21 +24,15 @@
                                 </svg>
                             @endif  
                         </x-table.cell>
+                        <x-table.cell>{{ $domain->shortlink_domain == 'NULL' ? '' : $domain->shortlink_domain }}</x-table.cell>
                         <x-table.cell>{{ $domain->link_count }}</x-table.cell>
-                        <x-table.cell>{{ $domain->created_at }}</x-table.cell>
+                        <x-table.cell>{{ $domain->created_ago }}</x-table.cell>
                         <x-table.cell class="justify-end text-right">
-                            <x-button-secondary type="button" href="{{ route('domain.links', $domain) }}" class="text-xs">
-                                <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 cursor-pointer mr-1 text-gray-800">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
-                                </svg>
-                                Links
-                            </x-button-secondary>
-                            <x-button-secondary type="button" wire:click="showDomain({{ $domain->id }})" class="text-xs">
-                                <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 cursor-pointer mr-1 text-gray-800">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                                </svg>  
-                                View
-                            </x-button-secondary>
+                            <a href="{{ route('domain.view', $domain) }}">
+                                <x-button-secondary type="button" class="text-xs">
+                                    View
+                                </x-button-secondary>
+                            </a>
                         </x-table.cell>
                     </x-table.row>
                 @endforeach
@@ -47,8 +42,6 @@
         <div>
             {{ $domains->links() }}
         </div>
-
-        @livewire('domains.domain-panel')
 
     </div>
     <script>

@@ -19,7 +19,7 @@
         </div>
 
         <!-- Delete Team Confirmation Modal -->
-        <x-confirmation-modal wire:model="confirmingTeamDeletion">
+        <x-modal-danger wire:model="confirmingTeamDeletion">
             <x-slot name="title">
                 {{ __('Delete Team') }}
             </x-slot>
@@ -37,6 +37,6 @@
                     {{ __('Delete Team') }}
                 </x-button-danger>
             </x-slot>
-        </x-confirmation-modal>
+        </x-modal-danger>
     </x-slot>
 </x-action-section>

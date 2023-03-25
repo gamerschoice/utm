@@ -1,24 +1,41 @@
 <div>    
     <div class="flex flex-col space-y-5 mt-8" x-data="LinksTable()">
-        <div class="flex items-center flex-end gap-3">
-            <x-button @click.prevent="filterOpen = !filterOpen" type="button">
-                <svg class="text-white w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
-                </svg>
-                <span>
-                    Filter 
-                    @if($filterCount > 0)
-                        <span class="ml-2 bg-white text-blue-700 rounded-full px-[6px] text-xs inline-block">
-                            {{ $filterCount }}
-                        </span>
-                    @endif
-                </span>       
-            </x-button>
-            @if($filterCount > 0)
-                <a class="font-medium text-blue-600 hover:text-blue-500" href="#" wire:click.prevent="resetFilters()">Clear</a>
-            @endif
+        <div class="flex gap-5 justify-between items-center">
+            <div class="flex items-center flex-end gap-3">
+                <x-button @click.prevent="filterOpen = !filterOpen" type="button">
+                    <svg class="text-white w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
+                    </svg>
+                    <span>
+                        Filter 
+                        @if($filterCount > 0)
+                            <span class="ml-2 bg-white text-blue-700 rounded-full px-[6px] text-xs inline-block">
+                                {{ $filterCount }}
+                            </span>
+                        @endif
+                    </span>       
+                </x-button>
+                <x-button-secondary wire:click="$refresh" wire:loading.attr="disabled">
+                    <span wire:loading.class="animate-spin" wire:target="$refresh">
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                        </svg>                      
+                    </span>
+                </x-button-secondary>
+                @if($filterCount > 0)
+                    <a class="font-medium text-blue-600 hover:text-blue-500" href="#" wire:click.prevent="resetFilters()">Clear</a>
+                @endif
+            </div>
+            <div class="flex items-center flex-end gap-3">
+                @livewire('links.export')
+                <a href="{{ route('link.create', $domain) }}">
+                    <x-button class="text-lg">                 
+                        <span class="hidden md:inline">Create a&nbsp;</span>New Link
+                    </x-button>
+                </a>
+            </div>
         </div>
-        <div class="flex items-end text-sm bg-gray-50 rounded-lg border border-gray-300 gap-5 p-4" x-show="filterOpen">
+        <div x-show="filterOpen" x-cloak class="flex items-end text-sm bg-gray-50 rounded-lg border border-gray-300 gap-5 p-4">
             <div>
                 <x-label class="font-semibold">Source</x-label>
                 <x-select wire:model="activeUtmSourceFilter">
@@ -56,25 +73,22 @@
             </div>
         </div>
         
-        <x-confirmation-modal wire:model="confirmingBulkDelete">
+        <x-modal-danger wire:model="confirmingBulkDelete">
             <x-slot name="title">
                 {{ __('Delete links') }}
             </x-slot>
-
             <x-slot name="content">
                 {{ __('Are you sure you want to remove these links?') }}
             </x-slot>
-
             <x-slot name="footer">
                 <x-button-secondary wire:click="$toggle('confirmingBulkDelete')" wire:loading.attr="disabled">
                     {{ __('Cancel') }}
                 </x-button-secondary>
-
                 <x-button-danger @click="deletions = []; bulkDeletions = false" class="ml-3" wire:click="bulkDelete" wire:loading.attr="disabled">
                     {{ __('Delete') }}
                 </x-button-danger>
             </x-slot>
-        </x-confirmation-modal>
+        </x-modal-danger>
 
         <x-table>
             <x-slot name="head">
@@ -105,7 +119,7 @@
                         <x-table.cell><span class="underline decoration-dotted decoration-blue-200 cursor-pointer" wire:click="setActiveUtmSourceFilter('{{ $link->utm_source }}')">{{ $link->utm_source }}</span></x-table.cell>
                         <x-table.cell><span class="underline decoration-dotted decoration-blue-200 cursor-pointer" wire:click="setActiveUtmMediumFilter('{{ $link->utm_medium }}')">{{ $link->utm_medium }}</span></x-table.cell>
                         <x-table.cell><span class="underline decoration-dotted decoration-blue-200 cursor-pointer" wire:click="setActiveUtmCampaignFilter('{{ $link->utm_campaign }}')">{{ $link->utm_campaign }}</span></x-table.cell>
-                        <x-table.cell>{{ $link->created_at }}</x-table.cell>
+                        <x-table.cell>{{ $link->created_ago }}</x-table.cell>
                         <x-table.cell class="justify-end text-right">
 
                             <x-button-secondary type="button" wire:click="showLink({{ $link->id }})" class="text-xs">
@@ -115,12 +129,12 @@
                                 View
                             </x-button-secondary>
 
-                            <x-button type="button" x-data="{ copied: false }" class="text-xs" @click.prevent="window.navigator.clipboard.writeText('{{ $link->full_url }}'); copied = true; setTimeout( function() { copied = false }, 3000);">
+                            <x-button type="button" x-data="{ copied: false }" class="text-xs" @click.prevent="window.navigator.clipboard.writeText('{{ $link->auto_url }}'); copied = true; setTimeout( function() { copied = false }, 3000);">
                                 <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 cursor-pointer mr-1 text-white-800">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5A3.375 3.375 0 006.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0015 2.25h-1.5a2.251 2.251 0 00-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 00-9-9z" />
                                 </svg>
                                 <span x-show="!copied">Copy</span>
-                                <span x-show="copied">Copied!</span>
+                                <span x-cloak x-show="copied">Copied!</span>
                             </x-button>
 
 

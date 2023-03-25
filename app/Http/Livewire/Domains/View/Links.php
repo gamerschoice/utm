@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Domains;
+namespace App\Http\Livewire\Domains\View;
 
 use Livewire\Component;
 use App\Models\Domain;
@@ -29,7 +29,7 @@ class Links extends Component
 
     protected $listeners = [ 'linkSaved' => '$refresh' ];
 
-    public function mount()
+    public function mount() : void
     {
         $this->domain = request()->domain;
     }
@@ -123,7 +123,7 @@ class Links extends Component
             })
             ->paginate(50);
         
-        return view('livewire.domains.links', [
+        return view('livewire.domains.view.links', [
             'links' => $links,
             'filterCount' => $filterCount,
             'utmSourceFilters' => Link::select('utm_source')

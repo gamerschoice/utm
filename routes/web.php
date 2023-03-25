@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Billing\BillingController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DomainController;
 use App\Http\Controllers\LinksController;
 
@@ -26,17 +27,16 @@ Route::middleware([
     'verified',
     'team.configured'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/billing', [BillingController::class, 'index'])->name('billing');
     Route::post('/billing', [BillingController::class, 'create']);
 
-    Route::resource('/links', LinksController::class);
+    //Route::resource('/links', LinksController::class);
 
     Route::get('/domains', [DomainController::class, 'index'])->name('domain.index');
     Route::get('/domains/create', [DomainController::class, 'create'])->name('domain.create');
-    Route::get('/domains/{domain}', [DomainController::class, 'show'])->name('domain.links');
-
+    Route::get('/domains/{domain}', [DomainController::class, 'view'])->name('domain.view');
+    Route::get('/link/{domain_id}/wizard', [LinksController::class, 'create'])->name('link.create');
+    Route::get('/link/{domain_id}/advanced', [LinksController::class, 'advanced'])->name('link.advanced');
 });
