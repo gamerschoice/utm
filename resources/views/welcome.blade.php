@@ -168,7 +168,7 @@
 
             <!-- Feature section -->
 
-            <div id="features" class="overflow-hidden bg-gray-50 py-24 sm:py-32">
+            <div id="features" class="overflow-hidden bg-gray-50 py-24 sm:py-32 lg:py-52">
                 <div class="mx-auto max-w-7xl md:px-6 lg:px-8 group">
                     <div class="grid grid-cols-1 gap-y-16 gap-x-8 sm:gap-y-20 lg:grid-cols-2 lg:items-start">
                     <div class="px-6 lg:px-0 lg:pt-4 lg:pr-4">
@@ -227,7 +227,7 @@
 
 
             <!-- Testimonial section -->
-            <div class="mx-auto mt-32 max-w-7xl sm:px-6 lg:px-8">
+            <!--div class="mx-auto mt-32 max-w-7xl sm:px-6 lg:px-8">
                 <div
                     class="relative overflow-hidden bg-gray-900 py-20 px-6 shadow-xl sm:rounded-3xl sm:py-24 sm:px-10 md:px-12 lg:px-20">
                     <img class="absolute inset-0 h-full w-full object-cover brightness-150 saturate-0"
@@ -267,200 +267,12 @@
                         </figure>
                     </div>
                 </div>
-            </div>
+            </div-->
 
             <!-- Pricing section -->
-            <div id="pricing" class="py-24">
-                <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                    <div class="mx-auto max-w-4xl text-center">
-                        <h2 class="text-base font-semibold leading-7 text-gray-900">Pricing</h2>
-                        <p class="mt-2 text-4xl font-bold tracking-tight text-blue-600 sm:text-5xl">Pricing plans for
-                            teams of&nbsp;all&nbsp;sizes</p>
-                    </div>
-                    <p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">Simple, flexible pricing. You don't need to worry about hitting your resource limits. Need another domain? Or another seat? Just add extras on to your account from within the app on the fly.</p>
-                    <div
-                        class="isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-                        <div class="shadow-xl flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10 lg:mt-8 lg:rounded-r-none">
-                            <div>
-                                <div class="flex items-center justify-between gap-x-4">
-                                    <h3 id="tier-standard" class="text-lg font-semibold leading-8 text-gray-900">
-                                        Standard</h3>
-                                </div>
-                                <p class="mt-4 text-sm leading-6 text-gray-600">Perfect for small businesses with one domain.</p>
-                                <p class="mt-6 flex items-baseline gap-x-1">
-                                    <span class="text-4xl font-bold tracking-tight text-gray-900">£16</span>
-                                    <span class="text-sm font-semibold leading-6 text-gray-600">/month</span>
-                                </p>
-                                <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-600">
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        1 domain
-                                    </li>
 
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        3 seats
-                                    </li>
-
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        Unlimited links
-                                    </li>
-
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        1 branded shortlink domain
-                                    </li>
-
-                                </ul>
-                            </div>
-                            <a href="#" aria-describedby="tier-freelancer"
-                                class="mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 text-blue-600 ring-1 ring-inset ring-blue-200 hover:ring-blue-300">Free trial</a>
-                        </div>
-
-                        <div class="shadow-xl flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10 lg:z-10 lg:rounded-b-none">
-                            <div>
-                                <div class="flex items-center justify-between gap-x-4">
-                                    <h3 id="tier-startup" class="text-lg font-semibold leading-8 text-blue-600">
-                                        Freelancer</h3>
-
-                                    <p
-                                        class="rounded-full bg-blue-600/10 py-1 px-2.5 text-xs font-semibold leading-5 text-blue-600">
-                                        Most popular</p>
-                                </div>
-                                <p class="mt-4 text-sm leading-6 text-gray-600">Enough resources for freelancers or small agencies to get started.</p>
-                                <p class="mt-6 flex items-baseline gap-x-1">
-                                    <span class="text-4xl font-bold tracking-tight text-gray-900">£40</span>
-                                    <span class="text-sm font-semibold leading-6 text-gray-600">/month</span>
-                                </p>
-                                <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-600">
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        5 domains
-                                    </li>
-
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        5 seats
-                                    </li>
-
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        Unlimited links
-                                    </li>
-
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        5 branded shortlink domains
-                                    </li>
-
-                                </ul>
-                            </div>
-                            <a href="#" aria-describedby="tier-startup"
-                                class="mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 bg-blue-600 text-white shadow-sm hover:bg-blue-500">Buy plan</a>
-                        </div>
-
-                        <div class="shadow-xl flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10 lg:mt-8 lg:rounded-l-none">
-                            <div>
-                                <div class="flex items-center justify-between gap-x-4">
-                                    <h3 id="tier-enterprise" class="text-lg font-semibold leading-8 text-gray-900">
-                                        Agency</h3>
-                                </div>
-                                <p class="mt-4 text-sm leading-6 text-gray-600">Everything you need to service every one of your clients.</p>
-                                <p class="mt-6 flex items-baseline gap-x-1">
-                                    <span class="text-4xl font-bold tracking-tight text-gray-900">£99</span>
-                                    <span class="text-sm font-semibold leading-6 text-gray-600">/month</span>
-                                </p>
-                                <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-600">
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        20 domains
-                                    </li>
-
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        10 seats
-                                    </li>
-
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        Unlimited links
-                                    </li>
-
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        20 branded shortlink domains
-                                    </li>
-
-                                </ul>
-                            </div>
-                            <a href="#" aria-describedby="tier-enterprise"
-                                class="mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 text-blue-600 ring-1 ring-inset ring-blue-200 hover:ring-blue-300">Buy
-                                plan</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <x-section-pricing />
+              
 
             <!-- Reviews -->
             <section id="reviews" aria-labelledby="reviews-title" class="py-24">
@@ -470,9 +282,9 @@
                         <p class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Our customers love
                             it</p>
                     </div>
-                    <p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">Distinctio et nulla
+                    <!--p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">Distinctio et nulla
                         eum soluta et neque labore quibusdam. Saepe et quasi iusto modi velit ut non voluptas in.
-                        Explicabo id ut laborum.</p>
+                        Explicabo id ut laborum.</p-->
                     <div
                         class="relative -mx-4 mt-16 grid h-[49rem] max-h-[150vh] grid-cols-1 items-start gap-8 overflow-hidden px-4 sm:mt-20 md:grid-cols-2 lg:grid-cols-3">
                         <div class="animate-marquee space-y-8 py-4" style="--marquee-duration:28320ms;">
@@ -979,12 +791,9 @@
                 <h2 class="text-2xl font-bold leading-10 tracking-tight text-gray-900">Frequently asked questions</h2>
                 <dl class="mt-10 space-y-8 divide-y divide-gray-900/10">
                     <div class="pt-8 lg:grid lg:grid-cols-12 lg:gap-8">
-                        <dt class="text-base font-semibold leading-7 text-gray-900 lg:col-span-5">What&#039;s the best
-                            thing about Switzerland?</dt>
+                        <dt class="text-base font-semibold leading-7 text-gray-900 lg:col-span-5">How long does the free trial last and will I be billed automatically?</dt>
                         <dd class="mt-4 lg:col-span-7 lg:mt-0">
-                            <p class="text-base leading-7 text-gray-600">I don&#039;t know, but the flag is a big plus.
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam
-                                fugiat.</p>
+                            <p class="text-base leading-7 text-gray-600">The free trial lasts 7 days and no payment will be taken automatically. We don't take any payment details from you when starting your trial. At the end of, or during your free trial period, you can upgrade to a full plan from within your dashboard and your subscription will start.</p>
                         </dd>
                     </div>
 
