@@ -26,6 +26,8 @@ class TeamFactory extends Factory
             'name' => $this->faker->unique()->company(),
             'user_id' => User::factory(),
             'personal_team' => true,
+            'maximum_domains' => 1,
+            'maximum_members' => 1
         ];
     }
 }
