@@ -2,46 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Domain;
 use Illuminate\Http\Request;
 
 class LinksController extends Controller 
 {
-    public function index(Request $request)
-    {
-        $team = $request->user()->currentTeam;
-
-        return view('links.index', [
-            'links' => $team->links
-        ]);
-    }
 
     public function create(Request $request)
     {
-        return view('links.create');
+        
+        $domain = Domain::find( $request->domain_id );
+
+        return view('links.create', [
+            'domain' => $domain
+        ]);
     }
 
-    public function show()
+    public function advanced(Request $request)
     {
-        return view('links.show');
+        $domain = Domain::find( $request->domain_id );
+        return view('links.advanced', [
+            'domain' => $domain
+        ]);
     }
 
-    public function store()
-    {
-        # code...
-    }
-
-    public function edit()
-    {
-        # code...
-    }
-
-    public function update()
-    {
-        # code...
-    }
-
-    public function delete()
-    {
-        # code...
-    }
+  
 }

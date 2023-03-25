@@ -54,4 +54,10 @@ class Team extends JetstreamTeam
     {
         return $this->belongsTo(Plan::class);
     }
+    
+    public function canRegisterDomain()
+    {
+        return true;
+    }
+
 }

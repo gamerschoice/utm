@@ -19,9 +19,12 @@ return new class extends Migration
             $table->string('utm_campaign')->index()->nullable();
             $table->string('utm_term')->index()->nullable();
             $table->string('utm_content')->index()->nullable();
+            $table->string('utm_source_platform')->index()->nullable();
+            $table->string('utm_creative_format')->index()->nullable();
+            $table->string('utm_marketing_tactic')->index()->nullable();
+            $table->longText('notes')->nullable();
             $table->string('shortlink')->index();
-            $table->foreignId('domain_id');
-            $table->tinyInteger('published');
+            $table->foreignId('domain_id')->index();
             $table->timestamps();
 
             $table->unique(['domain_id', 'shortlink']);

@@ -10,20 +10,19 @@ class DomainController extends Controller
 
     public function index(Request $request) 
     {
-        $team = $request->user()->currentTeam;
-
-        return view('domains.index', [
-            'domains' => $team->domains()->paginate(25)
-        ]);
+        return view('domains.index');
     }
 
-    public function show(Request $request, Domain $domain)
+    public function create()
     {
-        
-        $team = $request->user()->currentTeam;
+        return view('domains.create');
+    }
 
-        return view('domains.show', [
-            'links' => $domain->links()->paginate(25)
+    public function view(Request $request)
+    {
+        $domainObj = Domain::where('id', $request->domain )->first();
+        return view('domains.view', [
+            'domain' => $domainObj
         ]);
     }
 

@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Laravel\Scout\Searchable;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
 
 class Domain extends Model
 {
-    use HasFactory, HasUuids, Searchable;
+    use HasFactory, Searchable, SoftDeletes;
 
     public $guarded = ['id'];
 
@@ -22,9 +24,20 @@ class Domain extends Model
      */
     public function toSearchableArray(): array
     {
-        $array = $this->only('domain');
- 
-        return $array;
+        return [
+            'domain' => $this->domain,
+            'team_id' => $this->team_id,
+        ];
+    }
+
+    public function getCreatedAgoAttribute()
+    {
+        return Carbon::parse($this->created_at)->diffForHumans();
+    }
+
+    public function getLinkCountAttribute()
+    {
+        return count($this->links);
     }
 
     public function links(): HasMany
