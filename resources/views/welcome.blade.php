@@ -168,14 +168,14 @@
 
             <!-- Feature section -->
 
-            <div id="features" class="overflow-hidden bg-white py-24 sm:py-32">
-                <div class="mx-auto max-w-7xl md:px-6 lg:px-8">
+            <div id="features" class="overflow-hidden bg-gray-50 py-24 sm:py-32">
+                <div class="mx-auto max-w-7xl md:px-6 lg:px-8 group">
                     <div class="grid grid-cols-1 gap-y-16 gap-x-8 sm:gap-y-20 lg:grid-cols-2 lg:items-start">
                     <div class="px-6 lg:px-0 lg:pt-4 lg:pr-4">
                         <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
                             <h2 class="text-base font-semibold leading-7 text-blue-600">Features</h2>
                             <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">A better workflow</p>
-                            <p class="mt-6 text-lg leading-8 text-gray-600">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p>
+                            <p class="mt-6 text-lg leading-8 text-gray-600">Don't lose track of your tracking. 100% visibility across all of your domain links, allowing filtering for campaigns, sources and mediums.</p>
                             <dl class="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
                                 <div class="relative pl-9">
                                     <dt class="inline font-semibold text-gray-900">
@@ -213,9 +213,9 @@
                     </div>
                     <div class="sm:px-6 lg:px-0">
                         <div class="relative isolate overflow-hidden bg-blue-500 px-6 pt-8 sm:mx-auto sm:max-w-2xl sm:rounded-3xl sm:pt-16 sm:pl-16 sm:pr-0 lg:mx-0 lg:max-w-none">
-                        <div class="absolute -inset-y-px -left-3 -z-10 w-full origin-bottom-left skew-x-[-30deg] bg-blue-100 opacity-20 ring-1 ring-inset ring-white" aria-hidden="true"></div>
+                        <div class="group-hover:-translate-x-40 transition ease-in-out absolute duration-1000 -inset-y-px -left-3 -z-10 w-full origin-bottom-left skew-x-[-30deg] bg-blue-100 opacity-20 ring-1 ring-inset ring-white" aria-hidden="true"></div>
                         <div class="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
-                            <img src="{{ asset('images/screenshot-links.jpg') }}" alt="Product screenshot" width="1216" height="721" class="-mb-12 w-[57rem] max-w-none rounded-tl-xl bg-gray-800 ring-1 ring-white/10">
+                            <img src="{{ asset('images/screenshot-links.jpg') }}" alt="Product screenshot" width="1216" height="721" class="-mb-12 w-[57rem] max-w-none rounded-tl-xl bg-gray-800 ring-1 ring-white/10 group-hover:-translate-x-5 group-hover:-translate-y-5 transition duration-1000 ease-in-out">
                         </div>
                         <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10 sm:rounded-3xl" aria-hidden="true"></div>
                         </div>
@@ -280,8 +280,7 @@
                     <p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">Simple, flexible pricing. You don't need to worry about hitting your resource limits. Need another domain? Or another seat? Just add extras on to your account from within the app on the fly.</p>
                     <div
                         class="isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-                        <div
-                            class="flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10 lg:mt-8 lg:rounded-r-none">
+                        <div class="shadow-xl flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10 lg:mt-8 lg:rounded-r-none">
                             <div>
                                 <div class="flex items-center justify-between gap-x-4">
                                     <h3 id="tier-standard" class="text-lg font-semibold leading-8 text-gray-900">
@@ -339,8 +338,7 @@
                                 class="mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 text-blue-600 ring-1 ring-inset ring-blue-200 hover:ring-blue-300">Free trial</a>
                         </div>
 
-                        <div
-                            class="flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10 lg:z-10 lg:rounded-b-none">
+                        <div class="shadow-xl flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10 lg:z-10 lg:rounded-b-none">
                             <div>
                                 <div class="flex items-center justify-between gap-x-4">
                                     <h3 id="tier-startup" class="text-lg font-semibold leading-8 text-blue-600">
@@ -402,8 +400,7 @@
                                 class="mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 bg-blue-600 text-white shadow-sm hover:bg-blue-500">Buy plan</a>
                         </div>
 
-                        <div
-                            class="flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10 lg:mt-8 lg:rounded-l-none">
+                        <div class="shadow-xl flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10 lg:mt-8 lg:rounded-l-none">
                             <div>
                                 <div class="flex items-center justify-between gap-x-4">
                                     <h3 id="tier-enterprise" class="text-lg font-semibold leading-8 text-gray-900">
