@@ -13,7 +13,7 @@ use Carbon\Carbon;
 
 class Domain extends Model
 {
-    use HasFactory, HasUuids, Searchable, SoftDeletes;
+    use HasFactory, Searchable, SoftDeletes;
 
     public $guarded = ['id'];
 
