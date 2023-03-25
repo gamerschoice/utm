@@ -244,7 +244,7 @@
                 <div
                     class="relative overflow-hidden bg-gray-900 py-20 px-6 shadow-xl sm:rounded-3xl sm:py-24 sm:px-10 md:px-12 lg:px-20">
                     <img class="absolute inset-0 h-full w-full object-cover brightness-150 saturate-0"
-                        src="https://images.unsplash.com/photo-1601381718415-a05fb0a261f3?ixid=MXwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8ODl8fHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1216&q=80"
+                        src="https://d347cldnsmtg5x.cloudfront.net/pic_5274_2_5f52448a26a08.jpg"
                         alt="">
                     <div class="absolute inset-0 bg-gray-900/90 mix-blend-multiply"></div>
                     <svg viewBox="0 0 1097 845" aria-hidden="true"
@@ -254,8 +254,8 @@
                         <defs>
                             <linearGradient id="68eb76c4-2bc9-4928-860e-70adf05719f4" x1="1097.04" x2="-141.165"
                                 y1=".22" y2="363.075" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#776FFF" />
-                                <stop offset="1" stop-color="#FF4694" />
+                                <stop stop-color="#60a5fa" />
+                                <stop offset="1" stop-color="#3b82f6" />
                             </linearGradient>
                         </defs>
                     </svg>
@@ -265,8 +265,8 @@
                             d="M301.174 646.641 193.541 844.786 0 546.172l301.174 100.469 193.845-356.855c1.241 164.891 42.802 431.935 199.124 180.978 195.402-313.696 143.295-588.18 284.729-419.266 113.148 135.13 124.068 367.989 115.378 467.527L811.753 372.553l20.102 451.119-530.681-177.031Z" />
                     </svg>
                     <div class="relative mx-auto max-w-2xl lg:mx-0">
-                        <img class="h-12 w-auto" src="https://tailwindui.com/img/logos/workcation-logo-white.svg"
-                            alt="">
+                        <img class="h-12 w-auto" src="https://www.aplaceforeverything.co.uk/assets/svg/logo-aplaceforeverything.svg"
+                            alt="" style="    filter: brightness(0) invert(1);">
                         <figure>
                             <blockquote class="mt-6 text-lg font-semibold text-white sm:text-xl sm:leading-8">
                                 <p>“Amet amet eget scelerisque tellus sit neque faucibus non eleifend. Integer eu
@@ -286,8 +286,8 @@
             <div id="pricing" class="py-24 sm:pt-48">
                 <div class="mx-auto max-w-7xl px-6 lg:px-8">
                     <div class="mx-auto max-w-4xl text-center">
-                        <h2 class="text-base font-semibold leading-7 text-blue-600">Pricing</h2>
-                        <p class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Pricing plans for
+                        <h2 class="text-base font-semibold leading-7 text-gray-900">Pricing</h2>
+                        <p class="mt-2 text-4xl font-bold tracking-tight text-blue-600 sm:text-5xl">Pricing plans for
                             teams of&nbsp;all&nbsp;sizes</p>
                     </div>
                     <p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">Distinctio et nulla
@@ -299,13 +299,12 @@
                             class="flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10 lg:mt-8 lg:rounded-r-none">
                             <div>
                                 <div class="flex items-center justify-between gap-x-4">
-                                    <h3 id="tier-freelancer" class="text-lg font-semibold leading-8 text-gray-900">
-                                        Personal</h3>
+                                    <h3 id="tier-standard" class="text-lg font-semibold leading-8 text-gray-900">
+                                        Standard</h3>
                                 </div>
-                                <p class="mt-4 text-sm leading-6 text-gray-600">The essentials to provide your best
-                                    work for clients.</p>
+                                <p class="mt-4 text-sm leading-6 text-gray-600">Perfect for small businesses.</p>
                                 <p class="mt-6 flex items-baseline gap-x-1">
-                                    <span class="text-4xl font-bold tracking-tight text-gray-900">£9</span>
+                                    <span class="text-4xl font-bold tracking-tight text-gray-900">£16</span>
                                     <span class="text-sm font-semibold leading-6 text-gray-600">/month</span>
                                 </p>
                                 <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-600">
@@ -316,7 +315,7 @@
                                                 d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
                                                 clip-rule="evenodd" />
                                         </svg>
-                                        5 products
+                                        1 domain
                                     </li>
 
                                     <li class="flex gap-x-3">
@@ -326,7 +325,7 @@
                                                 d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
                                                 clip-rule="evenodd" />
                                         </svg>
-                                        Up to 1,000 subscribers
+                                        3 seats
                                     </li>
 
                                     <li class="flex gap-x-3">
@@ -336,7 +335,7 @@
                                                 d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
                                                 clip-rule="evenodd" />
                                         </svg>
-                                        Basic analytics
+                                        Unlimited links
                                     </li>
 
                                     <li class="flex gap-x-3">
@@ -346,13 +345,13 @@
                                                 d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
                                                 clip-rule="evenodd" />
                                         </svg>
-                                        48-hour support response time
+                                        1 branded shortlink domain
                                     </li>
+
                                 </ul>
                             </div>
                             <a href="#" aria-describedby="tier-freelancer"
-                                class="mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 text-blue-600 ring-1 ring-inset ring-blue-200 hover:ring-blue-300">Buy
-                                plan</a>
+                                class="mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 text-blue-600 ring-1 ring-inset ring-blue-200 hover:ring-blue-300">Free trial</a>
                         </div>
 
                         <div
@@ -360,7 +359,7 @@
                             <div>
                                 <div class="flex items-center justify-between gap-x-4">
                                     <h3 id="tier-startup" class="text-lg font-semibold leading-8 text-blue-600">
-                                        Premium</h3>
+                                        Freelancer</h3>
 
                                     <p
                                         class="rounded-full bg-blue-600/10 py-1 px-2.5 text-xs font-semibold leading-5 text-blue-600">
@@ -369,7 +368,7 @@
                                 <p class="mt-4 text-sm leading-6 text-gray-600">A plan that scales with your rapidly
                                     growing business.</p>
                                 <p class="mt-6 flex items-baseline gap-x-1">
-                                    <span class="text-4xl font-bold tracking-tight text-gray-900">£20</span>
+                                    <span class="text-4xl font-bold tracking-tight text-gray-900">£40</span>
                                     <span class="text-sm font-semibold leading-6 text-gray-600">/month</span>
                                 </p>
                                 <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-600">
@@ -380,7 +379,7 @@
                                                 d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
                                                 clip-rule="evenodd" />
                                         </svg>
-                                        25 products
+                                        5 domains
                                     </li>
 
                                     <li class="flex gap-x-3">
@@ -390,7 +389,7 @@
                                                 d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
                                                 clip-rule="evenodd" />
                                         </svg>
-                                        Up to 10,000 subscribers
+                                        5 seats
                                     </li>
 
                                     <li class="flex gap-x-3">
@@ -400,7 +399,7 @@
                                                 d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
                                                 clip-rule="evenodd" />
                                         </svg>
-                                        Advanced analytics
+                                        Unlimited links
                                     </li>
 
                                     <li class="flex gap-x-3">
@@ -410,23 +409,13 @@
                                                 d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
                                                 clip-rule="evenodd" />
                                         </svg>
-                                        24-hour support response time
+                                        5 branded shortlink domains
                                     </li>
 
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        Marketing automations
-                                    </li>
                                 </ul>
                             </div>
                             <a href="#" aria-describedby="tier-startup"
-                                class="mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 bg-blue-600 text-white shadow-sm hover:bg-blue-500">Buy
-                                plan</a>
+                                class="mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 bg-blue-600 text-white shadow-sm hover:bg-blue-500">Buy plan</a>
                         </div>
 
                         <div
@@ -438,7 +427,7 @@
                                 </div>
                                 <p class="mt-4 text-sm leading-6 text-gray-600">Everything you need to service every one of your clients.</p>
                                 <p class="mt-6 flex items-baseline gap-x-1">
-                                    <span class="text-4xl font-bold tracking-tight text-gray-900">£45</span>
+                                    <span class="text-4xl font-bold tracking-tight text-gray-900">£99</span>
                                     <span class="text-sm font-semibold leading-6 text-gray-600">/month</span>
                                 </p>
                                 <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-600">
@@ -449,7 +438,7 @@
                                                 d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
                                                 clip-rule="evenodd" />
                                         </svg>
-                                        Unlimited products
+                                        20 domains
                                     </li>
 
                                     <li class="flex gap-x-3">
@@ -459,7 +448,7 @@
                                                 d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
                                                 clip-rule="evenodd" />
                                         </svg>
-                                        Unlimited subscribers
+                                        3 seats
                                     </li>
 
                                     <li class="flex gap-x-3">
@@ -469,7 +458,7 @@
                                                 d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
                                                 clip-rule="evenodd" />
                                         </svg>
-                                        Advanced analytics
+                                        Unlimited links
                                     </li>
 
                                     <li class="flex gap-x-3">
@@ -479,18 +468,9 @@
                                                 d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
                                                 clip-rule="evenodd" />
                                         </svg>
-                                        1-hour, dedicated support response time
+                                        20 branded shortlink domains
                                     </li>
 
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        Marketing automations
-                                    </li>
                                 </ul>
                             </div>
                             <a href="#" aria-describedby="tier-enterprise"
