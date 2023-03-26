@@ -8,9 +8,8 @@
     <title>UTM Wise</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+        <!--link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"-->
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <!-- Scripts -->
     <style>
         [x-cloak] {
@@ -19,14 +18,14 @@
     </style>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <meta name="twitter:site" content="@utmwise">
-    <meta name="twitter:title" content="Get UTM Wise and take control of your link attribution">
+    <meta name="twitter:title" content="Get UTM Wise and take control of your link tracking">
     <meta name="twitter:description"
         content="Say goodbye to spreadsheets! UTM Wise lets you manage your site's UTM tracking links like a pro.">
     <meta name="twitter:image" content="https://utmwise.com/img/meta/social.png">
     <meta name="twitter:creator" content="@utmwise">
     <meta property="og:url" content="https://utmwise.com/">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Get UTM Wise and take control of your link attribution">
+    <meta property="og:title" content="Get UTM Wise and take control of your link tracking">
     <meta property="og:description"
         content="Say goodbye to spreadsheets! UTM Wise lets you manage your site's UTM tracking links like a pro.">
     <meta property="og:image" content="https://utmwise.com/img/meta/social.png">
@@ -113,7 +112,7 @@
                     <div class="mx-auto max-w-7xl px-6 lg:px-8">
                         <div class="mx-auto max-w-2xl text-center">
                             <h1 class="text-4xl font-black font-sans tracking-tight text-transparent sm:text-5xl xl:text-6xl text-white pb-8">Ditch spreadsheets
-                                &amp; take control of link tracking.</h1>
+                                &amp; <span class="underline decoration decoration-blue-300 decoration-4">take control</span> of link tracking.</h1>
                             <p class="mt-6 text-lg font-light leading-8 text-gray-50">Get UTM Wise and start managing your
                                 tracking links and link attribution effectively. Use branded short links to give reassurance to your users.</p>
                             <div class="mt-10 flex items-center justify-center gap-x-6">

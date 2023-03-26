@@ -209,8 +209,8 @@
                         annually: 400,
                     }, 
                     agency: { 
-                        monthly: 99, 
-                        annually: 990,
+                        monthly: 105, 
+                        annually: 1050,
                     }
                 }
             }
