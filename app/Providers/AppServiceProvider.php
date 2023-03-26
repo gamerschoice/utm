@@ -12,6 +12,7 @@ use App\Http\Livewire\Links\Wizard\ChoosePurpose;
 use App\Http\Livewire\Links\Wizard\SelectSource;
 use App\Http\Livewire\Links\Wizard\Destination;
 use App\Http\Livewire\Links\Wizard\CustomiseLink;
+use App\Services\CloudFlare;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -35,5 +36,13 @@ class AppServiceProvider extends ServiceProvider
         Livewire::component('destination', Destination::class);
         Livewire::component('customise-link', CustomiseLink::class);
         Cashier::useCustomerModel(Team::class);
+
+        $this->app->singleton(
+            abstract: CloudFlare::class,
+            concrete: fn () => new CloudFlare(
+                apiToken: strval(config('services.cloudflare.token')),
+                baseUrl: strval(config('services.cloudflare.url')),
+            ),
+        );
     }
 }

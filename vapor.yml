@@ -3,7 +3,7 @@ name: utmwise
 asset-domain: static.utmwise.com
 environments:
     production:
-        domain: '*.utmwise.com'
+        domain: 'utmwise.com'
         gateway-version: 2
         warm: 10
         database: utmwise-prod

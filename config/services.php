@@ -33,6 +33,13 @@ return [
 
     'redirection' => [
         'ip' => '123123'
+    ],
+
+    'cloudflare' => [
+        'url' => env('CF_BASE_URL'),
+        'zone' => env('CF_ZONE'),
+        'accountId' => env('CF_ACCOUNT_ID'),
+        'token' => env('CF_API_TOKEN'),
     ]
 
 ];

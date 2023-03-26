@@ -6,6 +6,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DomainController;
 use App\Http\Controllers\LinksController;
 
+use App\Services\CloudFlare;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,13 +19,11 @@ use App\Http\Controllers\LinksController;
 |
 */
 
-Route::domain('shortlink.utmwise.com')->group(function () {
-    Route::get('/', function () {
-        return '🚀';
-    });
+Route::get('/cf-test', function (CloudFlare $cf) {
+
+    return $cf->test();
     
 });
-
 
 Route::get('/', function () {
     return view('holding');
