@@ -108,6 +108,19 @@
             </x-slot>
 
             <x-slot name="body">
+                @if($links->isEmpty())
+                    <x-table.row>
+                        <x-table.cell colspan="7">
+                            <div class="relative block w-full h-full rounded-lg border-2 border-dashed border-gray-300 p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.182 16.318A4.486 4.486 0 0012.016 15a4.486 4.486 0 00-3.198 1.318M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" />
+                                </svg>  
+                                <span class="mt-2 block text-base font-semibold text-gray-900">No links found</span>
+                                <span class="text-sm mt-1 font-medium text-gray-500 mx-auto sm:w-2/3 block">Use our <a href="{{ route('link.create', $domain) }}" class="font-semibold underline text-gray-900">wizard</a> or <a href="{{ route('link.advanced', $domain) }}" class="font-semibold underline text-gray-900">bulk import</a> tool to create your links.</span>
+                            </div>
+                        </x-table.cell>
+                    </x-table.row>
+                @endif
                 @foreach($links as $link)
                     <x-table.row>
                         <x-table.cell>
