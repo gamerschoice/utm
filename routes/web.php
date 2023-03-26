@@ -17,6 +17,14 @@ use App\Http\Controllers\LinksController;
 |
 */
 
+Route::domain('shortlink.utmwise.com')->group(function () {
+    Route::get('/', function () {
+        return '🚀';
+    });
+    
+});
+
+
 Route::get('/', function () {
     return view('holding');
 });

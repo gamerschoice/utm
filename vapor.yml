@@ -1,9 +1,9 @@
 id: 44331
 name: utmwise
+asset-domain: static.utmwise.com
 environments:
     production:
-        domain: utmwise.com
-        asset-domain: static.utmwise.com
+        domain: '*.utmwise.com'
         gateway-version: 2
         warm: 10
         database: utmwise-prod
