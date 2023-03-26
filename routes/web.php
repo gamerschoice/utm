@@ -18,7 +18,7 @@ use App\Http\Controllers\LinksController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('holding');
 });
 
 Route::middleware([
@@ -27,6 +27,12 @@ Route::middleware([
     'verified',
     'team.configured'
 ])->group(function () {
+
+    Route::get('/marketing', function () {
+        return view('welcome');
+    });
+    
+
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/billing', [BillingController::class, 'index'])->name('billing');

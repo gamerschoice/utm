@@ -45,8 +45,8 @@ class ShortDomain extends Component
 
             $this->emit('$refresh');
             Notification::make() 
-                ->title('Short domain saved.')
-                ->body('Your shortlink has been saved, please wait a moment for DNS to verify.')
+                ->title('Shortlink domain saved.')
+                ->body('Your shortlink domain has been saved, please wait a moment for DNS to verify.')
                 ->success()
                 ->send(); 
         }
@@ -59,8 +59,8 @@ class ShortDomain extends Component
         $this->domain->save();
         $this->emit('$refresh');
         Notification::make() 
-            ->title('Short domain removed.')
-            ->body('Your shortlink urls have been disabled. Please set up a new short domain to re-enable.')
+            ->title('Shortlink domain removed.')
+            ->body('Your shortlink URLs have been disabled. Please set up a new shortlink domain to re-enable.')
             ->danger()
             ->send(); 
     }

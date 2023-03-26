@@ -2,7 +2,8 @@ id: 44331
 name: utmwise
 environments:
     production:
-        domain: app.utmwise.com
+        domain: utmwise.com
+        asset-domain: static.utmwise.com
         gateway-version: 2
         warm: 10
         database: utmwise-prod

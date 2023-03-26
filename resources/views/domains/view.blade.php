@@ -23,7 +23,7 @@
                     <a href="#" rel="nofollow" 
                         @click.prevent="activeTab = 'short-domain'" 
                         :class="{ 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700' : activeTab !== 'short-domain', 'font-semibold border-blue-500 text-blue-600' : activeTab === 'short-domain'}"
-                        class="whitespace-nowrap border-b-2 px-1 pb-4">Short Domain</a>
+                        class="whitespace-nowrap border-b-2 px-1 pb-4">Shortlink Domain</a>
 
                 </nav>
             </div>

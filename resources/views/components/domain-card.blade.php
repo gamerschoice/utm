@@ -15,7 +15,7 @@
             </div>
         @else 
             <div class="shrink-0 flex gap-x-1 items-center cursor-default rounded-full bg-yellow-100 px-2.5 py-0.5 text-xs font-medium text-yellow-800">
-                <span>no short domain</span>
+                <span>no shortlink domain</span>
                 <svg class=" inline-block w-3 h-3 text-yellow-800" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
