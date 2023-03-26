@@ -42,6 +42,7 @@ class AppServiceProvider extends ServiceProvider
             concrete: fn () => new CloudFlare(
                 apiToken: strval(config('services.cloudflare.token')),
                 baseUrl: strval(config('services.cloudflare.url')),
+                zone: strval(config('services.cloudflare.zone'))
             ),
         );
     }
