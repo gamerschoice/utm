@@ -47,7 +47,7 @@
                                         <x-button-secondary type="reset" @click="open = false; editing = false">
                                             Discard
                                         </x-button-secondary>
-                                        <x-button wire:loading.attr="disabled" type="submit" @click="editing = true">
+                                        <x-button wire:loading.attr="disabled" type="submit" @click="editing = true" class="inline-flex gap-1 items-center">
                                             Save
                                             <svg x-cloak wire:loading wire:target="updateLink" class="animate-spin inline-block h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
