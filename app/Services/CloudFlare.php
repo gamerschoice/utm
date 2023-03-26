@@ -118,6 +118,16 @@ class CloudFlare {
         return $this->handleResponse( $response );
     }
 
+
+    public function bulkDeleteShortlinks( array $shortlinks)
+    {
+        $url = $this->baseUrl . '/accounts/' . config('services.cloudflare.accountId') . '/storage/kv/namespaces/' . env('CF_WORKER_KV_NAMESPACE') . '/bulk';
+        $response = Http::withToken( $this->apiToken )
+                        ->delete( $url, $shortlinks);
+
+        return $this->handleResponse( $response );
+    }
+
     public function deleteShortlink(string $shortlink_url)
     {
         $url = $this->baseUrl . '/accounts/' . config('services.cloudflare.accountId') . '/storage/kv/namespaces/' . env('CF_WORKER_KV_NAMESPACE') . '/values/' . urlencode($shortlink_url);

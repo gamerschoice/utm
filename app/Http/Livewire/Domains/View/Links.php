@@ -8,6 +8,7 @@ use App\Models\Link;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
 use Filament\Notifications\Notification; 
+use App\Actions\Links\DeleteLink;
 
 class Links extends Component
 {
@@ -38,16 +39,34 @@ class Links extends Component
      * @todo guards
      */
 
-    public function bulkDelete()
+    public function bulkDelete( DeleteLink $deleter )
     {
+        $links = Link::whereIn('id', $this->deletions)->get();
+        $linksToSend = [];
+        
+        foreach($links as $link) {
+            $linksToSend[$link->id] = $link->auto_url;
+        }
 
-        Link::whereIn('id', $this->deletions)->delete();
-        $this->deletions = [];
-        $this->confirmingBulkDelete = false;
-        Notification::make() 
-            ->title('Links deleted.')
+        if( $deleter->bulkDelete( $linksToSend ) ) {
+
+            Notification::make() 
+                ->title('Links deleted.')
+                ->danger()
+                ->send(); 
+
+        } else {
+
+            Notification::make() 
+            ->title('Could not delete links')
+            ->body('The operation could not be completed, please try again later. If the problem persists, please contact support.')
             ->danger()
             ->send(); 
+            
+        }
+
+        $this->confirmingBulkDelete = false;
+        $this->deletions = [];
         
     }
 

@@ -35,21 +35,33 @@
                                         <x-button-secondary @click="deleting = false">
                                             Cancel
                                         </x-button-secondary>
-                                        <x-button-danger wire:click="deleteLink()" @click="deleting = false">
+                                        <x-button-danger wire:loading.attr="disabled" wire:click="deleteLink" @click="deleting = false">
                                             Delete
+                                            <svg x-cloak wire:loading wire:target="deleteLink" class="animate-spin inline-block h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                            </svg>
                                         </x-button-danger>
                                     </div>
                                     <div class="flex gap-2 items-center" x-show="editing && !deleting">
                                         <x-button-secondary type="reset" @click="open = false; editing = false">
                                             Discard
                                         </x-button-secondary>
-                                        <x-button type="submit" @click="editing = true">
+                                        <x-button wire:loading.attr="disabled" type="submit" @click="editing = true">
                                             Save
+                                            <svg x-cloak wire:loading wire:target="updateLink" class="animate-spin inline-block h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                            </svg>
                                         </x-button>
                                     </div>
                                     <div class="flex gap-2 items-center" x-show="!editing && !deleting">
-                                        <x-button-secondary x-show="!editing && !deleting" wire:click="duplicateLink()" type="button">
+                                        <x-button-secondary wire:loading.attr="disabled" x-show="!editing && !deleting" wire:click="duplicateLink" type="button">
                                             Duplicate
+                                            <svg x-cloak wire:loading wire:target="duplicateLink" class="animate-spin inline-block h-4 w-4 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                            </svg>
                                         </x-button-secondary>
                                         <x-button-secondary x-show="!editing && !deleting" type="button" @click="editing = true">
                                             Edit

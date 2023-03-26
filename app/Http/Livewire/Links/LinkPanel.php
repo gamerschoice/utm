@@ -3,29 +3,17 @@
 namespace App\Http\Livewire\Links;
 
 use Livewire\Component;
-use Carbon\Carbon;
 use App\Models\Link;
+use App\Models\Domain;
 use Filament\Notifications\Notification; 
-use Illuminate\Support\Str;
 use App\Actions\Links\DeleteLink;
+use App\Actions\Links\CreateLink;
+
 
 class LinkPanel extends Component
 {
 
     public $link = null;
-
-    /*
-    public $destination;
-    public $utm_source;
-    public $utm_medium;
-    public $utm_campaign;
-    public $utm_term;
-    public $utm_content;
-    public $utm_source_platform;
-    public $utm_creative_format;
-    public $utm_marketing_tactic;
-    public $notes;
-    */
 
     protected $rules = [
         'link.destination' => 'required|active_url',
@@ -47,24 +35,36 @@ class LinkPanel extends Component
 
     }
 
-    /**
-     * @todo use action
-     */
-    public function duplicateLink()
-    {
-        $duplicate = $this->link->replicate();
-        $duplicate->created_at = Carbon::now();
-        $duplicate->updated_at = Carbon::now();
-        $duplicate->shortlink = Str::random(8);
-        $duplicate->save();
 
-        $this->emit('linkSaved');
-        $this->dispatchBrowserEvent('close-link-panel');
-        Notification::make() 
-            ->title('Link duplicated')
-            ->success()
-            ->send(); 
+    public function duplicateLink( CreateLink $creator )
+    {
+        $duplicate = $this->link->replicate()->toArray();
+        $domain = Domain::find($duplicate['domain_id']);
+        unset($duplicate['id']);
+        unset($duplicate['created_at']);
+        unset($duplicate['updated_at']);
+        unset($duplicate['shortlink']);
+        unset($duplicate['domain']);
+
+        $link = $creator->create( $domain, $duplicate );
+
+        if(!$link) {
+            Notification::make() 
+                ->title('Link duplication failed')
+                ->body('The operation could not be completed, please try again later. If the problem persists, please contact support.')
+                ->danger()
+                ->send(); 
+        } else {
+            $this->emit('linkSaved');
+            $this->dispatchBrowserEvent('close-link-panel');
+            Notification::make() 
+                ->title('Link duplicated')
+                ->success()
+                ->send(); 
+        }
+
     }
+
 
     public function deleteLink( DeleteLink $deleter )
     {
