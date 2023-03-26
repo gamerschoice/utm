@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\Models\Link;
 use Filament\Notifications\Notification; 
 use Illuminate\Support\Str;
+use App\Actions\Links\DeleteLink;
 
 class LinkPanel extends Component
 {
@@ -46,6 +47,9 @@ class LinkPanel extends Component
 
     }
 
+    /**
+     * @todo use action
+     */
     public function duplicateLink()
     {
         $duplicate = $this->link->replicate();
@@ -62,16 +66,16 @@ class LinkPanel extends Component
             ->send(); 
     }
 
-    public function deleteLink()
+    public function deleteLink( DeleteLink $deleter )
     {
-
-        $this->link->delete();
-        $this->emit('linkSaved');
-        $this->dispatchBrowserEvent('close-link-panel');
-        Notification::make() 
-            ->title('Link removed.')
-            ->danger()
-            ->send(); 
+        if( $deleter->delete( $this->link ) ) {
+            $this->emit('linkSaved');
+            $this->dispatchBrowserEvent('close-link-panel');
+            Notification::make() 
+                ->title('Link removed.')
+                ->danger()
+                ->send(); 
+        }
     }
 
     public function updateLink()

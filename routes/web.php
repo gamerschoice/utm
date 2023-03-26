@@ -22,7 +22,7 @@ use App\Services\CloudFlare;
 Route::get('/cf-test', function (CloudFlare $cf) {
 
     return $cf->test();
-    
+
 });
 
 Route::get('/', function () {
@@ -45,8 +45,6 @@ Route::middleware([
 
     Route::get('/billing', [BillingController::class, 'index'])->name('billing');
     Route::post('/billing', [BillingController::class, 'create']);
-
-    //Route::resource('/links', LinksController::class);
 
     Route::get('/domains', [DomainController::class, 'index'])->name('domain.index');
     Route::get('/domains/create', [DomainController::class, 'create'])->name('domain.create');

@@ -118,7 +118,7 @@ class CloudFlare {
         return $this->handleResponse( $response );
     }
 
-    public function deleteShortlink()
+    public function deleteShortlink(string $shortlink_url)
     {
         $url = $this->baseUrl . '/accounts/' . config('services.cloudflare.accountId') . '/storage/kv/namespaces/' . env('CF_WORKER_KV_NAMESPACE') . '/values/' . urlencode($shortlink_url);
         $response = Http::withToken( $this->apiToken )

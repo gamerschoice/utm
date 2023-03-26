@@ -296,9 +296,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -309,9 +308,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -322,9 +320,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -335,9 +332,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -348,9 +344,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -361,9 +356,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -374,9 +368,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -387,9 +380,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -400,9 +392,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -413,9 +404,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -426,9 +416,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -439,9 +428,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                         </div>
                         <div class="animate-marquee space-y-8 py-4 hidden md:block"
@@ -454,10 +442,21 @@
                                     <x-star />
                                     <x-star />
                                 </x-slot>
-                                <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="title">Look no further.</x-slot>
+                                <x-slot name="content">I've been using UTMwise for a while now to track the performance of my affiliate links and online marketing campaigns, and I couldn't be happier with the results. The platform is user-friendly and easy to use, and the support team is always available to answer my questions.</x-slot>
+                                <x-slot name="author">MB, developer</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">Game changer.</x-slot>
+                                <x-slot name="content">As someone who has struggled to keep track of tracking links in the past, UTM Wise has been a game-changer.</x-slot>
+                                <x-slot name="author">Ilias, CiG Design</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -468,9 +467,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -481,9 +479,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -494,9 +491,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -507,9 +503,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -520,9 +515,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -533,9 +527,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -546,9 +539,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -559,9 +551,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -572,9 +563,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -585,9 +575,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -598,22 +587,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
-                            </x-review-card>
-                            <x-review-card>
-                                <x-slot name="stars">
-                                    <x-star />
-                                    <x-star />
-                                    <x-star />
-                                    <x-star />
-                                    <x-star />
-                                </x-slot>
-                                <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                         </div>
                         <div class="animate-marquee space-y-8 py-4 hidden lg:block"
@@ -627,9 +602,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -640,9 +614,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -653,9 +626,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -666,9 +638,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -679,9 +650,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -692,9 +662,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -705,9 +674,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -718,9 +686,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -731,9 +698,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -744,9 +710,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -757,9 +722,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -770,9 +734,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                         </div>
                         <div class="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-gray-50">
@@ -795,6 +758,24 @@
                             <p class="text-base leading-7 text-gray-600">The free trial lasts 7 days and no payment will be taken automatically. We don't take any payment details from you when starting your trial. At the end of, or during your free trial period, you can upgrade to a full plan from within your dashboard and your subscription will start.</p>
                         </dd>
                     </div>
+                    <div class="pt-8 lg:grid lg:grid-cols-12 lg:gap-8">
+                        <dt class="text-base font-semibold leading-7 text-gray-900 lg:col-span-5">Are there any free trial restrictions?</dt>
+                        <dd class="mt-4 lg:col-span-7 lg:mt-0">
+                            <p class="text-base leading-7 text-gray-600">During your trial you will be prevented from creating custom shortlink domains, and will be limited to creating 25 links.</p>
+                        </dd>
+                    </div>
+                    <div class="pt-8 lg:grid lg:grid-cols-12 lg:gap-8">
+                        <dt class="text-base font-semibold leading-7 text-gray-900 lg:col-span-5">What happens when my free trial ends?</dt>
+                        <dd class="mt-4 lg:col-span-7 lg:mt-0">
+                            <p class="text-base leading-7 text-gray-600">At the end of your free trial, your account will effectively be "paused" &ndash; preventing access to resources until you choose a paid plan. Once you're subscribed to a pay plan, your account will resume right where you left off (but with more resources!)</p>
+                        </dd>
+                    </div>
+                    <div class="pt-8 lg:grid lg:grid-cols-12 lg:gap-8">
+                        <dt class="text-base font-semibold leading-7 text-gray-900 lg:col-span-5">Can I upgrade my plan?</dt>
+                        <dd class="mt-4 lg:col-span-7 lg:mt-0">
+                            <p class="text-base leading-7 text-gray-600">Absolutely! You can switch to higher usage plans from your billing dashboard.</p>
+                        </dd>
+                    </div>
 
                     <!-- More questions... -->
                 </dl>
@@ -804,32 +785,29 @@
         </main>
 
         <!-- Footer -->
-        <div class="mx-auto mt-32 max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto mt-20 max-w-7xl px-6 lg:px-8">
             <footer aria-labelledby="footer-heading"
-                class="relative border-t border-gray-900/10 py-24 sm:py-32">
-                <h2 id="footer-heading" class="sr-only">Footer</h2>
-                <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+                class="relative border-t border-gray-900/10 py-8">
+                <div class="flex flex-col sm:items-center sm:flex-row sm:justify-between gap-4">
                     <x-application-mark />
-                    <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-
-                        <ul role="list" class="mt-6 space-y-4">
-
-                            <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Blog</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="text-sm leading-6 text-gray-600 hover:text-gray-900">Terms</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="text-sm leading-6 text-gray-600 hover:text-gray-900">Privacy</a>
-                            </li>
-                        </ul>
-                    </div>
+                    <ul role="list" class="flex gap-4">
+                        <!--li>
+                            <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Blog</a>
+                        </li-->
+                        <li>
+                            <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Terms</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Privacy</a>
+                        </li>
+                        <li>
+                            <a href="mailto:support@utmwise.com" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Support</a>
+                        </li>
+                    </ul>
                 </div>
             </footer>
         </div>
+
     </div>
 
 
