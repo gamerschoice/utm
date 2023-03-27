@@ -30,11 +30,8 @@ class RegisterDnsStep extends StepComponent
                 new IsValidDomain()
             ]
         ]);
+        
 
-        $parsed = parse_url($data['newShortlinkDomain']);
-
-        $shortDomain = $action->start(Domain::find($this->state()->forStep('create-domain-step')['domain']['id']), $parsed['host']);
-
-        dd('crearted', $shortDomain);
+        $shortDomain = $action->start(Domain::find($this->state()->forStep('create-domain-step')['domain']['id']), $this->newShortlinkDomain);
     }
 }

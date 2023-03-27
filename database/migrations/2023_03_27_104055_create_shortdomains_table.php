@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('shortdomains', function (Blueprint $table) {
+        Schema::create('short_domains', function (Blueprint $table) {
             $table->id();
             $table->foreignId('domain_id');
             $table->string('host')->index();
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('shortdomains');
+        Schema::dropIfExists('short_domains');
     }
 };
