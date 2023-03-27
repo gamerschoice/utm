@@ -9,6 +9,7 @@ use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
 use Filament\Notifications\Notification; 
 use App\Actions\Links\DeleteLink;
+use Illuminate\Database\Eloquent\Builder;
 
 class Links extends Component
 {
@@ -148,14 +149,23 @@ class Links extends Component
             'utmSourceFilters' => Link::select('utm_source')
                                     ->distinct()
                                     ->where('domain_id', $this->domain)
+                                    ->whereNot( function (Builder $query) {
+                                        $query->where('utm_source', '');
+                                    })
                                     ->get(),
             'utmMediumFilters' => Link::select('utm_medium')
                                     ->distinct()
                                     ->where('domain_id', $this->domain)
+                                    ->whereNot( function (Builder $query) {
+                                        $query->where('utm_medium', '');
+                                    })
                                     ->get(),
             'utmCampaignFilters' => Link::select('utm_campaign')
                                     ->distinct()
                                     ->where('domain_id', $this->domain)
+                                    ->whereNot( function (Builder $query) {
+                                        $query->where('utm_campaign', '');
+                                    })
                                     ->get()
 
         ]);
