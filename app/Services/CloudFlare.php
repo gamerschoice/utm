@@ -108,10 +108,6 @@ class CloudFlare {
     }
 
 
-
-    /** 
-     * @todo add utm params...idiot
-     */
     public function cacheShortlink( Link $link )
     {
         $url = $this->baseUrl . '/accounts/' . config('services.cloudflare.accountId') . '/storage/kv/namespaces/' . env('CF_WORKER_KV_NAMESPACE') . '/values/' . urlencode($link->auto_url);

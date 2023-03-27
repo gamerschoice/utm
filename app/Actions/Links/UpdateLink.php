@@ -25,7 +25,6 @@ class UpdateLink
 
             if($link->getOriginal('destination') !== $link->destination) {
 
-                #$this->cloudflare->cacheShortlink( $link->auto_url, $link->destination );
                 $this->cloudflare->cacheShortlink( $link );
 
             }
