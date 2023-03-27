@@ -3,7 +3,7 @@
         <div class="flex justify-between border-b border-gray-300 py-6">
             <div>
                 <h1 class="text-3xl font-semibold text-gray-800">
-                    ❤️ Welcome, {{ request()->user()->name }}
+                    <span class="font-mono">❤️</span> Welcome, {{ request()->user()->name }}
                 </h1>
                 <p class="text-lg pt-2 text-gray-500">Welcome to your dashboard. From here you can see a snapshot of your account data.</p>
             </div>
