@@ -3,6 +3,7 @@
 namespace App\Normalizers;
 
 use Pdp\Domain;
+use Pdp\Rules;
 use Pdp\TopLevelDomains;
 
 class DomainNormalizer
@@ -12,9 +13,9 @@ class DomainNormalizer
         $parsed = parse_url($domainName);
         $domain = Domain::fromIDNA2008($parsed['host']);
 
-        $tlds = TopLevelDomains::fromPath(storage_path('app/tlds.txt'));
+        $suffixList = Rules::fromPath(storage_path('app/suffixes.txt'));
 
-        $result = $tlds->resolve($domain);
+        $result = $suffixList->resolve($domain);
 
         return $result->registrableDomain()->toString();
     }
