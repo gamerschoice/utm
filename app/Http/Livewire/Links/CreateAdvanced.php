@@ -44,9 +44,10 @@ class CreateAdvanced extends Component
     {
         $this->resetDestinationsLoaded();
 
-        $split = preg_split('/[\r\n]+/', $this->destinations, -1, PREG_SPLIT_NO_EMPTY);
+        $split = ['items' => preg_split('/[\r\n]+/', $this->destinations, -1, PREG_SPLIT_NO_EMPTY) ];
         $validator = Validator::make($split, [
-            '*' => [
+            'items' => [ 'required','array','max:50' ],
+            'items.*' => [
                 'url',
                 new MatchesConfiguredDomain(
                     Domain::find($this->domain_id)
@@ -54,9 +55,20 @@ class CreateAdvanced extends Component
             ]
         ]);
         
+        /**
+         * DEFINTELY a better way of doing these error messages
+         */
         if ($validator->fails()) {
             $this->destinationsLoaded = [];
+            
             $this->errorMessage = 'Cannot process. Invalid URL(s) detected.';
+            
+            if(array_key_exists('items', $split))
+                if(count($split['items']) > 50)
+                    $this->errorMessage = 'Too may URLs detected. Maximum of 50 will be accepted.';
+
+            
+
             return false;
         }
 
@@ -82,6 +94,9 @@ class CreateAdvanced extends Component
      */
     public function importLinks()
     {
+        
+        /* @todo pass this to a BulkCreate action
+        *
         foreach($this->destinationsLoaded as $link)
         {
             $linkObj = new Link;
@@ -100,13 +115,16 @@ class CreateAdvanced extends Component
             $linkObj->save();
         }
 
+
         Notification::make() 
             ->title('Links imported')
             ->body('Your links have been imported successfully.')
             ->success()
             ->send(); 
+        */
 
         $this->resetData();
+        
 
     }
 
