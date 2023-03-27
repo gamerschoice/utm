@@ -193,7 +193,6 @@
                     <div class="mt-4 text-gray-600 leading-normal">
                         <div>
                             <h3 class="text-xl font-semibold text-gray-900">QR code preview</h3>
-                            <h5 class="font-normal text-sm text-gray-600"> {{ $link->auto_url }} </h5>
                         </div>
                         <img x-bind:src="qrImage" class="w-full" loading="lazy" alt="QR" width="320" class="mx-auto inline-block">
                     </div>
