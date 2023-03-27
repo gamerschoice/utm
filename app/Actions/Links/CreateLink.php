@@ -6,7 +6,7 @@ use App\Models\Domain;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Str;
-use App\Events\LinkCreated;
+use App\Events\BulkLinksCreated;
 
 class CreateLink
 {
@@ -39,13 +39,10 @@ class CreateLink
 
             DB::commit();
 
-            /** 
-             * dispatch inserted links to listener 
-             * to mass update KVs in one request?
-            */
-            //LinksImported::dispatch($link);
+            BulkLinksCreated::dispatch($created);
 
         } catch (QueryException $e) {
+            /** update exception to catch exceptions from query AND event? */
             DB::rollback();
             return false;
         }

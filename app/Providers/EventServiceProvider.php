@@ -22,7 +22,10 @@ class EventServiceProvider extends ServiceProvider
         ],
         LinkCreated::class => [
             CreateShortlinkKeyValueListener::class,
-        ]
+        ],
+        BulkLinksCreated::class => [
+            BulkShortlinksKeyValueListener::class,
+        ],
     ];
 
     /**

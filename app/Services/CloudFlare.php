@@ -120,6 +120,14 @@ class CloudFlare {
         return $this->handleResponse( $response );
     }
 
+    public function bulkCacheShortlinks( array $links )
+    {
+        $url = $this->baseUrl . '/accounts/' . config('services.cloudflare.accountId') . '/storage/kv/namespaces/' . env('CF_WORKER_KV_NAMESPACE') . '/bulk';
+        $response = Http::withToken( $this->apiToken )
+                        ->put( $url, $links );
+
+        return $this->handleResponse( $response );
+    }
 
     public function bulkDeleteShortlinks( array $shortlinks)
     {
