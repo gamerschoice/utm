@@ -18,6 +18,7 @@
     },
     "dependencies": {
         "@awcodes/alpine-floating-ui": "^3.5.0",
-        "aos": "^2.3.4"
+        "aos": "^2.3.4",
+        "qrcode": "^1.5.1"
     }
 }
