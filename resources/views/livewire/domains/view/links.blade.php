@@ -142,6 +142,13 @@
                                 View
                             </x-button-secondary>
 
+                            <x-button-secondary type="button" @click="getQR('{{ $link->auto_url }}')">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 6.75h.75v.75h-.75v-.75zM6.75 16.5h.75v.75h-.75v-.75zM16.5 6.75h.75v.75h-.75v-.75zM13.5 13.5h.75v.75h-.75v-.75zM13.5 19.5h.75v.75h-.75v-.75zM19.5 13.5h.75v.75h-.75v-.75zM19.5 19.5h.75v.75h-.75v-.75zM16.5 16.5h.75v.75h-.75v-.75z" />
+                                </svg>
+                            </x-button-secondary>
+
                             <x-button type="button" x-data="{ copied: false }" class="text-xs" @click.prevent="window.navigator.clipboard.writeText('{{ $link->auto_url }}'); copied = true; setTimeout( function() { copied = false }, 3000);">
                                 <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 cursor-pointer mr-1 text-white-800">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5A3.375 3.375 0 006.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0015 2.25h-1.5a2.251 2.251 0 00-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 00-9-9z" />
@@ -161,16 +168,66 @@
             {{ $links->links() }}
         </div>
 
+        <div 
+            x-cloak x-show="qrImage" x-on:close.stop="qrImage = false" x-on:keydown.escape.window="qrImage = false"
+            class="jetstream-modal fixed inset-0 overflow-y-auto px-4 py-6 sm:px-0 z-50">
+            
+            <div x-show="qrImage" class="fixed inset-0 transform transition-all" x-on:click="qrImage = false" x-transition:enter="ease-out duration-300"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="ease-in duration-200"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0">
+                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+            <div x-show="qrImage" class="mb-6 bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full sm:max-w-[520px] sm:mx-auto"
+            x-trap.inert.noscroll="show"
+            x-transition:enter="ease-out duration-300"
+            x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+            x-transition:leave="ease-in duration-200"
+            x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+            x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
+
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="mt-4 text-gray-600 leading-normal">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900">QR code preview</h3>
+                            <h5 class="font-normal text-sm text-gray-600"> {{ $link->auto_url }} </h5>
+                        </div>
+                        <img x-bind:src="qrImage" class="w-full" loading="lazy" alt="QR" width="320" class="mx-auto inline-block">
+                    </div>
+                    <div class="flex flex-row justify-end px-6 py-4 bg-gray-100 text-right">
+                        <a x-bind:href="qrImage" target="_blank" rel="noopener nofollow" download="qr.jpg">
+                            <x-button type="button">
+                                Download
+                            </x-button>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
         @livewire('links.link-panel')
 
     </div>
     <script>
+
         window.LinksTable = () => {
             return {
                 filterOpen: false,
                 bulkDeletions: false,
                 deletions: [],
+                qrImage: false,
+                getQR(url) {
+                    return QRCode.toDataURL(url, { 
+                        width: 2560,
+                        quality: 1,
+                    }, (err, data) => {
+                        this.qrImage = data;
+                    });
+                },
             }
         }
     </script>

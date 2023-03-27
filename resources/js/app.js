@@ -4,7 +4,9 @@ import AlpineFloatingUI from '@awcodes/alpine-floating-ui'
 import NotificationsAlpinePlugin from '../../vendor/filament/notifications/dist/module.esm'
 import focus from '@alpinejs/focus';
 import AOS from 'aos'
+import QRCode from 'qrcode'
 
+window.QRCode = QRCode;
 window.Alpine = Alpine;
 AOS.init({
     once: true
