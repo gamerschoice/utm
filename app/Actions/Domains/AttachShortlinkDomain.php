@@ -22,6 +22,7 @@ class AttachShortlinkDomain
         $this->cloudflare = $cloudflare;
     }
 
+
     public function preAttach(Domain $domain, string $shortlink_domain)
     {
         /**
@@ -34,8 +35,22 @@ class AttachShortlinkDomain
          * $userRecordsToAdd = $cloudflare->createCustomHostname( $shortlink_domain );
          * 
          * ...
+         * webhook somewhere to receive payload when hostname is verified
+         * ...
          */
 
+    }
+
+    /**
+     * @todo should really create model for shortlink domains rather than using hostname strings everywhere?
+     * 
+     * attach action post-TLS-verification
+     */
+    public function attach(Domain $domain, string $shortlink_domain)
+    {   
+         /**
+          * $cloudflare->createWorkerRoute( $shortlink_domain );
+          */
     }
 
 
