@@ -19,7 +19,7 @@ class CreateDomain
     public function create(string $domainName, Team $team)
     {
         if($team->canRegisterDomain()) {
-            $team->domains()->create([
+            return $team->domains()->create([
                 'domain' => $this->normalizer->normalize($domainName),
                 'dns_configured' => false
             ]);

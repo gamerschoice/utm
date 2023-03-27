@@ -6,11 +6,13 @@ use Spatie\LivewireWizard\Components\StepComponent;
 use App\Actions\Domains\CreateDomain;
 use Filament\Notifications\Notification; 
 use App\Exceptions\DomainLimitException;
-use Filament\Notifications\Actions\Action; 
+use Filament\Notifications\Actions\Action;
+use App\Rules\IsValidDomain; 
 
 class CreateDomainStep extends StepComponent
 {
     public $domainName;
+    public $domain;
 
     public function render()
     {
@@ -22,13 +24,21 @@ class CreateDomainStep extends StepComponent
         $data = $this->validate([
             'domainName' => [
                 'required',
-                'url'
+                new IsValidDomain
             ]
         ]);
 
         try {
-            $creator->create($this->domainName, auth()->user()->currentTeam);
+            $this->domain = $creator->create($this->domainName, auth()->user()->currentTeam);
             $this->emitTo('app-navigation-menu', 'refresh-navigation-menu');
+
+            Notification::make() 
+                ->title('Domain registered.')
+                ->body("You've registered your domain.")
+                ->success()
+                ->send(); 
+
+
             $this->nextStep();
         } catch (DomainLimitException $e) {
             Notification::make() 

@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Laravel\Cashier\Cashier;
 use App\Models\Team;
 use Livewire\Livewire;
+use App\Http\Livewire\Domains\CreateDomainWizard;
 use App\Http\Livewire\Domains\CreateDomainStep;
 use App\Http\Livewire\Domains\RegisterDnsStep;
 use App\Http\Livewire\Links\Wizard\ChoosePurpose;

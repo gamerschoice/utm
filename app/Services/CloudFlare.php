@@ -5,6 +5,8 @@ namespace App\Services;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Client\Response;
 use Carbon\Carbon;
+use Illuminate\Http\Client\RequestException;
+use App\Exceptions\CloudflareException;
 
 class CloudFlare {
 
@@ -33,7 +35,7 @@ class CloudFlare {
             'hostname' => $hostname,
             'ssl' => [
                 'bundle_method' => 'ubiquitous',
-                'method' => 'txt',
+                'method' => 'http',
                 'type' => 'dv',
                 'settings' => [
                     'ciphers' => ['ECDHE-RSA-AES128-GCM-SHA256', 'AES128-SHA'],
@@ -140,7 +142,10 @@ class CloudFlare {
 
     protected function handleResponse( Response $response )
     {
-        $response->throwUnlessStatus(200);
+        if(! $response->json('success')) {
+            throw new CloudflareException($response->json('errors.0.message'), $response->status());
+        }
+
         return $response->json();
     }
 

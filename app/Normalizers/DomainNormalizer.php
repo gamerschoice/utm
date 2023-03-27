@@ -10,8 +10,7 @@ class DomainNormalizer
 {
     public function normalize(string $domainName)
     {
-        $parsed = parse_url($domainName);
-        $domain = Domain::fromIDNA2008($parsed['host']);
+        $domain = Domain::fromIDNA2008($domainName);
 
         $suffixList = Rules::fromPath(storage_path('app/suffixes.txt'));
 
