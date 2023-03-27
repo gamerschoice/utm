@@ -192,12 +192,12 @@
                                                 </x-button-secondary>
                                             </dd>
                                         </div>
-                                        <div x-show="!editing" class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                                        <div x-show="!editing" class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6" x-data="{ qrImage: QRCode.toDataURL('{{ $link->auto_url }}', { width:2560, quality:1 }) }">
                                             <dt class="text-sm font-medium text-gray-500">
                                                 QR
                                             </dt>
                                             <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 flex flex-col items-start">
-                                                <div x-data="{ qrImage: QRCode.toDataURL('{{ $link->auto_url }}', { width:2560, quality:1 }) }">
+                                                <div>
                                                     <img x-bind:src="qrImage" class="w-full">
                                                 </div>
                                                 <a x-bind:href="qrImage" target="_blank" rel="noopener nofollow" download="qr.jpg">
