@@ -31,7 +31,8 @@ class CreateShortlinkKeyValueListener
 
 
         try {
-            $this->cloudflare->cacheShortlink( $event->link->auto_url, $event->link->destination );
+            #$this->cloudflare->cacheShortlink( $event->link->auto_url, $event->link->destination );
+            $this->cloudflare->cacheShortlink( $link );
         
         } catch( RequestException $e ) {
 

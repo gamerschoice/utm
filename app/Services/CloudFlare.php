@@ -7,6 +7,7 @@ use Illuminate\Http\Client\Response;
 use Carbon\Carbon;
 use Illuminate\Http\Client\RequestException;
 use App\Exceptions\CloudflareException;
+use App\Models\Link;
 
 class CloudFlare {
 
@@ -108,13 +109,16 @@ class CloudFlare {
 
 
 
-    public function cacheShortlink( string $shortlink_url, string $destination_url )
+    /** 
+     * @todo add utm params...idiot
+     */
+    public function cacheShortlink( Link $link )
     {
-        $url = $this->baseUrl . '/accounts/' . config('services.cloudflare.accountId') . '/storage/kv/namespaces/' . env('CF_WORKER_KV_NAMESPACE') . '/values/' . urlencode($shortlink_url);
+        $url = $this->baseUrl . '/accounts/' . config('services.cloudflare.accountId') . '/storage/kv/namespaces/' . env('CF_WORKER_KV_NAMESPACE') . '/values/' . urlencode($link->auto_url);
         $response = Http::withToken( $this->apiToken )
                         ->put( $url, [
                             'metadata' => [ 'created_at' => Carbon::now() ],
-                            'value' => $destination_url
+                            'value' => $link->full_url
                         ]);
 
         return $this->handleResponse( $response );

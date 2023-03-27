@@ -403,7 +403,7 @@
               
 
             <!-- Reviews -->
-            <section id="reviews" aria-labelledby="reviews-title" class="py-24">
+            <section id="reviews" aria-labelledby="reviews-title" class="py-24 bg-gray-50">
                 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div class="mx-auto max-w-4xl text-center">
                         <h2 class="text-base font-semibold leading-7 text-blue-600">Reviews</h2>
