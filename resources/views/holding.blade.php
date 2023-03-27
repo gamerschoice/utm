@@ -141,8 +141,6 @@
                     <div class="grid grid-cols-1 gap-y-16 gap-x-8 sm:gap-y-20 lg:grid-cols-2 lg:items-start">
                         <div class="sm:px-6 lg:px-0">
 
-                            <!-- -->
-
                             <div class="sm:px-6 lg:px-0">
 
                                 <div data-aos="fade-down-right" data-aos-delay="600" data-aos-duration="1000" class="bg-white shadow rounded-lg max-w-[320px] mx-auto mt-8">
@@ -189,8 +187,6 @@
                                 </div>
                             </div>
 
-
-
                         </div>
                         <div class="px-6 lg:px-0 lg:pt-4 lg:pr-4">
                             <div class="mx-auto max-w-2xl lg:ml-auto lg:max-w-lg">
@@ -236,6 +232,32 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class=" bg-gray-50 pb-24 sm:pb-32 lg:pb-52">
+
+                <div class="mx-auto max-w-7xl md:px-6 lg:px-8 group">
+                    <div class="grid grid-cols-1 gap-y-16 gap-x-8 sm:gap-y-20 lg:grid-cols-2 lg:items-start">
+                        <div class="px-6 lg:px-0 lg:pt-4 lg:pr-4">
+                            <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
+                                <h2 class="text-base font-semibold leading-7 text-blue-600">Features</h2>
+                                <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Automatic QR codes</p>
+                                <p class="mt-6 text-lg leading-8 text-gray-600">Want to track traditional offline campaigns? We've got you covered&hellip;</p>
+                                <p class="mt-6 text-lg leading-8 text-gray-600">Preview and download high-res QR codes for any of your links at the touch of a button for use in your offline campaigns. </p>
+                            </div>
+                        </div>
+                        <div class="sm:px-6 lg:px-0">
+                            <div class="mx-auto w-[300px] sm:w-[320px] md:w-[500px] md:-translate-y-10 aspect-square relative sm:mx-0 sm:max-w-none">
+                                <img src="{{ asset('images/qr-code.png') }}" alt="Product screenshot" width="500" height="500" 
+                                class="md:w-full rounded-3xl bg-gray-800 ring-1 ring-white/10 transition ease-in-out duration-1000 group-hover:rotate-6 z-10 relative shadow-lg">
+                                <div class="absolute w-full aspect-square bg-blue-500 rounded-3xl transition ease-in-out duration-700 group-hover:-translate-x-8 group-hover:-translate-y-8 shadow-lg z-0 top-0"></div>
+                            </div>
+                            <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10 sm:rounded-3xl" aria-hidden="true"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
                   
 
