@@ -158,7 +158,7 @@
                                         </div>
                                     </div>    
                                 </div>
-                                <div data-aos="fade-up-right" data-aos-delay="1800" data-aos-duration="1000" class="bg-white shadow rounded-lg max-w-[500px] mt-8 mx-5 sm:mx-auto ">
+                                <div data-aos="fade-up-right" data-aos-delay="1200" data-aos-duration="1000" class="bg-white shadow rounded-lg max-w-[500px] mt-8 mx-5 sm:mx-auto ">
                                     <div class="px-4 py-5 sm:p-6 text-center">
                                         <h3 class="text-2xl font-semibold leading-6 text-gray-900">🎉 Link created!</h3>
                                         <div class="mt-6 mx-auto max-w-lg text-base text-gray-600">
