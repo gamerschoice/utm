@@ -12,7 +12,7 @@ class DomainNormalizer
     {
         $domain = Domain::fromIDNA2008($domainName);
 
-        $suffixList = Rules::fromPath(storage_path('app/suffixes.txt'));
+        $suffixList = Rules::fromPath(Storage::get('suffixes.txt'));
 
         $result = $suffixList->resolve($domain);
 
