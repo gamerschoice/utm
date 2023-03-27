@@ -19,8 +19,8 @@ environments:
     staging:
         gateway-version: 2
         database: utmwise-development
-        warm: 10
         memory: 1024
+        storage: utmwise-development
         cli-memory: 512
         runtime: 'php-8.2:al2'
         build:
