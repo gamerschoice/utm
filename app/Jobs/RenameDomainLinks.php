@@ -10,6 +10,8 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use App\Models\Domain;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\QueryException;
+use App\Events\BulkLinksCreated;
 
 class RenameDomainLinks implements ShouldQueue, ShouldBeUnique
 {
@@ -38,15 +40,37 @@ class RenameDomainLinks implements ShouldQueue, ShouldBeUnique
      */
     public function handle(): void
     {
+
+        try {
+            DB::beginTransaction();
+
+            DB::update(
+                'UPDATE links SET destination = REPLACE(destination, ?, ?) where domain_id = ?',
+                [
+                   $this->domain->domain,
+                   $this->newDomain,
+                   $this->domain->id
+                ]
+            );
+
+            DB::commit();
+
+            if( 
+                $this->domain->shortdomain && 
+                $this->domain->shortdomain->status === 'active') {
+
+                $links = $this->domain->links;
+                
+                BulkLinksCreated::dispatch($links);
+
+            }
+
+
+        } catch (QueryException $e) {
+            DB::rollback();
+        }
     
-        DB::update(
-            'UPDATE links SET destination = REPLACE(destination, ?, ?) where domain_id = ?',
-            [
-               $this->domain->domain,
-               $this->newDomain,
-               $this->domain->id
-            ]
-        );
+
     
     }
 }

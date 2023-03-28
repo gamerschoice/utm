@@ -28,10 +28,10 @@ class DownloadPublicSuffixData extends Command
      */
     public function handle(): void
     {
-        $response = Http::get('https://data.iana.org/TLD/tlds-alpha-by-domain.txt');
+        $response = Http::get('https://publicsuffix.org/list/public_suffix_list.dat');
 
-        if(! Storage::put('tlds.txt', $response->body())) {
-            throw Exception("Unable to store TLD list.");
+        if(! Storage::put('suffixes.txt', $response->body())) {
+            throw Exception("Unable to store Public Suffix list.");
         }
     }
 }

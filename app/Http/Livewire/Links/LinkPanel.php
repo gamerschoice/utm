@@ -3,28 +3,18 @@
 namespace App\Http\Livewire\Links;
 
 use Livewire\Component;
-use Carbon\Carbon;
 use App\Models\Link;
+use App\Models\Domain;
 use Filament\Notifications\Notification; 
-use Illuminate\Support\Str;
+use App\Actions\Links\DeleteLink;
+use App\Actions\Links\CreateLink;
+use App\Actions\Links\UpdateLink;
+
 
 class LinkPanel extends Component
 {
 
     public $link = null;
-
-    /*
-    public $destination;
-    public $utm_source;
-    public $utm_medium;
-    public $utm_campaign;
-    public $utm_term;
-    public $utm_content;
-    public $utm_source_platform;
-    public $utm_creative_format;
-    public $utm_marketing_tactic;
-    public $notes;
-    */
 
     protected $rules = [
         'link.destination' => 'required|active_url',
@@ -46,45 +36,78 @@ class LinkPanel extends Component
 
     }
 
-    public function duplicateLink()
+
+    public function duplicateLink( CreateLink $creator )
     {
-        $duplicate = $this->link->replicate();
-        $duplicate->created_at = Carbon::now();
-        $duplicate->updated_at = Carbon::now();
-        $duplicate->shortlink = Str::random(8);
-        $duplicate->save();
+        $duplicate = $this->link->replicate()->toArray();
+        $domain = Domain::find($duplicate['domain_id']);
+        unset($duplicate['id']);
+        unset($duplicate['created_at']);
+        unset($duplicate['updated_at']);
+        unset($duplicate['shortlink']);
+        unset($duplicate['domain']);
+
+        $link = $creator->create( $domain, $duplicate );
+
+        if(!$link) {
+            Notification::make() 
+                ->title('Link duplication failed')
+                ->body('The operation could not be completed, please try again later. If the problem persists, please contact support.')
+                ->danger()
+                ->send(); 
+        } else {
+            $this->emit('linkSaved');
+            $this->dispatchBrowserEvent('close-link-panel');
+            Notification::make() 
+                ->title('Link duplicated')
+                ->success()
+                ->send(); 
+        }
+
+    }
+
+
+    public function deleteLink( DeleteLink $deleter )
+    {
+        if( !$deleter->delete( $this->link ) ) {
+            Notification::make() 
+                ->title('Link deletion failed')
+                ->body('The operation could not be completed, please try again later. If the problem persists, please contact support.')
+                ->danger()
+                ->send(); 
+        } else {
+            Notification::make() 
+                ->title('Link removed.')
+                ->success()
+                ->send(); 
+        }
 
         $this->emit('linkSaved');
         $this->dispatchBrowserEvent('close-link-panel');
-        Notification::make() 
-            ->title('Link duplicated')
-            ->success()
-            ->send(); 
+
     }
 
-    public function deleteLink()
-    {
-
-        $this->link->delete();
-        $this->emit('linkSaved');
-        $this->dispatchBrowserEvent('close-link-panel');
-        Notification::make() 
-            ->title('Link removed.')
-            ->danger()
-            ->send(); 
-    }
-
-    public function updateLink()
+    public function updateLink( UpdateLink $updater )
     {
         $this->validate();
 
-        $this->link->save();
+        if( !$updater->update($this->link) ) {
+            Notification::make() 
+                ->title('Link update failed')
+                ->body('The operation could not be completed, please try again later. If the problem persists, please contact support.')
+                ->danger()
+                ->send(); 
+        } else {
+            Notification::make() 
+                ->title('Link saved successfully')
+                ->body('Please note: if you changed the link destination, your link will continue to serve the old destination for returning visitors until caches expire (up to 10 minutes)')
+                ->success()
+                ->send(); 
+        }
+
         $this->emit('linkSaved');
         $this->dispatchBrowserEvent('close-link-panel');
-        Notification::make() 
-            ->title('Link saved successfully')
-            ->success()
-            ->send(); 
+
     }
 
     public function render()

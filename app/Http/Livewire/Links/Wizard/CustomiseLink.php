@@ -3,7 +3,8 @@
 namespace App\Http\Livewire\Links\Wizard;
 use Spatie\LivewireWizard\Components\StepComponent;
 use App\Models\Link;
-use Illuminate\Support\Str;
+use App\Models\Domain;
+use App\Actions\Links\CreateLink;
 
 class CustomiseLink extends StepComponent
 {
@@ -22,26 +23,27 @@ class CustomiseLink extends StepComponent
 
     public $link;
 
-    public function saveLink() 
+    public function saveLink( CreateLink $creator ) 
     {
 
-        $link = Link::create([
-            'domain_id' => $this->domain['id'],
-            'destination' => $this->destination,
-            'utm_source' => $this->utm_source,
-            'utm_medium' => $this->utm_medium,
-            'utm_campaign' => $this->utm_campaign,
-            'utm_term' => $this->utm_term,
-            'utm_content' => $this->utm_content,
-            'utm_source_platform' => $this->utm_source_platform,
-            'utm_creative_format' => $this->utm_creative_format,
-            'utm_marketing_tactic' => $this->utm_marketing_tactic,
-            'notes' => $this->notes,
-            'shortlink' => Str::random(8)
-        ]);
+        $creator = $creator->create(
+            Domain::find($this->domain['id']),
+            [
+                'destination' => $this->destination,
+                'utm_source' => $this->utm_source,
+                'utm_medium' => $this->utm_medium,
+                'utm_campaign' => $this->utm_campaign,
+                'utm_term' => $this->utm_term,
+                'utm_content' => $this->utm_content,
+                'utm_source_platform' => $this->utm_source_platform,
+                'utm_creative_format' => $this->utm_creative_format,
+                'utm_marketing_tactic' => $this->utm_marketing_tactic,
+                'notes' => $this->notes
+            ]
+        );
 
-        $this->link = $link;
-        //$this->emit('linkCreated', $link);
+        $this->link = $creator;
+
     }
 
     public function mount() 

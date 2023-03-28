@@ -8,9 +8,8 @@
     <title>UTM Wise</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+        <!--link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"-->
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <!-- Scripts -->
     <style>
         [x-cloak] {
@@ -19,14 +18,14 @@
     </style>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <meta name="twitter:site" content="@utmwise">
-    <meta name="twitter:title" content="Get UTM Wise and take control of your link attribution">
+    <meta name="twitter:title" content="Get UTM Wise and take control of your link tracking">
     <meta name="twitter:description"
         content="Say goodbye to spreadsheets! UTM Wise lets you manage your site's UTM tracking links like a pro.">
     <meta name="twitter:image" content="https://utmwise.com/img/meta/social.png">
     <meta name="twitter:creator" content="@utmwise">
     <meta property="og:url" content="https://utmwise.com/">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Get UTM Wise and take control of your link attribution">
+    <meta property="og:title" content="Get UTM Wise and take control of your link tracking">
     <meta property="og:description"
         content="Say goodbye to spreadsheets! UTM Wise lets you manage your site's UTM tracking links like a pro.">
     <meta property="og:image" content="https://utmwise.com/img/meta/social.png">
@@ -113,19 +112,20 @@
                     <div class="mx-auto max-w-7xl px-6 lg:px-8">
                         <div class="mx-auto max-w-2xl text-center">
                             <h1 class="text-4xl font-black font-sans tracking-tight text-transparent sm:text-5xl xl:text-6xl text-white pb-8">Ditch spreadsheets
-                                &amp; take control of link tracking.</h1>
+                                &amp; <span class="underline decoration decoration-blue-300 decoration-4">take control</span> of link tracking.</h1>
                             <p class="mt-6 text-lg font-light leading-8 text-gray-50">Get UTM Wise and start managing your
                                 tracking links and link attribution effectively. Use branded short links to give reassurance to your users.</p>
                             <div class="mt-10 flex items-center justify-center gap-x-6">
                                 <a href="/register"
-                                    class="inline-flex items-center rounded-md bg-white px-4 py-2 text-base font-semibold text-gray-900 shadow-sm  hover:bg-gray-50 transition ease-in-out duration-300">Get started for free</a>
+                                    class="inline-flex items-center rounded-md bg-white px-4 py-2 text-base font-semibold text-gray-900 shadow-sm  hover:bg-gray-50 transition ease-in-out duration-300 hover:scale-105">Get started for free</a>
                             </div>
                         </div>
                         <div class="mt-16 flow-root sm:mt-24">
                             <div
+                                data-aos="zoom-in-up" data-aos-delay="1200" data-aos-duration="1200"
                                 class="-m-2 rounded-xl bg-gradient-to-b from-gray-100/5 to-gray-50 p-2 ring-1 ring-inset ring-gray-100/10 lg:-m-4 lg:rounded-2xl lg:p-4">
                                 <img src="{{ asset('images/screenshot-create-link.jpg') }}" alt="App screenshot"
-                                    width="2432" height="1442"
+                                    width="2432" height="1442" loading="lazy" 
                                     class="rounded-md shadow-2xl ring-1 ring-gray-100/10">
                             </div>
                         </div>
@@ -167,80 +167,195 @@
             </div-->
 
             <!-- Feature section -->
-            <div id="features" class="mx-auto mt-32 max-w-7xl px-6 sm:mt-56 lg:px-8">
-                <div class="mx-auto max-w-2xl lg:text-center">
-                    <h2 class="text-lg font-semibold leading-7 text-gray-900">Features</h2>
-                    <p class="mt-2 text-3xl font-bold tracking-tight text-blue-600 sm:text-4xl">Everything you need, to track like a boss</p>
-                    <p class="mt-6 text-lg leading-8 text-gray-600">Quis tellus eget adipiscing convallis sit sit eget
-                        aliquet quis. Suspendisse eget egestas a elementum pulvinar et feugiat blandit at. In mi viverra
-                        elit nunc.</p>
-                </div>
-                <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-                    <dl class="grid max-w-xl grid-cols-1 gap-10 lg:max-w-none lg:grid-cols-2">
 
-                        <x-feature-card>
-                            <x-slot name="svg">
-                                <svg class="h-6 w-6 stroke-gray-900 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
-                                </svg>
-                            </x-slot>
-                            <x-slot name="title">
-                                Custom domain shortlinks
-                            </x-slot>
-                            <x-slot name="content">
-                                With a quick DNS update, you can use whatever domain, or subdomain you want for your shortlinks. E.g. go.mydomain.com, mydmn.co
-                            </x-slot>
-                        </x-feature-card>
-
-                        <x-feature-card>
-                            <x-slot name="svg">
-                                <svg class="h-6 w-6 stroke-gray-900 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
-                                </svg>
-                            </x-slot>
-                            <x-slot name="title">
-                                Custom domain shortlinks
-                            </x-slot>
-                            <x-slot name="content">
-                                With a quick DNS update, you can use whatever domain, or subdomain you want for your shortlinks. E.g. go.mydomain.com, mydmn.co
-                            </x-slot>
-                        </x-feature-card>
-
-                        <x-feature-card>
-                            <x-slot name="svg">
-                                <svg class="h-6 w-6 stroke-gray-900 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
-                                </svg>
-                            </x-slot>
-                            <x-slot name="title">
-                                Link wizard
-                            </x-slot>
-                            <x-slot name="content">
-                                Create your links using our wizard to set sensible defaults and never worry about utm typos
-                            </x-slot>
-                        </x-feature-card>
-
-                        <x-feature-card>
-                            <x-slot name="svg">
-                                <svg class="h-6 w-6 stroke-gray-900 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
-                                </svg>
-                            </x-slot>
-                            <x-slot name="title">
-                                Bulk import
-                            </x-slot>
-                            <x-slot name="content">
-                                Mass import your links quickly using our bulk link importer. Set import presets for your source, campaign and medium, then customise each link with ease.
-                            </x-slot>
-                        </x-feature-card>
-
-
-                    </dl>
+            <div id="features" class="overflow-hidden bg-gray-50 py-24 sm:py-32 lg:py-52">
+                <div class="mx-auto max-w-7xl md:px-6 lg:px-8 group">
+                    <div class="grid grid-cols-1 gap-y-16 gap-x-8 sm:gap-y-20 lg:grid-cols-2 lg:items-start">
+                        <div class="px-6 lg:px-0 lg:pt-4 lg:pr-4">
+                            <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
+                                <h2 class="text-base font-semibold leading-7 text-blue-600">Features</h2>
+                                <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">A better workflow</p>
+                                <p class="mt-6 text-lg leading-8 text-gray-600">Don't lose track of your tracking. 100% visibility across all of your domain links, allowing filtering for campaigns, sources and mediums.</p>
+                                <dl class="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
+                                    <div class="relative pl-9">
+                                        <dt class="inline font-semibold text-gray-900">
+                                            <svg class="absolute top-1 left-1 h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                                                <path d="M16.555 5.412a8.028 8.028 0 00-3.503-2.81 14.899 14.899 0 011.663 4.472 8.547 8.547 0 001.84-1.662zM13.326 7.825a13.43 13.43 0 00-2.413-5.773 8.087 8.087 0 00-1.826 0 13.43 13.43 0 00-2.413 5.773A8.473 8.473 0 0010 8.5c1.18 0 2.304-.24 3.326-.675zM6.514 9.376A9.98 9.98 0 0010 10c1.226 0 2.4-.22 3.486-.624a13.54 13.54 0 01-.351 3.759A13.54 13.54 0 0110 13.5c-1.079 0-2.128-.127-3.134-.366a13.538 13.538 0 01-.352-3.758zM5.285 7.074a14.9 14.9 0 011.663-4.471 8.028 8.028 0 00-3.503 2.81c.529.638 1.149 1.199 1.84 1.66zM17.334 6.798a7.973 7.973 0 01.614 4.115 13.47 13.47 0 01-3.178 1.72 15.093 15.093 0 00.174-3.939 10.043 10.043 0 002.39-1.896zM2.666 6.798a10.042 10.042 0 002.39 1.896 15.196 15.196 0 00.174 3.94 13.472 13.472 0 01-3.178-1.72 7.973 7.973 0 01.615-4.115zM10 15c.898 0 1.778-.079 2.633-.23a13.473 13.473 0 01-1.72 3.178 8.099 8.099 0 01-1.826 0 13.47 13.47 0 01-1.72-3.178c.855.151 1.735.23 2.633.23zM14.357 14.357a14.912 14.912 0 01-1.305 3.04 8.027 8.027 0 004.345-4.345c-.953.542-1.971.981-3.04 1.305zM6.948 17.397a8.027 8.027 0 01-4.345-4.345c.953.542 1.971.981 3.04 1.305a14.912 14.912 0 001.305 3.04z" />
+                                            </svg>
+                                            Custom domain shortlinks.
+                                        </dt>
+                                        <dd class="inline">With a quick DNS update, you can use whatever domain, or subdomain you want for your shortlinks. E.g. go.mydomain.com, mydmn.co</dd>
+                                    </div>
+                        
+                                    <div class="relative pl-9">
+                                        <dt class="inline font-semibold text-gray-900">
+                                            <svg class="absolute top-1 left-1 h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                                                <path d="M11.983 1.907a.75.75 0 00-1.292-.657l-8.5 9.5A.75.75 0 002.75 12h6.572l-1.305 6.093a.75.75 0 001.292.657l8.5-9.5A.75.75 0 0017.25 8h-6.572l1.305-6.093z" />
+                                            </svg>
+                                            
+                                            Link wizard
+                                        </dt>
+                                        <dd class="inline">Create your links using our wizard to set sensible defaults. Excellent for simple data consistency.</dd>
+                                    </div>
+                        
+                                    <div class="relative pl-9">
+                                        <dt class="inline font-semibold text-gray-900">
+                                            <svg class="absolute top-1 left-1 h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M4.606 12.97a.75.75 0 01-.134 1.051 2.494 2.494 0 00-.93 2.437 2.494 2.494 0 002.437-.93.75.75 0 111.186.918 3.995 3.995 0 01-4.482 1.332.75.75 0 01-.461-.461 3.994 3.994 0 011.332-4.482.75.75 0 011.052.134z" clip-rule="evenodd" />
+                                                <path fill-rule="evenodd" d="M5.752 12A13.07 13.07 0 008 14.248v4.002c0 .414.336.75.75.75a5 5 0 004.797-6.414 12.984 12.984 0 005.45-10.848.75.75 0 00-.735-.735 12.984 12.984 0 00-10.849 5.45A5 5 0 001 11.25c.001.414.337.75.751.75h4.002zM13 9a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                                            </svg>
+                                            Bulk import
+                                        </dt>
+                                        <dd class="inline">Mass import your links quickly using our bulk link importer. Set import presets for your source, campaign and medium, then customise each link with ease.</dd>
+                                    </div>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="sm:px-6 lg:px-0">
+                            <div class="relative isolate overflow-hidden bg-blue-500 px-6 pt-8 sm:mx-auto sm:max-w-2xl sm:rounded-3xl sm:pt-16 sm:pl-16 sm:pr-0 lg:mx-0 lg:max-w-none">
+                            <div class="group-hover:-translate-x-40 transition ease-in-out absolute duration-1000 -inset-y-px -left-3 -z-10 w-full origin-bottom-left skew-x-[-30deg] bg-blue-100 opacity-20 ring-1 ring-inset ring-white" aria-hidden="true"></div>
+                            <div class="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
+                                <img src="{{ asset('images/screenshot-links.jpg') }}" alt="Product screenshot" width="1216" height="721" class="-mb-12 w-[57rem] max-w-none rounded-tl-xl bg-gray-800 ring-1 ring-white/10 group-hover:-translate-x-5 group-hover:-translate-y-5 transition duration-1000 ease-in-out">
+                            </div>
+                            <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10 sm:rounded-3xl" aria-hidden="true"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+
+            <div class="overflow-hidden bg-gray-50 pb-24 sm:pb-32 lg:pb-52">
+                <div class="mx-auto max-w-7xl md:px-6 lg:px-8 group">
+                    <div class="grid grid-cols-1 gap-y-16 gap-x-8 sm:gap-y-20 lg:grid-cols-2 lg:items-start">
+                        <div class="sm:px-6 lg:px-0">
+
+                            <!-- -->
+
+                            <div class="sm:px-6 lg:px-0">
+
+                                <div data-aos="fade-down-right" data-aos-delay="600" data-aos-duration="1000" class="bg-white shadow rounded-lg max-w-[320px] mx-auto mt-8">
+                                    <div class="px-4 py-5 sm:p-6">
+                                        <h3 class="text-base font-semibold leading-6 text-gray-900">
+                                            DNS Status: go2.mydomain.com
+                                        </h3>
+                                        <div class="mt-2 max-w-xl text-sm text-gray-500 flex gap-5 py-4">
+                                            <p>Hooray! Your DNS is verified and your shortlink domain is active!</p>
+                                            <svg class="shrink-0 inline-block w-16 h-16 text-green-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"></path>
+                                            </svg>
+                                        </div>
+                                    </div>    
+                                </div>
+                                <div data-aos="fade-up-right" data-aos-delay="1200" data-aos-duration="1000" class="bg-white shadow rounded-lg max-w-[500px] mt-8 mx-5 sm:mx-auto ">
+                                    <div class="px-4 py-5 sm:p-6 text-center">
+                                        <h3 class="text-2xl font-semibold leading-6 text-gray-900">🎉 Link created!</h3>
+                                        <div class="mt-6 mx-auto max-w-lg text-base text-gray-600">
+                                            <p>Your trackable link has been created! Click the text box below to copy it to your clipboard.</p>
+                                        </div>
+        
+                                        <div class="my-6 mx-auto w-full lg:w-[90%] transform divide-y divide-gray-100 overflow-hidden rounded-xl bg-gray-50 shadow-lg ring-1 ring-black ring-opacity-5 transition-all">
+                                            <div class="relative">
+                                                <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-gray-400">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5A3.375 3.375 0 006.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0015 2.25h-1.5a2.251 2.251 0 00-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 00-9-9z"></path>
+                                                </svg>    
+                                                <input @click.prevent="$el.focus(); $el.select(); window.navigator.clipboard.writeText('https://go2.mydomain.com/NTTjimBM');" type="text" class="h-12 w-full border-0 bg-transparent pl-11 pr-4 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-center" value="https://go2.mydomain.com/NTTjimBM">
+                                            </div>
+                                        </div>
+        
+                                        <div class="mt-5 flex justify-center items-center gap-5">
+
+                                            <button @click.prevent=""" type="button" class="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 transition ease-in-out duration-300">
+                                                Create another
+                                            </button>
+
+                                            <button @click.prevent="" type="button" class="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 transition ease-in-out duration-300">
+                                                Continue
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div class="px-6 lg:px-0 lg:pt-4 lg:pr-4">
+                            <div class="mx-auto max-w-2xl lg:ml-auto lg:max-w-lg">
+                                <h2 class="text-base font-semibold leading-7 text-blue-600">Features</h2>
+                                <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Custom shortlink domains</p>
+                                <p class="mt-6 text-lg leading-8 text-gray-600">Give peace of mind to your users. Use your own domains for tracking link short URLs.</p>
+                                <dl class="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
+                                    <div class="relative pl-9">
+                                        <dt class="inline font-semibold text-gray-900">
+                                            <svg class="absolute top-1 left-1 h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                                                <path d="M11.983 1.907a.75.75 0 00-1.292-.657l-8.5 9.5A.75.75 0 002.75 12h6.572l-1.305 6.093a.75.75 0 001.292.657l8.5-9.5A.75.75 0 0017.25 8h-6.572l1.305-6.093z" />
+                                            </svg>
+
+                                            Lightening quick setup
+                                        </dt>
+                                        <dd class="inline">Using Cloudflare's robust platform, we can get your custom domains up and running quick-smart.</dd>
+                                    </div>
+                        
+                                    <div class="relative pl-9">
+                                        <dt class="inline font-semibold text-gray-900">
+
+                                            <svg class="absolute top-1 left-1 h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M4.606 12.97a.75.75 0 01-.134 1.051 2.494 2.494 0 00-.93 2.437 2.494 2.494 0 002.437-.93.75.75 0 111.186.918 3.995 3.995 0 01-4.482 1.332.75.75 0 01-.461-.461 3.994 3.994 0 011.332-4.482.75.75 0 011.052.134z" clip-rule="evenodd" />
+                                                <path fill-rule="evenodd" d="M5.752 12A13.07 13.07 0 008 14.248v4.002c0 .414.336.75.75.75a5 5 0 004.797-6.414 12.984 12.984 0 005.45-10.848.75.75 0 00-.735-.735 12.984 12.984 0 00-10.849 5.45A5 5 0 001 11.25c.001.414.337.75.751.75h4.002zM13 9a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                                            </svg>
+                                            
+                                            Super fast redirects
+                                        </dt>
+                                        <dd class="inline">Our redirects are delivered from the edge, meaning super fast transportation for your users to their destination.</dd>
+                                    </div>
+                        
+                                    <div class="relative pl-9">
+                                        <dt class="inline font-semibold text-gray-900">
+                                            <svg class="absolute top-1 left-1 h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                                                <path d="M16.555 5.412a8.028 8.028 0 00-3.503-2.81 14.899 14.899 0 011.663 4.472 8.547 8.547 0 001.84-1.662zM13.326 7.825a13.43 13.43 0 00-2.413-5.773 8.087 8.087 0 00-1.826 0 13.43 13.43 0 00-2.413 5.773A8.473 8.473 0 0010 8.5c1.18 0 2.304-.24 3.326-.675zM6.514 9.376A9.98 9.98 0 0010 10c1.226 0 2.4-.22 3.486-.624a13.54 13.54 0 01-.351 3.759A13.54 13.54 0 0110 13.5c-1.079 0-2.128-.127-3.134-.366a13.538 13.538 0 01-.352-3.758zM5.285 7.074a14.9 14.9 0 011.663-4.471 8.028 8.028 0 00-3.503 2.81c.529.638 1.149 1.199 1.84 1.66zM17.334 6.798a7.973 7.973 0 01.614 4.115 13.47 13.47 0 01-3.178 1.72 15.093 15.093 0 00.174-3.939 10.043 10.043 0 002.39-1.896zM2.666 6.798a10.042 10.042 0 002.39 1.896 15.196 15.196 0 00.174 3.94 13.472 13.472 0 01-3.178-1.72 7.973 7.973 0 01.615-4.115zM10 15c.898 0 1.778-.079 2.633-.23a13.473 13.473 0 01-1.72 3.178 8.099 8.099 0 01-1.826 0 13.47 13.47 0 01-1.72-3.178c.855.151 1.735.23 2.633.23zM14.357 14.357a14.912 14.912 0 01-1.305 3.04 8.027 8.027 0 004.345-4.345c-.953.542-1.971.981-3.04 1.305zM6.948 17.397a8.027 8.027 0 01-4.345-4.345c.953.542 1.971.981 3.04 1.305a14.912 14.912 0 001.305 3.04z" />
+                                            </svg>
+                                            Safe &amp; secure
+                                        </dt>
+                                        <dd class="inline">Yeah we know, we shouldn't really be bragging &ndash; it's not 1999. But rest-assured, we provision TLS on the domains you use for your shortlinks.</dd>
+                                    </div>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+            <div class=" bg-gray-50 pb-24 sm:pb-32 lg:pb-52">
+
+                <div class="mx-auto max-w-7xl md:px-6 lg:px-8 group">
+                    <div class="grid grid-cols-1 gap-y-16 gap-x-8 sm:gap-y-20 lg:grid-cols-2 lg:items-start">
+                        <div class="px-6 lg:px-0 lg:pt-4 lg:pr-4">
+                            <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
+                                <h2 class="text-base font-semibold leading-7 text-blue-600">Features</h2>
+                                <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Automatic QR codes</p>
+                                <p class="mt-6 text-lg leading-8 text-gray-600">Want to track traditional offline campaigns? We've got you covered&hellip;</p>
+                                <p class="mt-6 text-lg leading-8 text-gray-600">Preview and download high-res QR codes for any of your links at the touch of a button for use in your offline campaigns. </p>
+                            </div>
+                        </div>
+                        <div class="sm:px-6 lg:px-0">
+                            <div class="mx-auto w-[300px] sm:w-[320px] md:w-[500px] md:-translate-y-10 aspect-square relative sm:mx-0 sm:max-w-none">
+                                <img src="{{ asset('images/qr-code.png') }}" alt="Product screenshot" width="500" height="500" 
+                                class="md:w-full rounded-3xl bg-gray-800 ring-1 ring-white/10 transition ease-in-out duration-1000 group-hover:rotate-6 z-10 relative shadow-lg">
+                                <div class="absolute w-full aspect-square bg-blue-500 rounded-3xl transition ease-in-out duration-700 group-hover:-translate-x-8 group-hover:-translate-y-8 shadow-lg z-0 top-0"></div>
+                            </div>
+                            <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10 sm:rounded-3xl" aria-hidden="true"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
             <!-- Testimonial section -->
-            <div class="mx-auto mt-32 max-w-7xl sm:mt-56 sm:px-6 lg:px-8">
+            <!--div class="mx-auto mt-32 max-w-7xl sm:px-6 lg:px-8">
                 <div
                     class="relative overflow-hidden bg-gray-900 py-20 px-6 shadow-xl sm:rounded-3xl sm:py-24 sm:px-10 md:px-12 lg:px-20">
                     <img class="absolute inset-0 h-full w-full object-cover brightness-150 saturate-0"
@@ -280,218 +395,24 @@
                         </figure>
                     </div>
                 </div>
-            </div>
+            </div-->
 
             <!-- Pricing section -->
-            <div id="pricing" class="py-24 sm:pt-48">
-                <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                    <div class="mx-auto max-w-4xl text-center">
-                        <h2 class="text-base font-semibold leading-7 text-gray-900">Pricing</h2>
-                        <p class="mt-2 text-4xl font-bold tracking-tight text-blue-600 sm:text-5xl">Pricing plans for
-                            teams of&nbsp;all&nbsp;sizes</p>
-                    </div>
-                    <p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">Distinctio et nulla
-                        eum soluta et neque labore quibusdam. Saepe et quasi iusto modi velit ut non voluptas in.
-                        Explicabo id ut laborum.</p>
-                    <div
-                        class="isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-                        <div
-                            class="flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10 lg:mt-8 lg:rounded-r-none">
-                            <div>
-                                <div class="flex items-center justify-between gap-x-4">
-                                    <h3 id="tier-standard" class="text-lg font-semibold leading-8 text-gray-900">
-                                        Standard</h3>
-                                </div>
-                                <p class="mt-4 text-sm leading-6 text-gray-600">Perfect for small businesses.</p>
-                                <p class="mt-6 flex items-baseline gap-x-1">
-                                    <span class="text-4xl font-bold tracking-tight text-gray-900">£16</span>
-                                    <span class="text-sm font-semibold leading-6 text-gray-600">/month</span>
-                                </p>
-                                <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-600">
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        1 domain
-                                    </li>
 
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        3 seats
-                                    </li>
-
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        Unlimited links
-                                    </li>
-
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        1 branded shortlink domain
-                                    </li>
-
-                                </ul>
-                            </div>
-                            <a href="#" aria-describedby="tier-freelancer"
-                                class="mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 text-blue-600 ring-1 ring-inset ring-blue-200 hover:ring-blue-300">Free trial</a>
-                        </div>
-
-                        <div
-                            class="flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10 lg:z-10 lg:rounded-b-none">
-                            <div>
-                                <div class="flex items-center justify-between gap-x-4">
-                                    <h3 id="tier-startup" class="text-lg font-semibold leading-8 text-blue-600">
-                                        Freelancer</h3>
-
-                                    <p
-                                        class="rounded-full bg-blue-600/10 py-1 px-2.5 text-xs font-semibold leading-5 text-blue-600">
-                                        Most popular</p>
-                                </div>
-                                <p class="mt-4 text-sm leading-6 text-gray-600">A plan that scales with your rapidly
-                                    growing business.</p>
-                                <p class="mt-6 flex items-baseline gap-x-1">
-                                    <span class="text-4xl font-bold tracking-tight text-gray-900">£40</span>
-                                    <span class="text-sm font-semibold leading-6 text-gray-600">/month</span>
-                                </p>
-                                <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-600">
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        5 domains
-                                    </li>
-
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        5 seats
-                                    </li>
-
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        Unlimited links
-                                    </li>
-
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        5 branded shortlink domains
-                                    </li>
-
-                                </ul>
-                            </div>
-                            <a href="#" aria-describedby="tier-startup"
-                                class="mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 bg-blue-600 text-white shadow-sm hover:bg-blue-500">Buy plan</a>
-                        </div>
-
-                        <div
-                            class="flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10 lg:mt-8 lg:rounded-l-none">
-                            <div>
-                                <div class="flex items-center justify-between gap-x-4">
-                                    <h3 id="tier-enterprise" class="text-lg font-semibold leading-8 text-gray-900">
-                                        Agency</h3>
-                                </div>
-                                <p class="mt-4 text-sm leading-6 text-gray-600">Everything you need to service every one of your clients.</p>
-                                <p class="mt-6 flex items-baseline gap-x-1">
-                                    <span class="text-4xl font-bold tracking-tight text-gray-900">£99</span>
-                                    <span class="text-sm font-semibold leading-6 text-gray-600">/month</span>
-                                </p>
-                                <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-600">
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        20 domains
-                                    </li>
-
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        3 seats
-                                    </li>
-
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        Unlimited links
-                                    </li>
-
-                                    <li class="flex gap-x-3">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        20 branded shortlink domains
-                                    </li>
-
-                                </ul>
-                            </div>
-                            <a href="#" aria-describedby="tier-enterprise"
-                                class="mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 text-blue-600 ring-1 ring-inset ring-blue-200 hover:ring-blue-300">Buy
-                                plan</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <x-section-pricing />
+              
 
             <!-- Reviews -->
-            <section id="reviews" aria-labelledby="reviews-title" class="py-24 sm:pt-48">
+            <section id="reviews" aria-labelledby="reviews-title" class="py-24 bg-gray-50">
                 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div class="mx-auto max-w-4xl text-center">
                         <h2 class="text-base font-semibold leading-7 text-blue-600">Reviews</h2>
                         <p class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Our customers love
                             it</p>
                     </div>
-                    <p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">Distinctio et nulla
+                    <!--p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">Distinctio et nulla
                         eum soluta et neque labore quibusdam. Saepe et quasi iusto modi velit ut non voluptas in.
-                        Explicabo id ut laborum.</p>
+                        Explicabo id ut laborum.</p-->
                     <div
                         class="relative -mx-4 mt-16 grid h-[49rem] max-h-[150vh] grid-cols-1 items-start gap-8 overflow-hidden px-4 sm:mt-20 md:grid-cols-2 lg:grid-cols-3">
                         <div class="animate-marquee space-y-8 py-4" style="--marquee-duration:28320ms;">
@@ -504,9 +425,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -517,9 +437,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -530,9 +449,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -543,9 +461,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -556,9 +473,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -569,9 +485,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -582,9 +497,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -595,9 +509,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -608,9 +521,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -621,9 +533,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -634,9 +545,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -647,9 +557,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                         </div>
                         <div class="animate-marquee space-y-8 py-4 hidden md:block"
@@ -662,10 +571,21 @@
                                     <x-star />
                                     <x-star />
                                 </x-slot>
-                                <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="title">Look no further.</x-slot>
+                                <x-slot name="content">I've been using UTMwise for a while now to track the performance of my affiliate links and online marketing campaigns, and I couldn't be happier with the results. The platform is user-friendly and easy to use, and the support team is always available to answer my questions.</x-slot>
+                                <x-slot name="author">MB, developer</x-slot>
+                            </x-review-card>
+                            <x-review-card>
+                                <x-slot name="stars">
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                    <x-star />
+                                </x-slot>
+                                <x-slot name="title">Game changer.</x-slot>
+                                <x-slot name="content">As someone who has struggled to keep track of tracking links in the past, UTM Wise has been a game-changer.</x-slot>
+                                <x-slot name="author">Ilias, CiG Design</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -676,9 +596,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -689,9 +608,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -702,9 +620,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -715,9 +632,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -728,9 +644,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -741,9 +656,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -754,9 +668,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -767,9 +680,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -780,9 +692,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -793,9 +704,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -806,22 +716,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
-                            </x-review-card>
-                            <x-review-card>
-                                <x-slot name="stars">
-                                    <x-star />
-                                    <x-star />
-                                    <x-star />
-                                    <x-star />
-                                    <x-star />
-                                </x-slot>
-                                <x-slot name="title">Lorem ipsum dolor sit amet.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                         </div>
                         <div class="animate-marquee space-y-8 py-4 hidden lg:block"
@@ -835,9 +731,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -848,9 +743,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -861,9 +755,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -874,9 +767,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -887,9 +779,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -900,9 +791,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -913,9 +803,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -926,9 +815,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -939,9 +827,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -952,9 +839,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -965,9 +851,8 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                             <x-review-card>
                                 <x-slot name="stars">
@@ -978,14 +863,13 @@
                                     <x-star />
                                 </x-slot>
                                 <x-slot name="title">It really works.</x-slot>
-                                <x-slot name="content">I downloaded Pocket today and turned $5000 into $25,000 in half
-                                    an hour.</x-slot>
-                                <x-slot name="author">CrazyInvestor</x-slot>
+                                <x-slot name="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus arcu eget posuere posuere!</x-slot>
+                                <x-slot name="author">SomePerson</x-slot>
                             </x-review-card>
                         </div>
-                        <div class="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-bg-gray-50">
+                        <div class="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-gray-50">
                         </div>
-                        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-bg-gray-50">
+                        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-gray-50">
                         </div>
                     </div>
                 </div>
@@ -998,12 +882,27 @@
                 <h2 class="text-2xl font-bold leading-10 tracking-tight text-gray-900">Frequently asked questions</h2>
                 <dl class="mt-10 space-y-8 divide-y divide-gray-900/10">
                     <div class="pt-8 lg:grid lg:grid-cols-12 lg:gap-8">
-                        <dt class="text-base font-semibold leading-7 text-gray-900 lg:col-span-5">What&#039;s the best
-                            thing about Switzerland?</dt>
+                        <dt class="text-base font-semibold leading-7 text-gray-900 lg:col-span-5">How long does the free trial last and will I be billed automatically?</dt>
                         <dd class="mt-4 lg:col-span-7 lg:mt-0">
-                            <p class="text-base leading-7 text-gray-600">I don&#039;t know, but the flag is a big plus.
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam
-                                fugiat.</p>
+                            <p class="text-base leading-7 text-gray-600">The free trial lasts 7 days and no payment will be taken automatically. We don't take any payment details from you when starting your trial. At the end of, or during your free trial period, you can upgrade to a full plan from within your dashboard and your subscription will start.</p>
+                        </dd>
+                    </div>
+                    <div class="pt-8 lg:grid lg:grid-cols-12 lg:gap-8">
+                        <dt class="text-base font-semibold leading-7 text-gray-900 lg:col-span-5">Are there any free trial restrictions?</dt>
+                        <dd class="mt-4 lg:col-span-7 lg:mt-0">
+                            <p class="text-base leading-7 text-gray-600">During your trial you will be prevented from creating custom shortlink domains, and will be limited to creating 25 links.</p>
+                        </dd>
+                    </div>
+                    <div class="pt-8 lg:grid lg:grid-cols-12 lg:gap-8">
+                        <dt class="text-base font-semibold leading-7 text-gray-900 lg:col-span-5">What happens when my free trial ends?</dt>
+                        <dd class="mt-4 lg:col-span-7 lg:mt-0">
+                            <p class="text-base leading-7 text-gray-600">At the end of your free trial, your account will effectively be "paused" &ndash; preventing access to resources until you choose a paid plan. Once you're subscribed to a pay plan, your account will resume right where you left off (but with more resources!)</p>
+                        </dd>
+                    </div>
+                    <div class="pt-8 lg:grid lg:grid-cols-12 lg:gap-8">
+                        <dt class="text-base font-semibold leading-7 text-gray-900 lg:col-span-5">Can I upgrade my plan?</dt>
+                        <dd class="mt-4 lg:col-span-7 lg:mt-0">
+                            <p class="text-base leading-7 text-gray-600">Absolutely! You can switch to higher usage plans from your billing dashboard.</p>
                         </dd>
                     </div>
 
@@ -1011,78 +910,33 @@
                 </dl>
             </div>
 
-            <!-- CTA section -->
-            <div class="relative -z-10 mt-32 px-6 lg:px-8">
-                <div
-                    class="absolute inset-x-0 top-1/2 -z-10 flex -translate-y-1/2 transform-gpu justify-center overflow-hidden blur-3xl sm:right-[calc(50%-6rem)] sm:top-auto sm:bottom-0 sm:translate-y-0 sm:transform-gpu sm:justify-end">
-                    <svg viewBox="0 0 1108 632" aria-hidden="true" class="w-[69.25rem] flex-none">
-                        <path fill="url(#191ef669-4d29-44ea-9496-5d65eb27150d)" fill-opacity=".25"
-                            d="M235.233 229.055 57.541 310.091.83.615l234.404 228.44L555.251 83.11c-65.036 115.261-134.286 322.756 109.01 230.655C968.382 198.638 1031-19.583 1092.23 172.304c48.98 153.51-34.51 321.107-82.37 385.717L810.952 307.442 648.261 631.576 235.233 229.055Z" />
-                        <defs>
-                            <linearGradient id="191ef669-4d29-44ea-9496-5d65eb27150d" x1="1220.59" x2="-85.053"
-                                y1="198.898" y2="-7.05" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#38bdf8" />
-                                <stop offset="1" stop-color="#0ea5e9" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-                </div>
-                <div class="mx-auto max-w-2xl text-center">
-                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Boost your
-                        productivity.<br>Get UTM Wise today.</h2>
-                    <p class="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-600">Incididunt sint fugiat pariatur
-                        cupidatat consectetur sit cillum anim id veniam aliqua proident excepteur commodo do ea.</p>
-                    <div class="mt-10 flex items-center justify-center gap-x-6">
-                        <a href="#"
-                            class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
-                            Get started for free</a>
-                    </div>
-                </div>
-                <div
-                    class="absolute left-1/2 right-0 top-full -z-10 hidden -translate-y-1/2 transform-gpu overflow-hidden blur-3xl sm:block">
-                    <svg viewBox="0 0 1155 678" aria-hidden="true" class="w-[72.1875rem]">
-                        <path fill="url(#23e1b96e-c791-45fa-975a-a04d29498207)" fill-opacity=".3"
-                            d="M317.219 518.975 203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079Z" />
-                        <defs>
-                            <linearGradient id="23e1b96e-c791-45fa-975a-a04d29498207" x1="1155.49" x2="-78.208"
-                                y1=".177" y2="474.645" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#38bdf8" />
-                                <stop offset="1" stop-color="#0ea5e9" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-                </div>
-            </div>
+
         </main>
 
         <!-- Footer -->
-        <div class="mx-auto mt-32 max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto mt-20 max-w-7xl px-6 lg:px-8">
             <footer aria-labelledby="footer-heading"
-                class="relative border-t border-gray-900/10 py-24 sm:mt-56 sm:py-32">
-                <h2 id="footer-heading" class="sr-only">Footer</h2>
-                <div class="xl:grid xl:grid-cols-3 xl:gap-8">
-                    <img class="h-7" src="https://tailwindui.com/img/logos/mark.svg?color=blue&shade=600"
-                        alt="Company name">
-                    <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-
-                        <ul role="list" class="mt-6 space-y-4">
-
-                            <li>
-                                <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Blog</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="text-sm leading-6 text-gray-600 hover:text-gray-900">Terms</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="text-sm leading-6 text-gray-600 hover:text-gray-900">Privacy</a>
-                            </li>
-                        </ul>
-                    </div>
+                class="relative border-t border-gray-900/10 py-8">
+                <div class="flex flex-col sm:items-center sm:flex-row sm:justify-between gap-4">
+                    <x-application-mark />
+                    <ul role="list" class="flex gap-4">
+                        <!--li>
+                            <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Blog</a>
+                        </li-->
+                        <li>
+                            <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Terms</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Privacy</a>
+                        </li>
+                        <li>
+                            <a href="mailto:support@utmwise.com" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Support</a>
+                        </li>
+                    </ul>
                 </div>
             </footer>
         </div>
+
     </div>
 
 

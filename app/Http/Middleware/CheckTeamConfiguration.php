@@ -15,11 +15,11 @@ class CheckTeamConfiguration
      */
     public function handle(Request $request, Closure $next): Response
     {
+
         // if(! $request->user()->currentTeam->website) {
         //     \View::share('teamConfigured', false);
         //     \View::share('teamConfigError', 'no-url');
         //     \View::share('currentTeam', $request->user()->currentTeam);
-
         //     return $next($request);
         // }
 

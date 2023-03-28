@@ -8,6 +8,8 @@ use App\Models\Link;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
 use Filament\Notifications\Notification; 
+use App\Actions\Links\DeleteLink;
+use Illuminate\Database\Eloquent\Builder;
 
 class Links extends Component
 {
@@ -29,25 +31,44 @@ class Links extends Component
 
     protected $listeners = [ 'linkSaved' => '$refresh' ];
 
-    public function mount() : void
+    public function mount()
     {
         $this->domain = request()->domain;
+
     }
 
     /**
      * @todo guards
      */
 
-    public function bulkDelete()
+    public function bulkDelete( DeleteLink $deleter )
     {
+        $links = Link::whereIn('id', $this->deletions)->get();
+        $linksToSend = [];
+        
+        foreach($links as $link) {
+            $linksToSend[$link->id] = $link->auto_url;
+        }
 
-        Link::whereIn('id', $this->deletions)->delete();
-        $this->deletions = [];
-        $this->confirmingBulkDelete = false;
-        Notification::make() 
-            ->title('Links deleted.')
+        if( $deleter->bulkDelete( $linksToSend ) ) {
+
+            Notification::make() 
+                ->title('Links deleted.')
+                ->danger()
+                ->send(); 
+
+        } else {
+
+            Notification::make() 
+            ->title('Could not delete links')
+            ->body('The operation could not be completed, please try again later. If the problem persists, please contact support.')
             ->danger()
             ->send(); 
+            
+        }
+
+        $this->confirmingBulkDelete = false;
+        $this->deletions = [];
         
     }
 
@@ -129,14 +150,23 @@ class Links extends Component
             'utmSourceFilters' => Link::select('utm_source')
                                     ->distinct()
                                     ->where('domain_id', $this->domain)
+                                    ->whereNot( function (Builder $query) {
+                                        $query->where('utm_source', '');
+                                    })
                                     ->get(),
             'utmMediumFilters' => Link::select('utm_medium')
                                     ->distinct()
                                     ->where('domain_id', $this->domain)
+                                    ->whereNot( function (Builder $query) {
+                                        $query->where('utm_medium', '');
+                                    })
                                     ->get(),
             'utmCampaignFilters' => Link::select('utm_campaign')
                                     ->distinct()
                                     ->where('domain_id', $this->domain)
+                                    ->whereNot( function (Builder $query) {
+                                        $query->where('utm_campaign', '');
+                                    })
                                     ->get()
 
         ]);

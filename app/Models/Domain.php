@@ -50,9 +50,9 @@ class Domain extends Model
         return $this->hasOne(Team::class);
     }
 
-    public function dnsVerification()
+    public function shortdomain()
     {
-        return $this->hasOne(DnsVerification::class);
+        return $this->hasOne(ShortDomain::class);
     }
     
 }

@@ -4,8 +4,9 @@ namespace App\Http\Livewire\Domains\View;
 use App\Models\Domain;
 use Livewire\Component;
 use Filament\Notifications\Notification; 
-use Illuminate\Support\Facades\Validator;
-use App\Actions\Domains\StartDnsVerification;
+use App\Actions\Domains\StartShortnameProcess;
+use App\Rules\IsValidDomain;
+use App\Actions\Domains\DeleteShortDomain;
 
 class ShortDomain extends Component
 {
@@ -13,54 +14,46 @@ class ShortDomain extends Component
     public $domain;
     public $newShortlinkDomain;
 
+    public $confirmingRemoveShortlinkDomain = false;
+
     public $errorMessage;
 
     public function mount() : void
     {
         $this->domain = Domain::find( request()->domain );
-        $this->newShortlinkDomain = $this->domain->shortlink_domain;
+        $this->newShortlinkDomain = $this->domain->shortdomain ? $this->domain->shortdomain->host : '';
     }
 
-    /**
-     * @todo validate domain is real and resolves to UTM Wire CNAME
-     */
-    public function saveShortlinkDomain(StartDnsVerification $process)
+
+    public function saveShortlinkDomain(StartShortnameProcess $action)
     {
-        $validator = Validator::make([ 'domain' => $this->newShortlinkDomain ], [
-            'domain' => [
-                'required'
+        $data = $this->validate([
+            'newShortlinkDomain' => [
+                new IsValidDomain()
             ]
         ]);
 
-        if ($validator->fails()) {
-
-            $this->errorMessage = 'Invalid domain name.';
-
-        } else {
-
-            $this->domain->shortlink_domain = $validator->validated()['domain'];
-            $this->domain->dns_configured = 0;
-            $this->domain->save();
-            $process->start($this->domain);
-
-            $this->emit('$refresh');
-            Notification::make() 
-                ->title('Short domain saved.')
-                ->body('Your shortlink has been saved, please wait a moment for DNS to verify.')
-                ->success()
-                ->send(); 
-        }
+        $shortDomain = $action->start($this->domain, $this->newShortlinkDomain);
+        $this->emit('$refresh');
+        Notification::make() 
+            ->title('Shortlink domain saved.')
+            ->body('Your shortlink domain has been saved, please wait a moment for DNS to verify.')
+            ->success()
+            ->send(); 
+        
 
     }
 
-    public function removeShortDomain()
+    public function removeShortDomain(DeleteShortDomain $deleter)
     {
-        $this->domain->shortlink_domain = NULL;
-        $this->domain->save();
+
+        $deleter->delete($this->domain);
+
         $this->emit('$refresh');
+        $this->confirmingRemoveShortlinkDomain = false;
         Notification::make() 
-            ->title('Short domain removed.')
-            ->body('Your shortlink urls have been disabled. Please set up a new short domain to re-enable.')
+            ->title('Shortlink domain removed.')
+            ->body('Your shortlink URLs have been disabled. Please set up a new shortlink domain to re-enable.')
             ->danger()
             ->send(); 
     }

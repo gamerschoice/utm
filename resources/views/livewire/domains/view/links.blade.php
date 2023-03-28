@@ -92,7 +92,7 @@
 
         <x-table>
             <x-slot name="head">
-                <x-table.heading class="flex justify-center">
+                <x-table.heading class="flex justify-center w-[60px]">
                     <button wire:click="$toggle('confirmingBulkDelete')" x-bind:class="{ 'bg-red-600 text-white hover:bg-red-500' : deletions.length, 'bg-white text-gray-900 ring-gray-300 hover:bg-gray-50 ring-1 ring-inset' : deletions.length === 0 }" class="px-3 py-2 text-sm font-semibold inline-flex items-center rounded-md shadow-sm transition ease-in-out duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
@@ -108,33 +108,53 @@
             </x-slot>
 
             <x-slot name="body">
+                @if($links->isEmpty())
+                    <x-table.row>
+                        <x-table.cell colspan="7">
+                            <div class="relative block w-full h-full rounded-lg border-2 border-dashed border-gray-300 p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.182 16.318A4.486 4.486 0 0012.016 15a4.486 4.486 0 00-3.198 1.318M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" />
+                                </svg>  
+                                <span class="mt-2 block text-base font-semibold text-gray-900">No links found</span>
+                                <span class="text-sm mt-1 font-medium text-gray-500 mx-auto sm:w-2/3 block">Use our <a href="{{ route('link.create', $domain) }}" class="font-semibold underline text-gray-900">wizard</a> or <a href="{{ route('link.advanced', $domain) }}" class="font-semibold underline text-gray-900">bulk import</a> tool to create your links.</span>
+                            </div>
+                        </x-table.cell>
+                    </x-table.row>
+                @endif
                 @foreach($links as $link)
                     <x-table.row>
-                        <x-table.cell>
+                        <x-table.cell class="w-[60px]">
                             <div class="flex w-full h-full justify-center items-end">
                                 <x-checkbox x-model="deletions" wire:model.defer="deletions" value="{{ $link->id }}"></x-checkbox>
                             </div>
                         </x-table.cell>
-                        <x-table.cell>{{ $link->destination }}</x-table.cell>
+                        <x-table.cell><span class="truncate max-w-[50vw] xl:max-w-[25vw] 2xl:max-w-[20vw] inline-block">{{ $link->destination }}</span></x-table.cell>
                         <x-table.cell><span class="underline decoration-dotted decoration-blue-200 cursor-pointer" wire:click="setActiveUtmSourceFilter('{{ $link->utm_source }}')">{{ $link->utm_source }}</span></x-table.cell>
                         <x-table.cell><span class="underline decoration-dotted decoration-blue-200 cursor-pointer" wire:click="setActiveUtmMediumFilter('{{ $link->utm_medium }}')">{{ $link->utm_medium }}</span></x-table.cell>
                         <x-table.cell><span class="underline decoration-dotted decoration-blue-200 cursor-pointer" wire:click="setActiveUtmCampaignFilter('{{ $link->utm_campaign }}')">{{ $link->utm_campaign }}</span></x-table.cell>
-                        <x-table.cell>{{ $link->created_ago }}</x-table.cell>
+                        <x-table.cell><span class="text-xs md:text-sm">{{ $link->created_ago }}</span></x-table.cell>
                         <x-table.cell class="justify-end text-right">
 
                             <x-button-secondary type="button" wire:click="showLink({{ $link->id }})" class="text-xs">
-                                <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 cursor-pointer mr-1 text-gray-800">
+                                <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 cursor-pointer md:mr-1 text-gray-800">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                                 </svg>  
-                                View
+                                <span class="hidden md:inline-block">View</span>
+                            </x-button-secondary>
+
+                            <x-button-secondary type="button" @click="getQR('{{ $link->auto_url }}')">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 6.75h.75v.75h-.75v-.75zM6.75 16.5h.75v.75h-.75v-.75zM16.5 6.75h.75v.75h-.75v-.75zM13.5 13.5h.75v.75h-.75v-.75zM13.5 19.5h.75v.75h-.75v-.75zM19.5 13.5h.75v.75h-.75v-.75zM19.5 19.5h.75v.75h-.75v-.75zM16.5 16.5h.75v.75h-.75v-.75z" />
+                                </svg>
                             </x-button-secondary>
 
                             <x-button type="button" x-data="{ copied: false }" class="text-xs" @click.prevent="window.navigator.clipboard.writeText('{{ $link->auto_url }}'); copied = true; setTimeout( function() { copied = false }, 3000);">
-                                <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 cursor-pointer mr-1 text-white-800">
+                                <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 cursor-pointer md:mr-1 text-white-800">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5A3.375 3.375 0 006.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0015 2.25h-1.5a2.251 2.251 0 00-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 00-9-9z" />
                                 </svg>
-                                <span x-show="!copied">Copy</span>
-                                <span x-cloak x-show="copied">Copied!</span>
+                                <span class="hidden md:inline-block" x-show="!copied">Copy</span>
+                                <span class="hidden md:inline-block" x-cloak x-show="copied">Copied!</span>
                             </x-button>
 
 
@@ -148,16 +168,65 @@
             {{ $links->links() }}
         </div>
 
+        <div 
+            x-cloak x-show="qrImage" x-on:close.stop="qrImage = false" x-on:keydown.escape.window="qrImage = false"
+            class="jetstream-modal fixed inset-0 overflow-y-auto px-4 py-6 sm:px-0 z-50">
+            
+            <div x-show="qrImage" class="fixed inset-0 transform transition-all" x-on:click="qrImage = false" x-transition:enter="ease-out duration-300"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="ease-in duration-200"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0">
+                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+            <div x-show="qrImage" class="mb-6 bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full sm:max-w-[520px] sm:mx-auto"
+            x-trap.inert.noscroll="qrImage"
+            x-transition:enter="ease-out duration-300"
+            x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+            x-transition:leave="ease-in duration-200"
+            x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+            x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
+
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="mt-4 text-gray-600 leading-normal">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900">QR code preview</h3>
+                        </div>
+                        <img x-bind:src="qrImage" class="w-full" loading="lazy" alt="QR" width="320" class="mx-auto inline-block">
+                    </div>
+                    <div class="flex flex-row justify-end px-6 py-4 bg-gray-100 text-right">
+                        <a x-bind:href="qrImage" target="_blank" rel="noopener nofollow" download="qr.jpg">
+                            <x-button type="button">
+                                Download
+                            </x-button>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
         @livewire('links.link-panel')
 
     </div>
     <script>
+
         window.LinksTable = () => {
             return {
                 filterOpen: false,
                 bulkDeletions: false,
                 deletions: [],
+                qrImage: false,
+                getQR(url) {
+                    return QRCode.toDataURL(url, { 
+                        width: 2560,
+                        quality: 1,
+                    }, (err, data) => {
+                        this.qrImage = data;
+                    });
+                },
             }
         }
     </script>

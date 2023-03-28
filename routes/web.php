@@ -7,6 +7,8 @@ use App\Http\Controllers\DomainController;
 use App\Http\Controllers\LinksController;
 use App\Http\Controllers\InvoiceController;
 
+use App\Services\Cloudflare;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,8 +20,14 @@ use App\Http\Controllers\InvoiceController;
 |
 */
 
+Route::get('/cf-test', function (Cloudflare $cf) {
+
+    return $cf->test();
+
+});
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('holding');
 });
 
 Route::middleware([
@@ -28,6 +36,12 @@ Route::middleware([
     'verified',
     'team.configured'
 ])->group(function () {
+
+    Route::get('/marketing', function () {
+        return view('welcome');
+    });
+    
+
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/domains', [DomainController::class, 'index'])->name('domain.index');

@@ -3,18 +3,19 @@
 namespace App\Normalizers;
 
 use Pdp\Domain;
+use Pdp\Rules;
 use Pdp\TopLevelDomains;
+use Illuminate\Support\Facades\Storage;
 
 class DomainNormalizer
 {
     public function normalize(string $domainName)
     {
-        $parsed = parse_url($domainName);
-        $domain = Domain::fromIDNA2008($parsed['host']);
+        $domain = Domain::fromIDNA2008($domainName);
 
-        $tlds = TopLevelDomains::fromPath(storage_path('app/tlds.txt'));
+        $suffixList = Rules::fromString(Storage::get('suffixes.txt'));
 
-        $result = $tlds->resolve($domain);
+        $result = $suffixList->resolve($domain);
 
         return $result->registrableDomain()->toString();
     }

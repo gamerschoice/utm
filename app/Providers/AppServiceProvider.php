@@ -6,12 +6,14 @@ use Illuminate\Support\ServiceProvider;
 use Laravel\Cashier\Cashier;
 use App\Models\Team;
 use Livewire\Livewire;
+use App\Http\Livewire\Domains\CreateDomainWizard;
 use App\Http\Livewire\Domains\CreateDomainStep;
 use App\Http\Livewire\Domains\RegisterDnsStep;
 use App\Http\Livewire\Links\Wizard\ChoosePurpose;
 use App\Http\Livewire\Links\Wizard\SelectSource;
 use App\Http\Livewire\Links\Wizard\Destination;
 use App\Http\Livewire\Links\Wizard\CustomiseLink;
+use App\Services\Cloudflare;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -35,5 +37,14 @@ class AppServiceProvider extends ServiceProvider
         Livewire::component('destination', Destination::class);
         Livewire::component('customise-link', CustomiseLink::class);
         Cashier::useCustomerModel(Team::class);
+
+        $this->app->singleton(
+            abstract: Cloudflare::class,
+            concrete: fn () => new Cloudflare(
+                apiToken: strval(config('services.cloudflare.token')),
+                baseUrl: strval(config('services.cloudflare.url')),
+                zone: strval(config('services.cloudflare.zone'))
+            ),
+        );
     }
 }

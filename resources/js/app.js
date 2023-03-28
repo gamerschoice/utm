@@ -3,8 +3,15 @@ import Alpine from 'alpinejs';
 import AlpineFloatingUI from '@awcodes/alpine-floating-ui'
 import NotificationsAlpinePlugin from '../../vendor/filament/notifications/dist/module.esm'
 import focus from '@alpinejs/focus';
-window.Alpine = Alpine;
+import AOS from 'aos'
+import QRCode from 'qrcode'
 
+window.QRCode = QRCode;
+window.Alpine = Alpine;
+AOS.init({
+    once: true
+});
+  
 Alpine.plugin(focus);
 Alpine.plugin(AlpineFloatingUI)
 Alpine.plugin(NotificationsAlpinePlugin)

@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Domains;
 
 use Spatie\LivewireWizard\Components\WizardComponent;
 
-class CreateDomain extends WizardComponent
+class CreateDomainWizard extends WizardComponent
 {
 
     public function steps(): array

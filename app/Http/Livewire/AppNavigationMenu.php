@@ -15,8 +15,21 @@ class AppNavigationMenu extends \Laravel\Jetstream\Http\Livewire\NavigationMenu
     public function mount()
     {
         $team_id = auth()->user()->currentTeam->id;
-        $this->domains = Domain::where('team_id', $team_id)->take(10)->get();
+        $this->domains = [];
 
-        $this->totalDomains = Domain::where('team_id', $team_id)->count();
+        $this->totalDomains;
+    }
+
+    /**
+     * Render the component.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function render()
+    {
+        $this->domains = auth()->user()->currentTeam->domains()->limit(10)->get();
+        $this->totalDomains = auth()->user()->currentTeam->domains()->count();
+
+        return view('navigation-menu');
     }
 }

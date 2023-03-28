@@ -17,6 +17,6 @@
         </div>
     </x-slot>
 
-    @livewire('domains.create-domain')
+    @livewire('domains.create-domain-wizard')
 
 </x-app-layout>

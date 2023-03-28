@@ -1,8 +1,9 @@
 id: 44331
 name: utmwise
+asset-domain: static.utmwise.com
 environments:
     production:
-        domain: app.utmwise.com
+        domain: 'utmwise.com'
         gateway-version: 2
         warm: 10
         database: utmwise-prod
@@ -18,8 +19,8 @@ environments:
     staging:
         gateway-version: 2
         database: utmwise-development
-        warm: 10
         memory: 1024
+        storage: utmwise-development
         cli-memory: 512
         runtime: 'php-8.2:al2'
         build:
