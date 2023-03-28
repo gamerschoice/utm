@@ -6,7 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DomainController;
 use App\Http\Controllers\LinksController;
 
-use App\Services\CloudFlare;
+use App\Services\Cloudflare;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +19,7 @@ use App\Services\CloudFlare;
 |
 */
 
-Route::get('/cf-test', function (CloudFlare $cf) {
+Route::get('/cf-test', function (Cloudflare $cf) {
 
     return $cf->test();
 

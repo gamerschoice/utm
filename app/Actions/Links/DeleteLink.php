@@ -3,18 +3,16 @@
 namespace App\Actions\Links;
 
 use App\Models\Link;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
-use Illuminate\Support\Str;
 use Illuminate\Http\Client\RequestException;
-use App\Services\CloudFlare;
+use App\Services\Cloudflare;
 
 class DeleteLink
 {
 
     protected $cloudflare;
 
-    public function __construct( CloudFlare $cloudflare ) {
+    public function __construct( Cloudflare $cloudflare ) {
         $this->cloudflare = $cloudflare;
     }
 

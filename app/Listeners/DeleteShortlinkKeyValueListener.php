@@ -4,7 +4,7 @@ namespace App\Listeners;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
-use App\Services\CloudFlare;
+use App\Services\Cloudflare;
 use AWS\CRT\HTTP\Request;
 use Illuminate\Http\Client\RequestException;
 
@@ -15,7 +15,7 @@ class DeleteShortlinkKeyValueListener
     /**
      * Create the event listener.
      */
-    public function __construct(CloudFlare $cloudflare)
+    public function __construct(Cloudflare $cloudflare)
     {
         $this->cloudflare = $cloudflare;
     }

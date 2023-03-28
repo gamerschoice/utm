@@ -9,7 +9,7 @@ use Illuminate\Http\Client\RequestException;
 use App\Exceptions\CloudflareException;
 use App\Models\Link;
 
-class CloudFlare {
+class Cloudflare {
 
     #protected string $apiToken;
     #protected string $baseUrl;

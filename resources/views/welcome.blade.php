@@ -295,7 +295,7 @@
 
                                             Lightening quick setup
                                         </dt>
-                                        <dd class="inline">Using CloudFlare's robust platform, we can get your custom domains up and running quick-smart.</dd>
+                                        <dd class="inline">Using Cloudflare's robust platform, we can get your custom domains up and running quick-smart.</dd>
                                     </div>
                         
                                     <div class="relative pl-9">

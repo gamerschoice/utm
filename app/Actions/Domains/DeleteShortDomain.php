@@ -3,14 +3,14 @@
 namespace App\Actions\Domains;
 
 use App\Models\Domain;
-use App\Services\CloudFlare;
+use App\Services\Cloudflare;
 
 class DeleteShortDomain
 {
 
     protected $cloudflare;
 
-    public function __construct(CloudFlare $cloudflare)
+    public function __construct(Cloudflare $cloudflare)
     {
         $this->cloudflare = $cloudflare;
     }

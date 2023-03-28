@@ -4,7 +4,7 @@ namespace App\Actions\Domains;
 
 use App\Models\Domain;
 use App\Enums\ShortdomainStatus;
-use App\Services\CloudFlare;
+use App\Services\Cloudflare;
 use App\Exceptions\CloudflareException;
 use Exception;
 use Filament\Notifications\Notification;
@@ -14,7 +14,7 @@ class StartShortnameProcess
 {
     public $cloudflare;
 
-    public function __construct(CloudFlare $cloudflare)
+    public function __construct(Cloudflare $cloudflare)
     {
         $this->cloudflare = $cloudflare;
     }

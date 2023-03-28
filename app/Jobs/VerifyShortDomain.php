@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use App\Services\CloudFlare;
+use App\Services\Cloudflare;
 use App\Models\Shortdomain;
 use Exception;
 
@@ -52,7 +52,7 @@ class VerifyShortDomain implements ShouldQueue, ShouldBeUnique
     /**
      * Execute the job.
      */
-    public function handle(CloudFlare $cloudflare): void
+    public function handle(Cloudflare $cloudflare): void
     {
         $data = $cloudflare->getCustomHostname($this->shortdomain->cf_host_identifier);
 

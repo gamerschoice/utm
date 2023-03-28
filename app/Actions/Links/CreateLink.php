@@ -8,7 +8,7 @@ use Illuminate\Database\QueryException;
 use Illuminate\Support\Str;
 use App\Events\LinkCreated;
 use App\Exceptions\CloudflareException;
-use App\Services\CloudFlare;
+use App\Services\Cloudflare;
 use Filament\Notifications\Notification; 
 
 class CreateLink
@@ -16,7 +16,7 @@ class CreateLink
 
     protected $cloudflare;
 
-    public function __construct(CloudFlare $cloudflare)
+    public function __construct(Cloudflare $cloudflare)
     {
         $this->cloudflare = $cloudflare;
     }
