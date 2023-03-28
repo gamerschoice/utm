@@ -11,7 +11,7 @@
 					</div>
 					<div class="ml-3">
 						<h3 class="text-lg font-medium text-yellow-800">Attention</h3>
-						<div class="mt-2 text-base text-yellow-700 leading-normal">
+						<div class="mt-2 text-sm text-yellow-700 leading-normal">
 							<p class="mb-4">Before setting or updating your custom shortlink domain, please ensure you have updated the domain's DNS record(s) accordingly.</p>
 							<p class="mb-4">For whichever domain or subdomain you wish to use, (for example, <span class="font-mono font-sm">go.mydomain.com</span> or <span class="font-mono font-sm">mydmn.co</span>) please set a <span class="inline-block bg-gray-100 px-2 py-1 rounded-md ring-1 ring-inset ring-gray-300 text-red-500 font-mono">CNAME</span> record with a value of <span class="inline-block bg-gray-100 px-2 py-1 rounded-md ring-1 ring-inset ring-gray-300 text-red-500 font-mono">{{ env('DNS_CNAME') }}</span> </p>
 						</div>
@@ -22,10 +22,11 @@
 			<div class="bg-white shadow sm:rounded-lg">
 				<div class="px-4 py-5 sm:p-6">
 					<h3 class="text-lg font-semibold leading-6 text-gray-900">Add a shortlink domain</h3>
+
 					@if($errorMessage) <p class="text-red-500 mt-4">{{ $errorMessage }}</p> @endif
 					<div class="mt-4 max-w-xl text-gray-500 flex gap-4">
 						<x-input type="text" wire:model.defer="newShortlinkDomain" placeholder="go.mydomain.com" />
-						<x-button type="button" wire:click="saveShortlinkDomain">
+						<x-button type="button" wire:click="saveShortlinkDomain" wire:loading.attr="disabled">
 							Save
 							<svg wire:loading class="ml-1 animate-spin inline-block h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
 								<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -70,6 +71,9 @@
 									<path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
 								</svg>	  
 							</div>
+							<x-button-danger type="button" wire:click="$toggle('confirmingRemoveShortlinkDomain')">
+								Remove Shortlink Domain
+							</x-button-danger>
 						@endif
 					</div>
 				</div>
@@ -94,7 +98,7 @@
 					<x-slot name="footer">
 						<div class="flex justify-end gap-2 items-center">
 							<x-button-secondary wire:click="$toggle('confirmingRemoveShortlinkDomain')">Cancel</x-button-secondary>
-							<x-button-danger type="button" wire:click.prevent="removeShortDomain" x-bind:disabled="confirmShortDomainHost !== '{{ $domain->shortdomain->host }}'" x-bind:class="{ 'opacity-50' : confirmShortDomainHost !== '{{ $domain->shortdomain->host }}', 'opacity-100' : confirmShortDomainHost == '{{ $domain->shortdomain->host }}' }">Remove</x-button-danger>
+							<x-button-danger wire:loading.attr="disabled" type="button" wire:click.prevent="removeShortDomain" x-bind:disabled="confirmShortDomainHost !== '{{ $domain->shortdomain->host }}'" x-bind:class="{ 'opacity-50' : confirmShortDomainHost !== '{{ $domain->shortdomain->host }}', 'opacity-100' : confirmShortDomainHost == '{{ $domain->shortdomain->host }}' }">Remove</x-button-danger>
 						</div>
 					</x-slot>
 				</x-dialog-modal>

@@ -8,6 +8,7 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 use Illuminate\Support\Facades\Event;
 use App\Events\LinkCreated;
 use App\Listeners\CreateShortlinkKeyValueListener;
+use App\Listeners\BulkShortlinksKeyValueListener;
 
 class EventServiceProvider extends ServiceProvider
 {

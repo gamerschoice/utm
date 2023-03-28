@@ -50,6 +50,7 @@ class ShortDomain extends Component
         $deleter->delete($this->domain);
 
         $this->emit('$refresh');
+        $this->confirmingRemoveShortlinkDomain = false;
         Notification::make() 
             ->title('Shortlink domain removed.')
             ->body('Your shortlink URLs have been disabled. Please set up a new shortlink domain to re-enable.')
