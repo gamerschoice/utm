@@ -6,10 +6,20 @@ use App\Models\Domain;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Str;
-use App\Events\BulkLinksCreated;
+use App\Events\LinkCreated;
+use App\Exceptions\CloudflareException;
+use App\Services\CloudFlare;
+use Filament\Notifications\Notification; 
 
 class CreateLink
 {
+
+    protected $cloudflare;
+
+    public function __construct(CloudFlare $cloudflare)
+    {
+        $this->cloudflare = $cloudflare;
+    }
 
     public function createBulk( Domain $domain, array $links )
     {
@@ -39,11 +49,25 @@ class CreateLink
 
             DB::commit();
 
-            BulkLinksCreated::dispatch($created);
+            $this->cloudflare->bulkCacheShortlinks( $links );
 
-        } catch (QueryException $e) {
-            /** update exception to catch exceptions from query AND event? */
+            Notification::make() 
+                ->title('Links imported')
+                ->body('Your links have been imported successfully.')
+                ->success()
+                ->send(); 
+
+            return true;
+
+        } catch (QueryException | CloudflareException $e) {
             DB::rollback();
+
+            Notification::make() 
+                ->title('Links could not be imported')
+                ->body('There\'s been a problem importing your links. Please try again later. If the problem persists, please reach out to support.')
+                ->danger()
+                ->send(); 
+
             return false;
         }
 

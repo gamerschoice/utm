@@ -8,8 +8,7 @@ use Livewire\Component;
 use Illuminate\Http\Request;
 use App\Rules\MatchesConfiguredDomain;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
-use Filament\Notifications\Notification; 
+use App\Actions\Links\CreateLink;
 
 class CreateAdvanced extends Component
 {
@@ -65,7 +64,7 @@ class CreateAdvanced extends Component
             
             if(array_key_exists('items', $split))
                 if(count($split['items']) > 50)
-                    $this->errorMessage = 'Too may URLs detected. Maximum of 50 will be accepted.';
+                    $this->errorMessage = 'Too may URLs detected. Maximum of 50 will be accepted in one go.';
 
             
 
@@ -92,40 +91,13 @@ class CreateAdvanced extends Component
     /**
      * @todo probably a much better way of doing this.
      */
-    public function importLinks()
+    public function importLinks( CreateLink $creator )
     {
-        
-        /* @todo pass this to a BulkCreate action
-        *
-        foreach($this->destinationsLoaded as $link)
-        {
-            $linkObj = new Link;
-            $linkObj->destination = $link['destination'];
-            $linkObj->utm_source = $link['utm_source'];
-            $linkObj->utm_medium = $link['utm_medium'];
-            $linkObj->utm_campaign = $link['utm_campaign'];
-            $linkObj->utm_term = $link['utm_term'];
-            $linkObj->utm_content = $link['utm_content'];
-            $linkObj->utm_source_platform = $link['utm_source_platform'];
-            $linkObj->utm_creative_format = $link['utm_creative_format'];
-            $linkObj->utm_marketing_tactic = $link['utm_marketing_tactic'];
-            $linkObj->notes = $link['notes'];
-            $linkObj->domain_id = $this->domain_id;
-            $linkObj->shortlink = Str::random(8);
-            $linkObj->save();
-        }
 
-
-        Notification::make() 
-            ->title('Links imported')
-            ->body('Your links have been imported successfully.')
-            ->success()
-            ->send(); 
-        */
+        $creator->createBulk( Domain::find($this->domain_id), $this->destinationsLoaded );
 
         $this->resetData();
         
-
     }
 
     public function mount(Request $request)
