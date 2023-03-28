@@ -6,6 +6,7 @@ use Livewire\Component;
 use Filament\Notifications\Notification; 
 use Illuminate\Support\Facades\Validator;
 use App\Jobs\RenameDomainLinks;
+use App\Actions\Domains\DeleteDomain;
 
 class Details extends Component
 {
@@ -24,14 +25,28 @@ class Details extends Component
         $this->domain = Domain::find( request()->domain );
     }
 
-    public function deleteDomain()
+    public function deleteDomain(DeleteDomain $deleter)
     {
-        $this->domain->delete();
-        $this->emit('$refresh');
-        Notification::make() 
-            ->title('Domain removed.')
-            ->danger()
-            ->send(); 
+
+        if( $deleter->delete($this->domain) ) {
+
+            $this->confirmingDomainDelete = false;
+            Notification::make() 
+                ->title('Domain removed.')
+                ->success()
+                ->send(); 
+
+            return redirect()->route('domain.index');
+                
+        } else {
+            $this->confirmingDomainDelete = false;
+            $this->emit('$refresh');
+            Notification::make() 
+                ->title('Domain could not be removed.')
+                ->body('An error occurred removing your domain. Please try again in a few minutes. If the error persists, please contact support.')
+                ->danger()
+                ->send(); 
+        }
     }
 
     /**

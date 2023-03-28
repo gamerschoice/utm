@@ -31,9 +31,10 @@ class Links extends Component
 
     protected $listeners = [ 'linkSaved' => '$refresh' ];
 
-    public function mount() : void
+    public function mount()
     {
         $this->domain = request()->domain;
+
     }
 
     /**

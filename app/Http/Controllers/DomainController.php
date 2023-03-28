@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Domain;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class DomainController extends Controller
 {
@@ -18,9 +19,17 @@ class DomainController extends Controller
         return view('domains.create');
     }
 
+    /**
+     * @todo Gate
+     */
     public function view(Request $request)
     {
         $domainObj = Domain::where('id', $request->domain )->first();
+
+        if(!$domainObj) {
+            return redirect()->route('domain.index');
+        }
+        
         return view('domains.view', [
             'domain' => $domainObj
         ]);
