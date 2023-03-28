@@ -34,7 +34,7 @@ class CreateShortlinkKeyValueListener
 
         foreach($event->links as $link)
         {
-            if( ! $link->domain->shortlink_domain )
+            if( ! $link->domain->shortdomain || $link->domain->shortdomain->status !== 'active' )
                 continue;
 
             $array[] = [ 'key' => $link->auto_url, 'value' => $link->full_url ];

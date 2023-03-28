@@ -6,6 +6,7 @@ use Livewire\Component;
 use Filament\Notifications\Notification; 
 use Illuminate\Support\Facades\Validator;
 use App\Actions\Domains\StartDnsVerification;
+use App\Actions\Domains\DeleteShortDomain;
 
 class ShortDomain extends Component
 {
@@ -13,16 +14,18 @@ class ShortDomain extends Component
     public $domain;
     public $newShortlinkDomain;
 
+    public $confirmingRemoveShortlinkDomain = false;
+
     public $errorMessage;
 
     public function mount() : void
     {
         $this->domain = Domain::find( request()->domain );
-        $this->newShortlinkDomain = $this->domain->shortlink_domain;
+        $this->newShortlinkDomain = $this->domain->shortdomain ? $this->domain->shortdomain->host : '';
     }
 
     /**
-     * @todo validate domain is real and resolves to UTM Wire CNAME
+     * @todo refactor with new shortdomain setup
      */
     public function saveShortlinkDomain(StartDnsVerification $process)
     {
@@ -53,10 +56,11 @@ class ShortDomain extends Component
 
     }
 
-    public function removeShortDomain()
+    public function removeShortDomain(DeleteShortDomain $deleter)
     {
-        $this->domain->shortlink_domain = NULL;
-        $this->domain->save();
+
+        $deleter->delete($this->domain);
+
         $this->emit('$refresh');
         Notification::make() 
             ->title('Shortlink domain removed.')

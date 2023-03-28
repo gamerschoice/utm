@@ -25,7 +25,7 @@
                     <h3 class="text-lg font-semibold leading-6 text-gray-900">Setup a Custom Shortlink Domain</h3>
                     @if($errorMessage) <p class="text-red-500 mt-4">{{ $errorMessage }}</p> @endif
                     <div class="mt-4 max-w-xl text-gray-500 flex gap-4">
-                        <x-input type="text" wire:model.defer="newShortlinkDomain" value="{{ $domain->shortlink_domain }}" placeholder="go.mydomain.com" />
+                        <x-input type="text" wire:model.defer="newShortlinkDomain" value="{{ $domain->shortdomain ? $domain->shortdomain->host : '' }}" placeholder="go.mydomain.com" />
                         <x-button type="button" wire:click="saveShortlinkDomain">
                             Verify
                             <svg wire:loading class="ml-1 animate-spin inline-block h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

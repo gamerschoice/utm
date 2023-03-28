@@ -3,8 +3,6 @@
 namespace App\Actions\Domains;
 
 use App\Models\Domain;
-use App\Models\ActiveDnsVerification;
-use App\Jobs\VerifyDnsRecords;
 use App\Enums\ShortdomainStatus;
 use App\Services\CloudFlare;
 use App\Exceptions\CloudflareException;

@@ -23,7 +23,7 @@ class CloudFlare {
 
     public function test() {
 
-        //return $this->createCustomHostname('go4.ethptc.com');
+        return $this->listCustomHostnames();
 
         //return $this->cacheShortlink('https://go2.ethptc.com/XYZ2', 'https://utmwise.com/?utm_source=test&utm_medium=test');
     }
@@ -51,6 +51,15 @@ class CloudFlare {
 
         $response = Http::withToken( $this->apiToken )
             ->post( $url, $payload );
+
+        return $this->handleResponse( $response );
+    }
+
+    public function listWorkerRoutes()
+    {
+        $url = $this->baseUrl . '/zones/' . $this->zone . '/workers/routes';
+        $response = Http::withToken( $this->apiToken )
+                        ->get( $url );
 
         return $this->handleResponse( $response );
     }
@@ -129,7 +138,7 @@ class CloudFlare {
         return $this->handleResponse( $response );
     }
 
-    public function bulkDeleteShortlinks( array $shortlinks)
+    public function bulkDeleteShortlinks( array $shortlinks )
     {
         $url = $this->baseUrl . '/accounts/' . config('services.cloudflare.accountId') . '/storage/kv/namespaces/' . env('CF_WORKER_KV_NAMESPACE') . '/bulk';
         $response = Http::withToken( $this->apiToken )

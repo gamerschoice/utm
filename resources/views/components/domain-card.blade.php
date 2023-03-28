@@ -6,13 +6,26 @@
     <div class="p-4 flex justify-between items-center gap-5">
         <h3 class="text-gray-900 font-bold text-xl truncate"><a href="{{ route('domain.view', $domain) }}">{{ $domain->domain }}</a></h3>
         
-        @if($domain->dns_configured === 1)
-            <div class="shrink-0 flex gap-x-1 items-center cursor-default  rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800">
-                <span>{{ $domain->shortlink_domain }}</span>
-                <svg class="inline-block w-3 h-3 text-green-800" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
-                </svg>
+        @if($domain->shortdomain)
+
+            @if( $domain->shortdomain->status === 'active')        
+                <div class="shrink-0 flex gap-x-1 items-center cursor-default  rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800">
+                    <span>{{ $domain->shortdomain->host }}</span>
+                    <svg class="inline-block w-3 h-3 text-green-800" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+                    </svg>
+                </div>
+            @else 
+            <div class="shrink-0 flex gap-x-1 items-center cursor-default  rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
+                <span>{{ $domain->shortdomain->host }}</span>
+                <svg class="w-3 h-3 text-blue-800" viewBox="0 0 20 20" fill="currentColor" >
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-13a.75.75 0 00-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 000-1.5h-3.25V5z" clip-rule="evenodd" />
+                </svg>    
             </div>
+
+
+            @endif
+
         @else 
             <div class="shrink-0 flex gap-x-1 items-center cursor-default rounded-full bg-yellow-100 px-2.5 py-0.5 text-xs font-medium text-yellow-800">
                 <span>no shortlink domain</span>

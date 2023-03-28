@@ -26,7 +26,7 @@ class CreateShortlinkKeyValueListener
     public function handle(object $event)
     {
 
-        if( ! $event->link->domain->shortlink_domain )
+        if( ! $event->link->domain->shortdomain || $event->link->domain->shortdomain->status !== 'active' )
             return true;
 
 

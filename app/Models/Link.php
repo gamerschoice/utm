@@ -26,9 +26,9 @@ class Link extends Model
     public function getAutoUrlAttribute()
     {
 
-        if($this->domain->dns_configured && $this->domain->shortlink_domain) {
+        if($this->domain->shortdomain && $this->domain->shortdomain->status === 'active') {
 
-            return 'https://' . $this->domain->shortlink_domain . '/' . $this->shortlink;
+            return 'https://' . $this->domain->shortdomain->host . '/' . $this->shortlink;
 
         }
 
