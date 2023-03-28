@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Str;
 use App\Events\LinkCreated;
+use App\Events\BulkLinksCreated;
 use App\Exceptions\CloudflareException;
 use App\Services\Cloudflare;
 use Filament\Notifications\Notification; 
@@ -49,7 +50,7 @@ class CreateLink
 
             DB::commit();
 
-            $this->cloudflare->bulkCacheShortlinks( $links );
+            BulkLinksCreated::dispatch($created);
 
             Notification::make() 
                 ->title('Links imported')

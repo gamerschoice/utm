@@ -9,7 +9,9 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use App\Services\Cloudflare;
-use App\Models\Shortdomain;
+use App\Events\BulkLinksCreated;
+use App\Models\ShortDomain;
+use App\Actions\Links\CreateLink;
 use Exception;
 
 class VerifyShortDomain implements ShouldQueue, ShouldBeUnique
@@ -44,7 +46,7 @@ class VerifyShortDomain implements ShouldQueue, ShouldBeUnique
     /**
      * Create a new job instance.
      */
-    public function __construct(Shortdomain $shortdomain)
+    public function __construct(ShortDomain $shortdomain)
     {
         $this->shortdomain = $shortdomain;
     }
@@ -52,12 +54,13 @@ class VerifyShortDomain implements ShouldQueue, ShouldBeUnique
     /**
      * Execute the job.
      */
-    public function handle(Cloudflare $cloudflare): void
+    public function handle(Cloudflare $cloudflare, CreateLink $creator ): void
     {
         $data = $cloudflare->getCustomHostname($this->shortdomain->cf_host_identifier);
 
         if($data['result']['status'] == 'active') {
             $this->setupWorkerRoutes($cloudflare);
+            $this->cacheDomainShortlinks($this->shortdomain);
         } else {
             throw new Exception();
         }
@@ -71,5 +74,17 @@ class VerifyShortDomain implements ShouldQueue, ShouldBeUnique
             'cf_route_identifier' => $result['result']['id'],
             'status' => 'active'
         ]);
+    }
+
+    /**
+     * @todo send all existing domain links (if any) over to bulkcreate,
+     * max 10,000 keys - batch if greater than
+     */
+    private function cacheDomainShortlinks(ShortDomain $shortdomain)
+    {
+    
+        $links = $shortdomain->domain->links;
+        BulkLinksCreated::dispatch($links);
+        
     }
 }

@@ -8,7 +8,7 @@ use App\Services\Cloudflare;
 use AWS\CRT\HTTP\Request;
 use Illuminate\Http\Client\RequestException;
 
-class CreateShortlinkKeyValueListener
+class BulkShortlinksKeyValueListener
 {
 
     protected $cloudflare;
