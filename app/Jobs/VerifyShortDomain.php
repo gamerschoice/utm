@@ -77,7 +77,7 @@ class VerifyShortDomain implements ShouldQueue, ShouldBeUnique
     }
 
     /**
-     * @todo send all existing domain links (if any) over to bulkcreate,
+     * @todo 
      * max 10,000 keys - batch if greater than
      */
     private function cacheDomainShortlinks(ShortDomain $shortdomain)

@@ -11,6 +11,7 @@ use Illuminate\Queue\SerializesModels;
 use App\Models\Domain;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
+use App\Events\BulkLinksCreated;
 
 class RenameDomainLinks implements ShouldQueue, ShouldBeUnique
 {
@@ -54,10 +55,14 @@ class RenameDomainLinks implements ShouldQueue, ShouldBeUnique
 
             DB::commit();
 
-            if( $this->domain->shortdomain && $this->domain->shortdomain->status === 'active') {
-                /**
-                 * @todo rewrite all destination urls to KV
-                 */
+            if( 
+                $this->domain->shortdomain && 
+                $this->domain->shortdomain->status === 'active') {
+
+                $links = $this->domain->links;
+                
+                BulkLinksCreated::dispatch($links);
+
             }
 
 

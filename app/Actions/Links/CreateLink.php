@@ -26,13 +26,11 @@ class CreateLink
     {
         try {
             
-            $created = [];
             DB::beginTransaction();
             
             foreach($links as $link) {
-            
                 
-                $created[] = $domain->links()->create([
+                $domain->links()->create([
                     'destination' => $link['destination'],
                     'utm_source' => $link['utm_source'],
                     'utm_medium' => $link['utm_medium'],
@@ -50,7 +48,7 @@ class CreateLink
 
             DB::commit();
 
-            BulkLinksCreated::dispatch($created);
+            BulkLinksCreated::dispatch($domain->links);
 
             Notification::make() 
                 ->title('Links imported')

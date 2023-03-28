@@ -7,6 +7,7 @@ use Filament\Notifications\Notification;
 use Illuminate\Support\Facades\Validator;
 use App\Jobs\RenameDomainLinks;
 use App\Actions\Domains\DeleteDomain;
+use App\Rules\IsValidDomain; 
 
 class Details extends Component
 {
@@ -49,14 +50,13 @@ class Details extends Component
         }
     }
 
-    /**
-     * @todo validate domain is real
-     */
+
     public function renameDomain() 
     {
         $validator = Validator::make([ 'domain' => $this->newDomainName ], [
             'domain' => [
-                'required'
+                'required',
+                new IsValidDomain
             ]
         ]);
 

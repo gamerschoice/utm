@@ -16,14 +16,14 @@ class BulkLinksCreated
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $link;
+    public $links;
 
     /**
      * Create a new event instance.
      */
-    public function __construct( Link $link )
+    public function __construct( $links )
     {
-        $this->link = $link;
+        $this->links = $links;
     }
 
 
