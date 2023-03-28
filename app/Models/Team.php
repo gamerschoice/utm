@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Laravel\Jetstream\Events\TeamCreated;
 use Laravel\Jetstream\Events\TeamDeleted;
 use Laravel\Jetstream\Events\TeamUpdated;
@@ -22,6 +21,7 @@ class Team extends JetstreamTeam
      */
     protected $casts = [
         'personal_team' => 'boolean',
+        'trial_ends_at' => 'date'
     ];
 
     /**
@@ -31,7 +31,10 @@ class Team extends JetstreamTeam
      */
     protected $fillable = [
         'name',
-        'personal_team'
+        'personal_team',
+        'plan_id',
+        'maximum_domains',
+        'maximum_users'
     ];
 
     /**
@@ -50,9 +53,14 @@ class Team extends JetstreamTeam
         return $this->hasMany(Domain::class);
     }
 
+    public function plan()
+    {
+        return $this->belongsTo(Plan::class);
+    }
+    
     public function canRegisterDomain()
     {
-        return true;
+        return $this->domains()->count() < $this->maximum_domains;
     }
 
 }

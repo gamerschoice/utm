@@ -5,6 +5,7 @@ use App\Http\Controllers\Billing\BillingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DomainController;
 use App\Http\Controllers\LinksController;
+use App\Http\Controllers\InvoiceController;
 
 use App\Services\Cloudflare;
 
@@ -43,12 +44,15 @@ Route::middleware([
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::get('/billing', [BillingController::class, 'index'])->name('billing');
-    Route::post('/billing', [BillingController::class, 'create']);
-
     Route::get('/domains', [DomainController::class, 'index'])->name('domain.index');
     Route::get('/domains/create', [DomainController::class, 'create'])->name('domain.create');
     Route::get('/domains/{domain}', [DomainController::class, 'view'])->name('domain.view');
     Route::get('/link/{domain_id}/wizard', [LinksController::class, 'create'])->name('link.create');
     Route::get('/link/{domain_id}/advanced', [LinksController::class, 'advanced'])->name('link.advanced');
+
+    Route::middleware(['team.owner'])->group(function () {
+        Route::get('/billing', [BillingController::class, 'index'])->name('billing');
+        Route::post('/billing', [BillingController::class, 'create']);
+        Route::get('/billing/invoice/{invoice}', InvoiceController::class)->name('invoice');
+    });
 });

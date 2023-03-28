@@ -49,7 +49,10 @@ class CreateNewUser implements CreatesNewUsers
             'user_id' => $user->id,
             'name' => explode(' ', $user->name, 2)[0]."'s Team",
             'personal_team' => true,
-            'trial_ends_at' => Carbon::now()->addMonth()
+            'trial_ends_at' => Carbon::now()->addWeeks(2),
+            'plan_id' => 1,
+            'maximum_members' => 1,
+            'maximum_domains' => 1
         ]));
     }
 }

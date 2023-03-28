@@ -61,7 +61,7 @@ class UserFactory extends Factory
         return $this->has(
             Team::factory()
                 ->state(function (array $attributes, User $user) {
-                    return ['name' => $user->name.'\'s Team', 'user_id' => $user->id, 'personal_team' => true];
+                    return ['name' => $user->name.'\'s Team', 'user_id' => $user->id, 'personal_team' => true, 'plan_id' => 1, 'maximum_domains' => 1, 'maximum_members' => 1];
                 }),
             'ownedTeams'
         );
