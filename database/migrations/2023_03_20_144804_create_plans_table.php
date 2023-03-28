@@ -16,9 +16,12 @@ return new class extends Migration
             $table->string('sku');
             $table->string('stripe_key');
             $table->float('price')->default(0);
+            $table->float('price_annual')->default(0);
             $table->string('name');
             $table->text('description');
             $table->integer('domains')->default(1);
+            $table->integer('seats')->default(1);
+            $table->integer('links')->default(500);
             $table->boolean('short_domains')->default(false);
             $table->boolean('active')->default(true);
             $table->timestamps();

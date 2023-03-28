@@ -35,7 +35,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
     'team.configured'
-])->group(function () {
+])->prefix('app')->group(function () {
 
     Route::get('/marketing', function () {
         return view('welcome');

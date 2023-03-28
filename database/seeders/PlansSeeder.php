@@ -14,35 +14,44 @@ class PlansSeeder extends Seeder
     public function run(): void
     {
         Plan::create([
-            'sku' => 'personal',
+            'sku' => 'standard',
             'stripe_key' => 'price_1MnGuIHwvhcWXVfotZEavnmw',
-            'price' => 9.00,
-            'name' => 'Personal Plan',
-            'description' => 'Personal plan',
+            'price' => 16.00,
+            'price_annual' => 176.00,
+            'name' => 'Standard',
+            'description' => 'Standard plan',
             'domains' => 1,
-            'short_domains' => 0,
+            'short_domains' => 1,
+            'seats' => 1,
+            'links' => 500,
             'active' => 1,
         ]);
 
         Plan::create([
-            'sku' => 'business',
+            'sku' => 'freelancer',
             'stripe_key' => 'price_1MnyEzHwvhcWXVfotHTaLNeK',
-            'price' => 14.00,
-            'name' => 'Business Plan',
-            'description' => 'Business plan',
-            'domains' => 3,
-            'short_domains' => 0,
+            'price' => 40.00,
+            'price_annual' => 440.00,
+            'name' => 'Freelancer',
+            'description' => 'Freelancer plan',
+            'domains' => 5,
+            'short_domains' => 5,
+            'seats' => 5,
+            'links' => 1000,
             'active' => 1,
         ]);
 
         Plan::create([
             'sku' => 'agency',
             'stripe_key' => 'price_1MnyHGHwvhcWXVfo0R0uH2JA',
-            'price' => 45.00,
-            'name' => 'Agency Plan',
+            'price' => 105.00,
+            'price_annual' => 1155.00,
+            'name' => 'Agency',
             'description' => 'Agency plan',
-            'domains' => 99,
-            'short_domains' => 0,
+            'domains' => 20,
+            'short_domains' => 20,
+            'seats' => 10,
+            'links' => -1,
             'active' => 1,
         ]);
     }

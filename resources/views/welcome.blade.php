@@ -345,8 +345,6 @@
                                 class="md:w-full rounded-3xl bg-gray-800 ring-1 ring-white/10 transition ease-in-out duration-1000 group-hover:rotate-6 z-10 relative shadow-lg">
                                 <div class="absolute w-full aspect-square bg-blue-500 rounded-3xl transition ease-in-out duration-700 group-hover:-translate-x-8 group-hover:-translate-y-8 shadow-lg z-0 top-0"></div>
                             </div>
-                            <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10 sm:rounded-3xl" aria-hidden="true"></div>
-                            </div>
                         </div>
                     </div>
                 </div>
