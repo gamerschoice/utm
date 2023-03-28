@@ -397,7 +397,7 @@
 
             <!-- Pricing section -->
 
-            <x-section-pricing />
+            <x-section-pricing :plans="$plans"/>
               
 
             <!-- Reviews -->

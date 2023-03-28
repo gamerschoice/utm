@@ -1,3 +1,4 @@
+@props(['plans'])
 <div>
     <div id="pricing" class="isolate overflow-hidden" x-data="SectionPricing()">
         <div class="flow-root bg-blue-600 pt-24 pb-16 sm:pt-32 lg:pb-0">
@@ -42,153 +43,65 @@
                     </svg>
                     <div class="hidden lg:absolute lg:inset-x-px lg:bottom-0 lg:top-4 lg:block lg:rounded-t-2xl lg:bg-gray-100 lg:ring-1 lg:ring-blue-100/10" aria-hidden="true"></div>
     
-                    <div class="relative rounded-2xl ring-1 ring-white/10 lg:bg-transparent lg:pb-14 lg:ring-0">
-                        <div class="p-8 lg:pt-12 xl:p-10 xl:pt-14">
-                            <h3 id="tier-standard" class="text-sm font-semibold leading-6 text-blue-600">Standard</h3>
-                            <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between lg:flex-col lg:items-stretch">
-                                <div class="mt-2 flex items-center gap-x-4">
-                                    <p class="text-4xl font-bold tracking-tight text-gray-900">£<span x-text="plans.standard[billingTerm]"></span></p>
-                                    <div class="text-sm leading-5">
-                                        <p class="text-gray-900">GBP</p>
-                                        <p class="text-gray-500">Billed <span x-html="billingTerm">monthly</span></p>
+                    @foreach($plans as $plan)
+                        <div x-data="{ price: { monthly: {{ $plan->price }}, annually: {{ $plan->price_annual }} } }"class="relative rounded-2xl @if($loop->first || $loop->last) ring-1 ring-white/10 lg:bg-transparent lg:pb-14 lg:ring-0 @else z-10 bg-white shadow-xl ring-1 ring-gray-900/10 @endif ">
+
+                            <div class="p-8 lg:pt-12 xl:p-10 xl:pt-14">
+                                <h3 class="text-sm font-semibold leading-6 text-blue-600">{{ $plan->name }}</h3>
+                                <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between lg:flex-col lg:items-stretch">
+                                    <div class="mt-2 flex items-center gap-x-4">
+                                        <p class="text-4xl font-bold tracking-tight text-gray-900">£<span x-text="price[billingTerm]"></span></p>
+                                        <div class="text-sm leading-5">
+                                            <p class="text-gray-900">GBP</p>
+                                            <p class="text-gray-500">Billed <span x-html="billingTerm">monthly</span></p>
+                                        </div>
                                     </div>
+                                    <a href="{{ route('register') }}" class="rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 text-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-white/10 hover:bg-white/20 focus-visible:outline-white border-2 border-blue-600">Start free trial</a>
                                 </div>
-                                <a href="#" class="rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 text-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-white/10 hover:bg-white/20 focus-visible:outline-white border-2 border-blue-600">Start free trial</a>
-                            </div>
-                            <div class="mt-8 flow-root sm:mt-10">
-                                <ul role="list" class="-my-2 divide-y border-t text-sm leading-6 lg:border-t-0 divide-white/5 border-white/5 text-gray-600">
-                                    <li class="flex gap-x-3 py-2">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                                        </svg>
-                                        1 domain
-                                    </li>
-    
-                                    <li class="flex gap-x-3 py-2">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <div class="mt-8 flow-root sm:mt-10">
+                                    <ul role="list" class="-my-2 divide-y border-t text-sm leading-6 lg:border-t-0 text-gray-600  @if($loop->first || $loop->last) divide-white/5 border-white/5 @else divide-gray-900/5 border-gray-900/5 @endif">
+                                        <li class="flex gap-x-3 py-2">
+                                            <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                 <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                                        </svg>
-                                        3 users / seats
-                                    </li>
+                                            </svg>
+                                            {{ $plan->domains }} domain{{ $plan->domains > 1 ? 's' : '' }}
+                                        </li>
+        
+                                        <li class="flex gap-x-3 py-2">
+                                            <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                                            </svg>
+                                            {{ $plan->seats }} user{{ $plan->seats > 1 ? 's' : '' }} / seat{{ $plan->seats > 1 ? 's' : '' }}
+                                        </li>
+        
+                                        <li class="flex gap-x-3 py-2">
+                                            <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                                            </svg>
+                                            {{ $plan->links }} links
+                                        </li>
     
-                                    <li class="flex gap-x-3 py-2">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                                        </svg>
-                                        500 links
-                                    </li>
+                                        <li class="flex gap-x-3 py-2">
+                                            <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                                            </svg>
+                                            {{ $plan->domains }} custom shortlink domain{{ $plan->domains > 1 ? 's' : '' }}
+                                        </li>
 
-                                    <li class="flex gap-x-3 py-2">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                                        </svg>
-                                        1 custom shortlink domain
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="relative rounded-2xl z-10 bg-white shadow-xl ring-1 ring-gray-900/10">
-                        <div class="p-8 lg:pt-12 xl:p-10 xl:pt-14">
-                            <h3 id="tier-scale" class="text-sm font-semibold leading-6 text-blue-600">Freelancer</h3>
-                            <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between lg:flex-col lg:items-stretch">
-                                <div class="mt-2 flex items-center gap-x-4">
-                                    <p class="text-4xl font-bold tracking-tight text-gray-900">£<span x-text="plans.freelancer[billingTerm]"></span></p>
-                                    <div class="text-sm leading-5">
-                                        <p class="text-gray-900">GBP</p>
-                                        <p class="text-gray-500">Billed <span x-text="billingTerm">monthly</span></p>
-                                    </div>
+                                        @if(!$loop->first && !$loop->last)
+                                            <li class="flex gap-x-3 pt-4 justify-center">
+                                                <span class="inline-flex items-center rounded-md bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-blue-800">
+                                                    Our most popular tier
+                                                </span>
+                                            </li>
+                                        @endif
+                                    </ul>
                                 </div>
-                                <a href="#" aria-describedby="tier-scale" class="rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-blue-600 shadow-sm hover:bg-blue-500 focus-visible:outline-blue-600 border-2 border-blue-600 hover:border-blue-500 transition">Start free trial</a>
                             </div>
-                            <div class="mt-8 flow-root sm:mt-10">
-                                <ul role="list" class="-my-2 divide-y border-t text-sm leading-6 lg:border-t-0 divide-gray-900/5 border-gray-900/5 text-gray-600">
-                                    <li class="flex gap-x-3 py-2">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                                        </svg>
-                                        5 domains
-                                    </li>
-                
-                                    <li class="flex gap-x-3 py-2">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                                        </svg>
-                                        5 users / seats
-                                    </li>
-                
-                                    <li class="flex gap-x-3 py-2">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                                        </svg>
-                                        1,000 links per domain
-                                    </li>
-                
-                                    <li class="flex gap-x-3 py-2">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                                        </svg>
-                                        5 custom shortlink domains
-                                    </li>
-                                    
-                                    <li class="flex gap-x-3 pt-4 justify-center">
-                                        <span class="inline-flex items-center rounded-md bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-blue-800">
-                                            Our most popular tier
-                                        </span>
-                                    </li>
 
-                                </ul>   
-                            </div>
                         </div>
-                    </div>
-    
-                    <div class="relative rounded-2xl ring-1 ring-white/10 lg:bg-transparent lg:pb-14 lg:ring-0">
-                        <div class="p-8 lg:pt-12 xl:p-10 xl:pt-14">
-                            <h3 id="tier-agency" class="text-sm font-semibold leading-6 text-blue-600">Agency</h3>
-                            <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between lg:flex-col lg:items-stretch">
-                                <div class="mt-2 flex items-center gap-x-4">
-                                    <p class="text-4xl font-bold tracking-tight text-gray-900">£<span x-text="plans.agency[billingTerm]"></span></p>
-                                    <div class="text-sm leading-5">
-                                        <p class="text-gray-900">GBP</p>
-                                        <p class="text-gray-500">Billed <span x-text="billingTerm">monthly</span></p>
-                                    </div>
-                                </div>
-                                <a href="#" class="rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 text-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-white/10 hover:bg-white/20 focus-visible:outline-white border-2 border-blue-600">Start free trial</a>
-                            </div>
-                            <div class="mt-8 flow-root sm:mt-10">
-                                <ul role="list" class="-my-2 divide-y border-t text-sm leading-6 lg:border-t-0 divide-white/5 border-white/5 text-gray-600">
-                                    <li class="flex gap-x-3 py-2">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                                        </svg>
-                                        20 domains
-                                    </li>
-            
-                                    <li class="flex gap-x-3 py-2">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                                        </svg>
-                                        10 users / seats
-                                    </li>
-            
-                                    <li class="flex gap-x-3 py-2">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                                        </svg>
-                                        Unlimited links
-                                    </li>
-            
-                                    <li class="flex gap-x-3 py-2">
-                                        <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                                        </svg>
-                                        20 custom shortlink domains
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+                    
                 </div>
             </div>
         </div>
@@ -199,20 +112,6 @@
         window.SectionPricing = () => {
             return {
                 billingTerm: 'monthly', 
-                plans: {
-                    standard: {
-                        monthly: 16,
-                        annually: 176,
-                    },
-                    freelancer: { 
-                        monthly: 40, 
-                        annually: 440,
-                    }, 
-                    agency: { 
-                        monthly: 105, 
-                        annually: 1155,
-                    }
-                }
             }
         }
     </script>

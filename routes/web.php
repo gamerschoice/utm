@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Plan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Billing\BillingController;
 use App\Http\Controllers\DashboardController;
@@ -38,7 +39,9 @@ Route::middleware([
 ])->prefix('app')->group(function () {
 
     Route::get('/marketing', function () {
-        return view('welcome');
+        return view('welcome', [
+            'plans' => Plan::all() 
+        ]);
     });
     
 
