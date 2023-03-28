@@ -11,7 +11,8 @@ use Illuminate\Http\Client\RequestException;
 class BulkShortlinksKeyValueListener
 {
 
-    protected $cloudflare;
+    protected Cloudflare $cloudflare;
+    
     /**
      * Create the event listener.
      */

@@ -22,10 +22,10 @@
 			<div class="bg-white shadow sm:rounded-lg">
 				<div class="px-4 py-5 sm:p-6">
 					<h3 class="text-lg font-semibold leading-6 text-gray-900">Add a shortlink domain</h3>
-
+					<p class="text-gray-600 mt-4 max-w-[600px] text-sm">Set your desired shortlink domain here and (following a DNS update), you'll be able to use this domain for short tracking links (e.g. go2.domain.com/XjdGI6ms)</p>
 					@if($errorMessage) <p class="text-red-500 mt-4">{{ $errorMessage }}</p> @endif
-					<div class="mt-4 max-w-xl text-gray-500 flex gap-4">
-						<x-input type="text" wire:model.defer="newShortlinkDomain" placeholder="go.mydomain.com" />
+					<div class="mt-6 max-w-xl text-gray-500 flex gap-4">
+						<x-input type="text" wire:model.defer="newShortlinkDomain" placeholder="go.mydomain.com" class="max-w-[400px]" />
 						<x-button type="button" wire:click="saveShortlinkDomain" wire:loading.attr="disabled">
 							Save
 							<svg wire:loading class="ml-1 animate-spin inline-block h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
