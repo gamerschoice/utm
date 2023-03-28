@@ -4,8 +4,8 @@ namespace App\Http\Livewire\Domains\View;
 use App\Models\Domain;
 use Livewire\Component;
 use Filament\Notifications\Notification; 
-use Illuminate\Support\Facades\Validator;
-use App\Actions\Domains\StartDnsVerification;
+use App\Actions\Domains\StartShortnameProcess;
+use App\Rules\IsValidDomain;
 use App\Actions\Domains\DeleteShortDomain;
 
 class ShortDomain extends Component
@@ -24,35 +24,23 @@ class ShortDomain extends Component
         $this->newShortlinkDomain = $this->domain->shortdomain ? $this->domain->shortdomain->host : '';
     }
 
-    /**
-     * @todo refactor with new shortdomain setup
-     */
-    public function saveShortlinkDomain(StartDnsVerification $process)
+
+    public function saveShortlinkDomain(StartShortnameProcess $action)
     {
-        $validator = Validator::make([ 'domain' => $this->newShortlinkDomain ], [
-            'domain' => [
-                'required'
+        $data = $this->validate([
+            'newShortlinkDomain' => [
+                new IsValidDomain()
             ]
         ]);
 
-        if ($validator->fails()) {
-
-            $this->errorMessage = 'Invalid domain name.';
-
-        } else {
-
-            $this->domain->shortlink_domain = $validator->validated()['domain'];
-            $this->domain->dns_configured = 0;
-            $this->domain->save();
-            $process->start($this->domain);
-
-            $this->emit('$refresh');
-            Notification::make() 
-                ->title('Shortlink domain saved.')
-                ->body('Your shortlink domain has been saved, please wait a moment for DNS to verify.')
-                ->success()
-                ->send(); 
-        }
+        $shortDomain = $action->start($this->domain, $this->newShortlinkDomain);
+        $this->emit('$refresh');
+        Notification::make() 
+            ->title('Shortlink domain saved.')
+            ->body('Your shortlink domain has been saved, please wait a moment for DNS to verify.')
+            ->success()
+            ->send(); 
+        
 
     }
 
