@@ -372,7 +372,7 @@
                     </div>
                 @else
                     <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
-                        <x-button id="card-button" type="submit" data-secret="{{ $intent->client_secret }}" wire:target="createSubscription" x-on:click="verify">Start Subscription</x-button>
+                        <x-button id="card-button" type="submit" data-secret="{{ $intent->client_secret }}" wire:target="createSubscription" x-on:click="verify" wire:loading.attr="disabled">Start Subscription</x-button>
                     </div>
                 @endif
 

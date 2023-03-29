@@ -19,6 +19,12 @@ class PlanManager extends Component
     public $payment_method;
     public $cardHolderName;
 
+    public $billing_address_1;
+    public $billing_address_2;
+    public $billing_address_city;
+    public $billing_country;
+    public $billing_postcode;
+
     public function mount()
     {
 
@@ -54,7 +60,19 @@ class PlanManager extends Component
 
         $plan = $this->swapTo;
         $billingCycle = $this->annualPricing ? 'annually' : 'monthly';
-        $newSubscription->execute(auth()->user()->currentTeam, $plan, $this->payment_method, $billingCycle);
+        $newSubscription->execute(
+            auth()->user()->currentTeam, 
+            $plan, 
+            $this->payment_method, 
+            $billingCycle,
+            [
+                'city' => $this->billing_address_city,
+                'country' => $this->billing_country,
+                'line1' => $this->billing_address_1,
+                'line2' => $this->billing_address_2,
+                'postal_code' => $this->billing_postcode
+            ]
+        );
         $this->emit('$refresh');
     }
 }
