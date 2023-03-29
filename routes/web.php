@@ -40,7 +40,7 @@ Route::middleware([
 
     Route::get('/marketing', function () {
         return view('welcome', [
-            'plans' => Plan::all() 
+            'plans' => Plan::whereNot('sku', 'trial')->get() 
         ]);
     });
     

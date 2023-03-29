@@ -13,6 +13,21 @@ class PlansSeeder extends Seeder
      */
     public function run(): void
     {
+
+        Plan::create([
+            'sku' => 'trial',
+            'stripe_key' => '',
+            'price' => 0,
+            'price_annual' => 0,
+            'name' => 'Trial',
+            'description' => '2 week trial',
+            'domains' => 1,
+            'short_domains' => false,
+            'seats' => 1,
+            'links' => 500,
+            'active' => 1,
+        ]);
+
         Plan::create([
             'sku' => 'standard',
             'stripe_key' => 'price_1MnGuIHwvhcWXVfotZEavnmw',

@@ -10,7 +10,7 @@ class PlanQueries extends Builder
     public function available(Team $team = null)
     {
         if($team) {
-            return $this->whereNot('id', $team->plan->id)->where('active', true);
+            return $this->whereNot('id', $team->plan->id)->whereNot('sku', 'trial')->where('active', true);
         }
 
         return $this->where('active', true);
