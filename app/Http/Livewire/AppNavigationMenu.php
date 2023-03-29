@@ -10,14 +10,10 @@ class AppNavigationMenu extends \Laravel\Jetstream\Http\Livewire\NavigationMenu
 {
 
     public $domains;
-    public $totalDomains;
 
     public function mount()
     {
-        $team_id = auth()->user()->currentTeam->id;
-        $this->domains = [];
 
-        $this->totalDomains;
     }
 
     /**
@@ -27,8 +23,8 @@ class AppNavigationMenu extends \Laravel\Jetstream\Http\Livewire\NavigationMenu
      */
     public function render()
     {
+        //$team_id = auth()->user()->currentTeam->id;
         $this->domains = auth()->user()->currentTeam->domains()->limit(10)->get();
-        $this->totalDomains = auth()->user()->currentTeam->domains()->count();
 
         return view('navigation-menu');
     }
