@@ -15,6 +15,7 @@ class CreateNewSubscription
         $price_key = ($billingCycle == 'monthly') ? $plan->stripe_key : $plan->stripe_key_annual;
 
         DB::transaction(function () use ($team, $plan, $paymentMethod, $price_key, $billing_address) {
+            $team->plan_id = $plan->id;
             $team->newSubscription('default', $price_key)
                 ->skipTrial()
                 ->create($paymentMethod, [
@@ -22,6 +23,8 @@ class CreateNewSubscription
                     'email' => $team->owner->email,
                     'address' => $billing_address
                 ]);
+            $team->save();
+            
         });
     }
 }

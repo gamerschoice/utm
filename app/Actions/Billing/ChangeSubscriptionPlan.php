@@ -25,6 +25,7 @@ class ChangeSubscriptionPlan
                 $team->update([
                     'plan_id' => $plan->id,
                     'maximum_domains' => $plan->domains,
+                    'maximum_members' => $plan->seats
                 ]);
             });
 
