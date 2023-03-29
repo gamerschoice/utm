@@ -30,12 +30,16 @@
     <body class="font-sans antialiased h-full">
         
 
+
         <div x-data="{ open: false }" @keydown.window.escape="open = false">
             
             @livewire('app-navigation-menu')
 
 
             <div class="lg:ml-64 flex-1">
+
+                <x-trial-banner />
+
                 <div class="py-6">
                     <header>
                         @if (isset($header))
