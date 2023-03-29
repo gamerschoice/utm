@@ -26,7 +26,7 @@
                     <div class="flex justify-between">
                         <h3 class="text-base font-semibold leading-6 text-gray-900">{{ $subscribed ? 'Change Plan' : 'Choose Your Plan' }}</h3>
 
-                        <div>
+                        <div class="flex items-center gap-1">
                             <span class="ml-3 text-sm" id="annual-billing-label">
                             <span class="font-medium text-gray-900">Annual billing</span>
                             </span>
@@ -38,24 +38,23 @@
 
                     <fieldset>
                         <legend class="sr-only">Pricing plans</legend>
-                        <div class="relative -space-y-px rounded-md bg-white">
+                        <div class="relative -space-y-px rounded-md bg-white" x-data="{ checked: null }">
                             @foreach($plans as $plan)
-                                <!-- Checked: "z-10 border-blue-200 bg-blue-50", Not Checked: "border-gray-200" -->
                                 <label @class([
-                                    "relative flex cursor-pointer flex-col border p-4 focus:outline-none md:grid md:grid-cols-3 md:pr-6",
+                                    "relative flex cursor-pointer flex-col border p-4 outline-none md:grid md:grid-cols-3 md:pr-6",
                                     "rounded-tl-md rounded-tr-md" => $loop->first,
                                     "rounded-bl-md rounded-br-md" => $loop->last
-                                ])>
+                                ]) @click="checked = '{{ $plan->sku }}'" x-bind:class="{ 'z-10 border-blue-200 bg-blue-50' : checked === '{{ $plan->sku }}', 'border-gray-200' : checked !== '{{ $plan->sku }}' }">
                                     <span class="flex items-center text-sm">
-                                        <input type="radio" wire:model.defer="swapTo" value="{{ $plan->sku }}" class="h-4 w-4 text-blue-500 border-gray-300 focus:ring-gray-900" aria-labelledby="pricing-plans-0-label" aria-describedby="pricing-plans-0-description-0 pricing-plans-0-description-1">
+                                        <input type="radio" name="swapTo" wire:model.defer="swapTo" value="{{ $plan->sku }}" class="h-4 w-4 text-blue-500 border-gray-300">
                                         <span id="pricing-plans-0-label" class="ml-3 font-medium text-gray-900">{{ $plan->name }}</span>
                                     </span>
-                                    <span id="pricing-plans-0-description-0" class="ml-6 pl-1 text-sm md:ml-0 md:pl-0 md:text-center">
-                                        <!-- Checked: "text-blue-900", Not Checked: "text-gray-900" -->
-                                        <span class="font-medium">£{{ $plan->price }} / mo</span>
+                                    <span class="ml-6 pl-1 text-sm md:ml-0 md:pl-0 md:text-center">
+                                        <span class="font-medium" x-bind:class="{ 'text-blue-900' : checked === '{{ $plan->sku }}', 'text-gray-900' : checked !== '{{ $plan->sku }}' }">£{{ $plan->price }} / mo</span>
                                     </span>
-                                    <!-- Checked: "text-blue-700", Not Checked: "text-gray-500" -->
-                                    <span id="pricing-plans-0-description-1" class="ml-6 pl-1 text-sm md:ml-0 md:pl-0 md:text-right">{{ $plan->domains ?: 'Unlimited' }} domain</span>
+                                    <span class="ml-6 pl-1 text-sm md:ml-0 md:pl-0 md:text-right" x-bind:class="{ 'text-blue-700' : checked === '{{ $plan->sku }}', 'text-gray-500' : checked !== '{{ $plan->sku }}' }">
+                                        {{ $plan->domains ?: 'Unlimited' }} domain
+                                    </span>
                                 </label>
                             @endforeach
                         </div>
