@@ -21,17 +21,19 @@ class PlanManager extends Component
 
     public function mount()
     {
-        $this->subscription = auth()->user()->currentTeam->subscription('default');
-        $this->plans = Plan::available()->get();
-        $this->annualPricing = false;
+
     }
 
     public function render()
     {
         $this->current = auth()->user()->currentTeam->plan;
+        $this->subscription = auth()->user()->currentTeam->subscription('default');
+        $this->plans = Plan::available()->get();
+        $this->annualPricing = false;
 
         return view('livewire.billing.plan-manager', [
             'subscribed' => auth()->user()->currentTeam->subscribed('default'),
+            'subscription' => $this->subscription,
             'intent' => auth()->user()->currentTeam->createSetupIntent()
         ]);
     }
