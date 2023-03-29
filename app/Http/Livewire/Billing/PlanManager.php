@@ -49,13 +49,10 @@ class PlanManager extends Component
 
     public function createSubscription(CreateNewSubscription $newSubscription)
     {
-        $data = $this->validate([
-            'cardHolderName' => 'required'
-        ]);
 
         $plan = $this->swapTo;
-
-        $newSubscription->execute(auth()->user()->currentTeam, $plan, $this->payment_method);
+        $billingCycle = $this->annualPricing ? 'annually' : 'monthly';
+        $newSubscription->execute(auth()->user()->currentTeam, $plan, $this->payment_method, $billingCycle);
         $this->emit('$refresh');
     }
 }
