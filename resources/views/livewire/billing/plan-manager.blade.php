@@ -26,7 +26,7 @@
                     <div class="flex justify-between">
                         <h3 class="text-base font-semibold leading-6 text-gray-900">{{ $subscribed ? 'Change Plan' : 'Choose Your Plan' }}</h3>
 
-                        <div class="flex items-center gap-1">
+                        <div class="flex items-center gap-3">
                             <span class="ml-3 text-sm" id="annual-billing-label">
                             <span class="font-medium text-gray-900">Annual billing</span>
                             </span>
@@ -50,7 +50,7 @@
                                         <span id="pricing-plans-0-label" class="ml-3 font-medium text-gray-900">{{ $plan->name }}</span>
                                     </span>
                                     <span class="ml-6 pl-1 text-sm md:ml-0 md:pl-0 md:text-center">
-                                        <span class="font-medium" x-bind:class="{ 'text-blue-900' : checked === '{{ $plan->sku }}', 'text-gray-900' : checked !== '{{ $plan->sku }}' }">£{{ $plan->price }} / mo</span>
+                                        <span class="font-medium" x-bind:class="{ 'text-blue-900' : checked === '{{ $plan->sku }}', 'text-gray-900' : checked !== '{{ $plan->sku }}' }">£{{ $annualPricing ? $plan->price_annual : $plan->price }} / mo</span>
                                     </span>
                                     <span class="ml-6 pl-1 text-sm md:ml-0 md:pl-0 md:text-right" x-bind:class="{ 'text-blue-700' : checked === '{{ $plan->sku }}', 'text-gray-500' : checked !== '{{ $plan->sku }}' }">
                                         {{ $plan->domains ?: 'Unlimited' }} domain
