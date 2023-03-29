@@ -37,7 +37,7 @@ class DeleteShortDomain
                 $keys[] = $link->auto_url;
             }
 
-            if($domain->shordomain->cf_route_identifier)
+            if($domain->shortdomain->cf_route_identifier)
                 $this->cloudflare->deleteWorkerRoute( $domain->shortdomain->cf_route_identifier );
             
             if(!empty($keys))
