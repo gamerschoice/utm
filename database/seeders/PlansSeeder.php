@@ -18,6 +18,7 @@ class PlansSeeder extends Seeder
             'sku' => 'trial',
             'stripe_key' => '',
             'price' => 0,
+            'stripe_key_annual' => '',
             'price_annual' => 0,
             'name' => 'Trial',
             'description' => '2 week trial',
@@ -30,8 +31,9 @@ class PlansSeeder extends Seeder
 
         Plan::create([
             'sku' => 'standard',
-            'stripe_key' => 'price_1MnGuIHwvhcWXVfotZEavnmw',
+            'stripe_key' => 'price_1MqyrTHwvhcWXVfoDymTB5lf',
             'price' => 16.00,
+            'stripe_key_annual' => 'price_1MqyrTHwvhcWXVfonHuo86Ux',
             'price_annual' => 176.00,
             'name' => 'Standard',
             'description' => 'Standard plan',
@@ -44,8 +46,9 @@ class PlansSeeder extends Seeder
 
         Plan::create([
             'sku' => 'freelancer',
-            'stripe_key' => 'price_1MnyEzHwvhcWXVfotHTaLNeK',
+            'stripe_key' => 'price_1MqytRHwvhcWXVfoqbSntV2t',
             'price' => 40.00,
+            'stripe_key_annual' => 'price_1MqytRHwvhcWXVforsAp3Dc3',
             'price_annual' => 440.00,
             'name' => 'Freelancer',
             'description' => 'Freelancer plan',
@@ -58,8 +61,9 @@ class PlansSeeder extends Seeder
 
         Plan::create([
             'sku' => 'agency',
-            'stripe_key' => 'price_1MnyHGHwvhcWXVfo0R0uH2JA',
+            'stripe_key' => 'price_1MqyuMHwvhcWXVfoRr3yoH8P',
             'price' => 105.00,
+            'stripe_key_annual' => 'price_1MqyuMHwvhcWXVfoifShywIn',
             'price_annual' => 1155.00,
             'name' => 'Agency',
             'description' => 'Agency plan',

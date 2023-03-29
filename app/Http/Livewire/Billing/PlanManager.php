@@ -53,7 +53,7 @@ class PlanManager extends Component
             'cardHolderName' => 'required'
         ]);
 
-        $plan = 'personal';
+        $plan = $this->swapTo;
 
         $newSubscription->execute(auth()->user()->currentTeam, $plan, $this->payment_method);
         $this->emit('$refresh');

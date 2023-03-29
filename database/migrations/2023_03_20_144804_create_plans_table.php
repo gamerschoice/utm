@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('sku');
             $table->string('stripe_key');
             $table->float('price')->default(0);
+            $table->string('stripe_key_annual');
             $table->float('price_annual')->default(0);
             $table->string('name');
             $table->text('description');
