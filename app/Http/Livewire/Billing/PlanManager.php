@@ -51,6 +51,8 @@ class PlanManager extends Component
 
         $planChanger->execute(auth()->user()->currentTeam, $this->swapTo);
         $this->current = auth()->user()->currentTeam->plan;
+        auth()->user()->currentTeam->maximum_domains = $this->current->domains;
+        auth()->user()->currentTeam->maximum_members = $this->current->seats;
 
         $this->emit('$refresh');
     }

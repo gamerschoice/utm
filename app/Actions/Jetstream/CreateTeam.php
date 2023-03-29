@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Laravel\Jetstream\Contracts\CreatesTeams;
 use Laravel\Jetstream\Events\AddingTeam;
 use Laravel\Jetstream\Jetstream;
+use Carbon\Carbon;
 
 class CreateTeam implements CreatesTeams
 {
@@ -29,7 +30,11 @@ class CreateTeam implements CreatesTeams
 
         $user->switchTeam($team = $user->ownedTeams()->create([
             'name' => $input['name'],
-            'personal_team' => false,
+            'personal_team' => true,
+            'trial_ends_at' => Carbon::now()->addWeeks(2),
+            'plan_id' => 1,
+            'maximum_members' => 1,
+            'maximum_domains' => 1
         ]));
 
         return $team;
