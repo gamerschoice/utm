@@ -5,6 +5,7 @@ namespace App\Actions\Billing;
 use App\Models\Team;
 use App\Models\Plan;
 use Illuminate\Support\Facades\DB;
+use Filament\Notifications\Notification; 
 
 class CreateNewSubscription
 {
@@ -24,6 +25,12 @@ class CreateNewSubscription
                     'address' => $billing_address
                 ]);
             $team->save();
+
+            Notification::make() 
+                ->title('Subscription activated')
+                ->body('Thank you for subscribing! Your subscription plan is now active')
+                ->success()
+                ->send(); 
             
         });
     }
