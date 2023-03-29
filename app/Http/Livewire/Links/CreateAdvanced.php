@@ -67,11 +67,12 @@ class CreateAdvanced extends Component
                     $this->errorMessage = 'Too may URLs detected. Maximum of 50 will be accepted in one go.';
 
             
-
             return false;
         }
+        
+        $validated = $validator->validated();
 
-        foreach($validator->validated() as $url) {
+        foreach($validated['items'] as $url) {
             $link = [];
             $link['destination'] = $url;
             $link['utm_source'] = $this->presetSource;
