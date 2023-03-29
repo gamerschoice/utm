@@ -34,7 +34,7 @@ class PlanManager extends Component
     {
         $this->current = auth()->user()->currentTeam->plan;
         $this->subscription = auth()->user()->currentTeam->subscription('default');
-        $this->plans = Plan::available()->get();
+        $this->plans = Plan::available(auth()->user()->currentTeam)->get();
         $this->annualPricing = false;
 
         return view('livewire.billing.plan-manager', [
