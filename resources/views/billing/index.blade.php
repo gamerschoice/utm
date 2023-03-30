@@ -13,6 +13,7 @@
             <div class="grid grid-cols-2 gap-10">
 
                 <div>
+                    
                     @livewire('billing.plan-manager')
 
                     @livewire('billing.invoices')
@@ -21,6 +22,8 @@
                 <div>
 
                     @livewire('billing.payment-method')
+
+                    @livewire('billing.cancel')
 
                 </div>
             </div>
