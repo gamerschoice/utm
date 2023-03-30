@@ -60,7 +60,7 @@
             <x-modal-neutral wire:model="renamingDomain" x-data="{ newDomainName: '' }">
                 <x-slot name="title">Rename domain?</x-slot>
                 <x-slot name="content">
-                    <p class="mb-4">If you delete your domain, all UTM Wise links will be removed, and your shortdomain links will stop working. If you're sure you want to do this, please type <strong>{{ $domain->domain }}</strong> in the text box below and click Delete.</p>
+                    <p class="mb-4">If you rename your domain, the destinations for all of your shortlinks will automatically be updated to reflect your chosen domain. If you're sure you want to do this, please enter your new domain name in the text box below and click Rename.</p>
                     <x-input class="text-base" type="text" wire:model.defer="newDomainName" placeholder="example.com" />
                     @if($errorMessage) <p class="text-red-500 mt-4">{{ $errorMessage }}</p> @endif
                 </x-slot>
