@@ -25,7 +25,6 @@
                 <div class="space-y-6 bg-white py-6 px-4 sm:p-6">
                     <div class="flex justify-between">
                         <h3 class="text-lg font-semibold leading-6 text-gray-900">{{ $subscribed ? 'Change Plan' : 'Choose Your Plan' }}</h3>
-
                         <div class="flex items-center gap-3">
                             <span class="ml-3 text-sm" id="annual-billing-label">
                                 <span class="font-medium text-gray-900">Annual billing</span>
@@ -35,6 +34,8 @@
                             </button>
                         </div>
                     </div>
+
+                    <p class="text-sm text-gray-600">Select a plan to view more details.</p>
 
                     <fieldset x-data="{ checked: null }">
                         <legend class="sr-only">Pricing plans</legend>
@@ -52,9 +53,15 @@
                                     <span class="ml-6 pl-1 text-sm md:ml-0 md:pl-0 md:text-center">
                                         <span class="font-medium" x-bind:class="{ 'text-blue-900' : checked === '{{ $plan->sku }}', 'text-gray-900' : checked !== '{{ $plan->sku }}' }">£{{ $annualPricing ? $plan->price_annual : $plan->price }} / mo</span>
                                     </span>
-                                    <!--span class="ml-6 pl-1 text-sm md:ml-0 md:pl-0 md:text-right" x-bind:class="{ 'text-blue-700' : checked === '{{ $plan->sku }}', 'text-gray-500' : checked !== '{{ $plan->sku }}' }">
-                                        {{ $plan->domains ?: 'Unlimited' }} @if($plan->domains > 1) domains @else domain @endif
-                                    </span-->
+                                    <div x-cloak x-transition x-show="checked === '{{ $plan->sku }}'" class="md:col-span-2">
+                                        <div class="flex ml-7 text-gray-600 text-sm py-2 gap-x-2">
+                                            <span>{{ $plan->domains === -1 ? 'Unlimited' : $plan->domains }} @if($plan->domains > 1) domains @else domain @endif</span>
+                                            <span>&bull;</span>
+                                            <span>{{ $plan->seats === -1 ? 'Unlimited' : $plan->seats }} @if($plan->seats > 1) users/seats @else user/seat @endif</span>
+                                            <span>&bull;</span>
+                                            <span>{{ $plan->links === -1 ? 'Unlimited' : $plan->links }} links</span>
+                                        </div>
+                                    </div>
                                 </label>
                             @endforeach
                         </div>
