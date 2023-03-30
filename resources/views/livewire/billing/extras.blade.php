@@ -20,7 +20,7 @@
                                     <option value="5">5</option>
                                 </select>                
                                 <span class="text-sm font-medium text-gray-900">Additional domain<span x-show="quantity > 1">s</span></span>
-                                <span class="text-sm text-gray-600">£<span x-text="cost_per * quantity">5</span></span>
+                                <span class="text-sm text-gray-600">£<span x-text="cost_per * quantity">5</span> /m</span>
                             </div>
                             <div>
                                 <button @click="confirming = true" x-show="!confirming" type="button" class="inline-flex items-center rounded-full bg-white px-2.5 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
@@ -51,7 +51,7 @@
                                     <option>{{ $domain_extra_subscription->quantity }}</option>
                                 </select>                
                                 <span class="text-sm font-medium text-gray-900">Additional domain<span x-show="quantity > 1">s</span></span>
-                                <span class="text-sm text-gray-600">£<span x-text="cost_per * quantity">5</span></span>
+                                <span class="text-sm text-gray-600">£<span x-text="cost_per * quantity">5</span> /m</span>
                             </div>
                             <div>
                                 <button wire:click="cancelExtraDomains" type="button" class="inline-flex items-center rounded-full bg-white px-2.5 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
@@ -78,7 +78,7 @@
                                     <option value="5">5</option>
                                 </select>                
                                 <span class="text-sm font-medium text-gray-900">Additional seat<span x-show="quantity > 1">s</span></span>
-                                <span class="text-sm text-gray-600">£<span x-text="cost_per * quantity">2</span></span>
+                                <span class="text-sm text-gray-600">£<span x-text="cost_per * quantity">2</span> /m</span>
                             </div>
                             <div>
                                 <button @click="confirming = true" x-show="!confirming" type="button" class="inline-flex items-center rounded-full bg-white px-2.5 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
@@ -109,7 +109,7 @@
                                 <option>{{ $seat_extra_subscription->quantity }}</option>
                             </select>                
                             <span class="text-sm font-medium text-gray-900">Additional seat<span x-show="quantity > 1">s</span></span>
-                            <span class="text-sm text-gray-600">£<span x-text="cost_per * quantity">2</span></span>
+                            <span class="text-sm text-gray-600">£<span x-text="cost_per * quantity">2</span> /m</span>
                         </div>
                         <div>
                             <button wire:click="cancelExtraSeats" type="button" class="inline-flex items-center rounded-full bg-white px-2.5 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
@@ -125,7 +125,7 @@
                 @endif
             </ul>
         </div>
-
+        <p class="mt-8 text-gray-600 text-xs">Please note: these additional subscription are charged <strong>monthly</strong> irrespective of your main plan's billing cycle.</p>
     </div>
 
 </div>

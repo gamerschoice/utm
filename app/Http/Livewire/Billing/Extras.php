@@ -56,7 +56,7 @@ class Extras extends Component
          * @todo check if user can reduce domains by $quantity_extra
          */
 
-        $quantity_extra = $this->team->subscription('extra_domains')->quantity();
+        $quantity_extra = $this->team->subscription('extra_domains')->quantity;
         $cancelled = $this->team->subscription('extra_domains')->cancel();
         if($cancelled) {
             $this->team->maximum_domains -= $quantity_extra;
@@ -81,7 +81,7 @@ class Extras extends Component
          * @todo check if user can reduce domains by $quantity_extra
          */
 
-        $quantity_extra = $this->team->subscription('extra_seats')->quantity();
+        $quantity_extra = $this->team->subscription('extra_seats')->quantity;
         $cancelled = $this->team->subscription('extra_seats')->cancel();
         if($cancelled) {
             $this->team->maximum_members -= $quantity_extra;
