@@ -22,6 +22,7 @@ class PlanManager extends Component
     public $billing_address_1;
     public $billing_address_2;
     public $billing_address_city;
+    public $billing_address_state;
     public $billing_country;
     public $billing_postcode;
 
@@ -71,6 +72,7 @@ class PlanManager extends Component
                 'country' => $this->billing_country,
                 'line1' => $this->billing_address_1,
                 'line2' => $this->billing_address_2,
+                'state' => $this->billing_address_state,
                 'postal_code' => $this->billing_postcode
             ]
         );

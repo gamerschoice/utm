@@ -345,6 +345,11 @@
                                         </select>
                                     </div>
 
+                                    <div class="col-span-2">
+                                        <label for="billing_state" class="block text-sm font-medium leading-6 text-gray-900">County / State</label>
+                                        <input type="text" name="billing_state" id="billing_state" class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-700 sm:text-sm sm:leading-6">
+                                    </div>
+
                                     <div class="col-span-4">
                                         <label for="cardHolderName" class="block text-sm font-medium leading-6 text-gray-900">Card holder name</label>
                                         <input type="text" name="cardHolderName" id="card-holder-name" class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-700 sm:text-sm sm:leading-6">
@@ -412,6 +417,7 @@
             const billing_address_city = document.getElementById('billing_address_city');
             const billing_postcode = document.getElementById('billing_postcode');
             const billing_country = document.getElementById('billing_country');
+            const billing_state = document.getElementById('billing_state');
 
             const cardHolderName = document.getElementById('card-holder-name');
 
@@ -440,7 +446,8 @@
                                     country: billing_country.value,
                                     line1: billing_address_1,
                                     line2: billing_address_2,
-                                    postal_code: billing_postcode
+                                    postal_code: billing_postcode,
+                                    state: billing_state,
                                 }
                             }
                         }
