@@ -13,8 +13,10 @@
             <div class="grid grid-cols-2 gap-10">
 
                 <div>
-                    
+
                     @livewire('billing.plan-manager')
+
+                    @livewire('billing.extras')
 
                     @livewire('billing.invoices')
 
