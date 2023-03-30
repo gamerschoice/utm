@@ -3,7 +3,7 @@
     <div class="px-4 py-5 sm:p-6">
         <h3 class="text-base font-semibold leading-6 text-gray-900">Cancel subscription</h3>
         <div class="mt-2 max-w-xl text-xs text-gray-500">
-            <p>You cancel your subscription upon reaching the end of your current billing cycle by clicking Cancel below. Please be aware, once your current billing cycle ends, you'll no longer be able to use your account, or have access to any of your data.</p>
+            <p>You can cancel your subscription upon reaching the end of your current billing cycle by clicking Cancel below. Please be aware, once your current billing cycle ends, you'll no longer be able to use your account, or have access to any of your data.</p>
         </div>
         <div class="mt-5">
             <x-button-secondary wire:click="$toggle('confirmCancel')" type="button">
