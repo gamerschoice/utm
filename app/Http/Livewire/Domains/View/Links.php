@@ -53,8 +53,9 @@ class Links extends Component
         if( $deleter->bulkDelete( $linksToSend ) ) {
 
             Notification::make() 
-                ->title('Links deleted.')
-                ->danger()
+                ->title('Links removed.')
+                ->body('Your chosen links have been removed.')
+                ->success()
                 ->send(); 
 
         } else {

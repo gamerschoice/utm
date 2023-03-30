@@ -31,7 +31,7 @@ class DeleteLink
             return false;
         }
 
-        Link::whereIn('id', $link_ids)->delete();
+        return Link::whereIn('id', $link_ids)->delete();
 
     }
 
