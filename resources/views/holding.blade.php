@@ -20,8 +20,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <meta name="twitter:site" content="@utmwise">
     <meta name="twitter:title" content="Get UTM Wise and take control of your link tracking">
-    <meta name="twitter:description"
-        content="Say goodbye to spreadsheets! UTM Wise lets you manage your site's UTM tracking links like a pro.">
+    <meta name="twitter:description" content="Say goodbye to spreadsheets! UTM Wise lets you manage your site's UTM tracking links like a pro.">
     <meta name="twitter:image" content="https://utmwise.com/img/meta/social.png">
     <meta name="twitter:creator" content="@utmwise">
     <meta property="og:url" content="https://utmwise.com/">

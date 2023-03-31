@@ -1,5 +1,9 @@
 <x-static-layout>
 
+    <x-slot name="meta">
+        <title>Privacy policy | UTM Wise</title> 
+    </x-slot>
+
     <x-slot name="masthead">
         <h1 class="text-4xl font-black font-sans tracking-tight text-transparent sm:text-5xl xl:text-6xl text-white pb-8">Privacy policy</h1>
     </x-slot>
