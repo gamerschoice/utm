@@ -134,13 +134,7 @@
                         <x-table.cell><span class="underline decoration-dotted decoration-blue-200 cursor-pointer" wire:click="setActiveUtmMediumFilter('{{ $link->utm_medium }}')">{{ $link->utm_medium }}</span></x-table.cell>
                         <x-table.cell><span class="underline decoration-dotted decoration-blue-200 cursor-pointer" wire:click="setActiveUtmCampaignFilter('{{ $link->utm_campaign }}')">{{ $link->utm_campaign }}</span></x-table.cell>
                         <x-table.cell>
-                            
-                            @if($link->health_checked_at)
-                                <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium link-status--{{ $link->health_status_code }}">{{ $link->health_status_code }}</span>
-                            @else
-                                <span class="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">queued</span>
-                            @endif
-                            
+                            <x-link-health-status :link="$link" />
                         </x-table.cell>
                         <x-table.cell><span class="text-xs md:text-sm">{{ $link->created_ago }}</span></x-table.cell>
                         <x-table.cell class="justify-end text-right">

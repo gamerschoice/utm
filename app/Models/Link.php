@@ -23,6 +23,14 @@ class Link extends Model
         return Carbon::parse($this->created_at)->diffForHumans();
     }
 
+    public function getHealthCheckedAgoAttribute()
+    {
+        if($this->health_checked_at)
+            return Carbon::parse($this->health_checked_at)->diffForHumans();
+        
+        return 'never';
+    }
+
     public function getAutoUrlAttribute()
     {
 
