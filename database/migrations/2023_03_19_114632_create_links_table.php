@@ -25,6 +25,8 @@ return new class extends Migration
             $table->longText('notes')->nullable();
             $table->string('shortlink')->index();
             $table->foreignId('domain_id')->index();
+            $table->integer('health_status_code')->nullable();
+            $table->timestamp('health_checked_at')->nullable();
             $table->timestamps();
 
             $table->unique(['domain_id', 'shortlink']);

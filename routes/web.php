@@ -9,6 +9,9 @@ use App\Http\Controllers\LinksController;
 use App\Http\Controllers\InvoiceController;
 
 use App\Services\Cloudflare;
+use App\Jobs\ProcessLinks;
+use App\Jobs\LinkHealth;
+use App\Models\Link;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +24,9 @@ use App\Services\Cloudflare;
 |
 */
 
-Route::get('/cf-test', function (Cloudflare $cf) {
+Route::get('/health-test', function () {
 
-    return $cf->test();
+    //ProcessLinks::dispatch();
 
 });
 

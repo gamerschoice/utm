@@ -103,6 +103,7 @@
                 <x-table.heading sortable wire:click="sortBy('utm_source')"  :direction="$sortField === 'source' ? $sortDirection : null">Source</x-table.heading>
                 <x-table.heading sortable wire:click="sortBy('utm_medium')"  :direction="$sortField === 'medium' ? $sortDirection : null">Medium</x-table.heading>
                 <x-table.heading sortable wire:click="sortBy('utm_campaign')"  :direction="$sortField === 'campaign' ? $sortDirection : null">Campaign</x-table.heading>
+                <x-table.heading>Health</x-table.heading>
                 <x-table.heading sortable wire:click="sortBy('created_at')" :direction="$sortField === 'created' ? $sortDirection : null">Created</x-table.heading>
                 <x-table.heading class="flex-end"></x-table.heading>
             </x-slot>
@@ -132,6 +133,15 @@
                         <x-table.cell><span class="underline decoration-dotted decoration-blue-200 cursor-pointer" wire:click="setActiveUtmSourceFilter('{{ $link->utm_source }}')">{{ $link->utm_source }}</span></x-table.cell>
                         <x-table.cell><span class="underline decoration-dotted decoration-blue-200 cursor-pointer" wire:click="setActiveUtmMediumFilter('{{ $link->utm_medium }}')">{{ $link->utm_medium }}</span></x-table.cell>
                         <x-table.cell><span class="underline decoration-dotted decoration-blue-200 cursor-pointer" wire:click="setActiveUtmCampaignFilter('{{ $link->utm_campaign }}')">{{ $link->utm_campaign }}</span></x-table.cell>
+                        <x-table.cell>
+                            
+                            @if($link->health_checked_at)
+                                <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium link-status--{{ $link->health_status_code }}">{{ $link->health_status_code }}</span>
+                            @else
+                                <span class="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">queued</span>
+                            @endif
+                            
+                        </x-table.cell>
                         <x-table.cell><span class="text-xs md:text-sm">{{ $link->created_ago }}</span></x-table.cell>
                         <x-table.cell class="justify-end text-right">
 

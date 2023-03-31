@@ -11,3 +11,24 @@ html, body, button {
 .animate-marquee:hover {
     animation-play-state: paused;
 }
+
+.link-status--200, .link-status--201, .link-status--202 {
+    @apply text-green-800 bg-green-100;
+}
+
+.link-status--0, .link-status--204, .link-status--301, .link-status--302 {
+    @apply text-yellow-800 bg-yellow-100;
+}
+
+.link-status--400,
+.link-status--401,
+.link-status--402,
+.link-status--403,
+.link-status--404,
+.link-status--408,
+.link-status--409,
+.link-status--422,
+.link-status--429,
+.link-status--500 {
+    @apply text-red-800 bg-red-100;
+}
