@@ -24,13 +24,10 @@
     <meta name="twitter:image" content="https://utmwise.com/img/meta/social.png">
     <meta name="twitter:creator" content="@utmwise">
     <meta property="og:url" content="https://utmwise.com/">
-    <meta property="og:type" content="article">
     <meta property="og:title" content="Get UTM Wise and take control of your link tracking">
-    <meta property="og:description"
-        content="Say goodbye to spreadsheets! UTM Wise lets you manage your site's UTM tracking links like a pro.">
+    <meta property="og:description" content="Say goodbye to spreadsheets! UTM Wise lets you manage your site's UTM tracking links like a pro.">
     <meta property="og:image" content="https://utmwise.com/img/meta/social.png">
-    <meta property="description"
-        content="Say goodbye to spreadsheets! UTM Wise lets you manage your site's UTM tracking links like a pro.">
+    <meta property="description" content="Say goodbye to spreadsheets! UTM Wise lets you manage your site's UTM tracking links like a pro.">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ env('GA4_ID') }}"></script>
     <script>
@@ -915,31 +912,7 @@
 
         </main>
 
-        <!-- Footer -->
-        <div class="mx-auto mt-20 max-w-7xl px-6 lg:px-8">
-            <footer aria-labelledby="footer-heading"
-                class="relative border-t border-gray-900/10 py-8">
-                <div class="flex flex-col sm:items-center sm:flex-row sm:justify-between gap-4">
-                    <x-application-mark />
-                    <ul role="list" class="flex gap-4">
-                        <!--li>
-                            <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Blog</a>
-                        </li-->
-                        <li>
-                            <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Terms</a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Privacy</a>
-                        </li>
-                        <li>
-                            <a href="https://dashboard.instatus.com/" target="_blank" rel="noopener nofollow" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Service status</a>
-                        <li>
-                            <a href="mailto:support@utmwise.com" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Support</a>
-                        </li>
-                    </ul>
-                </div>
-            </footer>
-        </div>
+        <x-marketing.footer />
 
     </div>
 

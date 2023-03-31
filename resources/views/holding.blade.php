@@ -270,6 +270,8 @@
 
         </main>
 
+        <x-marketing.footer />
+
 
     </div>
 

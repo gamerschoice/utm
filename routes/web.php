@@ -34,6 +34,10 @@ Route::get('/', function () {
     return view('holding');
 });
 
+Route::get('/privacy', function () {
+    return view('privacy');
+})->name('privacy');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
