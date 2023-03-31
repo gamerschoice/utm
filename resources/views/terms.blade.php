@@ -1,13 +1,16 @@
-<x-guest-layout>
-    <div class="pt-4 bg-gray-100">
-        <div class="min-h-screen flex flex-col items-center pt-6 sm:pt-0">
-            <div>
-                <x-authentication-card-logo />
-            </div>
+<x-static-layout>
 
-            <div class="w-full sm:max-w-2xl mt-6 p-6 bg-white shadow-md overflow-hidden sm:rounded-lg prose">
-                {!! $terms !!}
-            </div>
-        </div>
+    <x-slot name="meta">
+        <title>Terms of use | UTM Wise</title> 
+    </x-slot>
+
+    <x-slot name="masthead">
+        <h1 class="text-4xl font-black font-sans tracking-tight text-transparent sm:text-5xl xl:text-6xl text-white pb-8">Terms of use</h1>
+    </x-slot>
+
+    <div class="prose mx-auto">
+
+        <p>Terms content</p>
+    
     </div>
-</x-guest-layout>
+</x-static-layout>

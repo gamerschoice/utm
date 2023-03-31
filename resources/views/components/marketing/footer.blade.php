@@ -9,13 +9,13 @@
                     <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Blog</a>
                 </li-->
                 <li>
-                    <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Terms</a>
+                    <a href="{{ route('terms') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Terms</a>
                 </li>
                 <li>
                     <a href="{{ route('privacy') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Privacy</a>
                 </li>
                 <li>
-                    <a href="https://dashboard.instatus.com/" target="_blank" rel="noopener nofollow" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Service status</a>
+                    <a href="https://utmwise.instatus.com/" target="_blank" rel="noopener nofollow" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Service status</a>
                 <li>
                     <a href="mailto:support@utmwise.com" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Support</a>
                 </li>

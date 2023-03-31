@@ -38,6 +38,10 @@ Route::get('/privacy', function () {
     return view('privacy');
 })->name('privacy');
 
+Route::get('/terms', function () {
+    return view('terms');
+})->name('terms');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
