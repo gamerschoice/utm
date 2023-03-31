@@ -9,7 +9,6 @@
     <link rel="icon" href="{{ asset('favicon.jpg') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Fonts -->
-        <!--link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"-->
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <!-- Scripts -->
     <style>
@@ -32,7 +31,14 @@
     <meta property="og:image" content="https://utmwise.com/img/meta/social.png">
     <meta property="description"
         content="Say goodbye to spreadsheets! UTM Wise lets you manage your site's UTM tracking links like a pro.">
-
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ env('GA4_ID') }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ env('GA4_ID') }}');
+    </script>
 </head>
 
 <body class="flex h-full flex-col" x-data="{ burgerOpen: false }">
@@ -181,11 +187,11 @@
                                     <div class="relative pl-9">
                                         <dt class="inline font-semibold text-gray-900">
                                             <svg class="absolute top-1 left-1 h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
-                                                <path d="M16.555 5.412a8.028 8.028 0 00-3.503-2.81 14.899 14.899 0 011.663 4.472 8.547 8.547 0 001.84-1.662zM13.326 7.825a13.43 13.43 0 00-2.413-5.773 8.087 8.087 0 00-1.826 0 13.43 13.43 0 00-2.413 5.773A8.473 8.473 0 0010 8.5c1.18 0 2.304-.24 3.326-.675zM6.514 9.376A9.98 9.98 0 0010 10c1.226 0 2.4-.22 3.486-.624a13.54 13.54 0 01-.351 3.759A13.54 13.54 0 0110 13.5c-1.079 0-2.128-.127-3.134-.366a13.538 13.538 0 01-.352-3.758zM5.285 7.074a14.9 14.9 0 011.663-4.471 8.028 8.028 0 00-3.503 2.81c.529.638 1.149 1.199 1.84 1.66zM17.334 6.798a7.973 7.973 0 01.614 4.115 13.47 13.47 0 01-3.178 1.72 15.093 15.093 0 00.174-3.939 10.043 10.043 0 002.39-1.896zM2.666 6.798a10.042 10.042 0 002.39 1.896 15.196 15.196 0 00.174 3.94 13.472 13.472 0 01-3.178-1.72 7.973 7.973 0 01.615-4.115zM10 15c.898 0 1.778-.079 2.633-.23a13.473 13.473 0 01-1.72 3.178 8.099 8.099 0 01-1.826 0 13.47 13.47 0 01-1.72-3.178c.855.151 1.735.23 2.633.23zM14.357 14.357a14.912 14.912 0 01-1.305 3.04 8.027 8.027 0 004.345-4.345c-.953.542-1.971.981-3.04 1.305zM6.948 17.397a8.027 8.027 0 01-4.345-4.345c.953.542 1.971.981 3.04 1.305a14.912 14.912 0 001.305 3.04z" />
-                                            </svg>
-                                            Custom domain shortlinks.
+                                                <path fill-rule="evenodd" d="M3 6a3 3 0 013-3h12a3 3 0 013 3v12a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm4.5 7.5a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0v-2.25a.75.75 0 01.75-.75zm3.75-1.5a.75.75 0 00-1.5 0v4.5a.75.75 0 001.5 0V12zm2.25-3a.75.75 0 01.75.75v6.75a.75.75 0 01-1.5 0V9.75A.75.75 0 0113.5 9zm3.75-1.5a.75.75 0 00-1.5 0v9a.75.75 0 001.5 0v-9z" clip-rule="evenodd" />
+                                            </svg>  
+                                            Link health check
                                         </dt>
-                                        <dd class="inline">With a quick DNS update, you can use whatever domain, or subdomain you want for your shortlinks. E.g. go.mydomain.com, mydmn.co</dd>
+                                        <dd class="inline">The health of all of your links are checked daily and their status is displayed in your dashboard &ndash; so dead links are a thing of the past!</dd>
                                     </div>
                         
                                     <div class="relative pl-9">
@@ -409,9 +415,6 @@
                         <p class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Our customers love
                             it</p>
                     </div>
-                    <!--p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">Distinctio et nulla
-                        eum soluta et neque labore quibusdam. Saepe et quasi iusto modi velit ut non voluptas in.
-                        Explicabo id ut laborum.</p-->
                     <div
                         class="relative -mx-4 mt-16 grid h-[49rem] max-h-[150vh] grid-cols-1 items-start gap-8 overflow-hidden px-4 sm:mt-20 md:grid-cols-2 lg:grid-cols-3">
                         <div class="animate-marquee space-y-8 py-4" style="--marquee-duration:28320ms;">
@@ -901,7 +904,7 @@
                     <div class="pt-8 lg:grid lg:grid-cols-12 lg:gap-8">
                         <dt class="text-base font-semibold leading-7 text-gray-900 lg:col-span-5">Can I upgrade my plan?</dt>
                         <dd class="mt-4 lg:col-span-7 lg:mt-0">
-                            <p class="text-base leading-7 text-gray-600">Absolutely! You can switch to higher usage plans from your billing dashboard.</p>
+                            <p class="text-base leading-7 text-gray-600">Absolutely! You can switch to higher usage plans from your billing dashboard. Or, alternatively, you can add extra resources such as domains and seats to your account on-the-fly as an extra monthly subscription. Extra domains are priced at £5/m, and additional seats are priced at £2/m. These are billed monthly, regardless of the billing cycle on your plan.</p>
                         </dd>
                     </div>
 
@@ -928,6 +931,8 @@
                         <li>
                             <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Privacy</a>
                         </li>
+                        <li>
+                            <a href="https://dashboard.instatus.com/" target="_blank" rel="noopener nofollow" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Service status</a>
                         <li>
                             <a href="mailto:support@utmwise.com" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Support</a>
                         </li>
