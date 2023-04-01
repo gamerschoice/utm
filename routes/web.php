@@ -7,7 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DomainController;
 use App\Http\Controllers\LinksController;
 use App\Http\Controllers\InvoiceController;
-
+use App\Http\Controllers\BlogController;
 use App\Services\Cloudflare;
 use App\Models\Link;
 
@@ -28,6 +28,9 @@ Route::get('/', function () {
         'plans' => Plan::whereNot('sku', 'trial')->get() 
     ]);
 });
+
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/{slug}', [BlogController::class, 'view'])->name('blog.view');
 
 Route::get('/privacy', function () {
     return view('privacy');
