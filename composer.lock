@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd25c1d21717d558a6d7062a303292b6",
+    "content-hash": "6de19aaf94ff6cd2d4b33a337687d004",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -2657,6 +2657,71 @@
                 "source": "https://github.com/laravel/vapor-core/tree/v2.28.0"
             },
             "time": "2023-01-16T17:26:42+00:00"
+        },
+        {
+            "name": "laravel/vapor-ui",
+            "version": "v1.7.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/vapor-ui.git",
+                "reference": "9d6ea8f401d2500e1033b1e5bf3a61de00799923"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/vapor-ui/zipball/9d6ea8f401d2500e1033b1e5bf3a61de00799923",
+                "reference": "9d6ea8f401d2500e1033b1e5bf3a61de00799923",
+                "shasum": ""
+            },
+            "require": {
+                "aws/aws-sdk-php": "^3.148.3",
+                "laravel/framework": "^8.0|^9.0|^10.0",
+                "php": "^7.3|^8.0",
+                "symfony/yaml": "^5.1.4|^6.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.17.1|^7.0|^8.0",
+                "pestphp/pest": "^1.22.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\VaporUi\\VaporUiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\VaporUi\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                },
+                {
+                    "name": "Nuno Maduro",
+                    "email": "nuno@laravel.com"
+                }
+            ],
+            "description": "The Laravel Vapor UI.",
+            "keywords": [
+                "laravel",
+                "vapor"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/vapor-ui/issues",
+                "source": "https://github.com/laravel/vapor-ui"
+            },
+            "time": "2023-03-23T14:33:49+00:00"
         },
         {
             "name": "league/commonmark",
@@ -7943,6 +8008,80 @@
             "time": "2023-02-24T10:42:00+00:00"
         },
         {
+            "name": "symfony/yaml",
+            "version": "v6.2.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "e8e6a1d59e050525f27a1f530aa9703423cb7f57"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/e8e6a1d59e050525f27a1f530aa9703423cb7f57",
+                "reference": "e8e6a1d59e050525f27a1f530aa9703423cb7f57",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1",
+                "symfony/polyfill-ctype": "^1.8"
+            },
+            "conflict": {
+                "symfony/console": "<5.4"
+            },
+            "require-dev": {
+                "symfony/console": "^5.4|^6.0"
+            },
+            "suggest": {
+                "symfony/console": "For validating YAML files using the lint command"
+            },
+            "bin": [
+                "Resources/bin/yaml-lint"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Yaml\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Loads and dumps YAML files",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/yaml/tree/v6.2.7"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-02-16T09:57:23+00:00"
+        },
+        {
             "name": "tgalopin/html-sanitizer",
             "version": "1.5.0",
             "source": {
@@ -10692,80 +10831,6 @@
                 }
             ],
             "time": "2023-01-24T07:20:39+00:00"
-        },
-        {
-            "name": "symfony/yaml",
-            "version": "v6.2.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/yaml.git",
-                "reference": "e8e6a1d59e050525f27a1f530aa9703423cb7f57"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/e8e6a1d59e050525f27a1f530aa9703423cb7f57",
-                "reference": "e8e6a1d59e050525f27a1f530aa9703423cb7f57",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.1",
-                "symfony/polyfill-ctype": "^1.8"
-            },
-            "conflict": {
-                "symfony/console": "<5.4"
-            },
-            "require-dev": {
-                "symfony/console": "^5.4|^6.0"
-            },
-            "suggest": {
-                "symfony/console": "For validating YAML files using the lint command"
-            },
-            "bin": [
-                "Resources/bin/yaml-lint"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Yaml\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Loads and dumps YAML files",
-            "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/yaml/tree/v6.2.7"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2023-02-16T09:57:23+00:00"
         },
         {
             "name": "theseer/tokenizer",
