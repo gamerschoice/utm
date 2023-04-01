@@ -9,8 +9,6 @@ use App\Http\Controllers\LinksController;
 use App\Http\Controllers\InvoiceController;
 
 use App\Services\Cloudflare;
-use App\Jobs\ProcessLinks;
-use App\Jobs\LinkHealth;
 use App\Models\Link;
 
 /*
@@ -24,11 +22,6 @@ use App\Models\Link;
 |
 */
 
-Route::get('/health-test', function () {
-
-    //ProcessLinks::dispatch();
-
-});
 
 Route::get('/', function () {
     return view('holding', [

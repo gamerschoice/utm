@@ -18,7 +18,7 @@ use Illuminate\Http\Client\RequestException;
 
 class LinkHealth implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels, ShouldBeUnique;
 
     public $link;
     /**
@@ -44,5 +44,10 @@ class LinkHealth implements ShouldQueue
         $this->link->health_checked_at = Carbon::now();
         $this->link->save();
 
+    }
+
+    public function uniqueId(): string
+    {
+        return $this->link->id;
     }
 }

@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         $schedule->command('app:download-public-suffix-data')->daily();
-        $schedule->job(new ProcessLinks)->daily();
+        $schedule->command('app:process-links')->daily();
     }
 
     /**
