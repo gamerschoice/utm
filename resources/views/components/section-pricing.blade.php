@@ -1,4 +1,7 @@
-@props(['plans'])
+@props([
+    'plans',
+    'holding' => false,
+])
 <div>
     <div id="pricing" class="isolate overflow-hidden" x-data="SectionPricing()">
         <div class="flow-root bg-blue-600 pt-24 pb-16 sm:pt-32 lg:pb-0">
@@ -56,7 +59,9 @@
                                             <p class="text-gray-500">Billed <span x-html="billingTerm">monthly</span></p>
                                         </div>
                                     </div>
-                                    <a href="{{ route('register') }}" class="rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 text-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-white/10 hover:bg-white/20 focus-visible:outline-white border-2 border-blue-600">Start free trial</a>
+                                    @if(!$holding)
+                                        <a href="{{ route('register') }}" class="rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 text-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-white/10 hover:bg-white/20 focus-visible:outline-white border-2 border-blue-600">Start free trial</a>
+                                    @endif
                                 </div>
                                 <div class="mt-8 flow-root sm:mt-10">
                                     <ul role="list" class="-my-2 divide-y border-t text-sm leading-6 lg:border-t-0 text-gray-600  @if($loop->first || $loop->last) divide-white/5 border-white/5 @else divide-gray-900/5 border-gray-900/5 @endif">
@@ -78,7 +83,7 @@
                                             <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                 <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
                                             </svg>
-                                            {{ $plan->links }} links
+                                            {{ $plan->links == -1 ? 'Unlimited' : $plan->links }} links
                                         </li>
     
                                         <li class="flex gap-x-3 py-2">
@@ -88,7 +93,7 @@
                                             {{ $plan->domains }} custom shortlink domain{{ $plan->domains > 1 ? 's' : '' }}
                                         </li>
 
-                                        @if(!$loop->first && !$loop->last)
+                                        @if(!$loop->first && !$loop->last && !$holding)
                                             <li class="flex gap-x-3 pt-4 justify-center">
                                                 <span class="inline-flex items-center rounded-md bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-blue-800">
                                                     Our most popular tier

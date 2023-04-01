@@ -31,7 +31,9 @@ Route::get('/health-test', function () {
 });
 
 Route::get('/', function () {
-    return view('holding');
+    return view('holding', [
+        'plans' => Plan::whereNot('sku', 'trial')->get() 
+    ]);
 });
 
 Route::get('/privacy', function () {
