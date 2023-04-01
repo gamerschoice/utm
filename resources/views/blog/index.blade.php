@@ -9,7 +9,7 @@
         </h1>
     </x-slot>
 
-    <div class="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
+    <div class="mx-auto mt-0 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3 -translate-y-[160px]">
 
         @foreach($posts as $post)
             
