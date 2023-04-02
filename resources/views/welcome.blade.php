@@ -131,7 +131,7 @@
             <x-section-pricing :plans="$plans"/>
               
 
-            <x-marketing.reviews />
+            <!-- x-marketing.reviews / -->
 
 
             <x-marketing.faqs />
