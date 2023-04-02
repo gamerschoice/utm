@@ -1,6 +1,5 @@
 @props([
-    'plans',
-    'holding' => false,
+    'plans'
 ])
 <div>
     <div id="pricing" class="isolate overflow-hidden" x-data="SectionPricing()">
@@ -59,9 +58,9 @@
                                             <p class="text-gray-500">Billed <span x-html="billingTerm">monthly</span></p>
                                         </div>
                                     </div>
-                                    @if(!$holding)
-                                        <a href="{{ route('register') }}" class="rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 text-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-white/10 hover:bg-white/20 focus-visible:outline-white border-2 border-blue-600">Start free trial</a>
-                                    @endif
+
+                                    <a href="{{ route('register') }}" class="rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 text-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-white/10 hover:bg-white/20 focus-visible:outline-white border-2 border-blue-600">Start free trial</a>
+
                                 </div>
                                 <div class="mt-8 flow-root sm:mt-10">
                                     <ul role="list" class="-my-2 divide-y border-t text-sm leading-6 lg:border-t-0 text-gray-600  @if($loop->first || $loop->last) divide-white/5 border-white/5 @else divide-gray-900/5 border-gray-900/5 @endif">
@@ -93,7 +92,7 @@
                                             {{ $plan->domains }} custom shortlink domain{{ $plan->domains > 1 ? 's' : '' }}
                                         </li>
 
-                                        @if(!$loop->first && !$loop->last && !$holding)
+                                        @if(!$loop->first && !$loop->last)
                                             <li class="flex gap-x-3 pt-4 justify-center">
                                                 <span class="inline-flex items-center rounded-md bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-blue-800">
                                                     Our most popular tier

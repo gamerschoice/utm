@@ -22,9 +22,8 @@ use App\Models\Link;
 |
 */
 
-
 Route::get('/', function () {
-    return view('holding', [
+    return view('welcome', [
         'plans' => Plan::whereNot('sku', 'trial')->get() 
     ]);
 });
@@ -46,13 +45,6 @@ Route::middleware([
     'verified',
     'team.configured'
 ])->prefix('app')->group(function () {
-
-    Route::get('/marketing', function () {
-        return view('welcome', [
-            'plans' => Plan::whereNot('sku', 'trial')->get() 
-        ]);
-    });
-    
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 

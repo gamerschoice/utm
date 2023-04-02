@@ -41,11 +41,11 @@
 
     <div class="bg-gray-50">
 
-        <x-marketing.header :holding="false" />
+        <x-marketing.header />
 
         <main class="isolate">
 
-            <x-marketing.hero :holding="false" />
+            <x-marketing.hero />
 
             <!-- Logo cloud -->
             <!--div class="mx-auto max-w-7xl px-6 lg:px-8">
