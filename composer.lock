@@ -6031,17 +6031,6 @@
             "time": "2023-03-30T20:27:06+00:00"
         },
         {
-<<<<<<< HEAD
-            "name": "symfony/console",
-            "version": "v6.2.8",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/console.git",
-                "reference": "3582d68a64a86ec25240aaa521ec8bc2342b369b"
-            },
-            "dist": {
-                "type": "zip",
-=======
             "name": "symfony/cache",
             "version": "v6.2.8",
             "source": {
@@ -6226,7 +6215,6 @@
             },
             "dist": {
                 "type": "zip",
->>>>>>> 1f45eaa8a142f727c95955ae425887ef394a60d2
                 "url": "https://api.github.com/repos/symfony/console/zipball/3582d68a64a86ec25240aaa521ec8bc2342b369b",
                 "reference": "3582d68a64a86ec25240aaa521ec8bc2342b369b",
                 "shasum": ""
@@ -8649,8 +8637,6 @@
                 }
             ],
             "time": "2023-03-29T21:42:15+00:00"
-<<<<<<< HEAD
-=======
         },
         {
             "name": "symfony/var-exporter",
@@ -8725,7 +8711,6 @@
                 }
             ],
             "time": "2023-03-14T15:48:45+00:00"
->>>>>>> 1f45eaa8a142f727c95955ae425887ef394a60d2
         },
         {
             "name": "symfony/yaml",

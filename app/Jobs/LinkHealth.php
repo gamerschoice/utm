@@ -16,9 +16,9 @@ use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Http\Client\RequestException;
 
 
-class LinkHealth implements ShouldQueue
+class LinkHealth implements ShouldQueue, ShouldBeUnique
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels, ShouldBeUnique;
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     public $link;
     /**
