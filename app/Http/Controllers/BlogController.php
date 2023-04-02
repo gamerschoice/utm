@@ -47,7 +47,7 @@ class BlogController extends Controller
             ->setLimit(1);
 
         $posts = $this->client->getEntries($query);
-        if($posts) {
+        if( count($posts) > 0) {
             
             return view('blog.view', [
                 'post' => [
