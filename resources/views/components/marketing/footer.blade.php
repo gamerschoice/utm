@@ -5,9 +5,9 @@
         <div class="flex flex-col sm:items-center sm:flex-row sm:justify-between gap-4">
             <x-application-mark />
             <ul role="list" class="flex gap-4">
-                <!--li>
-                    <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Blog</a>
-                </li-->
+                <li>
+                    <a href="{{ route('blog.index') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Blog</a>
+                </li>
                 <li>
                     <a href="{{ route('terms') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Terms</a>
                 </li>

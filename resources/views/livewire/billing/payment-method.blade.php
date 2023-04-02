@@ -397,7 +397,16 @@
                                         state: this.state
                                     }
                                 }
+                            );
+
+                            if(error) {
+                                console.log(error.message)
+                            } else {
+                                console.log(setupIntent);
+                                @this.set('new_payment_method_id', setupIntent.payment_method);
+                                @this.call('savePaymentMethod');
                             }
+<<<<<<< HEAD
                         }
                     );
 
@@ -407,13 +416,24 @@
                         console.log(setupIntent);
                         @this.set('new_payment_method_id', setupIntent.payment_method);
                         @this.call('savePaymentMethod');
+=======
+
+                        }
+>>>>>>> 1f45eaa8a142f727c95955ae425887ef394a60d2
                     }
 
                 }
+<<<<<<< HEAD
             }
         }
     </script>
 @endPushOnce
 
 @endif
+=======
+            </script>
+        @endPushOnce
+
+    @endif
+>>>>>>> 1f45eaa8a142f727c95955ae425887ef394a60d2
 </div>

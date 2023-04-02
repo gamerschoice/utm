@@ -1,6 +1,3 @@
-@props([
-    'holding' => false
-])
 <!-- Hero section -->
 <div class="relative pt-14 bg-gradient-to-b from-blue-600 via-blue-400 to-gray-50 ">
     <div class="pt-24 sm:pt-32">
@@ -12,11 +9,7 @@
                     tracking links and link attribution effectively. Use branded short links to give reassurance to your users.</p>
                 <div class="mt-10 flex items-center justify-center gap-x-6">
                 
-                    @if(!$holding)
-                        <a href="/register" class="inline-flex items-center rounded-md bg-white px-4 py-2 text-base font-semibold text-gray-900 shadow-sm  hover:bg-gray-50 transition ease-in-out duration-300 hover:scale-105">Get started for free</a>
-                    @else 
-                        <a href="#" rel="nofollow" class="inline-flex items-center rounded-md bg-white px-4 py-2 text-base font-semibold text-gray-900 shadow-sm  hover:bg-gray-50 transition ease-in-out duration-300 hover:scale-105">Coming soon</a>
-                    @endif
+                    <a href="{{ route('register') }}" class="inline-flex items-center rounded-md bg-white px-4 py-2 text-base font-semibold text-gray-900 shadow-sm  hover:bg-gray-50 transition ease-in-out duration-300 hover:scale-105">Get started for free</a>
                 
                 </div>
             </div>

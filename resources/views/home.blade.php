@@ -45,7 +45,7 @@
 
         <main class="isolate">
 
-            <x-marketing.hero :holding="false" />
+            <x-marketing.hero />
 
             <!-- Logo cloud -->
             <!--div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -131,7 +131,7 @@
             <x-section-pricing :plans="$plans"/>
               
 
-            <x-marketing.reviews />
+            <!-- x-marketing.reviews / -->
 
 
             <x-marketing.faqs />
