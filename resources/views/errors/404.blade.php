@@ -12,7 +12,7 @@
         <p class="mt-6 text-lg font-light leading-8 text-gray-50">Sorry, we couldn’t find the page you’re looking for.</p>
         
         <div class="mt-10 flex items-center justify-center gap-x-6">
-            <a href="/" class="inline-flex items-center rounded-md bg-white px-4 py-2 text-base font-semibold text-gray-900 shadow-sm  hover:bg-gray-50">Go back home</a>
+            <a href="{{ route('home') }}" class="inline-flex items-center rounded-md bg-white px-4 py-2 text-base font-semibold text-gray-900 shadow-sm  hover:bg-gray-50">Go back home</a>
         </div>
 
     </x-slot>
