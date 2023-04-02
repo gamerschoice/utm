@@ -23,7 +23,7 @@ class BillingController extends Controller
 
         try {
             $team->newSubscription('default', 'price_1MnGuIHwvhcWXVfotZEavnmw')->create($request->payment_method);
-        } catch (IncompletePayment $e) {
+        } catch (IncompletePayment $exception) {
             return redirect()->route(
                 'cashier.payment',
                 [$exception->payment->id, 'redirect' => route('billing')]
