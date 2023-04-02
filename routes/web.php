@@ -25,8 +25,8 @@ use App\Models\Link;
 Route::get('/', function () {
     return view('home', [
         'plans' => Plan::whereNot('sku', 'trial')->get() 
-    ])->name('home');
-});
+    ]);
+})->name('home');
 
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [BlogController::class, 'view'])->name('blog.view');
