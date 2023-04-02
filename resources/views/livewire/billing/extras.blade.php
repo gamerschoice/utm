@@ -1,4 +1,4 @@
-@if($subscription->active())
+@if($subscription && $subscription->active())
 <div class="bg-white shadow rounded-lg mt-5 sm:mt-10">
     <div class="px-4 py-5 sm:p-6">
         <h3 class="text-base font-semibold leading-6 text-gray-900">Subscription extras</h3>
@@ -7,7 +7,6 @@
         </div>
         <div class="mt-4">
             <ul role="list" class="-my-4 divide-y divide-gray-200 w-full">
-
                 @if(!$domain_extra_subscription || !$domain_extra_subscription->active())
                     <li class="py-4 cursor-default" x-data="{ confirming: false, quantity: 1, key: 'price_1MrPH6HwvhcWXVfoukyWcAgZ', cost_per: 5 }">
                         <div class="flex items-center justify-between">

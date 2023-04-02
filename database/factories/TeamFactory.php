@@ -27,7 +27,8 @@ class TeamFactory extends Factory
             'user_id' => User::factory(),
             'personal_team' => true,
             'maximum_domains' => 1,
-            'maximum_members' => 1
+            'maximum_members' => 1,
+            'plan_id' => 1
         ];
     }
 }

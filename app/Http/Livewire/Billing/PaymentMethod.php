@@ -38,7 +38,7 @@ class PaymentMethod extends Component
     public function render()
     {
         $this->hasPaymentMethod = auth()->user()->currentTeam->hasPaymentMethod();
-        $this->paymentMethod = auth()->user()->currentTeam->paymentMethods()->first()->toArray();
+        $this->paymentMethod = auth()->user()->currentTeam->defaultPaymentMethod();
 
         return view('livewire.billing.payment-method', [
             'intent' => auth()->user()->currentTeam->createSetupIntent(),

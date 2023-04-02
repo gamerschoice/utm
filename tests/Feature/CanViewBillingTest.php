@@ -27,12 +27,23 @@ class CanViewBillingTest extends TestCase
         $user = User::factory()->withPersonalTeam()->create();
 
         $user->currentTeam->users()->attach(
-            $otherUser = User::factory()->create(), ['role' => 'not-admin']
+            $editorUser = User::factory()->create(), ['role' => 'editor']
         );
 
-        $otherUser->update(['current_team_id' => $user->currentTeam->id]);
+        $user->currentTeam->users()->attach(
+            $adminUser = User::factory()->create(), ['role' => 'admin']
+        );
 
-        $response = $this->actingAs($otherUser)->get('/billing');
+        $editorUser->update(['current_team_id' => $user->currentTeam->id]);
+        $adminUser->update(['current_team_id' => $user->currentTeam->id]);
+
+        $response = $this->actingAs($editorUser)->get('/billing');
+
+        $response->assertRedirectToRoute('dashboard');
+        $response->assertSessionHas('flash.banner');
+        $response->assertSessionHas('flash.bannerStyle', 'danger');
+
+        $response = $this->actingAs($adminUser)->get('/billing');
 
         $response->assertRedirectToRoute('dashboard');
         $response->assertSessionHas('flash.banner');

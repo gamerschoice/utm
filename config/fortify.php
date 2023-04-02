@@ -74,7 +74,7 @@ return [
     |
     */
 
-    'prefix' => 'app',
+    'prefix' => null,
 
     'domain' => null,
 

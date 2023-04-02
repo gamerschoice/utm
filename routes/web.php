@@ -42,8 +42,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
     'team.configured'
-])->prefix('app')->group(function () {
-
+])->group(function () {
     Route::get('/marketing', function () {
         return view('welcome', [
             'plans' => Plan::whereNot('sku', 'trial')->get() 
