@@ -41,7 +41,7 @@
 
     <div class="bg-gray-50">
 
-        <x-marketing.header />
+        <x-marketing.header :holding="false" />
 
         <main class="isolate">
 
