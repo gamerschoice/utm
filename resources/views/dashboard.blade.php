@@ -28,6 +28,23 @@
                 @foreach($domains as $domain)
                     <x-domain-card :domain="$domain" />
                 @endforeach
+
+                @if( !request()->user()->currentTeam->canRegisterDomain() )
+                    
+                    <div class="px-3 py-4 lg:px-6 lg:py-4 h-full max-h-[195px] flex items-center">
+                        <a href="{{ route('domain.create') }}">
+                            <div class="relative block w-full rounded-lg border-2 border-dashed border-gray-300 p-9 text-center hover:border-gray-400 hover:bg-white transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                </svg>
+                                      
+
+                                <span class="mt-2 block text-base font-semibold text-gray-900">Add another domain</span>
+                            </div>
+                        </a>
+                    </div>
+
+                @endif
             
             </div>
         @else 
