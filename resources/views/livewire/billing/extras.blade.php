@@ -1,6 +1,11 @@
 <div>
     @if($subscription && $subscription->active())
-        <div class="bg-white shadow rounded-lg mt-5 sm:mt-10">
+        <div class="bg-white shadow rounded-lg mt-5 sm:mt-10 relative">
+            <div class="absolute rounded-full -top-4 -left-4 p-2 shadow-md bg-gray-50 ring-1 ring-inset ring-green-300 text-green-700">
+                <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+            </div>
             <div class="px-4 py-5 sm:p-6">
                 <h3 class="text-base font-semibold leading-6 text-gray-900">Subscription extras</h3>
                 <div class="my-4 max-w-xl text-sm text-gray-500">
