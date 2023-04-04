@@ -30,6 +30,10 @@ class Cancel extends Component
 
     public function cancelSubscription()
     {
+        /**
+         * @todo    EITHER cancel all other extras too, 
+         *          OR make the customer remove the extras in order to cancel sub
+         */
         $cancelled = $this->subscription->cancel();
         if($cancelled) {
             Notification::make() 
