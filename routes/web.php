@@ -24,7 +24,7 @@ use App\Models\Link;
 
 Route::post(
     'stripe/webhook',
-    '\Laravel\Cashier\Http\Controllers\WebhookController@handleWebhook'
+    '\App\Http\Controllers\StripeWebhookController@handleWebhook'
 );
 
 Route::get('/', function () {
