@@ -22,6 +22,11 @@ use App\Models\Link;
 |
 */
 
+Route::post(
+    'stripe/webhook',
+    '\Laravel\Cashier\Http\Controllers\WebhookController@handleWebhook'
+);
+
 Route::get('/', function () {
     return view('home', [
         'plans' => Plan::whereNot('sku', 'trial')->get() 
