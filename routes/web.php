@@ -44,15 +44,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/marketing', function () {
-        return view('welcome', [
-            'plans' => Plan::all() 
-        ]);
-    });
-    
-
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
 
     Route::middleware(['team.active', 'team.trial'])->group(function () {
         Route::get('/domains', [DomainController::class, 'index'])->name('domain.index');
