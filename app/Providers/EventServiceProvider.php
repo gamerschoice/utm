@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Event;
 use App\Events\LinkCreated;
 use App\Listeners\CreateShortlinkKeyValueListener;
 use App\Listeners\BulkShortlinksKeyValueListener;
+use Laravel\Cashier\Events\WebhookHandled;
+use App\Listeners\StripeWebhookListener;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -26,6 +28,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         BulkLinksCreated::class => [
             BulkShortlinksKeyValueListener::class,
+        ],
+        WebhookHandled::class => [
+            StripeWebhookListener::class,
         ],
     ];
 
