@@ -63,7 +63,6 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'team.configured' => \App\Http\Middleware\CheckTeamConfiguration::class,
         'team.owner' => \App\Http\Middleware\IsTeamOwner::class,
         'team.active' => \App\Http\Middleware\TeamIsActive::class,
         'team.trial' => \App\Http\Middleware\IsOnTrial::class,
