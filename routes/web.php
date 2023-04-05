@@ -24,7 +24,7 @@ use App\Models\Link;
 
 Route::get('/', function () {
     return view('home', [
-        'plans' => Plan::whereNot('sku', 'trial')->get() 
+        'plans' => Plan::all() 
     ]);
 })->name('home');
 
@@ -47,7 +47,7 @@ Route::middleware([
 ])->group(function () {
     Route::get('/marketing', function () {
         return view('welcome', [
-            'plans' => Plan::whereNot('sku', 'trial')->get() 
+            'plans' => Plan::all() 
         ]);
     });
     

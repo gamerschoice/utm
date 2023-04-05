@@ -32,7 +32,6 @@ class CreateTeam implements CreatesTeams
             'name' => $input['name'],
             'personal_team' => true,
             'trial_ends_at' => Carbon::now()->addWeeks(2),
-            'plan_id' => 1,
             'maximum_members' => 1,
             'maximum_domains' => 1
         ]));

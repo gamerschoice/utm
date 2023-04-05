@@ -11,9 +11,9 @@ class PlanQueries extends Builder
     {   
         if($team->plan) {
             return $this->whereNot('id', $team->plan->id)
-                ->whereNot('sku', 'trial')->where('active', true);
+                    ->where('active', true);
         }
 
-        return $this->whereNot('sku', 'trial')->where('active', true);
+        return $this->where('active', true);
     }
 }
