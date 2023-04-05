@@ -28,6 +28,6 @@ class DeleteShortDomain implements ShouldQueue
      */
     public function handle(Action $action): void
     {
-        $action->delete($domain);
+        $action->delete($this->domain);
     }
 }
