@@ -15,15 +15,15 @@ class TeamIsActive
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if($request->user()->currentTeam->subscribed('default'))
+        if(! $request->user()->currentTeam->subscribed('default'))
         {
-            return $next($request);
+            if($request->user()->ownsTeam($request->user()->currentTeam)) {
+                return redirect('billing');
+            }
+    
+            return route('dashboard');
         }
 
-        if($request->user()->ownsTeam($request->user()->currentTeam)) {
-            return redirect('billing');
-        }
-
-        return route('dashboard');
+        return $next($request);
     }
 }
