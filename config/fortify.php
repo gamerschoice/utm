@@ -134,10 +134,7 @@ return [
     'features' => [
         Features::registration(),
         Features::resetPasswords(),
-        /**
-         * @todo turn this on in staging/production?
-         * Features::emailVerification(),
-         */
+        Features::emailVerification(),
         Features::updateProfileInformation(),
         Features::updatePasswords(),
         Features::twoFactorAuthentication([
