@@ -31,7 +31,7 @@ class CreateTeam implements CreatesTeams
         $user->switchTeam($team = $user->ownedTeams()->create([
             'name' => $input['name'],
             'personal_team' => true,
-            'trial_ends_at' => Carbon::now()->addWeeks(2),
+            'trial_ends_at' => Carbon::now()->addWeeks(1),
             'maximum_members' => 1,
             'maximum_domains' => 1
         ]));
