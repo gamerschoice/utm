@@ -5,7 +5,7 @@ Thanks for signing up! Your account is now active and your free trial has commen
 
 Your trial will last for 7 days, and you can upgrade to a paid plan at any time. 
 
-<x-mail::button :url="route('dashboard')">
+<x-mail::button :url="{{ route('dashboard') }}">
 Your Dashboard
 </x-mail::button>
 
