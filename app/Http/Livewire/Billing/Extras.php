@@ -22,7 +22,7 @@ class Extras extends Component
 
     public function addExtraDomains()
     {
-        $added = $this->team->newSubscription('extra_domains', 'price_1MrPH6HwvhcWXVfoukyWcAgZ')
+        $added = $this->team->newSubscription('extra_domains', env('STRIPE_DOMAIN_KEY'))
             ->quantity( $this->domain_quantity )
             ->create();
 
@@ -57,7 +57,7 @@ class Extras extends Component
                 ->title('Cannot cancel extras')
                 ->body("You're currently using more domains than your plan allows if you remove these extras. Please remove your extra domains before cancelling.")
                 ->danger()
-                ->send(); 
+                ->send();
             return;
         }
 
@@ -65,8 +65,6 @@ class Extras extends Component
         $quantity_extra = $this->team->subscription('extra_domains')->quantity;
         $cancelled = $this->team->subscription('extra_domains')->cancel();
         if($cancelled) {
-            $this->team->maximum_domains -= $quantity_extra;
-            $this->team->save();
 
             Notification::make() 
                 ->title('Extra domain subscription cancelled')
@@ -96,8 +94,6 @@ class Extras extends Component
         $quantity_extra = $this->team->subscription('extra_seats')->quantity;
         $cancelled = $this->team->subscription('extra_seats')->cancel();
         if($cancelled) {
-            $this->team->maximum_members -= $quantity_extra;
-            $this->team->save();
 
             Notification::make() 
                 ->title('Extra seats subscription cancelled')
@@ -112,7 +108,7 @@ class Extras extends Component
 
     public function addExtraSeats()
     {
-        $added = $this->team->newSubscription('extra_seats', 'price_1MrPHTHwvhcWXVfoGWqgeN11')
+        $added = $this->team->newSubscription('extra_seats', env('STRIPE_SEAT_KEY'))
             ->quantity( $this->seat_quantity )
             ->create();
 

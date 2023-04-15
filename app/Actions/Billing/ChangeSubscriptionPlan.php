@@ -21,7 +21,7 @@ class ChangeSubscriptionPlan
             $this->guardAgainstTooManyDomains($team, $plan);
 
             DB::transaction(function () use ($team, $plan) {
-                $team->subscription('default')->swap($plan->stripe_key);
+                $team->subscription('default')->skipTrial()->swap($plan->stripe_key);
                 $team->update([
                     'plan_id' => $plan->id,
                     'maximum_domains' => $plan->domains,
