@@ -16,7 +16,7 @@ class IsTeamOwner
     public function handle(Request $request, Closure $next): Response
     {
         //if(! $request->user()->ownsTeam($request->user()->currentTeam)) {
-        if( ! $request->user()->hasTeamPermission( $request->user()->currentTeam, 'billing') ) {
+        if( ! $request->user()->hasTeamRole($request->user()->currentTeam, 'admin') ) {
             return redirect()->route('dashboard')->with([
                 'flash.banner' => 'Unauthorized.',
                 'flash.bannerStyle' => 'danger'
