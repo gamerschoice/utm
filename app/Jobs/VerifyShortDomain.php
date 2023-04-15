@@ -62,7 +62,7 @@ class VerifyShortDomain implements ShouldQueue, ShouldBeUnique
             $this->setupWorkerRoutes($cloudflare);
             $this->cacheDomainShortlinks($this->shortdomain);
         } else {
-            throw new Exception();
+            throw new Exception("Short Domain not active yet, will retry.");
         }
     }
 
