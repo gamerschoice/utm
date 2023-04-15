@@ -82,15 +82,13 @@ class VerifyShortDomain implements ShouldQueue, ShouldBeUnique
         ]);
     }
 
-    /**
-     * @todo 
-     * max 10,000 keys - batch if greater than
-     */
     private function cacheDomainShortlinks(ShortDomain $shortdomain)
     {
     
-        $links = $shortdomain->domain->links;
-        BulkLinksCreated::dispatch($links);
+        $links = $shortdomain->domain->links->chunk(10000);
+        foreach($links as $chunk) {
+            BulkLinksCreated::dispatch($chunk);
+        }
         
     }
 }
