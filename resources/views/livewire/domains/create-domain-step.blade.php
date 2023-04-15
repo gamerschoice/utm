@@ -9,7 +9,7 @@
 
         <div class="bg-white shadow sm:rounded-lg">
             <div class="px-4 py-5 sm:p-6">
-                <p class="text-sm leading-6 font-medium text-gray-900">Enter your domain name to set up below. </p>
+                <p class="text-base leading-6 font-medium text-gray-900">Enter your domain name to set up below. </p>
                 <p class="text-sm leading-6 text-gray-600 mt-4">
                     Note, this is <strong>not</strong> your shortlink domain (you can set this up on the next step). This is the domain on which your ultimate destination URLs will sit. You should specify your <strong>root domain</strong> here (<span class="font-mono">mydomain.com</span>), and <strong>not</strong> a subdomain such as <span class="font-mono">www.mydomain.com</span>. This will enable you to create links for any of your domain's subdomains.
                 </p>

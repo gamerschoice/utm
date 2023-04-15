@@ -6,6 +6,7 @@ use Spatie\LivewireWizard\Components\StepComponent;
 use App\Models\Domain;
 use App\Actions\Domains\StartShortnameProcess;
 use App\Rules\IsValidDomain;
+use Filament\Notifications\Notification;
 
 class RegisterDnsStep extends StepComponent
 {
@@ -33,5 +34,12 @@ class RegisterDnsStep extends StepComponent
         
 
         $shortDomain = $action->start(Domain::find($this->state()->forStep('create-domain-step')['domain']['id']), $this->newShortlinkDomain);
+        Notification::make() 
+            ->title('Shortlink domain saved.')
+            ->body('Your shortlink domain has been saved, please wait a moment for DNS to verify.')
+            ->success()
+            ->send(); 
+
+        return redirect()->route('domain.index');
     }
 }

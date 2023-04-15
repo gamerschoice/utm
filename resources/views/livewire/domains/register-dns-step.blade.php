@@ -3,7 +3,7 @@
 
 
         <div class="md:col-span-2 flex flex-col gap-8">
-    
+
             <div class="rounded-md bg-yellow-50 p-4">
                 <div class="flex">
                     <div class="flex-shrink-0">
@@ -23,7 +23,10 @@
     
             <div class="bg-white shadow sm:rounded-lg">
                 <div class="px-4 py-5 sm:p-6">
-                    <h3 class="text-lg font-semibold leading-6 text-gray-900">Setup a Custom Shortlink Domain</h3>
+                    <h3 class="text-base font-semibold leading-6 text-gray-900">Setup a Custom Shortlink Domain</h3>
+                    <p class="text-gray-600 text-sm my-6">
+                        If you wish to use your links with a shortdomain, please set this below. Otherwise, you can <a href="{{ route('domain.view', [ 'domain' => $domain ] ) }}" class="underline font-semibold">skip this step</a>.
+                    </p>
                     @if($errorMessage) <p class="text-red-500 mt-4">{{ $errorMessage }}</p> @endif
                     <div class="mt-4 max-w-xl text-gray-500 flex gap-4">
                         <x-input type="text" wire:model.defer="newShortlinkDomain" value="{{ $domain->shortdomain ? $domain->shortdomain->host : '' }}" placeholder="go.mydomain.com" />
@@ -37,11 +40,16 @@
                     </div>
     
                 </div>
+
+            </div>
+
+            <div>
+                <a href="{{ route('domain.view', [ 'domain' => $domain ] ) }}">
+                    <x-button type="button">Skip this step &raquo;</x-button>
+                </a>
             </div>
     
         </div>
-
-
 
     </div>
 </div>
