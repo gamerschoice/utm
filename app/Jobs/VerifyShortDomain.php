@@ -85,10 +85,8 @@ class VerifyShortDomain implements ShouldQueue, ShouldBeUnique
     private function cacheDomainShortlinks(ShortDomain $shortdomain)
     {
     
-        $links = $shortdomain->domain->links->chunk(10000);
-        foreach($links as $chunk) {
-            BulkLinksCreated::dispatch($chunk);
-        }
+        $links = $shortdomain->domain->links;
+        BulkLinksCreated::dispatch($links);
         
     }
 }

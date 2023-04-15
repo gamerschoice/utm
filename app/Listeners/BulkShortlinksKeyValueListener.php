@@ -45,7 +45,11 @@ class BulkShortlinksKeyValueListener
             return true;
 
         try {
-            $this->cloudflare->bulkCacheShortlinks( $array );
+
+            $links = collect($array)->chunk(10000);
+            foreach($links as $chunk) {
+                $this->cloudflare->bulkCacheShortlinks( $chunk->toArray() );
+            }
         
         } catch( RequestException $e ) {
             

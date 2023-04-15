@@ -57,7 +57,8 @@ class Link extends Model
 
     public function getFullUrlAttribute()
     {
-        $query = http_build_query([
+
+        $collection = collect([
             'utm_source' => $this->utm_source,
             'utm_medium' => $this->utm_medium,
             'utm_campaign' => $this->utm_campaign,
@@ -67,6 +68,12 @@ class Link extends Model
             'utm_creative_format' => $this->utm_creative_format,
             'utm_marketing_tactic' => $this->utm_marketing_tactic,
         ]);
+
+        $filtered = $collection->reject( function( $value, $key ) {
+            return ($value === '' || $value === null);
+        });
+
+        $query = http_build_query($filtered->toArray());
 
         return $this->destination . '?' . $query;
     }

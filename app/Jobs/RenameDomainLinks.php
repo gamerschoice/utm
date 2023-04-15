@@ -60,8 +60,8 @@ class RenameDomainLinks implements ShouldQueue, ShouldBeUnique
                 $this->domain->shortdomain->status === 'active') {
 
                 $links = $this->domain->links;
-                
                 BulkLinksCreated::dispatch($links);
+
 
             }
 
