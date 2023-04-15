@@ -19,9 +19,6 @@ class DomainController extends Controller
         return view('domains.create');
     }
 
-    /**
-     * @todo Gate
-     */
     public function view(Request $request)
     {
         $domainObj = Domain::where('id', $request->domain )->first();

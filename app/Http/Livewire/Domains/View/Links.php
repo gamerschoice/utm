@@ -37,10 +37,6 @@ class Links extends Component
 
     }
 
-    /**
-     * @todo guards
-     */
-
     public function bulkDelete( DeleteLink $deleter )
     {
         $links = Link::whereIn('id', $this->deletions)->get();
