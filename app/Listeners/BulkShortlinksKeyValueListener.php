@@ -48,7 +48,7 @@ class BulkShortlinksKeyValueListener
             $this->cloudflare->bulkCacheShortlinks( $array );
         
         } catch( RequestException $e ) {
-
+            
         }
 
     }

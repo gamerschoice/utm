@@ -98,6 +98,8 @@ class CreateAdvanced extends Component
         $creator->createBulk( Domain::find($this->domain_id), $this->destinationsLoaded );
 
         $this->resetData();
+
+        return redirect()->route('domain.view', [ 'domain' => $this->domain_id ]);
         
     }
 

@@ -7,6 +7,7 @@ use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 use App\Events\LinkCreated;
+use App\Events\BulkLinksCreated;
 use App\Listeners\CreateShortlinkKeyValueListener;
 use App\Listeners\BulkShortlinksKeyValueListener;
 use Laravel\Cashier\Events\WebhookHandled;
