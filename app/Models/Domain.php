@@ -45,9 +45,9 @@ class Domain extends Model
         return $this->hasMany(Link::class);
     }
 
-    public function team(): HasOne
+    public function team()
     {
-        return $this->hasOne(Team::class);
+        return $this->belongsTo(Team::class);
     }
 
     public function shortdomain()

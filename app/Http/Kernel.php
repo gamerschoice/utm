@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'team.owner' => \App\Http\Middleware\IsTeamOwner::class,
         'team.active' => \App\Http\Middleware\TeamIsActive::class,
         'team.trial' => \App\Http\Middleware\IsOnTrial::class,
+        'ownedByTeam' => \App\Http\Middleware\OwnedByTeam::class,
     ];
 }
