@@ -61,7 +61,7 @@
                                     <div>
                                         @if($domain_extra_subscription->onGracePeriod())
                                             <span class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
-                                                Ending {{ $domain_extra_subscription->ends_at }}
+                                                Ending {{ $domain_extra_subscription->ends_at->format('jS M Y') }}
                                             </span>
                                         @else
                                             <button wire:click="cancelExtraDomains" type="button" class="inline-flex items-center rounded-full bg-white px-2.5 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
@@ -127,7 +127,7 @@
 
                                         @if($seat_extra_subscription->onGracePeriod())
                                             <span class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
-                                                Ending {{ $seat_extra_subscription->ends_at }}
+                                                Ending {{ $seat_extra_subscription->ends_at->format('jS M Y') }}
                                             </span>
                                         @else                                     
                                             <button wire:click="cancelExtraSeats" type="button" class="inline-flex items-center rounded-full bg-white px-2.5 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
