@@ -24,7 +24,7 @@
 
             <a href="/#pricing" class="font-semibold leading-6 text-white hover:bg-gray-100/5 rounded-md py-1 px-3 transition-colors ease-in-out">Pricing</a>
 
-            <a href="/#reviews" class="font-semibold leading-6 text-white hover:bg-gray-100/5 rounded-md py-1 px-3 transition-colors ease-in-out">Reviews</a>
+            <!--a href="/#reviews" class="font-semibold leading-6 text-white hover:bg-gray-100/5 rounded-md py-1 px-3 transition-colors ease-in-out">Reviews</a-->
 
             <a href="/#faqs" class="font-semibold leading-6 text-white hover:bg-gray-100/5 rounded-md py-1 px-3 transition-colors ease-in-out">FAQs</a>
         </div>
