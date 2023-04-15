@@ -52,9 +52,15 @@ class Extras extends Component
     public function cancelExtraDomains()
     {
 
-        /**
-         * @todo check if user can reduce domains by $quantity_extra
-         */
+        if( $this->team->domains->count() > $this->team->plan->domains ) {
+            Notification::make() 
+                ->title('Cannot cancel extras')
+                ->body("You're currently using more domains than your plan allows if you remove these extras. Please remove your extra domains before cancelling.")
+                ->danger()
+                ->send(); 
+            return;
+        }
+
 
         $quantity_extra = $this->team->subscription('extra_domains')->quantity;
         $cancelled = $this->team->subscription('extra_domains')->cancel();
@@ -77,9 +83,15 @@ class Extras extends Component
     public function cancelExtraSeats()
     {
 
-        /**
-         * @todo check if user can reduce domains by $quantity_extra
-         */
+        if( $this->team->allUsers()->count() > $this->team->plan->seats ) {
+            Notification::make() 
+                ->title('Cannot cancel extras')
+                ->body("You're currently using more seats than your plan allows if you remove these extras. Please remove your extra domains before cancelling.")
+                ->danger()
+                ->send(); 
+            return;
+        }
+
 
         $quantity_extra = $this->team->subscription('extra_seats')->quantity;
         $cancelled = $this->team->subscription('extra_seats')->cancel();

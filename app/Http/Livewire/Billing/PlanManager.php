@@ -46,7 +46,7 @@ class PlanManager extends Component
 
     public function changePlan(ChangeSubscriptionPlan $planChanger)
     {
-        // dd($this->all());
+
         $this->validate(['swapTo' => 'required']);
 
         $planChanger->execute(auth()->user()->currentTeam, $this->swapTo);
@@ -54,7 +54,9 @@ class PlanManager extends Component
         auth()->user()->currentTeam->maximum_domains = $this->current->domains;
         auth()->user()->currentTeam->maximum_members = $this->current->seats;
 
-        $this->emit('$refresh');
+
+        return redirect('/billing');
+
     }
 
     public function createSubscription(CreateNewSubscription $newSubscription)
@@ -76,6 +78,8 @@ class PlanManager extends Component
                 'postal_code' => $this->billing_postcode
             ]
         );
-        $this->emit('$refresh');
+
+        return redirect('/billing');
+
     }
 }
