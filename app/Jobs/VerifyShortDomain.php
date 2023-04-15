@@ -12,6 +12,8 @@ use App\Services\Cloudflare;
 use App\Events\BulkLinksCreated;
 use App\Models\ShortDomain;
 use App\Actions\Links\CreateLink;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\DnsVerified;
 use Exception;
 
 class VerifyShortDomain implements ShouldQueue, ShouldBeUnique
@@ -61,6 +63,10 @@ class VerifyShortDomain implements ShouldQueue, ShouldBeUnique
         if($data['result']['status'] == 'active') {
             $this->setupWorkerRoutes($cloudflare);
             $this->cacheDomainShortlinks($this->shortdomain);
+
+            $user = $this->shortdomain->domain->team->owner;
+            Mail::to($user->email)->send(new DnsVerified( $this->shortdomain->host ));
+
         } else {
             throw new Exception("Short Domain not active yet, will retry.");
         }
