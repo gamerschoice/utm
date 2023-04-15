@@ -18,13 +18,14 @@ class CreateNewSubscription
         DB::transaction(function () use ($team, $plan, $paymentMethod, $price_key, $billing_address) {
             $team->plan_id = $plan->id;
             $team->newSubscription('default', $price_key)
-                ->skipTrial()
                 ->create($paymentMethod, [
                     'name' => $team->owner->name,
                     'email' => $team->owner->email,
                     'address' => $billing_address
                 ]);
             $team->save();
+
+            $team->subscription('default')->endTrial();
 
             Notification::make() 
                 ->title('Subscription activated')

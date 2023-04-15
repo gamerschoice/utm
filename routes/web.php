@@ -59,7 +59,6 @@ Route::middleware([
 
     Route::middleware(['team.owner'])->group(function () {
         Route::get('/billing', [BillingController::class, 'index'])->name('billing');
-        Route::post('/billing', [BillingController::class, 'create']);
         Route::get('/billing/invoice/{invoice}', InvoiceController::class)->name('invoice');
     });
 });
