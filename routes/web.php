@@ -46,7 +46,7 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::middleware(['team.active', 'team.trial'])->group(function () {
+    Route::middleware(['team.active'])->group(function () {
         Route::get('/domains', [DomainController::class, 'index'])->name('domain.index');
         Route::get('/domains/create', [DomainController::class, 'create'])->name('domain.create');
         Route::get('/domains/{domain}', [DomainController::class, 'view'])->name('domain.view');

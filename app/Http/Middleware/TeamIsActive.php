@@ -15,7 +15,10 @@ class TeamIsActive
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(! $request->user()->currentTeam->subscribed('default'))
+        if(
+            ( ! $request->user()->currentTeam->subscribed('default') && ! $request->user()->currentTeam->onTrial() )
+            || $request->user()->currentTeam->hasExpiredTrial()
+        )
         {
             if($request->user()->ownsTeam($request->user()->currentTeam)) {
                 return redirect('billing');
