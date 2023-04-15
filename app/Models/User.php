@@ -10,6 +10,8 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
+use App\Mail\WelcomeEmail;
+use Illuminate\Support\Facades\Mail;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -62,5 +64,21 @@ class User extends Authenticatable implements MustVerifyEmail
     public function ownsCurrentTeam()
     {
         return $this->ownsTeam($this->currentTeam);
+    }
+
+    /**
+     * Mark the given user's email as verified.
+     *
+     * @return bool
+     */
+    public function markEmailAsVerified()
+    {
+        $this->forceFill([
+            'email_verified_at' => $this->freshTimestamp(),
+        ])->save();
+
+        Mail::to($this->email)->send(new WelcomeEmail);
+
+        return $this;
     }
 }

@@ -10,8 +10,6 @@ use Laravel\Jetstream\Contracts\CreatesTeams;
 use Laravel\Jetstream\Events\AddingTeam;
 use Laravel\Jetstream\Jetstream;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\WelcomeEmail;
 
 class CreateTeam implements CreatesTeams
 {
@@ -37,8 +35,6 @@ class CreateTeam implements CreatesTeams
             'maximum_members' => 1,
             'maximum_domains' => 1
         ]));
-
-        Mail::to($user->email)->send(new WelcomeEmail);
 
         return $team;
     }
