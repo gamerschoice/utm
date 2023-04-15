@@ -5,6 +5,8 @@ namespace App\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use App\Jobs\ProcessLinks;
+use App\Jobs\EmailExpiringTrials;
+use App\Jobs\EmailExpiredTrials;
 
 class Kernel extends ConsoleKernel
 {
@@ -16,6 +18,8 @@ class Kernel extends ConsoleKernel
         $schedule->command('app:download-public-suffix-data')->daily();
         $schedule->command('app:process-links')->daily();
         $schedule->command('app:clean-trial-account-short-domains')->daily();
+        $schedule->job(new EmailExpiringTrials)->daily();
+        $schedule->job(new EmailExpiredTrials)->daily();
     }
 
     /**
