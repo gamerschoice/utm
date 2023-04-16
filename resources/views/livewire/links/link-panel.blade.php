@@ -1,4 +1,4 @@
-<div x-data="{ open: false, editing: false, deleting: false }" x-show="open" @close-link-panel.window="open = false; editing = false;" @open-link-panel.window="open = true" x-cloak class="relative z-[100]" role="dialog" aria-modal="true">
+<div x-data="{ open: false, editing: false, deleting: false }" x-show="open" @close-link-panel.window="open = false; editing = false;" @open-link-panel.window="open = true" x-cloak="" class="relative z-[100]" role="dialog" aria-modal="true">
     
     <div x-show="open" class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
         x-transition:enter="ease-in-out duration-500" 
@@ -37,7 +37,7 @@
                                         </x-button-secondary>
                                         <x-button-danger wire:loading.attr="disabled" wire:click="deleteLink" @click="deleting = false">
                                             Delete
-                                            <svg x-cloak wire:loading wire:target="deleteLink" class="animate-spin inline-block h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <svg x-cloak="" wire:loading wire:target="deleteLink" class="animate-spin inline-block h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                                                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                             </svg>
@@ -49,7 +49,7 @@
                                         </x-button-secondary>
                                         <x-button wire:loading.attr="disabled" type="submit" @click="editing = true" class="inline-flex gap-1 items-center">
                                             Save
-                                            <svg x-cloak wire:loading wire:target="updateLink" class="animate-spin inline-block h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <svg x-cloak="" wire:loading wire:target="updateLink" class="animate-spin inline-block h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                                                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                             </svg>
@@ -58,7 +58,7 @@
                                     <div class="flex gap-2 items-center" x-show="!editing && !deleting">
                                         <x-button-secondary wire:loading.attr="disabled" x-show="!editing && !deleting" wire:click="duplicateLink" type="button">
                                             <span>Duplicate</span>
-                                            <svg x-cloak wire:loading wire:target="duplicateLink" class="ml-1 animate-spin inline-block h-4 w-4 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <svg x-cloak="" wire:loading wire:target="duplicateLink" class="ml-1 animate-spin inline-block h-4 w-4 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                                                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                             </svg>
@@ -182,7 +182,7 @@
                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5A3.375 3.375 0 006.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0015 2.25h-1.5a2.251 2.251 0 00-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 00-9-9z" />
                                                     </svg>
                                                     <span x-show="!copied">Copy</span>
-                                                    <span x-cloak x-show="copied">Copied!</span>
+                                                    <span x-cloak="" x-show="copied">Copied!</span>
                                                 </x-button>
                                             </dd>
                                         </div>
@@ -197,7 +197,7 @@
                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5A3.375 3.375 0 006.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0015 2.25h-1.5a2.251 2.251 0 00-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 00-9-9z" />
                                                     </svg>
                                                     <span x-show="!copied">Copy</span>
-                                                    <span x-cloak x-show="copied">Copied!</span>
+                                                    <span x-cloak="" x-show="copied">Copied!</span>
                                                 </x-button-secondary>
                                             </dd>
                                         </div>

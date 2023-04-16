@@ -36,16 +36,16 @@
             <div class="lg:hidden">
                 <button @click="burgerOpen = !burgerOpen" class="relative z-10 -m-2 inline-flex items-center rounded-lg stroke-white p-2 bg-white/10 [&amp;:not(:focus-visible)]:focus:outline-none" aria-label="Toggle site navigation" type="button" aria-expanded="false">
                     <svg x-show="!burgerOpen" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="h-6 w-6"><path d="M5 6h14M5 18h14M5 12h14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                    <svg x-show="burgerOpen" x-cloak viewBox="0 0 24 24" fill="none" aria-hidden="true" class="h-6 w-6"><path d="M17 14l-5-5-5 5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    <svg x-show="burgerOpen" x-cloak="" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="h-6 w-6"><path d="M17 14l-5-5-5 5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                 </button>
-                <div x-show="burgerOpen" x-cloak class="fixed inset-0 z-0 bg-gray-300/10 backdrop-blur"
+                <div x-show="burgerOpen" x-cloak="" class="fixed inset-0 z-0 bg-gray-300/10 backdrop-blur"
                     x-transition:enter="transition-opacity ease-linear duration-300" 
                     x-transition:enter-start="opacity-0" 
                     x-transition:enter-end="opacity-100" 
                     x-transition:leave="transition-opacity ease-linear duration-300" 
                     x-transition:leave-start="opacity-100" 
                     x-transition:leave-end="opacity-0" ></div>
-                <div x-show="burgerOpen" x-cloak class="absolute inset-x-0 top-0 z-0 origin-top rounded-b-2xl bg-gray-900 px-6 pb-6 pt-28 shadow-2xl shadow-gray-900/20" 
+                <div x-show="burgerOpen" x-cloak="" class="absolute inset-x-0 top-0 z-0 origin-top rounded-b-2xl bg-gray-900 px-6 pb-6 pt-28 shadow-2xl shadow-gray-900/20" 
                     x-transition:enter="transition ease-linear duration-300" 
                     x-transition:enter-start="opacity-0 -translate-y-10" 
                     x-transition:enter-end="opacity-100 translate-y-0" 

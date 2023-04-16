@@ -27,7 +27,7 @@
                         <div>
                             <button x-data="{ copied: false }" @click.prevent="window.navigator.clipboard.writeText('{{ $link->auto_url }}'); copied = true; setTimeout( function() { copied = false }, 3000);" type="button" class="inline-flex items-center rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
                                 <span x-show="!copied">Copy</span>
-                                <span x-show="copied" x-cloak>Copied</span>
+                                <span x-show="copied" x-cloak="">Copied</span>
                             </button>
                         </div>
                     </div>

@@ -53,7 +53,7 @@
                                     <span class="ml-6 pl-1 text-sm md:ml-0 md:pl-0 md:text-center">
                                         <span class="font-medium" x-bind:class="{ 'text-blue-900' : checked === '{{ $plan->sku }}', 'text-gray-900' : checked !== '{{ $plan->sku }}' }">£{{ $annualPricing ? $plan->price_annual : $plan->price }} / mo</span>
                                     </span>
-                                    <div x-cloak x-transition x-show="checked === '{{ $plan->sku }}'" class="md:col-span-2">
+                                    <div x-cloak="" x-transition x-show="checked === '{{ $plan->sku }}'" class="md:col-span-2">
                                         <div class="flex ml-7 text-gray-600 text-sm py-2 gap-x-2">
                                             <span>{{ $plan->domains === -1 ? 'Unlimited' : $plan->domains }} @if($plan->domains > 1) domains @else domain @endif</span>
                                             <span>&bull;</span>
@@ -69,7 +69,7 @@
                         @unless ($subscribed)
                     
  
-                            <div x-cloak x-show="checked" x-transition class="mt-8 p-4 border border-gray-200 rounded-md">
+                            <div x-cloak="" x-show="checked" x-transition class="mt-8 p-4 border border-gray-200 rounded-md">
 
                                 <div>
                                     <h2 id="payment-details-heading" class="text-lg font-medium leading-6 text-gray-900">Billing details</h2>

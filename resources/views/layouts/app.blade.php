@@ -7,7 +7,7 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <style>[x-cloak] { display: none !important; }@media screen and (max-width: 1024px) {[x-cloak-mob] { display: none; }}</style>
+        <style>[x-cloak=""] { display: none !important; }@media screen and (max-width: 1024px) {[x-cloak="mob"] { display: none; }}</style>
         <link rel="icon" href="{{ asset('favicon.jpg') }}">
         <!-- Fonts -->
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
@@ -35,13 +35,13 @@
             
             @livewire('app-navigation-menu')
 
-            <div x-cloak x-show="open"
+            <div x-cloak="" x-show="open"
             x-transition:enter="ease-out duration-700"
             x-transition:enter-start="opacity-0"
             x-transition:enter-end="opacity-100"
             x-transition:leave="ease-in duration-700"
             x-transition:leave-start="opacity-100"
-            x-transition:leave-end="opacity-0" class="lg:hidden backdrop-blur w-full h-full absolute z-40 bg-transparent top-0 left-0"></div>
+            x-transition:leave-end="opacity-0" class="lg:hidden backdrop-blur w-full h-full fixed z-40 bg-transparent top-0 left-0"></div>
 
 
             <div class="lg:ml-64 flex-1 mt-[65px] lg:mt-0">

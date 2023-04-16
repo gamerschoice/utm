@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </div>
-            <div x-cloak x-show="editing">
+            <div x-cloak="" x-show="editing">
                 <div class="mt-5" x-data="UpdatePaymentMethod">
                     
                     <form x-init="initUpdatePayment" wire:submit.prevent="savePaymentMethod">

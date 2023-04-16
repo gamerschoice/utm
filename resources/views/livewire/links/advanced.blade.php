@@ -20,7 +20,7 @@
                         </x-button>
                 </div>
 
-                <div x-cloak x-show="presetsOpen" class="bg-gray-100 p-3 rounded-md mb-4 mt-2 border border-gray-200 grid grid-cols-3 gap-y-2 gap-x-5">
+                <div x-cloak="" x-show="presetsOpen" class="bg-gray-100 p-3 rounded-md mb-4 mt-2 border border-gray-200 grid grid-cols-3 gap-y-2 gap-x-5">
                         
                     <div class="text-sm">
                         <x-label>Source</x-label>
@@ -102,7 +102,7 @@
                                 </svg>
                             </span>                              
                         </div>
-                        <div x-cloak x-show="open" class="border-t border-gray-300 mt-3 pt-3">
+                        <div x-cloak="" x-show="open" class="border-t border-gray-300 mt-3 pt-3">
                             <div class="grid sm:grid-cols-2 gap-x-4 gap-y-2">
                                 <div class="text-sm">
                                     <x-label class="text-xs">Source</x-label>

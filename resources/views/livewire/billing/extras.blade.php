@@ -31,7 +31,7 @@
                                         <button @click="confirming = true" x-show="!confirming" type="button" class="inline-flex items-center rounded-full bg-white px-2.5 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
                                             Add
                                         </button>
-                                        <div x-show="confirming" x-cloak class="flex items-center gap-2">
+                                        <div x-show="confirming" x-cloak="" class="flex items-center gap-2">
                                             <span class="text-xs font-medium">Are you sure?</span>
                                             <button wire:click="addExtraDomains" type="button" class="inline-flex items-center rounded-full bg-white px-2.5 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
                                                 <span>Confirm</span>
@@ -95,7 +95,7 @@
                                         <button @click="confirming = true" x-show="!confirming" type="button" class="inline-flex items-center rounded-full bg-white px-2.5 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
                                             Add
                                         </button>
-                                        <div x-show="confirming" x-cloak class="flex items-center gap-2">
+                                        <div x-show="confirming" x-cloak="" class="flex items-center gap-2">
                                             <span class="text-xs font-medium">Are you sure?</span>
                                             <button wire:click="addExtraSeats" type="button" class="inline-flex items-center rounded-full bg-white px-2.5 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
                                                 <span>Confirm</span>

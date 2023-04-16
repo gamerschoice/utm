@@ -1,9 +1,11 @@
 
 <div>
 
-    <div class="flex lg:hidden fixed w-full mb-5 top-0 left-0 bg-white border-b border-gray-200 px-4 py-4 justify-between">
+    <div class="flex lg:hidden fixed z-40 w-full mb-5 top-0 left-0 bg-white border-b border-gray-200 px-4 py-4 justify-between">
         
-        <x-application-mark-small class="block w-auto" />
+        <a href="{{ route('dashboard') }}">
+            <x-application-mark-small class="block w-auto" />
+        </a>
 
         <button @click="open = true" type="button" class=" border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
             <span class="sr-only">Open sidebar</span>
@@ -14,7 +16,7 @@
         
     </div>
 
-    <div x-cloak-mob :class="{ 'flex opacity-100 translate-x-0' : open, '-translate-x-full opacity-0' : !open }" class="transition duration-700 lg:translate-x-0 lg:opacity-100 fixed inset-y-0 lg:flex w-64 flex-col z-50 shadow-lg lg:shadow-none">
+    <div x-cloak="mob" :class="{ 'flex opacity-100 translate-x-0' : open, '-translate-x-full opacity-0' : !open }" class="h-screen transition duration-700 lg:translate-x-0 lg:opacity-100 fixed inset-y-0 lg:flex w-64 flex-col z-50 shadow-lg lg:shadow-none">
 
         <div class="flex flex-grow flex-col overflow-y-auto bg-blue-600">
 
