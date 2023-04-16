@@ -39,8 +39,16 @@ class Cancel extends Component
                 ->body('You can continue using your account until your current billing cycle ends.')
                 ->success()
                 ->send(); 
+        } else {
+            Notification::make() 
+                ->title('Your subscription could not be cancelled.')
+                ->body('An error occurred. Please contact support.')
+                ->danger()
+                ->send(); 
         }
-        $this->emit('$refresh');
+        
+        
+        return redirect('/billing');
 
     }
 
