@@ -7,7 +7,7 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <style>[x-cloak=""] { display: none !important; }@media screen and (max-width: 1024px) {[x-cloak="mob"] { display: none; }}</style>
+        <style>[x-cloak=""] { display: none !important; }@media screen and (max-width: 1024px) {[x-cloak="mob"] { display: none!important; }}</style>
         <link rel="icon" href="{{ asset('favicon.jpg') }}">
         <!-- Fonts -->
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">

@@ -16,7 +16,7 @@
         
     </div>
 
-    <div x-cloak="mob" :class="{ 'flex opacity-100 translate-x-0' : open, '-translate-x-full opacity-0' : !open }" class="h-screen transition duration-700 lg:translate-x-0 lg:opacity-100 fixed inset-y-0 lg:flex w-64 flex-col z-50 shadow-lg lg:shadow-none">
+    <div x-cloak="mob" :class="{ 'opacity-100 translate-x-0' : open, '-translate-x-full opacity-0' : !open }" class="h-screen transition duration-700 lg:translate-x-0 lg:opacity-100 fixed inset-y-0 flex w-64 flex-col z-50 shadow-lg lg:shadow-none">
 
         <div class="flex flex-grow flex-col overflow-y-auto bg-blue-600">
 
@@ -125,11 +125,12 @@
                         </div>
                     </div>
                     <div class="text-blue-200 hover:text-white">
-                        <a href="{{ route('logout') }}" title="Logout">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <form method="POST" action="{{ route('logout') }}" x-data x-ref="logout">
+                            @csrf
+                            <svg @click.prevent="$refs.logout.submit()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
                             </svg>
-                        </a>                
+                        </form>
                     </div>
                   </div>
                 
