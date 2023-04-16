@@ -1,4 +1,4 @@
-<div>
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
     @if(auth()->user()->currentTeam->onTrial())
 
     <div class="relative isolate flex justify-center items-center gap-x-6 overflow-hidden bg-blue-600 py-2.5 px-6 sm:px-3.5">
