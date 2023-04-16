@@ -25,7 +25,7 @@ class PlansSeeder extends Seeder
             'domains' => 1,
             'short_domains' => true,
             'seats' => 1,
-            'links' => 500,
+            'links' => -1,
             'active' => 1,
         ]);
 
@@ -40,7 +40,7 @@ class PlansSeeder extends Seeder
             'domains' => 5,
             'short_domains' => true,
             'seats' => 5,
-            'links' => 1000,
+            'links' => -1,
             'active' => 1,
         ]);
 

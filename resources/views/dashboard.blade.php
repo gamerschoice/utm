@@ -29,7 +29,7 @@
                     <x-domain-card :domain="$domain" />
                 @endforeach
 
-                @if( !request()->user()->currentTeam->canRegisterDomain() )
+                @if( request()->user()->currentTeam->canRegisterDomain() )
                     
                     <div class="px-3 py-4 lg:px-6 lg:py-4 h-full max-h-[195px] flex items-center">
                         <a href="{{ route('domain.create') }}">
