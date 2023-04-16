@@ -16,7 +16,7 @@
                     <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:pt-5">
                         <label for="utm_source" class="block font-semibold leading-6 text-gray-900 sm:pt-1.5">Source</label>
                         <div class="mt-2 sm:col-span-2 sm:mt-0">
-                            <x-input x-on:keyup.prevent="$el.value = $el.value.replace(/\s+/g, '-').toLowerCase()" wire:model.defer="utm_source" type="text" name="utm_source" id="utm_source" autocomplete="utm_source" />
+                            <x-input x-on:keyup.prevent="$el.value = $el.value.replace(/\s+/g, '+').toLowerCase()" wire:model.defer="utm_source" type="text" name="utm_source" id="utm_source" autocomplete="utm_source" />
                             <div class="mt-1 text-sm text-gray-500">The source of the traffic to your link, e.g. <em>instagram</em>, <em>newsletter</em></div>
                         </div>
                     </div>
@@ -24,7 +24,7 @@
                     <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:pt-5">
                         <label for="utm_medium" class="block font-semibold leading-6 text-gray-900 sm:pt-1.5">Medium</label>
                         <div class="mt-2 sm:col-span-2 sm:mt-0">
-                            <x-input x-on:keyup.prevent="$el.value = $el.value.replace(/\s+/g, '-').toLowerCase()" wire:model.defer="utm_medium" type="text" name="utm_medium" id="utm_medium" autocomplete="utm_medium" />
+                            <x-input x-on:keyup.prevent="$el.value = $el.value.replace(/\s+/g, '+').toLowerCase()" wire:model.defer="utm_medium" type="text" name="utm_medium" id="utm_medium" autocomplete="utm_medium" />
                             <div class="mt-1 text-sm text-gray-500">The marketing medium, e.g. <em>social</em>, or <em>email</em></div>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                     <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:pt-5">
                         <label for="utm_campaign" class="block font-semibold leading-6 text-gray-900 sm:pt-1.5">Campaign</label>
                         <div class="mt-2 sm:col-span-2 sm:mt-0">
-                            <x-input x-on:keyup.prevent="$el.value = $el.value.replace(/\s+/g, '-').toLowerCase()" wire:model.defer="utm_campaign" type="text" name="utm_campaign" id="utm_campaign" autocomplete="utm_campaign" />
+                            <x-input x-on:keyup.prevent="$el.value = $el.value.replace(/\s+/g, '+').toLowerCase()" wire:model.defer="utm_campaign" type="text" name="utm_campaign" id="utm_campaign" autocomplete="utm_campaign" />
                             <div class="mt-1 text-sm text-gray-500">The campaign or individual promotion name, e.g. <em>summer-collection-2023</em></div>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                             <span class="text-gray-500 text-sm">Optional</span>
                         </div>
                         <div class="mt-2 sm:col-span-2 sm:mt-0">
-                            <x-input wire:model.defer="utm_term" type="text" name="utm_term" id="utm_term" autocomplete="utm_term" />
+                            <x-input x-on:keyup.prevent="$el.value = $el.value.replace(/\s+/g, '+').toLowerCase()" wire:model.defer="utm_term" type="text" name="utm_term" id="utm_term" autocomplete="utm_term" />
                             <div class="mt-1 text-sm text-gray-500">Paid search or CPC keywords, e.g. <em>best winter raincoats</em></div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                             <span class="text-gray-500 text-sm">Optional</span>
                         </div>
                         <div class="mt-2 sm:col-span-2 sm:mt-0">
-                            <x-input wire:model.defer="utm_content" type="text" name="utm_content" id="utm_content" autocomplete="utm_content" />
+                            <x-input x-on:keyup.prevent="$el.value = $el.value.replace(/\s+/g, '+').toLowerCase()" wire:model.defer="utm_content" type="text" name="utm_content" id="utm_content" autocomplete="utm_content" />
                             <div class="mt-1 text-sm text-gray-500">Used to differentiate between similar links. You may want to use this to track which specific CTA was clicked, e.g. <em>buy-now</em> or <em>add-to-cart</em></div>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                             <span class="text-gray-500 text-sm">Optional</span>
                         </div>
                         <div class="mt-2 sm:col-span-2 sm:mt-0">
-                            <x-input x-on:keyup.prevent="$el.value = $el.value.replace(/\s+/g, '-').toLowerCase()" wire:model.defer="utm_source_platform" type="text" name="utm_source_platform" id="utm_source_platform" autocomplete="utm_source_platform" />
+                            <x-input x-on:keyup.prevent="$el.value = $el.value.replace(/\s+/g, '+').toLowerCase()" wire:model.defer="utm_source_platform" type="text" name="utm_source_platform" id="utm_source_platform" autocomplete="utm_source_platform" />
                             <div class="mt-1 text-sm text-gray-500">Used to identify which marketing platform sent the traffic e.g. <em>Google Ads</em>, <em>Search Ads 360</em></div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                             <span class="text-gray-500 text-sm">Optional</span>
                         </div>
                         <div class="mt-2 sm:col-span-2 sm:mt-0">
-                            <x-input x-on:keyup.prevent="$el.value = $el.value.replace(/\s+/g, '-').toLowerCase()" wire:model.defer="utm_creative_format" type="text" name="utm_creative_format" id="utm_creative_format" autocomplete="utm_creative_format" />
+                            <x-input x-on:keyup.prevent="$el.value = $el.value.replace(/\s+/g, '+').toLowerCase()" wire:model.defer="utm_creative_format" type="text" name="utm_creative_format" id="utm_creative_format" autocomplete="utm_creative_format" />
                             <div class="mt-1 text-sm text-gray-500">Used to identify the format of the content users have clicked on to get your site e.g. <em>video</em>, <em>skyscraper</em>, <em>text</em>, <em>tweet</em> etc.</div>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                             <span class="text-gray-500 text-sm">Optional</span>
                         </div>
                         <div class="mt-2 sm:col-span-2 sm:mt-0">
-                            <x-input x-on:keyup.prevent="$el.value = $el.value.replace(/\s+/g, '-').toLowerCase()" wire:model.defer="utm_marketing_tactic" type="text" name="utm_marketing_tactic" id="utm_marketing_tactic" autocomplete="utm_marketing_tactic" />
+                            <x-input x-on:keyup.prevent="$el.value = $el.value.replace(/\s+/g, '+').toLowerCase()" wire:model.defer="utm_marketing_tactic" type="text" name="utm_marketing_tactic" id="utm_marketing_tactic" autocomplete="utm_marketing_tactic" />
                             <div class="mt-1 text-sm text-gray-500">Used to send information on your particular marketing tactic for this ad, e.g. <em>onboarding</em>, <em>retention</em></div>
                         </div>
                     </div>
