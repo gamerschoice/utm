@@ -9,6 +9,7 @@
         "algolia/algoliasearch-client-php": "^3.3",
         "contentful/laravel": "^9.0",
         "dompdf/dompdf": "^2.0",
+        "filament/filament": "^2.0",
         "filament/notifications": "^2.0",
         "graham-campbell/markdown": "^15.0",
         "guzzlehttp/guzzle": "^7.2",
@@ -28,6 +29,7 @@
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8",
+        "doctrine/dbal": "^3.6",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
