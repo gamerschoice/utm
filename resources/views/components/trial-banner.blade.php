@@ -1,9 +1,9 @@
 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
     @if(auth()->user()->currentTeam->onTrial())
 
-    <div class="relative isolate flex justify-center items-center gap-x-6 overflow-hidden bg-blue-600 py-2.5 px-6 sm:px-3.5">
+    <div class="relative isolate flex justify-center items-center gap-x-6 overflow-hidden bg-blue-600 py-2.5 px-6 sm:px-3.5 rounded-lg shadow-md">
 
-        <div class="flex flex-wrap justify-center items-center gap-y-2 gap-x-4">
+        <div class="flex flex-wrap justify-between items-center gap-y-2 gap-x-4 lg:gap-x-5 xl:gap-x-6 w-full">
             <p class="text-sm leading-6 text-white">
                 <strong class="font-semibold">Trial plan</strong>
                 <span>&bull;</span>

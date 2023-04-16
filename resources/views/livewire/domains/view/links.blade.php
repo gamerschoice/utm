@@ -136,7 +136,7 @@
                         <x-table.cell>
                             <x-link-health-status :link="$link" />
                         </x-table.cell>
-                        <x-table.cell><span class="text-xs md:text-sm">{{ $link->created_ago }}</span></x-table.cell>
+                        <x-table.cell><span class="text-xs">{{ $link->created_ago }}</span></x-table.cell>
                         <x-table.cell class="justify-end text-right">
 
                             <x-button-secondary type="button" wire:click="showLink({{ $link->id }})" class="text-xs">
