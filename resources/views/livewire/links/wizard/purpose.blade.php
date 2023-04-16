@@ -11,7 +11,7 @@
 
     <div class="mx-auto w-full lg:w-1/2 transform divide-y divide-gray-100 overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-black ring-opacity-5 transition-all">
         <div class="relative">
-            <input x-on:keyup.prevent="$el.value = $el.value.replace(/\s+/g, '-').toLowerCase()" required type="text" wire:model="campaign" name="campaign" class="text-center h-12 w-full border-0 bg-transparent px-6 text-gray-900 placeholder:text-gray-400 focus:ring-0" placeholder="2023-summer-rebrand">
+            <input x-on:keyup.prevent="$el.value = $el.value.replace(/\s+/g, '+').toLowerCase()" required type="text" wire:model="campaign" name="campaign" class="text-center h-12 w-full border-0 bg-transparent px-6 text-gray-900 placeholder:text-gray-400 focus:ring-0" placeholder="2023-summer-rebrand">
         </div>
                     
         @if(!empty($campaigns) && strlen($campaign) >= 3)
