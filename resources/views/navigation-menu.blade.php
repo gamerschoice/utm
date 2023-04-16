@@ -14,7 +14,7 @@
         
     </div>
 
-    <div :class="{ 'fixed' : open, 'hidden lg:fixed lg:flex' : !open }" class="inset-y-0 flex w-64 flex-col">
+    <div x-cloak-mob :class="{ 'flex opacity-100 translate-x-0' : open, '-translate-x-full opacity-0' : !open }" class="transition duration-700 lg:translate-x-0 lg:opacity-100 fixed inset-y-0 lg:flex w-64 flex-col z-50 shadow-lg lg:shadow-none">
 
         <div class="flex flex-grow flex-col overflow-y-auto bg-blue-600">
 
@@ -27,7 +27,7 @@
                 </svg>
                   
             </div>
-            <nav class="mt-5 flex-1 space-y-1 px-2">
+            <nav class="mt-5 flex-1 space-y-1 px-2 text-blue-200">
         
                 <a x-data="{ active: '{{ request()->routeIs('dashboard') }}' }" href="{{ route('dashboard') }}" 
                     :class="{ 'bg-blue-700 text-white' : active, ' text-blue-200 hover:bg-blue-700 hover:text-white' : !active }"
