@@ -17,7 +17,10 @@ class OwnedByTeam
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $domain = Domain::find($request->domain_id);
+
+        $reqDomain = $request->domain_id ? $request->domain_id : $request->domain;
+
+        $domain = Domain::find($reqDomain);
         if($domain->team->hasUser($request->user())) {
             return $next($request);
         }
