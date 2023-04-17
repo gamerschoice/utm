@@ -31,6 +31,8 @@ class StripeWebhookListener
         $team->subscriptions()->active()->get()->each(function ($susbcription) {
             $susbcription->cancelNow();
         });
+        $team->plan_id = null;
+        $team->save();
     }
 
     /**
