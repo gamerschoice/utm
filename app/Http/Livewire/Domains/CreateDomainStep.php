@@ -33,8 +33,8 @@ class CreateDomainStep extends StepComponent
             $this->emitTo('app-navigation-menu', 'refresh-navigation-menu');
 
             Notification::make() 
-                ->title('Domain registered.')
-                ->body("You've registered your domain.")
+                ->title('Domain created.')
+                ->body("Your domain has been created successfully.")
                 ->success()
                 ->send(); 
 
