@@ -81,4 +81,10 @@ class User extends Authenticatable implements MustVerifyEmail
 
         return $this;
     }
+    
+    public function canAccessFilament(): bool
+    {
+        return ($this->email === 'ian.leckey@gmail.com' || $this->email === 'andrewclark12@gmail.com') && $this->hasVerifiedEmail();
+    }
+
 }
