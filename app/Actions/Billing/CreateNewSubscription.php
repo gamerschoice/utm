@@ -23,16 +23,21 @@ class CreateNewSubscription
                     'email' => $team->owner->email,
                     'address' => $billing_address
                 ]);
+                
+            /** added due to endTrial() not apparently doing anything */
+            $team->trial_ends_at = null;
             $team->save();
-
-            $team->subscription('default')->endTrial();
-
-            Notification::make() 
-                ->title('Subscription activated')
-                ->body('Thank you for subscribing! Your subscription plan is now active')
-                ->success()
-                ->send(); 
             
         });
+
+        /** doesnt seem to be working? */
+        $team->subscription('default')->endTrial();
+
+        Notification::make() 
+            ->title('Subscription activated')
+            ->body('Thank you for subscribing! Your subscription plan is now active')
+            ->success()
+            ->send(); 
+
     }
 }

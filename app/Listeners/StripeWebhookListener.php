@@ -10,27 +10,29 @@ use Laravel\Cashier\Cashier;
 class StripeWebhookListener
 {
 
-    public function cancelSeatExtra($event)
+    public function cancelSeatExtra($payload)
     {
-        $team = Cashier::findBillable($event->payload['data']['object']['customer']);
+        $team = Cashier::findBillable($payload['data']['object']['customer']);
         $team->maximum_members = $team->plan->seats;
         $team->save();
     }
 
-    public function cancelDomainExtra($event) 
+    public function cancelDomainExtra($payload) 
     {
-        $team = Cashier::findBillable($event->payload['data']['object']['customer']);
+        $team = Cashier::findBillable($payload['data']['object']['customer']);
         $team->maximum_domains = $team->plan->domains;
         $team->save();
     }
 
-    public function cancelPlan($event)
+    public function cancelPlan($payload)
     {
-        $team = Cashier::findBillable($event->payload['data']['object']['customer']);
+        $team = Cashier::findBillable($payload['data']['object']['customer']);
 
         $team->subscriptions()->active()->get()->each(function ($susbcription) {
             $susbcription->cancelNow();
         });
+        $team->plan_id = null;
+        $team->save();
     }
 
     /**
@@ -44,13 +46,13 @@ class StripeWebhookListener
 
             switch( $stripe_price_key ) {
                 case env('STRIPE_DOMAIN_KEY'):
-                    $this->cancelDomainExtra($event);
+                    $this->cancelDomainExtra($event->payload);
                     break;
                 case env('STRIPE_SEAT_KEY'):
-                    $this->cancelSeatExtra($event);
+                    $this->cancelSeatExtra($event->payload);
                     break;
                 default:
-                    $this->cancelPlan($event);
+                    $this->cancelPlan($event->payload);
                     break;
             }
 
