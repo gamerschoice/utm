@@ -27,6 +27,6 @@ class EmailExpiredTrials implements ShouldQueue
             if(! $team->trial_ends_at->isToday()) {
                 Mail::to($team->owner->email)->send(new TrialExpired);
             }
-        })
+        });
     }
 }
