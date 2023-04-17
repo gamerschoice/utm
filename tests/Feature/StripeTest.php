@@ -8,7 +8,6 @@ use App\Listeners\StripeWebhookListener;
 
 class StripeTest extends TestCase
 {
-    protected $event = new StripeWebhookListener;
     protected array $payload = [
         'data' => [
             'object' => [
