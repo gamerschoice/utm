@@ -451,10 +451,10 @@
                                 address: {
                                     city: billing_address_city.value,
                                     country: billing_country.value,
-                                    line1: billing_address_1,
-                                    line2: billing_address_2,
-                                    postal_code: billing_postcode,
-                                    state: billing_state,
+                                    line1: billing_address_1.value,
+                                    line2: billing_address_2.value,
+                                    postal_code: billing_postcode.value,
+                                    state: billing_state.value,
                                 }
                             }
                         }
@@ -464,7 +464,12 @@
                 if (error) {
                     console.log(error.message)
                 } else {
-                    console.log(setupIntent.payment_method)
+                    @this.set('billing_address_1', billing_address_1.value)
+                    @this.set('billing_address_2', billing_address_2.value)
+                    @this.set('billing_address_city', billing_address_city.value)
+                    @this.set('billing_country', billing_country.value)
+                    @this.set('billing_postcode', billing_postcode.value)
+                    @this.set('billing_address_state', billing_state.value)
                     @this.set('payment_method', setupIntent.payment_method)
                     @this.call('createSubscription')
                 }

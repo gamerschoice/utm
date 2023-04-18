@@ -62,6 +62,15 @@ class PlanManager extends Component
     public function createSubscription(CreateNewSubscription $newSubscription)
     {
 
+        $address = [
+            'city' => $this->billing_address_city,
+            'country' => $this->billing_country,
+            'line1' => $this->billing_address_1,
+            'line2' => $this->billing_address_2,
+            'state' => $this->billing_address_state,
+            'postal_code' => $this->billing_postcode
+        ];
+
         $plan = $this->swapTo;
         $billingCycle = $this->annualPricing ? 'annually' : 'monthly';
         $newSubscription->execute(
@@ -69,14 +78,7 @@ class PlanManager extends Component
             $plan, 
             $this->payment_method, 
             $billingCycle,
-            [
-                'city' => $this->billing_address_city,
-                'country' => $this->billing_country,
-                'line1' => $this->billing_address_1,
-                'line2' => $this->billing_address_2,
-                'state' => $this->billing_address_state,
-                'postal_code' => $this->billing_postcode
-            ]
+            $address
         );
 
         return redirect('/billing');

@@ -38,27 +38,27 @@
                         <div class="mt-6 grid grid-cols-4 gap-6">
                             <div class="col-span-4">
                                 <label for="billing_address_1" class="block text-sm font-medium leading-6 text-gray-900">Address line 1</label>
-                                <input type="text" x-model="line1" value="{{ $paymentMethod['billing_details']['address']['line1'] }}" name="billing_address_1" id="billing_address_1" class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-700 sm:text-sm sm:leading-6">
+                                <input type="text" x-model="line1" value="{{ $paymentMethod['billing_details']['address']['line1'] }}" name="billing_address_1" class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-700 sm:text-sm sm:leading-6">
                             </div>
 
                             <div class="col-span-4">
                                 <label for="billing_address_2" class="block text-sm font-medium leading-6 text-gray-900">Address line 2</label>
-                                <input type="text" x-model="line2" value="{{ $paymentMethod['billing_details']['address']['line2'] }}" name="billing_address_2" id="billing_address_2" class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-700 sm:text-sm sm:leading-6">
+                                <input type="text" x-model="line2" value="{{ $paymentMethod['billing_details']['address']['line2'] }}" name="billing_address_2" class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-700 sm:text-sm sm:leading-6">
                             </div>
 
                             <div class="col-span-2">
                                 <label for="billing_address_city" class="block text-sm font-medium leading-6 text-gray-900">Town / City</label>
-                                <input type="text" x-model="city" value="{{ $paymentMethod['billing_details']['address']['city'] }}" name="billing_address_city" id="billing_address_city" class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-700 sm:text-sm sm:leading-6">
+                                <input type="text" x-model="city" value="{{ $paymentMethod['billing_details']['address']['city'] }}" name="billing_address_city" class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-700 sm:text-sm sm:leading-6">
                             </div>
 
                             <div class="col-span-2">
                                 <label for="billing_postcode" class="block text-sm font-medium leading-6 text-gray-900">Postcode / Zip code</label>
-                                <input type="text" x-model="postal_code" value="{{ $paymentMethod['billing_details']['address']['postal_code'] }}" name="billing_postcode" id="billing_postcode" class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-700 sm:text-sm sm:leading-6">
+                                <input type="text" x-model="postal_code" value="{{ $paymentMethod['billing_details']['address']['postal_code'] }}" name="billing_postcode" class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-700 sm:text-sm sm:leading-6">
                             </div>
 
                             <div class="col-span-2">
                                 <label for="billing_country" class="block text-sm font-medium leading-6 text-gray-900">Country</label>
-                                <select x-data="{ }" x-init="$el.querySelector('option[value={{ $paymentMethod['billing_details']['address']['country'] }}]').selected = true" name="billing_country" id="billing_country" class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-700 sm:text-sm sm:leading-6">
+                                <select x-data="{ }" x-init="$el.querySelector('option[value={{ $paymentMethod['billing_details']['address']['country'] }}]').selected = true" name="billing_country" class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-700 sm:text-sm sm:leading-6">
                                     <option value="AF">Afghanistan</option>
                                     <option value="AX">�land Islands</option>
                                     <option value="AL">Albania</option>
@@ -313,7 +313,7 @@
 
                             <div class="col-span-2">
                                 <label for="billing_state" class="block text-sm font-medium leading-6 text-gray-900">County / State</label>
-                                <input type="text" x-model="state" name="billing_state" id="billing_state" class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-700 sm:text-sm sm:leading-6">
+                                <input type="text" x-model="state" name="billing_state" class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-700 sm:text-sm sm:leading-6">
                             </div>
 
                             <div class="col-span-4">
