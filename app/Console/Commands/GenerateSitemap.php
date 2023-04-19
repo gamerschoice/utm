@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 use Carbon\Carbon;
@@ -88,6 +89,6 @@ class GenerateSitemap extends Command
             }
 
 
-        \Storage::disk('s3')->put('sitemap.xml', $sitemap->render(), 'public');
+        Storage::put('sitemap.xml', $sitemap->render(), 'public');
     }
 }
