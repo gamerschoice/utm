@@ -44,12 +44,32 @@ class GenerateSitemap extends Command
             ->add(Url::create('/')
                 ->setLastModificationDate(Carbon::yesterday())
                 ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
-                ->setPriority(0.1)
+                ->setPriority(1.0)
+            )
+            ->add(Url::create('/register')
+                ->setLastModificationDate(Carbon::yesterday())
+                ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+                ->setPriority(0.7)
+            )
+            ->add(Url::create('/login')
+                ->setLastModificationDate(Carbon::yesterday())
+                ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+                ->setPriority(0.7)
             )
             ->add(Url::create('/blog')
                 ->setLastModificationDate(Carbon::yesterday())
                 ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
-                ->setPriority(0.8)
+                ->setPriority(0.5)
+            )
+            ->add(Url::create('/terms')
+                ->setLastModificationDate(Carbon::yesterday())
+                ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
+                ->setPriority(0.4)
+            )
+            ->add(Url::create('/privacy')
+                ->setLastModificationDate(Carbon::yesterday())
+                ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
+                ->setPriority(0.4)
             );
 
             $query = new DeliveryQuery();
@@ -61,7 +81,7 @@ class GenerateSitemap extends Command
                     $sitemap->add(Url::create('/' . $entry->getSlug() )
                         ->setLastModificationDate( $entry->getSystemProperties()->getUpdatedAt() )
                         ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
-                        ->setPriority(0.8)
+                        ->setPriority(0.5)
                     );
 
                 }
