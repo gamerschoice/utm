@@ -77,12 +77,12 @@
                 return this.screenshots.findIndex(item => item.active);
             },
             screenshots: [
-                { src: '{{ asset("images/screenshots/screenshot-linkwizard-1.webp") }}', alt: 'UTM Wise Link Wizard Screenshot 1' },
-                { src: '{{ asset("images/screenshots/screenshot-linkwizard-2.webp") }}', alt: 'UTM Wise Link Wizard Screenshot 2' },
-                { src: '{{ asset("images/screenshots/screenshot-linkwizard-3.webp") }}', alt: 'UTM Wise Link Wizard Screenshot 3' },
-                { src: '{{ asset("images/screenshots/screenshot-linkwizard-4.webp") }}', alt: 'UTM Wise Link Wizard Screenshot 4' },
-                { src: '{{ asset("images/screenshots/screenshot-linkwizard-5.webp") }}', alt: 'UTM Wise Link Wizard Screenshot 5' },
-                { src: '{{ asset("images/screenshots/screenshot-links-1.webp") }}', alt: 'UTM Wise Links Screenshot 1' },
+                { src: '{{ asset("images/screenshots/screenshot-linkwizard-1.webp") }}', active: true, alt: 'UTM Wise Link Wizard Screenshot 1' },
+                { src: '{{ asset("images/screenshots/screenshot-linkwizard-2.webp") }}', active: false, alt: 'UTM Wise Link Wizard Screenshot 2' },
+                { src: '{{ asset("images/screenshots/screenshot-linkwizard-3.webp") }}', active: false, alt: 'UTM Wise Link Wizard Screenshot 3' },
+                { src: '{{ asset("images/screenshots/screenshot-linkwizard-4.webp") }}', active: false, alt: 'UTM Wise Link Wizard Screenshot 4' },
+                { src: '{{ asset("images/screenshots/screenshot-linkwizard-5.webp") }}', active: false, alt: 'UTM Wise Link Wizard Screenshot 5' },
+                { src: '{{ asset("images/screenshots/screenshot-links-1.webp") }}', active: false, alt: 'UTM Wise Links Screenshot 1' },
             ]    
 
         }
