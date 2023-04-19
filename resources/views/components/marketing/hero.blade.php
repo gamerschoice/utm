@@ -26,7 +26,7 @@
                 <div data-aos="zoom-in-up" x-swipe.left="prev()" x-swipe.right="next()" data-aos-delay="1200" data-aos-duration="1200" 
                     class="-m-2 select-none rounded-xl bg-gradient-to-b from-gray-100/5 to-gray-50 p-2 ring-1 ring-inset ring-gray-100/10 lg:-m-4 lg:rounded-2xl lg:p-4">
                     <img id="screenshot-image" x-bind:src="screenshots[active].src" x-bind:alt="screenshots[active].alt"
-                        width="2432" height="1442" loading="lazy" 
+                        width="1216" height="669" loading="lazy" 
                         class="rounded-md shadow-2xl ring-1 ring-gray-100/10">
                 </div>
 
