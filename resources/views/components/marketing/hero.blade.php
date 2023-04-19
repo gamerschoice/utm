@@ -13,16 +13,79 @@
                 
                 </div>
             </div>
-            <div class="mt-16 flow-root sm:mt-24">
-                <div
-                    data-aos="zoom-in-up" data-aos-delay="1200" data-aos-duration="1200"
-                    class="-m-2 rounded-xl bg-gradient-to-b from-gray-100/5 to-gray-50 p-2 ring-1 ring-inset ring-gray-100/10 lg:-m-4 lg:rounded-2xl lg:p-4">
-                    <img src="{{ asset('images/screenshot-create-link.jpg') }}" alt="App screenshot"
+            <div class="mt-16 flex items-center sm:mt-24 relative" x-data="AppScreenshots()" x-intersect="navigation = true">
+
+                <div x-show="navigation" x-transition>
+                    <div x-on:click="prev()" class="hidden lg:block text-white bg-blue-500 rounded-full p-2 cursor-pointer absolute hover:scale-125 hover:bg-white hover:text-blue-500 transition duration-300 -left-[80px]">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                        </svg>                   
+                    </div>   
+                </div>
+
+                <div data-aos="zoom-in-up" x-swipe.left="prev()" x-swipe.right="next()" data-aos-delay="1200" data-aos-duration="1200" 
+                    class="-m-2 select-none rounded-xl bg-gradient-to-b from-gray-100/5 to-gray-50 p-2 ring-1 ring-inset ring-gray-100/10 lg:-m-4 lg:rounded-2xl lg:p-4">
+                    <img id="screenshot-image" x-bind:src="screenshots[active].src" x-bind:alt="screenshots[active].alt"
                         width="2432" height="1442" loading="lazy" 
                         class="rounded-md shadow-2xl ring-1 ring-gray-100/10">
                 </div>
+
+                <div x-show="navigation" x-transition>
+                    <div x-on:click="next()" class="hidden lg:block text-white bg-blue-500 rounded-full p-2 cursor-pointer absolute hover:scale-125 hover:bg-white hover:text-blue-500 transition duration-300 -right-[80px]">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                        </svg>                                      
+                    </div>   
+                </div>
+
             </div>
         </div>
     </div>
 
 </div>
+
+
+<script>
+    window.AppScreenshots = () => {
+        return {
+            elem: null,
+            navigation: false,
+            active: 0,
+            prev() {
+                if(this.active === 0)
+                    this.swapScreenshot(this.screenshots.length - 1);
+
+                this.swapScreenshot(this.active - 1);
+            },
+            next() {
+                if(this.active === this.screenshots.length - 1)
+                    this.swapScreenshot(0);
+
+                this.swapScreenshot(this.active + 1);
+            },
+            swapScreenshot(index) {
+
+                this.elem.classList.add('screenshot-fade-out');
+                this.active = index;
+            
+            },
+            init() {
+                this.elem = document.getElementById('screenshot-image');
+                this.active = this.activeScreenshot();
+            },
+            activeScreenshot() {
+                return this.screenshots.findIndex(item => item.active);
+            },
+            screenshots: [
+                { src: '{{ asset("images/screenshots/screenshot-linkwizard-1.webp") }}', active: true, alt: 'UTM Wise Link Wizard Screenshot 1' },
+                { src: '{{ asset("images/screenshots/screenshot-linkwizard-2.webp") }}', active: false, alt: 'UTM Wise Link Wizard Screenshot 2' },
+                { src: '{{ asset("images/screenshots/screenshot-linkwizard-3.webp") }}', active: false, alt: 'UTM Wise Link Wizard Screenshot 3' },
+                { src: '{{ asset("images/screenshots/screenshot-linkwizard-4.webp") }}', active: false, alt: 'UTM Wise Link Wizard Screenshot 4' },
+                { src: '{{ asset("images/screenshots/screenshot-linkwizard-5.webp") }}', active: false, alt: 'UTM Wise Link Wizard Screenshot 5' },
+                { src: '{{ asset("images/screenshots/screenshot-links-1.webp") }}', active: false, alt: 'UTM Wise Links Screenshot 1' },
+            ]    
+
+        }
+    };
+
+</script>

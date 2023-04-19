@@ -5,6 +5,10 @@ import NotificationsAlpinePlugin from '../../vendor/filament/notifications/dist/
 import focus from '@alpinejs/focus';
 import AOS from 'aos'
 import QRCode from 'qrcode'
+import intersect from '@alpinejs/intersect'
+import swipePlugin from 'alpinejs-swipe'
+
+ 
 
 window.QRCode = QRCode;
 window.Alpine = Alpine;
@@ -15,5 +19,6 @@ AOS.init({
 Alpine.plugin(focus);
 Alpine.plugin(AlpineFloatingUI)
 Alpine.plugin(NotificationsAlpinePlugin)
-
+Alpine.plugin(intersect)
+Alpine.plugin(swipePlugin);
 Alpine.start();
