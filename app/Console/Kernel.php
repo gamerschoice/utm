@@ -18,6 +18,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('app:download-public-suffix-data')->daily();
         $schedule->command('app:process-links')->daily();
         $schedule->command('app:clean-trial-account-short-domains')->daily();
+        $schedule->command('sitemap:generate')->daily();
         $schedule->job(new EmailExpiringTrials)->daily();
         $schedule->job(new EmailExpiredTrials)->daily();
     }
