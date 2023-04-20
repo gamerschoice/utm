@@ -8,6 +8,7 @@ use App\Http\Controllers\DomainController;
 use App\Http\Controllers\LinksController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\SitemapController;
 use App\Services\Cloudflare;
 use App\Models\Link;
 
@@ -21,6 +22,8 @@ use App\Models\Link;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/sitemap', SitemapController::class);
 
 Route::get('/', function () {
     return view('home', [
