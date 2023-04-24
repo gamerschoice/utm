@@ -79,7 +79,7 @@ class GenerateSitemap extends Command
             if($entries) {
                 foreach($entries as $entry) {
 
-                    $sitemap->add(Url::create('/' . $entry->getSlug() )
+                    $sitemap->add(Url::create('/blog/' . $entry->getSlug() )
                         ->setLastModificationDate( $entry->getSystemProperties()->getUpdatedAt() )
                         ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
                         ->setPriority(0.5)
