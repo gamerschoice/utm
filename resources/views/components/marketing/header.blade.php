@@ -55,7 +55,7 @@
                     <div class="space-y-4">
                         <a class="block text-base leading-7 tracking-tight text-white" href="/#features">Features</a>
                         <a class="block text-base leading-7 tracking-tight text-white" href="/#pricing">Pricing</a>
-                        <a class="block text-base leading-7 tracking-tight text-white" href="/#reviews">Reviews</a>
+                        <!-- <a class="block text-base leading-7 tracking-tight text-white" href="/#reviews">Reviews</a> -->
                         <a class="block text-base leading-7 tracking-tight text-white" href="/#faqs">FAQs</a>
                     </div>
                     <div class="mt-8 flex flex-col gap-4">
