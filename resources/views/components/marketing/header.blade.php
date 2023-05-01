@@ -45,7 +45,7 @@
                     x-transition:leave="transition-opacity ease-linear duration-300" 
                     x-transition:leave-start="opacity-100" 
                     x-transition:leave-end="opacity-0" ></div>
-                <div x-show="burgerOpen" x-cloak="" class="absolute inset-x-0 top-0 z-0 origin-top rounded-b-2xl bg-gray-900 px-6 pb-6 pt-28 shadow-2xl shadow-gray-900/20" 
+                <div x-show="burgerOpen" x-cloak="" class="absolute inset-x-0 top-0 z-0 origin-top rounded-b-2xl bg-blue-600 px-6 pb-6 pt-28 shadow-2xl shadow-gray-900/20" 
                     x-transition:enter="transition ease-linear duration-300" 
                     x-transition:enter-start="opacity-0 -translate-y-10" 
                     x-transition:enter-end="opacity-100 translate-y-0" 
@@ -53,10 +53,10 @@
                     x-transition:leave-start="opacity-100 translate-y-0" 
                     x-transition:leave-end="opacity-0 -translate-y-10">
                     <div class="space-y-4">
-                        <a class="block text-base leading-7 tracking-tight text-white" href="/#features">Features</a>
-                        <a class="block text-base leading-7 tracking-tight text-white" href="/#pricing">Pricing</a>
-                        <!-- <a class="block text-base leading-7 tracking-tight text-white" href="/#reviews">Reviews</a> -->
-                        <a class="block text-base leading-7 tracking-tight text-white" href="/#faqs">FAQs</a>
+                        <a x-on:click="burgerOpen = false" class="block text-base leading-7 tracking-tight text-white" href="/#features">Features</a>
+                        <a x-on:click="burgerOpen = false" class="block text-base leading-7 tracking-tight text-white" href="/#pricing">Pricing</a>
+                        <!-- <a x-on:click="burgerOpen = false" class="block text-base leading-7 tracking-tight text-white" href="/#reviews">Reviews</a> -->
+                        <a x-on:click="burgerOpen = false" class="block text-base leading-7 tracking-tight text-white" href="/#faqs">FAQs</a>
                     </div>
                     <div class="mt-8 flex flex-col gap-4">
                         <a class="inline-flex justify-center rounded-lg border py-[calc(theme(spacing.2)-1px)] px-[calc(theme(spacing.3)-1px)] text-sm transition-colors bg-transparent border-white text-white hover:border-white" href="/login">Log in</a>

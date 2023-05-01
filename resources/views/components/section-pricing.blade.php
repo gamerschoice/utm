@@ -46,7 +46,7 @@
                     <div class="hidden lg:absolute lg:inset-x-px lg:bottom-0 lg:top-4 lg:block lg:rounded-t-2xl lg:bg-gray-100 lg:ring-1 lg:ring-blue-100/10" aria-hidden="true"></div>
     
                     @foreach($plans as $plan)
-                        <div x-data="{ price: { monthly: {{ $plan->price }}, annually: {{ $plan->price_annual }} } }"class="relative rounded-2xl @if($loop->first || $loop->last) ring-1 ring-white/10 lg:bg-transparent lg:pb-14 lg:ring-0 @else z-10 bg-white shadow-xl ring-1 ring-gray-900/10 @endif ">
+                        <div x-data="{ price: { monthly: {{ $plan->price }}, annually: {{ $plan->price_annual }} } }" class="relative bg-white rounded-2xl @if($loop->first || $loop->last) ring-1 ring-white/10 lg:bg-transparent lg:pb-14 lg:ring-0 @else z-10 bg-white shadow-xl ring-1 ring-gray-900/10 @endif ">
 
                             <div class="p-8 lg:pt-12 xl:p-10 xl:pt-14">
                                 <h3 class="text-sm font-semibold leading-6 text-blue-600">{{ $plan->name }}</h3>
