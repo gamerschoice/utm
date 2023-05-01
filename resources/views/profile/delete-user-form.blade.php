@@ -9,7 +9,7 @@
 
     <x-slot name="content">
         <div class="max-w-xl text-sm text-gray-600">
-            {{ __('If you wish to delete your account and remove all associated data, please get in touch with <a href="mailto:support@utmwise.com">support@utmwise.com</a>.') }}
+            <p>If you wish to delete your account and remove all associated data, please get in touch with <a href="mailto:support@utmwise.com">support@utmwise.com</a>.</p>
         </div>
 
         <!--div class="mt-5">
