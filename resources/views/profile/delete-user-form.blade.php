@@ -9,14 +9,14 @@
 
     <x-slot name="content">
         <div class="max-w-xl text-sm text-gray-600">
-            {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
+            {{ __('If you wish to delete your account and remove all associated data, please get in touch with <a href="mailto:support@utmwise.com">support@utmwise.com</a>.') }}
         </div>
 
-        <div class="mt-5">
+        <!--div class="mt-5">
             <x-button-danger wire:click="confirmUserDeletion" wire:loading.attr="disabled">
                 {{ __('Delete Account') }}
             </x-button-danger>
-        </div>
+        </div-->
 
         <!-- Delete User Confirmation Modal -->
         <x-dialog-modal wire:model="confirmingUserDeletion">
