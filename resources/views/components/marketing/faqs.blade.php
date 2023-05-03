@@ -10,12 +10,6 @@
             </dd>
         </div>
         <div class="pt-8 lg:grid lg:grid-cols-12 lg:gap-8">
-            <dt class="text-base font-semibold leading-7 text-gray-900 lg:col-span-5">Are there any free trial restrictions?</dt>
-            <dd class="mt-4 lg:col-span-7 lg:mt-0">
-                <p class="text-base leading-7 text-gray-600">During your trial you will be prevented from creating custom shortlink domains, and will be limited to creating 25 links.</p>
-            </dd>
-        </div>
-        <div class="pt-8 lg:grid lg:grid-cols-12 lg:gap-8">
             <dt class="text-base font-semibold leading-7 text-gray-900 lg:col-span-5">What happens when my free trial ends?</dt>
             <dd class="mt-4 lg:col-span-7 lg:mt-0">
                 <p class="text-base leading-7 text-gray-600">At the end of your free trial, your account will effectively be "paused" &ndash; preventing access to resources until you choose a paid plan. Additionally, any custom short domains you've set up will be unattached. You will need to re-add these once you've upgraded if your trial has elapsed.</p>
