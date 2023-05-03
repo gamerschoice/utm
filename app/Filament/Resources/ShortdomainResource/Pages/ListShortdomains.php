@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\ShortdomainResource\Pages;
+namespace App\Filament\Resources\ShortDomainResource\Pages;
 
-use App\Filament\Resources\ShortdomainResource;
+use App\Filament\Resources\ShortDomainResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
 
-class ListShortdomains extends ListRecords
+class ListShortDomains extends ListRecords
 {
-    protected static string $resource = ShortdomainResource::class;
+    protected static string $resource = ShortDomainResource::class;
 
     protected function getActions(): array
     {

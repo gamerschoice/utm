@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ShortdomainResource\Pages;
-use App\Filament\Resources\ShortdomainResource\RelationManagers;
-use App\Models\Shortdomain;
+use App\Filament\Resources\ShortDomainResource\Pages;
+use App\Filament\Resources\ShortDomainResource\RelationManagers;
+use App\Models\ShortDomain;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -13,9 +13,9 @@ use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class ShortdomainResource extends Resource
+class ShortDomainResource extends Resource
 {
-    protected static ?string $model = Shortdomain::class;
+    protected static ?string $model = ShortDomain::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
@@ -75,9 +75,9 @@ class ShortdomainResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListShortdomains::route('/'),
-            'create' => Pages\CreateShortdomain::route('/create'),
-            'edit' => Pages\EditShortdomain::route('/{record}/edit'),
+            'index' => Pages\ListShortDomains::route('/'),
+            'create' => Pages\CreateShortDomain::route('/create'),
+            'edit' => Pages\EditShortDomain::route('/{record}/edit'),
         ];
     }    
 }

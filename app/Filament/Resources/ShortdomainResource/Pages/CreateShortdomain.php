@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Filament\Resources\ShortdomainResource\Pages;
+namespace App\Filament\Resources\ShortDomainResource\Pages;
 
-use App\Filament\Resources\ShortdomainResource;
+use App\Filament\Resources\ShortDomainResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
-class CreateShortdomain extends CreateRecord
+class CreateShortDomain extends CreateRecord
 {
-    protected static string $resource = ShortdomainResource::class;
+    protected static string $resource = ShortDomainResource::class;
 }

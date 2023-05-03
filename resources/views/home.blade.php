@@ -26,7 +26,7 @@
     <meta property="og:title" content="Get UTM Wise and take control of your link tracking">
     <meta property="og:description" content="Say goodbye to spreadsheets! UTM Wise lets you manage your site's UTM tracking links like a pro.">
     <meta property="og:image" content="https://utmwise.com/img/meta/social.png">
-    <meta property="description" content="Say goodbye to spreadsheets! UTM Wise lets you manage your site's UTM tracking links like a pro.">
+    <meta name="description" content="Say goodbye to spreadsheets! Get UTM Wise and start managing your tracking links and link attribution effectively. Use branded short links to give reassurance to your users.">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ env('GA4_ID') }}"></script>
     <script>
