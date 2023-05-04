@@ -37,7 +37,7 @@ class EmailExpiringTrials implements ShouldQueue
             if($subscription->trial_ends_at->isTomorrow()) {
                 Mail::to($team->owner->email)->send(new TrialExpiring);
             }
-        })
+        });
 
 
     }
