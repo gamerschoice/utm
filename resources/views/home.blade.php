@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>UTM Wise | UTM link manager</title>
+    <title>UTM Wise | Effortless UTM Parameter Management for Enhanced Marketing Insights</title>
     <link rel="icon" href="{{ asset('favicon.jpg') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Fonts -->
